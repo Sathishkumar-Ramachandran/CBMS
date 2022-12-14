@@ -1,0 +1,50 @@
+.login {
+    text-align: center;
+    background-color:lightblue;
+    }
+    
+    .label{
+    display: block;
+    font-size: medium;
+    color: white;
+    padding: 5px;
+    }
+    
+    .input{
+    font-size: medium;
+    padding: 5px;
+    margin: 2px;
+    
+    }
+    .btn{
+    color: white;
+    background-color: blueviolet;
+    border-radius: 5px;
+    font-size: larger;
+    display: block;
+    padding: 5px;
+    margin: 10px auto;
+    }
+    
+    .messages{
+    display: flex;
+    justify-content: center;
+    }
+    
+    .error{
+    display: block;
+    background-color: ash;
+    color: white;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    }
+    
+    .success{
+    display: block;
+    background-color: lightblue;
+    color: black;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    }
