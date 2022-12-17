@@ -1,35 +1,45 @@
 import React, {useState} from "react";
 import {Router, Routes, Route} from "react-router-dom";
-import Dashboard from "./dashboard";
+import Dashboard from "../Pages/dashboard";
 
-const Login = () => {
+import "../styles/signup.css"
+
+const Signup = () => {
     
 
-        
+        // States for registration
         const [name, setName] = useState('');
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
         const [company, setCompany] = useState('');
         
-        
+        // States for checking the errors
         const [submitted, setSubmitted] = useState(false);
         const [error, setError] = useState(false);
         
-            
+        // Handling the name change
+        const handleName = (e) => {
+            setName(e.target.value);
+            setSubmitted(false);
+        };
         
+        // Handling the email change
         const handleEmail = (e) => {
             setEmail(e.target.value);
             setSubmitted(false);
         };
         
-        
+        // Handling the password change
         const handlePassword = (e) => {
             setPassword(e.target.value);
             setSubmitted(false);
         };
+        const handleCompany = (e) => {
+            setName(e.target.value);
+            setSubmitted(false);
+        };
         
-        
-        
+        // Handling the form submission
         const handleSubmit = (e) => {
             e.preventDefault();
             if (name === '' || email === '' || password === '') {
@@ -48,8 +58,7 @@ const Login = () => {
                 style={{
                 display: submitted ? '' : 'none',
                 }}>
-                console.log(`User {name} Authenticated Successfully`)
-
+                <h1>User {name} successfully registered!!</h1>
 
             </div>
             );
@@ -72,7 +81,7 @@ const Login = () => {
 
         <div className="form">
             <div>
-            <h1>Login</h1>
+            <h1>Sign Up</h1>
             </div>
  
       
@@ -82,7 +91,11 @@ const Login = () => {
         </div>
  
         <form>
-                
+            {/* Labels and inputs for form data */}
+            <label className="label">Username</label>
+            <input onChange={handleName} className="input"
+            value={name} type="text" required />
+    
             <label className="label">Email</label>
             <input onChange={handleEmail} className="input"
             value={email} type="email" required />
@@ -91,7 +104,9 @@ const Login = () => {
             <input onChange={handlePassword} className="input"
             value={password} type="password" required />
 
-            
+            <label className="label">Company Name</label>
+            <input onChange={handleCompany} className="input"
+            value={company} type="text" required />
     
             <button onClick={handleSubmit} className="btn" type="submit">
             Submit
@@ -102,4 +117,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Signup;
