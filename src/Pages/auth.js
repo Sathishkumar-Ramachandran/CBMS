@@ -10,8 +10,6 @@ const Auth = () => {
         
         <div className="row">
             <Login className="column" />
-            
-        
         
         </div>
     )
