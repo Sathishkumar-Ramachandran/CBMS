@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Router, Routes, Route} from "react-router-dom";
-import Dashboard from "../Pages/dashboard";
+import Dashboard from "./dashboard";
 
 import "../styles/signup.css"
 

@@ -44,8 +44,12 @@
     }
     
     .messages{
+    padding-top: 2%;
     display: flex;
     justify-content: center;
+    color: #2e7d32;
+    border-radius: 20px;
+    
     }
     
     .error{

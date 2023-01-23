@@ -38,6 +38,7 @@ const Login = () => {
             setError(true);
             } else {
             setSubmitted(true);
+
             setError(false);
             }
         };
@@ -80,8 +81,7 @@ const Login = () => {
  
       
         <div className="messages">
-            {errorMessage()}
-            {successMessage()}
+           
         </div>
  
         <form className="form-input">
