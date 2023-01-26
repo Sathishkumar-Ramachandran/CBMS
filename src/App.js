@@ -1,16 +1,27 @@
 import React from "react";
-import Auth from "./Pages/auth";
+import Login from "./Components/login";
+import Signup from "./Components/signup";
+import Dashboard from "./Pages/dashboard";
 
-
+import "../src/styles/app.css";
 
 
 
 function App() {
+
+  
+
   return (
-    <div className="login">
-      <Auth />
-      
+    <>
+    <div className="row">
+      <div className="column">
+      <div className="card">  <Login /> </div>
+      </div>
+      <div className="column">
+      <div className="card">  <Signup /> </div>
+      </div>
     </div>
+    </>
   );
 }
 

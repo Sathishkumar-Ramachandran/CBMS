@@ -1,48 +1,56 @@
-.login {
-    background: #fbfbfb;
-    border-radius: 8px;
-    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-    height: 410px;
-    margin: 6rem auto 8.1rem auto;
-    width: 329px;
-    }
-    
-    .label{
-    padding: 12px 44px;
+.signuplabel{
+    padding-top: 20px;
+    outline: none;
     font-family: "Raleway", sans-serif;
+    border: none;
+
     }
     
-    .input{
-    font-size: medium;
-    padding: 5px;
-    margin: 2px;
+    .signupinput{
+    padding-top: 15px;
+    background: #fbfbfb;
+    border: none;
+    outline: none;
+    
     
     }
-    .btn{
+    .signupbtn{
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0px 1px 8px #24c64f;
+    cursor: pointer;
     color: white;
-    background-color: blueviolet;
-    border-radius: 5px;
-    font-size: larger;
-    display: block;
-    padding: 5px;
-    margin: 10px auto;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 32.3px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 0px;
+    transition: 0.25s;
+    width: 100px;
+    }
+    .signupbtn:hover{
+        box-shadow: 0px 1px 18px #24c64f;
     }
     
-    .messages{
+    .signupmessages{
+    padding-top: 2%;
     display: flex;
     justify-content: center;
+    color: #2e7d32;
+    border-radius: 20px;
+    
     }
     
-    .error{
-    display: block;
-    background-color: ash;
-    color: white;
+    .signuperror{
+    display: inline-flex;
+    color: lightslategray;
     width: fit-content;
-    height: 50px;
+    height: 5px;
     padding: 5px;
     }
     
-    .success{
+    .signupsuccess{
     display: block;
     background-color: lightblue;
     color: black;
@@ -50,8 +58,49 @@
     height: 50px;
     padding: 5px;
     }
+    .signupunderline-title{
+        background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+        height: 2px;
+        margin: -1.1rem auto 0 auto;
+        width: 89px;
+        
+    }
 
-body{
+/*body{
     background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b)
     
+}*/
+
+.signuptitle{
+    font-family: "Raleway Thin", sans-serif;
+    letter-spacing: 3px;
+    padding-bottom: 0px;
+    padding-top: 10px;
+    text-align: center;
 }
+
+.signupform-input{
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 44px;
+    
+}
+
+.signuptext-line{
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    height: 1px;
+    width: 100%;   
+}
+
+.signupforgot-pass{
+    color: #2dbd6e;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 3px;
+    text-align: right;
+}
+

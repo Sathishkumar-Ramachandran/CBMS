@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import {Router, Routes, Route} from "react-router-dom";
-import Dashboard from "../Pages/dashboard";
+import {Router, Routes, Route, Link} from "react-router-dom";
+import Dashboard from "../Pages/dashboard.js";
 
 import '../styles/login.css'
+
 
 const Login = () => {
     
@@ -16,8 +17,8 @@ const Login = () => {
         
         const [submitted, setSubmitted] = useState(false);
         const [error, setError] = useState(false);
-        
-            
+        const [visible, setVisible] = useState(true);
+
         
         const handleEmail = (e) => {
             setEmail(e.target.value);
@@ -73,6 +74,8 @@ const Login = () => {
 
     return(
 
+
+
         <div className="form">
             <div>
             <h1 className="title">LOGIN</h1>
@@ -102,7 +105,12 @@ const Login = () => {
             Submit
             </button>
 
-            <a href="#" className="signup">Don't have account yet?</a>
+            
+
+            <a href="/signup"  className="signup">
+            
+                Don't have account yet?
+            </a>
 
         </form>
         </div>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Router, Routes, Route} from "react-router-dom";
-import Dashboard from "./dashboard";
+import Dashboard from "../Pages/dashboard.js";
 
 import "../styles/signup.css"
 
@@ -54,7 +54,7 @@ const Signup = () => {
         const successMessage = () => {
             return (
             <div
-                className="success"
+                className="signupsuccess"
                 style={{
                 display: submitted ? '' : 'none',
                 }}>
@@ -68,7 +68,7 @@ const Signup = () => {
         const errorMessage = () => {
             return (
             <div
-                className="error"
+                className="signuperror"
                 style={{
                 display: error ? '' : 'none',
                 }}>
@@ -79,36 +79,41 @@ const Signup = () => {
 
     return(
 
-        <div className="form">
+        <div className="signupform">
             <div>
-            <h1>Sign Up</h1>
+            <h1 className="signuptitle">SIGNUP</h1>
+            <div className="underline-title"></div>
             </div>
  
       
-        <div className="messages">
+        <div className="signupmessages">
             {errorMessage()}
             {successMessage()}
         </div>
  
-        <form>
+        <form className="signupform-input">
             {/* Labels and inputs for form data */}
-            <label className="label">Username</label>
-            <input onChange={handleName} className="input"
+            <label className="signuplabel">Username</label>
+            <input onChange={handleName} className="signupinput"
             value={name} type="text" required />
+            <div className="signuptext-line"></div>
     
-            <label className="label">Email</label>
-            <input onChange={handleEmail} className="input"
+            <label className="signuplabel">Email</label>
+            <input onChange={handleEmail} className="signupinput"
             value={email} type="email" required />
+            <div className="signuptext-line"></div>
     
-            <label className="label">Password</label>
-            <input onChange={handlePassword} className="input"
+            <label className="signuplabel">Password</label>
+            <input onChange={handlePassword} className="signupinput"
             value={password} type="password" required />
+            <div className="signuptext-line"></div>
 
-            <label className="label">Company Name</label>
-            <input onChange={handleCompany} className="input"
+            <label className="signuplabel">Company</label>
+            <input onChange={handleCompany} className="signupinput"
             value={company} type="text" required />
+            <div className="signuptext-line"></div>
     
-            <button onClick={handleSubmit} className="btn" type="submit">
+            <button onClick={handleSubmit} className="signupbtn" type="submit">
             Submit
             </button>
         </form>
