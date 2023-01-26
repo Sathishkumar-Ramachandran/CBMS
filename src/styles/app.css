@@ -9,7 +9,7 @@
     cursor: pointer;
     color: #24c64f;
     font-family: "Raleway SemiBold", sans-serif;
-    height: 25%;
+    height: 100%;
     position: left;
   }
   .input{
@@ -23,6 +23,7 @@
   .column {
     float: left;
     width: 50%;
+    height: 100;
 
     padding: 25px 25px 25px 25px;
   }
@@ -47,6 +48,7 @@
     background: #fbfbfb;
     border: none;
     outline: none;  
+    height: 100%;
   }
   
   
