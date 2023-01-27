@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {BrowserRouter as Router, Routes, Route, Link, Navigate} from "react-router-dom";
-import Dashboard from "../Pages/dashboard.js";
+import {BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
+
 
 import '../styles/login.css'
 
@@ -8,7 +8,7 @@ import '../styles/login.css'
 const Login = () => {
     
 
-        
+        const navigate = useNavigate();
         
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
@@ -34,14 +34,18 @@ const Login = () => {
         
         
         const handleSubmit = (e) => {
-            e.preventDefault();
+           
+            
             if (email === '' || password === '') {
             setError(true);
+            console.log('Email & Password cannot be empty');
+            
             } else {
             setSubmitted(true);
-
+                navigate('/', {replace: true});
             setError(false);
-            }
+            
+            } 
         };
         
         // Showing success message
@@ -52,11 +56,7 @@ const Login = () => {
                 style={{
                 display: submitted ? '' : 'none',
                 }}>
-                <Router>
-                    <Routes>
-                        <Navigate to ='./pages/dashboard' />
-                    </Routes>
-                </Router>
+                
                 console.log(`User {email} Authenticated Successfully`)
 
 

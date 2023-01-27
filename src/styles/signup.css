@@ -104,3 +104,13 @@
     text-align: right;
 }
 
+body {
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border-radius: 10px;
+    box-shadow: 0px 1px 8px #24c64f;
+    cursor: pointer;
+    color: #24c64f no-repeat;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 100%;
+    position: left;
+  } 

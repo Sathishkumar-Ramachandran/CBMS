@@ -1,6 +1,7 @@
 import React from "react";
-import Login from "./Components/login";
-import Signup from "./Components/signup";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Auth from "./Pages/auth.js";
 import Dashboard from "./Pages/dashboard";
 
 import "../src/styles/app.css";
@@ -13,14 +14,12 @@ function App() {
 
   return (
     <>
-      <div className="row">
-      <div className="column">
-      <div className="card">  <Login /> </div>
-      </div>
-      <div className="column">
-      <div className="card">  <Signup /> </div>
-      </div>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<Dashboard />} />
+          <Route exact path='/login' element={<Auth />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

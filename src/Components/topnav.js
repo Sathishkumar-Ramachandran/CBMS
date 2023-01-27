@@ -9,11 +9,15 @@ const Topnav = () => {
     const [state, setState] = useState(''); 
     const [isOpen, setOpen] = useState(false);
 
+    const handleToggle = () => {
+        
+    }
+    
     return(
         <>
         <p>Sample</p>
-        <nav>
-            <Hamburger toggled={isOpen} toggle={setOpen} className='Hamburger' />
+        <nav className="Navbar">
+            <Hamburger toggled={isOpen} toggle={setOpen} onClick={handleToggle} className='Hamburger' />
         <ul>
             
             <li>
