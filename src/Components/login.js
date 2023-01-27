@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, Navigate} from "react-router-dom";
 import Dashboard from "../Pages/dashboard.js";
 
 import '../styles/login.css'
@@ -9,10 +9,10 @@ const Login = () => {
     
 
         
-        const [name, setName] = useState('');
+        
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
-        const [company, setCompany] = useState('');
+        
         
         
         const [submitted, setSubmitted] = useState(false);
@@ -35,7 +35,7 @@ const Login = () => {
         
         const handleSubmit = (e) => {
             e.preventDefault();
-            if (name === '' || email === '' || password === '') {
+            if (email === '' || password === '') {
             setError(true);
             } else {
             setSubmitted(true);
@@ -52,7 +52,12 @@ const Login = () => {
                 style={{
                 display: submitted ? '' : 'none',
                 }}>
-                console.log(`User {name} Authenticated Successfully`)
+                <Router>
+                    <Routes>
+                        <Navigate to ='./pages/dashboard' />
+                    </Routes>
+                </Router>
+                console.log(`User {email} Authenticated Successfully`)
 
 
             </div>

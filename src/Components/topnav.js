@@ -10,12 +10,14 @@ const Topnav = () => {
     const [isOpen, setOpen] = useState(false);
 
     return(
+        <>
+        <p>Sample</p>
         <nav>
             <Hamburger toggled={isOpen} toggle={setOpen} className='Hamburger' />
         <ul>
-            S
+            
             <li>
-                <Link to='' className="" />
+                <Link to='' className="" >Sample</Link>
             </li>
             <li>
                 <Link to='' className="" />
@@ -29,5 +31,8 @@ const Topnav = () => {
         </ul>
 
         </nav>
+        </>
     )
 }
+
+export default Topnav;
