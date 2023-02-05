@@ -40,9 +40,8 @@
   
   /* Style the counter cards */
  .card {
-    box-shadow: 0 4px 8px 0 #a6f77b;
+   
     padding: 0px  ;
-    background-color: #a6f77b;
     padding-top: 5px;
     padding-bottom: 10px;
     background: #fbfbfb;

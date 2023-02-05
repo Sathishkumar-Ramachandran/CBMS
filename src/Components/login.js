@@ -95,12 +95,12 @@ const Login = () => {
         <form className="form-input">
                 
             <label className="label">Email</label>
-            <input onChange={handleEmail} className="input"
+            <input onChange={handleEmail} className="input-login"
             value={email} type="email" required />
             <div className="text-line"></div>
     
             <label className="label">Password</label>
-            <input onChange={handlePassword} className="input"
+            <input onChange={handlePassword} className="input-login"
             value={password} type="password" required />
             <div className="text-line"></div>
 

@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    background: white;
+}
+@media (min-width: 300px) and (max-width: 600px){
+    body{
+      background-color: white;
+      width: 100%;
+    }
+   .searchBar {
+        display: flex;
+        width: 50%;
+        margin-left: 8%;
+    } 
+    .header{
+        width: 94%;
+        flex-wrap: wrap;
+        display: flex;
+    }
+    .Sidebar{
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        inset: 0 95% 0 0;
+        width: 11.6rem;
+        background-color: white;
+    }
+    nav .ul-item li .icon{
+        color: black;
+        margin-inline:.5rem ;
+        font-size: 25px;
+    }
+    .Sidebar-mobile{
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        inset: 0 75% 0 0;
+        width: 3.6rem;
+        background-color:white;
+    }
+    .notifi-icon  .todo .profile{
+        position: absolute;
+        display: none;
+        display: block;
+    }
+    .notifi-icon {
+        color: black;
+        margin: 4% 20%;
+        position: absolute;
+        font-size: 15px;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        padding-block: .1rem;
+        margin-block: 1rem;
+        flex-wrap: wrap;
+   }
+   .todo{
+    color: black;
+    margin: 4% 32%;
+    position: absolute;
+    font-size: 15px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    
+ } 
+ .avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 30%;
+  }
+ 
+  .profile{
+    margin: 1% 10%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding-block: .1rem;
+    margin-block: 1rem; 
+  }
+
+  nav .ul-itemes{
+    display: flex;
+     flex-direction: row;
+     list-style: none;
+     flex-wrap: wrap;
+
+     gap: 1rem;
+     border:1px solid #d6d6d6;
+     height: 47px;
+ }
+ 
+ nav .ul-itemes .item{
+     width: 28%;
+     height: 5px;
+     border-radius: 80px;
+     border: 2px solid black;  
+    
+ }
+ 
+ nav .ul-itemes .item:hover{
+ background-color: #d6d6d6;
+ }
+ nav .ul-itemes .item1{
+     width: 28%;
+     height: 5px;
+     border-radius: 80px;
+     border: 2px solid black;
+     
+ }
+ nav .ul-itemes .item1:hover{
+     background-color: #d6d6d6;
+     }
+ nav .ul-itemes .item2{
+     width: 28%;
+     height: 5px;
+     border-radius: 80px;
+     border: 2px solid black;
+ }
+ nav .ul-itemes .item2:hover{
+     background-color: #d6d6d6;
+     }
+ nav .ul-itemes .item3{
+     width: 13%;
+      height: 5px;
+     border-radius: 80px;
+     border: 2px solid black;
+   
+ }
+ nav .ul-itemes .item3:hover{
+     background-color: #d6d6d6;
+     }
+ nav .ul-itemes.oicon a{
+     display: none;
+ }
+ nav .ul-itemes.oicon li::after{
+     content:'';
+     position: absolute;
+     width: 2%;
+     height: 4%;
+     background-color: var( --color-success);
+     right: 0;
+ }
+ nav .ul-itemes li a{
+   
+  
+     cursor: pointer;
+    text-align: left; 
+     
+ }
+ 
+ /* nav .ul-itemes li:hover{
+     border-radius: 26px;
+    
+ } */
+ nav .ul-itemes li .icon1{
+     color: red;
+     margin-inline:1rem ;
+     font-size: 90%;
+ }
+ 
+ 
+ 
+ nav .ul-itemes li .icon2{
+     color: blue;
+     margin-inline:1rem ;
+     font-size: 25px;
+ }
+ nav .ul-itemes li .icon3{
+     color: rgb(212, 79, 102);
+     margin-inline:1rem ;
+     font-size: 25px;
+ }
+ nav .ul-itemes li .icon4{
+     color: rgb(37, 142, 184);
+     margin-inline:1rem ;
+     font-size: 25px;
+ }
+ nav .ul-itemes li .icon5{
+     color: brown;
+     margin-inline:1rem ;
+     font-size: 25px;
+ }
+ nav .ul-itemes li .icon6{
+     color: blue;
+     margin-inline:1rem ;
+     font-size: 25px;
+ }
+ nav .ul-itemes li a{
+     text-decoration: none;
+     color: blue;
+     border-left: 1px solid black;
+     padding-left: .6rem;
+    
+ }
+ 
+ .left{
+    font-size: 30px;
+     margin-top: 1.5%;
+     cursor: pointer;
+ }
+ 
+ .right{
+     font-size: 30px;
+      margin-top: 1.5%;
+      cursor: pointer;
+  }
+ 
+  }

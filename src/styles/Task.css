@@ -1,0 +1,23 @@
+/* *{
+    margin: 0;
+    padding: 0;
+}
+
+.todo{
+   color: black;
+   margin: 1% 15%;
+   position: absolute;
+   font-size: 25px;
+   top: 0;
+   right: 0;
+   cursor: pointer;
+   margin-left: 10px;
+   border-radius: 50%;
+   vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   padding-block: .1rem;
+   margin-block: 1rem;
+   
+}  */

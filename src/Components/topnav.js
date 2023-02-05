@@ -1,42 +1,26 @@
-import React, {useState} from "react";
-import { Spin as Hamburger } from 'hamburger-react';
-import { Link } from "react-router-dom";
+import React from 'react'
+import '../styles/topnav.css'
+import { ImSearch } from "react-icons/im";
+import { BsListCheck } from "react-icons/bs";
+import { IoIosNotificationsOutline } from "react-icons/io";
+const topnav = () =>{
 
-import Leftnav from "./leftnav";
-import "../styles/dashboard.css";
+     
 
-const Topnav = () => {
-    const [state, setState] = useState(''); 
-    const [isOpen, setOpen] = useState(false);
-
-    const handleToggle = () => {
-        
-    }
-    
     return(
-        <>
-        <p>Sample</p>
-        <nav className="Navbar">
-            <Hamburger toggled={isOpen} toggle={setOpen} onClick={handleToggle} className='Hamburger' />
-        <ul>
-            
-            <li>
-                <Link to='' className="" >Sample</Link>
-            </li>
-            <li>
-                <Link to='' className="" />
-            </li>
-            <li>
-                <Link to='' className="" />
-            </li>
-            <li>
-                <Link to='' className="" />
-            </li>
-        </ul>
-
-        </nav>
-        </>
+    <>
+   <div className='header'>
+    <div className="wrapper">
+    <div className="searchBar">
+    <input className="searchQueryInput" name="searchQueryInput" placeholder="Search...."  />
+    <button className="searchQuerySubmit" type="submit" name="searchQuerySubmit"><ImSearch/></button>
+    <button className='todo'><BsListCheck/></button>
+    <button className='notifi-icon'><IoIosNotificationsOutline/></button>
+    </div>
+    </div>
+    </div>
+    </>
     )
-}
-
-export default Topnav;
+    
+    }
+export default topnav;

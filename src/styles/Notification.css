@@ -1,0 +1,103 @@
+ *{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* .notifi-icon{
+    color: black;
+   margin: 1% 10%;
+   position: absolute;
+   font-size: 25px;
+   top: 0;
+   right: 0;
+   cursor: pointer;
+   vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   padding-block: .1rem;
+   margin-block: 1rem;
+   flex-wrap: wrap;
+ 
+} 
+
+.badge{
+    color: red;
+   margin: 1% 10%;
+   position: absolute;
+   font-size: 20px;
+   top: 0;
+   right: 0;
+   vertical-align: middle;
+   width: 15px;
+   height: 15px;
+   border-radius: 50%;
+   border: 1px solid black;
+ 
+}
+
+.notify{
+     display: flex;
+    position: fixed;
+    flex-direction: column;
+    inset: 0 70% 0 0;
+    width: 16%;
+    background-color: white;
+    float: right;
+}
+
+.notify-mobile{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    inset: 0 96% 0 0;
+    background-color:white;
+    float: right;
+}
+
+.notify-menu {
+    color: black;
+    margin-block: 1rem;
+    cursor: pointer;
+    font-size: 20px;
+
+   
+}
+
+.notify-Close-icon{
+    color: black;
+    margin-block: 1rem;
+    cursor: pointer;
+    font-size: 30px;
+} 
+
+
+
+nav .notify-ul-item{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+nav .notify-ul-item.oicon a{
+    display: none;
+}
+
+nav .notify-ul-item.oicon li::after{
+    content:'';
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    background-color: black;
+    right: 0;
+}
+nav .notify-ul-item li{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    padding-block: .5rem;
+   margin-block: 1rem;
+} */

@@ -1,0 +1,244 @@
+/* .search{
+    align-items: center;
+     display: flex;
+     height: 60px;
+     padding: 10px;
+ }
+ 
+ .search input{
+    width: 250px;
+    height: 32px;
+  margin-left: 40%;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    position: relative;
+    color: #aaa;
+    font-size: 16px;
+ } */
+
+ /* .topnav{
+    background-color: white;
+    height: 50px;
+    
+ }
+
+ .search {
+     
+    margin-left: 20%;
+    flex-direction: row;
+    align-items: center;
+  }
+input .searchQueryInput {
+    width: 100%;
+    height: 2.8rem;
+    background: #f5f5f5;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .searchQuerySubmit {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  .searchQuerySubmit:hover {
+    cursor: pointer;
+  }
+ */
+ .wrapper {
+    width: 100%;
+    max-width: 31.25rem;
+    margin: 1rem auto;
+  }
+
+  .searchBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+  }
+
+  .searchQueryInput {
+    width: 100%;
+    height: 2.8rem;
+    background: #f5f5f5;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.699);
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+  }
+  
+ .searchQuerySubmit {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  .searchQuerySubmit:hover {
+    cursor: pointer;
+  }
+  
+  /* .label {
+    font-size: .625rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: +1.3px;
+    margin-bottom: 1rem;
+    margin-left: 31.5%;
+  } */
+
+  /*********************TODO***********************/
+
+  .todo{
+    color: black;
+    margin: 1% 15%;
+    position: absolute;
+    font-size: 25px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.699);
+    
+ } 
+
+ /******************NOTIFICATION**************/
+
+ .notifi-icon{
+    color: black;
+   margin: 1% 10%;
+   position: absolute;
+   font-size: 25px;
+   top: 0;
+   right: 0;
+   cursor: pointer;
+   vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   padding-block: .1rem;
+   margin-block: 1rem;
+   flex-wrap: wrap;
+   border: 1px solid rgba(0, 0, 0, 0.699);
+} 
+
+.badge{
+    color: red;
+   margin: 1% 10%;
+   position: absolute;
+   font-size: 20px;
+   top: 0;
+   right: 0;
+   vertical-align: middle;
+   width: 15px;
+   height: 15px;
+   border-radius: 50%;
+   border: 1px solid black;
+ 
+}
+
+.notify{
+     display: flex;
+    position: fixed;
+    flex-direction: column;
+    inset: 0 70% 0 0;
+    width: 16%;
+    background-color: white;
+    float: right;
+}
+
+.notify-mobile{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    inset: 0 96% 0 0;
+    background-color:white;
+    float: right;
+}
+
+.notify-menu {
+    color: black;
+    margin-block: 1rem;
+    cursor: pointer;
+    font-size: 20px;
+
+   
+}
+
+.notify-Close-icon{
+    color: black;
+    margin-block: 1rem;
+    cursor: pointer;
+    font-size: 30px;
+} 
+
+
+
+nav .notify-ul-item{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+nav .notify-ul-item.oicon a{
+    display: none;
+}
+
+nav .notify-ul-item.oicon li::after{
+    content:'';
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    background-color: black;
+    right: 0;
+}
+nav .notify-ul-item li{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    padding-block: .5rem;
+   margin-block: 1rem;
+}
+
+/**************PROFILE*********************/
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 30%;
+  }
+ 
+  .profile{
+    margin: 1% 5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding-block: .1rem;
+    margin-block: 1rem; 
+  }
