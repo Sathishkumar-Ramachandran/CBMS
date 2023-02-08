@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "../Components/Header";
 import Leftnav from "../Components/leftnav";
+import Main from "../Components/Main";
  import Notification from "../Components/Notification";
 import Profile from "../Components/Profile";
 import Project from "../Components/Project";
@@ -18,6 +19,7 @@ const Dashboard = () => {
              <Task/>
              <Profile/> 
              <Project/>    
+             <Main/>
         </>
     )
 }

@@ -48,7 +48,7 @@ nav .ul-itemes .item{
     width: 13%;
     height: 5px;
     border-radius: 80px;
-    border: 2px solid rgba(0, 0, 0, 0.699);  
+    border: 1px solid rgba(0, 0, 0, 0.699);  
 }
 
 nav .ul-itemes .item:hover{
@@ -58,7 +58,7 @@ nav .ul-itemes .item1{
     width: 13%;
     height: 5px;
     border-radius: 80px;
-    border: 2px solid rgba(0, 0, 0, 0.699);
+    border: 1px solid rgba(0, 0, 0, 0.699);
 }
 nav .ul-itemes .item1:hover{
     background-color: #d6d6d6;
@@ -67,7 +67,7 @@ nav .ul-itemes .item2{
     width: 13%;
     height: 5px;
     border-radius: 80px;
-    border: 2px solid rgba(0, 0, 0, 0.699);
+    border: 1px solid rgba(0, 0, 0, 0.699);
 }
 nav .ul-itemes .item2:hover{
     background-color: #d6d6d6;
@@ -76,7 +76,7 @@ nav .ul-itemes .item3{
     width: 13%;
      height: 5px;
     border-radius: 80px;
-    border: 2px solid rgba(0, 0, 0, 0.699);
+    border: 1px solid rgba(0, 0, 0, 0.699);
   
 }
 nav .ul-itemes .item3:hover{
@@ -151,7 +151,7 @@ nav .ul-itemes li a{
 
 .left{
    font-size: 30px;
-
+  
     cursor: pointer;
 }
 

@@ -107,19 +107,19 @@ input .searchQueryInput {
     color: black;
     margin: 1% 15%;
     position: absolute;
-    font-size: 25px;
+    font-size: 23px;
     top: 0;
     right: 0;
     cursor: pointer;
     margin-left: 10px;
     border-radius: 50%;
     vertical-align: middle;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     padding-block: .1rem;
     margin-block: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.699);
+    border: 1px solid rgba(0, 0, 0, 0.068);
     
  } 
 
@@ -129,18 +129,18 @@ input .searchQueryInput {
     color: black;
    margin: 1% 10%;
    position: absolute;
-   font-size: 25px;
+   font-size: 23px;
    top: 0;
    right: 0;
    cursor: pointer;
    vertical-align: middle;
-   width: 50px;
-   height: 50px;
+   width: 35px;
+   height: 35px;
    border-radius: 50%;
    padding-block: .1rem;
    margin-block: 1rem;
    flex-wrap: wrap;
-   border: 1px solid rgba(0, 0, 0, 0.699);
+   border: 1px solid rgba(0, 0, 0, 0.068);
 } 
 
 .badge{
@@ -227,8 +227,8 @@ nav .notify-ul-item li{
 
 .avatar {
     vertical-align: middle;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     margin-left: 30%;
   }
