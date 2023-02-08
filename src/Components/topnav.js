@@ -3,7 +3,7 @@ import '../styles/topnav.css'
 import { ImSearch } from "react-icons/im";
 import { BsListCheck } from "react-icons/bs";
 import { IoIosNotificationsOutline } from "react-icons/io";
-const topnav = () =>{
+const Topnav = () =>{
 
      
 
@@ -23,4 +23,4 @@ const topnav = () =>{
     )
     
     }
-export default topnav;
+export default Topnav;
