@@ -25,8 +25,8 @@ function App() {
       <BrowserRouter >
       <Topnav />
       <Leftnav />
-      <Profile />
-      <Header />
+      
+      
       
        
       
