@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Project = () => {
+const Analytics = () => {
   return (
     <div>
-      
+      hi
     </div>
   )
 }
 
-export default Project
+export default Analytics

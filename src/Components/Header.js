@@ -1,9 +1,10 @@
 import React  from 'react';
 import '../styles/Header.css'
-import { FaGoogle,FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
+import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { IoIosArrowDropleft ,IoIosArrowDropright} from "react-icons/io";
+import { FcGoogle} from "react-icons/fc";
 const Header = () => {
 
   return (
@@ -25,7 +26,7 @@ const Header = () => {
 <ul className='ul-itemes'>
 <IoIosArrowDropleft  className='left'/>
  <li className='item'>
-    <FaGoogle className='icon1'/>
+    <FcGoogle className='icon1'/>
     <Link to='/'>Google</Link>
     </li>
     <li className='item1'>

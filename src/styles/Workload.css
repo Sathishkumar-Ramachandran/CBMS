@@ -1,0 +1,47 @@
+
+.admin-model{
+    display: inline-block;
+    color: black;
+    padding: 5px ;
+    transition: all 0.5s;
+    margin-left: 5%;
+}
+
+.admin-model:hover{
+    background: rgba(0, 128, 0, 0.432);
+    color: white;
+    transition: all 0.5s;
+    border-radius: 20px;
+}
+.active{
+    background: rgba(0, 128, 0, 0.432);
+    color:white;
+    border-radius: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.admin-model:hover{
+    background: rgba(128, 128, 128, 0.377);
+    color: white;
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+.heading{
+    margin-left: 7%;
+}
+.heading1{
+    margin-left: 7%;
+    margin-top: 2%;
+}
+.admin-icon{
+    color: black;
+    font-size: 25px;
+}
+.admin-icon:hover{
+
+    color: white;
+    transition: all 0.5s;
+    border-radius: 20px;
+}

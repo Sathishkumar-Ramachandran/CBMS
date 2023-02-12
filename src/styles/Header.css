@@ -41,7 +41,8 @@ nav .ul-itemes{
     padding-left: 5%;
     gap: 1rem;
     border:1px solid #d6d6d6;
-    height: 5%;
+    height: 1%;
+    background-color: rgba(0, 128, 0, 0.432);
 }
 
 nav .ul-itemes .item{
