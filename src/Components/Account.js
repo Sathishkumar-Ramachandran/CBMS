@@ -69,8 +69,8 @@ const Admin = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>Account Settings</h1>
-      <p>Mange account configurations and customizations for your service desk</p>
+      <h1 className='account-gap'>Account Settings</h1>
+      <p className='paragraph'>Mange account configurations and customizations for your service desk</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -81,10 +81,12 @@ const Admin = ({Children}) => {
               <div>{item.para}</div>
             </Link>
             </div>
+               
           
           ))
         } 
     </div>
+    <div className='line'></div>
     <main>{Children}</main> 
 
     </>

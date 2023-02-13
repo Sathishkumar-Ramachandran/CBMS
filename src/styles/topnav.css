@@ -57,19 +57,23 @@ input .searchQueryInput {
  .wrapper {
     width: 100%;
     max-width: 31.25rem;
-    margin: 1rem ;
     margin-left: 50%;
-    top: 0;
-    bottom: 0;
-   
-  }
 
+  }
+.header{
+  height: 40px;
+  margin-bottom: 2px;
+  background: white;
+  width: 100%;
+  position: fixed;
+}
   .searchBar {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    top: 0;
+   
   }
 
   .searchQueryInput {
@@ -82,7 +86,8 @@ input .searchQueryInput {
     padding: 0 3.5rem 0 1.5rem;
     font-size: 1rem;
     margin-left: 10%;
-    
+    top: 0;
+    bottom: 0;
   }
   
  .searchQuerySubmit {
@@ -111,10 +116,9 @@ input .searchQueryInput {
 
   .todo{
     color: black;
-    margin: 1% 15%;
+    margin: 0 15% ;
     position: absolute;
     font-size: 23px;
-    top: 0;
     right: 0;
     cursor: pointer;
     margin-left: 10px;
@@ -136,7 +140,7 @@ input .searchQueryInput {
    margin: 1% 10%;
    position: absolute;
    font-size: 23px;
-   top: 0;
+  
    right: 0;
    cursor: pointer;
    vertical-align: middle;
@@ -242,9 +246,15 @@ nav .notify-ul-item li{
   .profile{
     margin: 1% 5%;
     position: absolute;
-    top: 0;
+  
     right: 0;
     cursor: pointer;
     padding-block: .1rem;
     margin-block: 1rem; 
+  }
+  .top{
+    border-bottom: 1px solid black;
+    width: 96%;
+    margin-left: 4%;
+  
   }

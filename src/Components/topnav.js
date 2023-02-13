@@ -15,13 +15,15 @@ const Topnav = () =>{
     <div className="searchBar">
     <input className="searchQueryInput" name="searchQueryInput" placeholder="Search...."  />
     <button className="searchQuerySubmit" type="submit" name="searchQuerySubmit"><ImSearch/></button>
+   
+       
     <button className='todo'><BsListCheck/></button>
     <button className='notifi-icon'><IoIosNotificationsOutline/></button>
     <Profile />
     </div>
     </div>
     </div>
-    
+    <div className='top'></div>
     </>
     )
     

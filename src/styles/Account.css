@@ -5,6 +5,7 @@
     padding: 5px ;
     transition: all 0.5s;
     margin-left: 5%;
+    margin-top: 10%;
 }
 
 .admin-model:hover{
@@ -29,11 +30,25 @@ a{
     border-radius: 10px;
 }
 .heading{
-    margin-left: 7%;
+    margin-left: 10%;
+    margin-top: 2rem;
+}
+.account-gap{
+    margin-left: 5%;
+}
+.paragraph{
+    margin-left: 5%;
+    margin-top: 2px;
 }
 .heading1{
     margin-left: 7%;
     margin-top: 2%;
+}
+.line{
+    border-bottom: 1px solid black;
+    margin-top: 2%;
+    width: 70%;
+    margin-left: 12%;
 }
 .admin-icon{
     color: black;

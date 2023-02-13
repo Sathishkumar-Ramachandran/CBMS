@@ -52,7 +52,12 @@ a{
   
 }
 .instagram{
-    color:#8a3ab9;
+    color: rgb(212, 79, 102);
+    /* background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ); */
 }
 .youtube{
     color: #ff0000; 
@@ -62,4 +67,23 @@ a{
 }
 .linkedin{
     color:#0a66c2;
+}
+
+.account-gap2{
+    margin-left: 5%;
+}
+.paragraph2{
+    margin-left: 5%;
+    margin-top: 2px;
+}
+.line2{
+    border-bottom: 1px solid black;
+    margin-top: 2%;
+    width: 78%;
+    margin-left: 5%;
+}
+.name{
+    font-size: 18px;
+    font-weight: 400;
+    
 }

@@ -67,8 +67,8 @@ const Service = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>Service Management</h1>
-      <p>Manage the end to end service delivery configurations for your organization</p>
+      <h1 className='account-gap3'>Service Management</h1>
+      <p className='paragraph3'>Manage the end to end service delivery configurations for your organization</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -82,7 +82,7 @@ const Service = ({Children}) => {
            
           ))
         } 
-    
+    <div className='line3'></div>
     </div>
     <main>{Children}</main> 
    

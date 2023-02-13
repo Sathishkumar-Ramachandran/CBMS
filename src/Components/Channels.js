@@ -67,22 +67,22 @@ const Channels = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>  Channels</h1>
-      <p>Mange account configurations and customizations for your service desk</p>
+      <h1 className='account-gap2'>  Channels</h1>
+      <p className='paragraph2'>Mange account configurations and customizations for your service desk</p>
       {       
           adminItem.map((item,index)=>(
           
      <div className='admin-model'>
             <Link to={item.path} key={index} className='admin-box' >
               <div className='admin-icon'>{item.icon}</div>
-              <div >{item.name}</div>
+              <div className='name'>{item.name}</div>
               <div>{item.para}</div>
             </Link>
             </div>
            
           ))
         } 
-    
+    <div className='line2'></div>
     </div>
     <main>{Children}</main> 
    

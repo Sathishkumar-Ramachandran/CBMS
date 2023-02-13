@@ -45,3 +45,16 @@ a{
     transition: all 0.5s;
     border-radius: 20px;
 }
+.account-gap6{
+    margin-left: 5%;
+}
+.paragraph6{
+    margin-left: 5%;
+    margin-top: 2px;
+}
+.line6{
+    border-bottom: 1px solid black;
+    margin-top: 2%;
+    width: 78%;
+    margin-left: 5%;
+}

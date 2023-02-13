@@ -5,6 +5,7 @@
     padding: 5px ;
     transition: all 0.5s;
     margin-left: 5%;
+    margin-top: 2%;
 }
 
 .admin-model:hover{
@@ -44,4 +45,17 @@ a{
     color: white;
     transition: all 0.5s;
     border-radius: 20px;
+}
+.line1{
+    border-bottom: 1px solid black;
+    margin-top: 2%;
+    width: 76%;
+    margin-left: 6%;
+}
+.account-gap1{
+    margin-left: 5%;
+}
+.paragraph1{
+    margin-left: 5%;
+    margin-top: 2px;
 }

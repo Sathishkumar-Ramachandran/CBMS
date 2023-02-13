@@ -1,18 +1,23 @@
-    .label{
-    padding-top: 14px;
-    outline: none;
-    font-family: "Raleway", sans-serif;
-    border: none;
-
+:root {
+    --primary: #e5e8ef;
+    --primary-dark: #e1e4ea;
+    --secondary-lime: #e1ff2d;
+    --secondary-lavender: #d3b7f8;
+}
+    
+    .label-heading{
+        padding: 20px;
+        font-family: "Raleway", sans-serif;
+        border: none;
+        align-items: flex-start;    
+        margin-left: 0;    
     }
-    
-    .input{
-    padding-top: 5px;
-    background: #fbfbfb;
-    border: none;
-    outline: none;
-    
-    
+  
+    .input-login{
+        padding-top: 5px;
+        background: #fbfbfb;
+        border: none;
+        outline: none;   
     }
     .btn{
     background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
@@ -68,15 +73,15 @@
 }
 
 .form-input{
-    align-items: left;
+    align-items: start;
     display: flex;
     flex-direction: column;
-    padding: 0px 44px;
-    
+    padding: 0 34px;
+
 }
 
 .text-line{
-    align-items: left;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
@@ -89,7 +94,7 @@
     font-family: "Raleway", sans-serif;
     font-size: 10pt;
     margin-top: 3px;
-    text-align: right;
+    margin-left: 20rem;
 }
 
 .signup {
@@ -99,7 +104,47 @@
     margin-top: 1px;
     text-align: center;
     padding-top: 20px;
+    margin-left: 18rem;
 
  } 
-
- 
+.login-heading{
+    margin-top: 1.9%;
+    margin-left: 12rem;
+}
+  .login-google-icon{
+    font-size: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.068);
+    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
+    background-color: #d3b7f8;
+    animation: waves 2s linear 1s infinite;
+  }
+  .login-google-icon-facebook{
+    color: blue;
+    font-size: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.068);
+    background-color: #d3b7f8;
+    animation: waves 2s linear 1s infinite;
+  }
+  .login-all{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 11rem;
+  }

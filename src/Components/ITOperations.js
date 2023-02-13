@@ -67,8 +67,8 @@ const ITOperation = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>IT Operations Management</h1>
-      <p>Track and manage the health of your IT Infrastructure Operations</p>
+      <h1 className='account-gap6'>IT Operations Management</h1>
+      <p className='paragraph6'>Track and manage the health of your IT Infrastructure Operations</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -82,7 +82,7 @@ const ITOperation = ({Children}) => {
            
           ))
         } 
-    
+    <div className='line6'></div>
     </div>
     <main>{Children}</main> 
    

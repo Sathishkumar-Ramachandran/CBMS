@@ -67,8 +67,8 @@ const Workload = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>Project & Workload Management</h1>
-      <p>Manage project and workload settings for your service desk</p>
+      <h1 className='account-gap7'>Project & Workload Management</h1>
+      <p className='paragraph7'>Manage project and workload settings for your service desk</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -82,7 +82,7 @@ const Workload = ({Children}) => {
            
           ))
         } 
-    
+    <div className='line7'></div>
     </div>
     <main>{Children}</main> 
    

@@ -67,8 +67,8 @@ const Asset = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>Asset Management</h1>
-      <p>Discover and manage assets and their related information</p>
+      <h1 className='account-gap5'>Asset Management</h1>
+      <p className='paragraph5'>Discover and manage assets and their related information</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -82,7 +82,7 @@ const Asset = ({Children}) => {
            
           ))
         } 
-    
+    <div className='line5'></div>
     </div>
     <main>{Children}</main> 
    

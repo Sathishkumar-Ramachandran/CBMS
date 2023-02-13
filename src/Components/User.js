@@ -69,8 +69,8 @@ const User = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>User Management</h1>
-      <p>Manage users, groups and permissions across the service desk</p>
+      <h1 className='account-gap1'>User Management</h1>
+      <p className='paragraph1'>Manage users, groups and permissions across the service desk</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -84,6 +84,7 @@ const User = ({Children}) => {
           
           ))
         } 
+        <div className='line1'></div>
     </div>
     <main>{Children}</main> 
 

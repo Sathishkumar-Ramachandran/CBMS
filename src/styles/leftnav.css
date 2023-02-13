@@ -1,8 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .container{
     display: flex;
@@ -21,24 +17,27 @@ main{
     height: 100%;
     width: 20%;
     position:fixed;
-   
+   margin-top: 2rem;
 }
 .top-section{
     display: flex;
     align-items: center;
-    padding: 20px 15px ;
+    padding: 0 12px ;
     top: 0;
     position: fixed;
 }
 .logo{
     font-size: 25px;
     color: rgba(0, 128, 0, 0.692);
+   
+   
 }
-.bars{
+.bar{
     font-size: 25px;
     display: flex;
     cursor: pointer;
-
+    position: absolute;
+    top: 0;
 }
 .link{
     display: flex;

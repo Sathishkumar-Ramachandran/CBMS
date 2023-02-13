@@ -67,8 +67,8 @@ const Automation = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1>Automation & Productivity</h1>
-      <p>Supercharge your service desk with automations, integrations and agent productivity tools</p>
+      <h1 className='account-gap4'>Automation & Productivity</h1>
+      <p className='paragraph4'>Supercharge your service desk with automations, integrations and agent productivity tools</p>
       {       
           adminItem.map((item,index)=>(
           
@@ -82,7 +82,7 @@ const Automation = ({Children}) => {
            
           ))
         } 
-    
+    <div className='line4'></div>
     </div>
     <main>{Children}</main> 
    

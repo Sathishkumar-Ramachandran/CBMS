@@ -74,7 +74,7 @@
 }
 
 .signupform-input{
-    align-items: left;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     padding: 0px 44px;
@@ -97,3 +97,46 @@
     margin-top: 3px;
     text-align: right;
 }
+
+.signup-heading{
+    margin-top: 1.9%;
+    margin-left: 11.5rem;
+}
+  .signup-google-icon{
+    font-size: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.068);
+    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
+    background-color: #d3b7f8;
+    animation: waves 2s linear 1s infinite;
+  }
+  .signup-google-icon-facebook{
+    color: blue;
+    font-size: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.068);
+    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
+    background-color: #d3b7f8;
+    animation: waves 2s linear 1s infinite;
+  }
+  .signup-all{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 11rem;
+  }

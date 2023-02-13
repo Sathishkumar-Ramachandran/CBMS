@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import {Router, Routes, Route} from "react-router-dom";
+import {Router, Routes, Route,Link} from "react-router-dom";
 import Dashboard from "../Pages/dashboard.js";
-
+import { FcGoogle } from "react-icons/fc";
+import{FaFacebook} from 'react-icons/fa';
 import "../styles/signup.css"
 
 const Signup = () => {
@@ -116,6 +117,11 @@ const Signup = () => {
             <button onClick={handleSubmit} className="signupbtn" type="submit">
             Submit
             </button>
+            <h5 className="signup-heading">or signup with</h5>
+             <div className="signup-all">
+            <Link to=''className="signup-google-icon"><FcGoogle/></Link>
+            <Link to=''className="signup-google-icon-facebook"><FaFacebook/></Link>
+            </div>
         </form>
         </div>
         
