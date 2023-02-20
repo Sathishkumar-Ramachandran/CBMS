@@ -8,59 +8,42 @@ import '../styles/Channels.css';
 const Channels = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"/admin/google",
           name:"Google",
-          para:"Manage account information and and",
+          para:"",
           icon:<FcGoogle/>
         },
         {
-          path:"",
+          path:"/admin/facebook",
           name:"Facebook",
-          para:"Manage account information and and",
+          para:"",
           icon:<FaFacebook className='facebook'/>
         },
         {
-          path:"",
+          path:"/admin/instagram",
           name:"Instagram",
-          para:"Manage account information and and",
+          para:"",
           icon:<FaInstagramSquare className='instagram'/>
         },
         {
-          path:"",
+          path:"/admin/twitter",
           name:"Twitter",
-          para:"Manage account information and and",
+          para:"",
           icon:<FaTwitterSquare className='twitter'/>
         },
         {
-          path:"",
+          path:"/admin/linkedin",
           name:"Linkedin",
-          para:"Manage account information and and",
+          para:"",
           icon:<AiFillLinkedin className='linkedin'/>
         },
         {
-            path:"",
+            path:"/admin/youtube",
             name:"Youtube",
-            para:"Manage account information and and",
+            para:"",
             icon:<AiFillYoutube className='youtube'/>
           },
-          {
-            path:"",
-            name:"Analytics",
-            para:"Manage account information and and",
-            icon:<AiFillYoutube/>
-          },
-          {
-            path:"",
-            name:"Admin",
-            para:"Manage account information and and",
-            icon:<RiAdminLine/>
-          },
-          {
-              path:"",
-              name:"Admin",
-              para:"Manage account information and and",
-              icon:<RiAdminLine/>
-            },
+
             //Channels
             
       ]

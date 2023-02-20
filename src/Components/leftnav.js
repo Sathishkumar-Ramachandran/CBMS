@@ -18,15 +18,21 @@ const Leftnav = ({Children}) => {
       icon:<RxDashboard/>
     },
     {
-      path:"/project",
-      name:"Project",
-      icon:<AiOutlineFundProjectionScreen/>
+      path:"/Tickets",
+      name:"Tickets",
+      icon:<RxDashboard/>
     },
     {
       path:"/workspace",
       name:"Workspace",
       icon:<MdWorkspacesOutline/>
     },
+    {
+      path:"/project",
+      name:"Project",
+      icon:<AiOutlineFundProjectionScreen/>
+    },
+    
     {
       path:"/analytics",
       name:"Analytics",

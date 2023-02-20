@@ -13,6 +13,7 @@ import Profile from './Components/Profile.js';
 import Workspace from "./Components/Workspace.js";
 import Analytics from "./Components/Analytics.js";
 import Admin from "./Components/Admin.js";
+import Googleadmin from "./Pages/Google/googleadmin.js";
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
+          <Route path='/admin/google' element={<Googleadmin />} />
        
         </Routes>
       </BrowserRouter>
