@@ -77,7 +77,7 @@ const Admin = ({Children}) => {
      <div className='admin-model'>
             <Link to={item.path} key={index} className='admin-box' >
               <div className='admin-icon'>{item.icon}</div>
-              <div >{item.name}</div>
+              <div>{item.name}</div>
               <div>{item.para}</div>
             </Link>
             </div>

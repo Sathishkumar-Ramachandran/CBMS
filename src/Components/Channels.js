@@ -8,37 +8,37 @@ import '../styles/Channels.css';
 const Channels = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"/Google",
           name:"Google",
           para:"Manage account information and and",
           icon:<FcGoogle/>
         },
         {
-          path:"",
+          path:"/Facebook",
           name:"Facebook",
           para:"Manage account information and and",
           icon:<FaFacebook className='facebook'/>
         },
         {
-          path:"",
+          path:"/Instagram",
           name:"Instagram",
           para:"Manage account information and and",
           icon:<FaInstagramSquare className='instagram'/>
         },
         {
-          path:"",
+          path:"/Twitter",
           name:"Twitter",
           para:"Manage account information and and",
           icon:<FaTwitterSquare className='twitter'/>
         },
         {
-          path:"",
+          path:"/Linkedin",
           name:"Linkedin",
           para:"Manage account information and and",
           icon:<AiFillLinkedin className='linkedin'/>
         },
         {
-            path:"",
+            path:"/Youtube",
             name:"Youtube",
             para:"Manage account information and and",
             icon:<AiFillYoutube className='youtube'/>
@@ -75,7 +75,7 @@ const Channels = ({Children}) => {
      <div className='admin-model'>
             <Link to={item.path} key={index} className='admin-box' >
               <div className='admin-icon'>{item.icon}</div>
-              <div className='name'>{item.name}</div>
+              <div>{item.name}</div>
               <div>{item.para}</div>
             </Link>
             </div>

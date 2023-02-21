@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import Login from '../Components/login';
+import Login from '../Components/Login';
 import Signup from '../Components/signup';
 import '../styles/auth.css';
 

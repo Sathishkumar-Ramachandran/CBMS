@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {Router, Routes, Route,Link} from "react-router-dom";
-import Dashboard from "../Pages/dashboard.js";
+import {Link} from "react-router-dom";
+
 import { FcGoogle } from "react-icons/fc";
 import{FaFacebook} from 'react-icons/fa';
 import "../styles/signup.css"

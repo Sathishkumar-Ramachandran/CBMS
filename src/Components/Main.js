@@ -2,37 +2,37 @@ import React from 'react'
 import '../styles/Main.css'
 const Main = () => {
   return (
-<div class="row">
-  <div class="column">
-    <div class="card">
+    <div className="row">
+  <div className="column">
+    <div className="card">
       <h3>Dummy</h3>
      
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
-      <h3>Dummy</h3>
-     
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
+  <div className="column">
+    <div className="card">
       <h3>Dummy</h3>
       
     </div>
   </div>
   
-  <div class="column">
-    <div class="card">
+  <div className="column">
+    <div className="card">
       <h3>Dummy</h3>
      
     </div>
   </div>
+  
+  <div className="column">
+    <div className="card">
+      <h3>Dummy</h3>
+      
+    </div>
+  </div>
 </div>
 
-  )
-}
-
+      )
+    }
+    
 export default Main

@@ -2,12 +2,15 @@
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 25%;
-  padding: 0 10px;
+  width: 20%;
+
+  margin-left: 3%;
 }
 
 /* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
+.row {
+  margin: 0 -3px;
+}
 
 /* Clear floats after the columns */
 .row:after {

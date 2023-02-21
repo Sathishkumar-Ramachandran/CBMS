@@ -1,10 +1,13 @@
-:root {
+  :root {
     --primary: #e5e8ef;
     --primary-dark: #e1e4ea;
     --secondary-lime: #e1ff2d;
     --secondary-lavender: #d3b7f8;
 }
-    
+   .form{
+    width: 100%;
+    display: flex;
+   } 
     .label-heading{
         padding: 20px;
         font-family: "Raleway", sans-serif;
@@ -73,11 +76,11 @@
 }
 
 .form-input{
-    align-items: start;
+    align-items: center;
     display: flex;
     flex-direction: column;
     padding: 0 34px;
-
+     width: 100%;
 }
 
 .text-line{
@@ -147,4 +150,126 @@
     align-items: center;
     justify-content: center;
     margin-left: 11rem;
-  }
+  } 
+
+   .sidebar{
+    background-color: white;
+    color: black;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+.routes{
+    color: black;
+}
+.icon{
+    font-size: 170%;
+}
+.top_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+.logo{
+    font-size: 18px;
+    line-height: 0;
+}
+.link{
+    display: flex;
+    color: black;
+    gap: 10px;
+    padding: 5px 10px;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735,0.045);
+}
+.link:hover{
+    border-right: 4px solid black;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735,0.045);
+    background: grey;
+}
+.bars{
+    color: black;
+    font-size: 185%;
+}  
+
+
+/* *{
+    margin: 0;
+    padding: 0;
+}
+.login-have{
+    margin-left: 20%;
+    margin-top: 2rem;
+}
+ .form-wrapper{
+    background: white;
+    width: 30%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+ }
+ .app-wrapper{
+     background-color: white;
+     min-width: 150px;
+     min-height: 550px;
+     padding: 30px;
+     box-sizing: border-box;
+     border-radius: 5px;
+ }
+ .title{
+     color: #f80759;
+     text-align: center;
+    
+    
+ }
+ .name,
+ .email,
+ .password{
+     margin: 20px;
+     color: black;
+     font-size: 16px;
+ }
+ .password{
+     margin-bottom: 40px;
+ }
+ .input{
+     height: 32px;
+     font-size: 20px;
+     outline: none;
+     width: 100%;
+     border-top-style:none ;
+     border-left-style: none;
+     border-right-style: none;
+     border-bottom-style:2px solid black ;
+     margin-bottom: 10px;
+ }
+ .error{
+     color: red;
+ }
+ .sumbit{
+     display: flex;
+     text-transform: uppercase;
+     font-size: 20px;
+     border-radius: 25px;
+     color: black;
+     padding: 10px 60px;
+     background: pink;
+     box-shadow: rgba(0,0,0,0.22) 0px 19px 38px,rgba(0,0,0,0.22)0px 15px 12px;
+     margin: auto;
+     outline: none;
+     border: none;
+     cursor: pointer;
+     transition: all 0.1s;
+ }
+ button:active{
+     transform: translateY(2px);
+ }
+ .form.success{
+     display: flex;
+     justify-content: center;
+     margin-top: 250px;
+     color: #850c62;
+     min-width: 370px;
+ } */

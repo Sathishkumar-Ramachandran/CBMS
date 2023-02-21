@@ -1,12 +1,4 @@
 
-.admin-model{
-    display: inline-block;
-    color: black;
-    padding: 5px ;
-    transition: all 0.5s;
-    margin-left: 5%;
-}
-
 .admin-model:hover{
     background: rgba(0, 128, 0, 0.432);
     color: white;

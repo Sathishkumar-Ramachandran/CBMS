@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import{FaFacebook} from 'react-icons/fa';
 import {BrowserRouter as Router, Routes, Route, useNavigate,Link} from "react-router-dom";
 
- import '../styles/login.css'
+ import '../styles/Login.css'
 
 
  const Login = () => {
@@ -126,4 +126,3 @@ import {BrowserRouter as Router, Routes, Route, useNavigate,Link} from "react-ro
      )
  }
  export default Login;
-
