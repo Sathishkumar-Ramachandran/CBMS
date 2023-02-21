@@ -1,40 +1,30 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
+const Campaignsetup = ({Children}) => {
 
-
-const Googleadmin = ({Children}) => {
     const menuItem=[
         {
-          path:"/admin/google/accountsetup",
-          name:"Account Setup",
+          path:"/admin/google/campaignsetup/campaigns",
+          name:"Campaigns",
           icon:"",
         },
         {
-          path:"/admin/google/campaignsetup",
-          name:"Campaign Setup",
+          path:"/admin/google/campaignsetup/createcampaigns",
+          name:"Create Campaigns",
           icon:"",
         },
         {
-          path:"/admin/google/adgroupsetup",
-          name:"AdGroups Setup",
-          icon:"",
-        },
-        {
-          path:"/admin/google/adsetup",
-          name:"Ad Setup",
-          icon:"",
-        },
-        
-        {
-          path:"/admin/google/othersettings",
-          name:"Other Settings",
+          path:"/admin/google/campaignsetup/formfields",
+          name:"Form Fields",
           icon:"",
         },
         
       ]
-      return (
+
+    return(
         <div>
+
+          <h1>Campaignsetup</h1>
             <div>
             {
               menuItem.map((item,index)=>(
@@ -47,7 +37,7 @@ const Googleadmin = ({Children}) => {
           </div>
           <main>{Children}</main>
         </div>
-      )
+    )
 }
 
-export default Googleadmin;
+export default Campaignsetup;

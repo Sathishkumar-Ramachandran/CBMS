@@ -1,11 +1,14 @@
-import React from 'react'
-import'../styles/Google.css'
-const Google = () => {
-  return (
-    <div>
-      
-    </div>
+import React from "react";
+import Accounts from "../Pages/Google/Accounts";
+import Campaignsetup from "../Pages/Google/Campaignsetup";
+
+const Googleadmin = () => {
+  return(
+    <>
+    <Accounts />
+    <Campaignsetup />
+    </>
   )
 }
 
-export default Google
+export default Googleadmin;
