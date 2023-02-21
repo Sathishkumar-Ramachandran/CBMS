@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route,  Routes } from "react-router-dom";
+import { BrowserRouter, Route,  Routes,Outlet } from "react-router-dom";
 
 import Auth from "./Pages/auth.js";
 import Dashboard from "./Pages/dashboard";
@@ -13,34 +13,41 @@ import Profile from './Components/Profile.js';
 import Workspace from "./Components/Workspace.js";
 import Analytics from "./Components/Analytics.js";
 import Admin from "./Components/Admin.js";
-import Googleadmin from "./Pages/Google/googleadmin.js";
 
 
 
 function App() {
-    
+  function WithNavs() {
+    return (
+      <>
+        <Topnav />
+        <Leftnav />
+        <Outlet />
+      </>
+    );
+  }
+  
   return (
 
     <>
 
       <BrowserRouter >
-      <Topnav />
-      <Leftnav />
-      
-      
-      
+     
        
       
         
         <Routes>
-          <Route exact path='/' element={<Dashboard />} />
-          <Route  path='/login' element={<Auth />} />
-          <Route  path='/project' element={<Project />} />
+        <Route element={<WithNavs />}>
+        <Route exact path='/' element={<Dashboard />} />
+        <Route  path='/project' element={<Project />} />
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
-          <Route path='/admin/google' element={<Googleadmin />} />
        
+          </Route>
+        
+          <Route  path='/login' element={<Auth />} />
+         
         </Routes>
       </BrowserRouter>
 

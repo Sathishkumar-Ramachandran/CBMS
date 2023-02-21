@@ -8,27 +8,65 @@ import jwt_decode from "jwt-decode";
 import { DoubleEngine } from "../middleware/interceptor.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
 const Signup = () => {
-  //Handle google signup
-  const handleGoogleSignup = (parmas) => {};
-
+  const [googleSignIn, setGoogleSignIn] = useState(false);
   const [user, setUser] = useState();
+  // States for registration
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [company, setCompany] = useState("");
+  const [otp, setOtp] = useState();
+  // States for checking the errors
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [verified, setVerified] = useState(false);
 
-  const handleCallbackResponse = (response) => {
-    const decodeData = jwt_decode(response.credential);
-    console.log(decodeData);
-    setUser(decodeData);
-    handleGoogleSignup(decodeData);
-
-    // document.getElementById("signinDiv").hidden=true;
+  // FB sdk Intilaize
+  useEffect(() => {
+    window.FB.init({
+      appId: "",
+      cookie: true,
+      xfbml: true,
+      version: "v16.0",
+    });
+  }, []);
+  // handle FB Login
+  const loginWithFacebook = () => {
+    window.FB.login(
+      (response) => {
+        console.log(response);
+        if (response.authResponse) {
+          console.log("User is logged in with Facebook.");
+          window.FB.api(
+            "/me",
+            { fields: "id,name,email,picture" },
+            (response) => {
+              if (response.error) {
+                console.error(response.error);
+              } else {
+                console.log(response);
+                setEmail(response.email);
+                setName(response.name);
+                setGoogleSignIn(true);
+              }
+            }
+          );
+          // Here you can handle the Facebook login response
+        } else {
+          console.log("User cancelled login or did not fully authorize.");
+        }
+      },
+      { scope: "public_profile,email" }
+    );
   };
+
   useEffect(() => {
     /*global google*/
     window.google.accounts.id.initialize({
       client_id:
-        "720470071516-53ka6hv5g1j40prlqq63a8kh26raeqcf.apps.googleusercontent.com",
+        "",
       callback: (data) => handleCallbackResponse(data),
     });
     google.accounts.id.renderButton(document.getElementById("signInDiv"), {
@@ -41,16 +79,20 @@ const Signup = () => {
     //google.accounts.id.prompt();
   }, []);
 
-  // States for registration
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [company, setCompany] = useState("");
-  const [otp, setOtp] = useState();
-  // States for checking the errors
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
-  const [verified, setVerified] = useState(false);
+  const handleCallbackResponse = (response) => {
+    const decodeData = jwt_decode(response.credential);
+    console.log(decodeData);
+    setUser(decodeData);
+    handleGoogleSignup(decodeData);
+  };
+
+  //Handle google signup
+  const handleGoogleSignup = (parmas) => {
+    setGoogleSignIn(true);
+    setEmail(parmas.email);
+    setName(parmas.name);
+  };
+
   // Handling the name change
   const handleName = (e) => {
     setName(e.target.value);
@@ -96,17 +138,14 @@ const Signup = () => {
         .catch(() => {
           toast.error("Something Went wrong");
         });
-
-      if (false) {
-        saveSingUpInfo();
-      }
-
       setError(false);
     }
   };
 
-  const saveSingUpInfo = async () => {
+  const saveSingUpInfo = async (e) => {
+    e.preventDefault();
     const data = {
+      name:name,
       mailId: email,
       password: password,
       companyName: company,
@@ -120,7 +159,7 @@ const Signup = () => {
       })
       .catch((err) => {
         console.log(err);
-        toast.success("User Info Saving Failed");
+        toast.error("User Info Saving Failed");
       });
   };
 
@@ -189,7 +228,7 @@ const Signup = () => {
 
       <form className="signupform-input">
         {/* Labels and inputs for form data */}
-        {!show && (
+        {!show && !googleSignIn && (
           <>
             <label className="signuplabel">Username</label>
             <input
@@ -198,6 +237,7 @@ const Signup = () => {
               value={name}
               type="text"
               required
+              size={50}
             />
             <div className="signuptext-line"></div>
 
@@ -238,10 +278,50 @@ const Signup = () => {
             <div className="signup-all">
               <div id="signInDiv"></div>
             </div>
+            <div className="login-all">
+              <Link to="" className="login-google-icon-facebook">
+                <FaFacebook onClick={loginWithFacebook} />
+              </Link>
+            </div>
           </>
         )}
 
-        {show && (
+        {googleSignIn && (
+          <>
+            <label className="signuplabel">Company Name</label>
+            <input
+              onChange={(e) => {
+                setCompany(e.target.value);
+              }}
+              className="signupinput"
+              value={company}
+              type="text"
+              required
+            />
+            <div className="signuptext-line"></div>
+
+            <label className="signuplabel">Password</label>
+            <input
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              className="signupinput"
+              value={password}
+              type="text"
+              required
+            />
+            <div className="signuptext-line"></div>
+            <button
+              onClick={saveSingUpInfo}
+              className="signupbtn"
+              type="submit"
+            >
+              Submit
+            </button>
+          </>
+        )}
+
+        {show && !googleSignIn && (
           <>
             <div>Enter Your OTP</div>
             <label className="signuplabel">OTP</label>
