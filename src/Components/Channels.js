@@ -8,59 +8,43 @@ import '../styles/Channels.css';
 const Channels = ({Children}) => {
     const adminItem=[
         {
-          path:"/Google",
+
+          path:"/google",
           name:"Google",
-          para:"Manage account information and and",
+          para:"",
           icon:<FcGoogle/>
         },
         {
-          path:"/Facebook",
+          path:"/admin/facebook",
           name:"Facebook",
-          para:"Manage account information and and",
+          para:"",
           icon:<FaFacebook className='facebook'/>
         },
         {
-          path:"/Instagram",
+          path:"/admin/instagram",
           name:"Instagram",
-          para:"Manage account information and and",
+          para:"",
           icon:<FaInstagramSquare className='instagram'/>
         },
         {
-          path:"/Twitter",
+          path:"/admin/twitter",
           name:"Twitter",
-          para:"Manage account information and and",
+          para:"",
           icon:<FaTwitterSquare className='twitter'/>
         },
         {
-          path:"/Linkedin",
+          path:"/admin/linkedin",
           name:"Linkedin",
-          para:"Manage account information and and",
+          para:"",
           icon:<AiFillLinkedin className='linkedin'/>
         },
         {
-            path:"/Youtube",
+            path:"/admin/youtube",
             name:"Youtube",
-            para:"Manage account information and and",
+            para:"",
             icon:<AiFillYoutube className='youtube'/>
           },
-          {
-            path:"",
-            name:"Analytics",
-            para:"Manage account information and and",
-            icon:<AiFillYoutube/>
-          },
-          {
-            path:"",
-            name:"Admin",
-            para:"Manage account information and and",
-            icon:<RiAdminLine/>
-          },
-          {
-              path:"",
-              name:"Admin",
-              para:"Manage account information and and",
-              icon:<RiAdminLine/>
-            },
+
             //Channels
             
       ]

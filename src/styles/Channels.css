@@ -29,7 +29,9 @@ a{
 }
 .admin-icon{
     color: blue;
-    font-size: 25px;
+    font-size: 25%;
+    width:100%
+    
 }
 .admin-icon:hover{
 
