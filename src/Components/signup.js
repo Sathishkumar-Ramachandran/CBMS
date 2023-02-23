@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
-=======
-import React, { useEffect, useState } from "react";
-import { Router, Routes, Route, Link } from "react-router-dom";
-import Dashboard from "../Pages/dashboard.js";
->>>>>>> c5758a8c3204c3b846cf89979c30798951b6a6fd
+
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import "../styles/signup.css";

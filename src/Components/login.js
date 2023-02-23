@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import{FaFacebook} from 'react-icons/fa';
 import {BrowserRouter as Router, Routes, Route, useNavigate,Link} from "react-router-dom";
 
- import '../styles/Login.css'
+ import '../styles/login.css'
 
 
  const Login = () => {

@@ -1,8 +1,8 @@
 import React from "react";
 
 
-import Login from '../Components/Login';
-import Signup from '../Components/signup';
+import Login from '../Components/login.js';
+import Signup from '../Components/signup.js';
 import '../styles/auth.css';
 
 const Auth = () => {
