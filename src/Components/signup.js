@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-
-
+import React, { useEffect, useState } from "react";
+import { Router, Routes, Route, Link } from "react-router-dom";
+import Dashboard from "../Pages/dashboard.js";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import "../styles/signup.css";
@@ -27,7 +26,7 @@ const Signup = () => {
   // FB sdk Intilaize
   useEffect(() => {
     window.FB.init({
-      appId: "",
+      appId: "1253461328610568",
       cookie: true,
       xfbml: true,
       version: "v16.0",
@@ -43,14 +42,28 @@ const Signup = () => {
           window.FB.api(
             "/me",
             { fields: "id,name,email,picture" },
-            (response) => {
+            async (response) => {
               if (response.error) {
                 console.error(response.error);
               } else {
                 console.log(response);
+                const payload = {
+                  Email: response.email,
+                };
+                await DoubleEngine.post("api/auth/CheckEmail", payload).then(
+                  (d) => {
+                    if (d.data.d != "USER_ALREADY_HAVE_A_COMPANY") {
+                      setGoogleSignIn(true);
+                    } else {
+                      toast.success(
+                        "You have a company you can login with your Google Account"
+                      );
+                    }
+                  }
+                );
                 setEmail(response.email);
                 setName(response.name);
-                setGoogleSignIn(true);
+                // setGoogleSignIn(true);
               }
             }
           );
@@ -67,7 +80,7 @@ const Signup = () => {
     /*global google*/
     window.google.accounts.id.initialize({
       client_id:
-        "",
+        "720470071516-a1ebq5535or1a9aitm7cr9mf7mrf19cl.apps.googleusercontent.com",
       callback: (data) => handleCallbackResponse(data),
     });
     google.accounts.id.renderButton(document.getElementById("signInDiv"), {
@@ -88,8 +101,20 @@ const Signup = () => {
   };
 
   //Handle google signup
-  const handleGoogleSignup = (parmas) => {
-    setGoogleSignIn(true);
+  const handleGoogleSignup = async (parmas) => {
+    const payload = {
+      Email: parmas.email,
+    };
+    await DoubleEngine.post("api/auth/CheckEmail", payload).then((d) => {
+      if (d.data.d != "USER_ALREADY_HAVE_A_COMPANY") {
+        setGoogleSignIn(true);
+        //saveSingUpInfo();
+      } else {
+        toast.success(
+          "You have a company you can login with your Google Account"
+        );
+      }
+    });
     setEmail(parmas.email);
     setName(parmas.name);
   };
@@ -107,6 +132,34 @@ const Signup = () => {
   };
 
   const [show, setShow] = useState(false);
+  const [seconds, setSeconds] = useState(
+    parseInt(localStorage.getItem("seconds")) || 60
+  );
+  const [showResendButton, setShowResendButton] = useState(true);
+  useEffect(() => {
+    setSeconds(60);
+    if (show) {
+      const interval = setInterval(() => {
+        setSeconds((seconds) => {
+          if (seconds == 0 || seconds < 0) {
+            localStorage.removeItem("seconds");
+            return 0;
+          } else {
+            const newSeconds = seconds - 1;
+            localStorage.setItem("seconds", newSeconds.toString());
+            return newSeconds;
+          }
+        });
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [show]);
+  useEffect(() => {
+    if (seconds == 0) {
+      setShowResendButton(false);
+    }
+  }, [seconds]);
 
   // Handling the password change
   const handlePassword = (e) => {
@@ -132,9 +185,9 @@ const Signup = () => {
         .then((resp) => {
           if (resp.data.d == "USER_ALREADY_SIGNUP") {
             toast.info("User Already Signup");
+          } else {
+            setShow(true);
           }
-
-          setShow(true);
         })
         .catch(() => {
           toast.error("Something Went wrong");
@@ -143,10 +196,14 @@ const Signup = () => {
     }
   };
 
-  const saveSingUpInfo = async (e) => {
+  const saveSingUpInfo = (e) => {
     e.preventDefault();
+    SavingtoDb();
+  };
+
+  const SavingtoDb = async () => {
     const data = {
-      name:name,
+      name: name,
       mailId: email,
       password: password,
       companyName: company,
@@ -161,6 +218,12 @@ const Signup = () => {
       .catch((err) => {
         console.log(err);
         toast.error("User Info Saving Failed");
+        setShow(false);
+        setGoogleSignIn(false);
+        setEmail("")
+        setUser("")
+        setCompany("")
+        setPassword("");
       });
   };
 
@@ -176,7 +239,9 @@ const Signup = () => {
         console.log(res);
         if (res.data.d == "VERIFIED") {
           toast.success("Verified SuccesFully");
-          saveSingUpInfo();
+          SavingtoDb();
+        } else if (res.data.d == "OTP_EXPIRED") {
+          toast.info("OTP Expired Click the Resend Button");
         } else {
           toast.error("Enter Correct OTP");
         }
@@ -277,12 +342,16 @@ const Signup = () => {
             </button>
             <h5 className="signup-heading">or signup with</h5>
             <div className="signup-all">
-              <div id="signInDiv"></div>
-            </div>
+              <div id="signInDiv">
+
+                
+              </div>
+           
             <div className="login-all">
               <Link to="" className="login-google-icon-facebook">
                 <FaFacebook onClick={loginWithFacebook} />
               </Link>
+            </div>
             </div>
           </>
         )}
@@ -339,6 +408,22 @@ const Signup = () => {
 
             <button onClick={verifyOTP} className="signupbtn" type="submit">
               Submit
+            </button>
+            <div>
+              {seconds > 0
+                ? `00:${seconds < 10 ? `0${seconds}` : seconds}`
+                : "00:00"}
+            </div>
+            <button
+              disabled={showResendButton}
+              onClick={(e) => {
+                handleSubmit(e);
+                setSeconds(parseInt(localStorage.getItem("seconds")) || 60);
+                setShow(true);
+                setShowResendButton(true);
+              }}
+            >
+              Resend
             </button>
           </>
         )}
