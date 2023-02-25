@@ -11,25 +11,41 @@ import '../styles/leftnav.css';
 import { menuItem } from './menuItem';
 import Dropdown from './submenu';
 
-const Leftnav = ({Children, submenu}) => {
+const Leftnav = ({Children}) => {
+
+
+  // const submenu= [
+  //   {
+  //     path:"/dashboard",
+  //     name:"Dashboard",
+  //     icon:<RxDashboard/>,
+  //   }
+  // ]
+
   const[isOpen , setIsopen] = useState(false);
   const toggle = () =>setIsopen(!isOpen);
   const [isHovered, setIsHovered] = useState(false);
+  const [itemmenu, setmenuitem] = useState([]);
   
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (item) => {
     setIsHovered(true);
+    setmenuitem(item.submenu);
+    
+      
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    setmenuitem([]);
   };
+
+  
   
   return (
     <>
     <div className='container'>
       <div style={{width:isOpen ? "300px" : "50px"}}className='sidebar'
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
+      >
 
         <div className='top-section'>
           <h2 style={{display:isOpen ? "block" :"none"}}className='logo'>Double Engine</h2>
@@ -41,22 +57,32 @@ const Leftnav = ({Children, submenu}) => {
           menuItem.map((item,index)=>(
             <NavLink to={item.path} key={index} className="link" activeclassName="active">
               
-              <div className='icon'>{item.icon}</div>
-              <div style={{display:isOpen ? "block" :"none"}}className='icon_text'>{item.title}</div>
-               
+              <div className='icon' 
 
-              
+              onMouseEnter={() => {handleMouseEnter(item)} }
+              onMouseLeave={handleMouseLeave}>{item.icon}</div>
+              <div style={{display:isOpen ? "block" :"none"}}className='icon_text'>{item.title}</div>
+              <div className='submenu'>
+              {
+              itemmenu.map((subitem, subindex) => {
+            return(
+              <NavLink to={subitem.path} key={subindex}>
+                <div>{subitem.icon}</div>
+                <div>{subitem.name}</div>
+            </NavLink>
+            )
+        })
+      }    
+      </div>        
             </NavLink>
           ))
         }
       </div>
       
       <main>{Children}</main>
-      {
-              isHovered && <Dropdown style={{display:"contents" }} />
-          }
+      
     </div>
-    <Dropdown />
+    
     </>
   )
 }
