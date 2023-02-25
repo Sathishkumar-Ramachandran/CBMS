@@ -32,7 +32,7 @@ main{
 }
 .logo{
     font-size: 25px;
-    color: rgba(0, 128, 0, 0.692);
+    color: white;
    
    
 }
@@ -41,7 +41,7 @@ main{
     display: flex;
     cursor: pointer;
     top: 0;
- 
+    color: white;
 }
 .link{
     display: flex;
@@ -50,7 +50,7 @@ main{
     gap: 15px;
     transition: all 0.5s;
     text-decoration: none;
-    margin-top: 1;
+    margin-top: 5px;
    
 }
 
@@ -74,7 +74,7 @@ main{
     height: 100%;
     width: 20%;
     position:fixed;
-   margin-top: 2rem;
+  
    margin-left: 3.5%;
    padding: 10px 15px;
    gap: 25px;
