@@ -8,45 +8,29 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { NavLink } from 'react-router-dom';
 import '../styles/leftnav.css';
 
-const Leftnav = ({Children}) => {
+import { menuItem } from './menuItem';
+import Dropdown from './submenu';
+
+const Leftnav = ({Children, submenu}) => {
   const[isOpen , setIsopen] = useState(false);
   const toggle = () =>setIsopen(!isOpen);
-  const menuItem=[
-    {
-      path:"/",
-      name:"Dashboard",
-      icon:<RxDashboard/>
-    },
-    {
-      path:"/Tickets",
-      name:"Tickets",
-      icon:<RxDashboard/>
-    },
-    {
-      path:"/workspace",
-      name:"Workspace",
-      icon:<MdWorkspacesOutline/>
-    },
-    {
-      path:"/project",
-      name:"Project",
-      icon:<AiOutlineFundProjectionScreen/>
-    },
-    
-    {
-      path:"/analytics",
-      name:"Analytics",
-      icon:<MdOutlineAnalytics/>
-    },
-    {
-      path:"/admin",
-      name:"Admin",
-      icon:<RiAdminLine/>
-    },
-  ]
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  
   return (
+    <>
     <div className='container'>
-      <div style={{width:isOpen ? "300px" : "50px"}}className='sidebar'>
+      <div style={{width:isOpen ? "300px" : "50px"}}className='sidebar'
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+
         <div className='top-section'>
           <h2 style={{display:isOpen ? "block" :"none"}}className='logo'>Double Engine</h2>
           <div style={{marginLeft:isOpen ? "50px" : "0px"}}className='bars'>
@@ -56,14 +40,24 @@ const Leftnav = ({Children}) => {
         {
           menuItem.map((item,index)=>(
             <NavLink to={item.path} key={index} className="link" activeclassName="active">
+              
               <div className='icon'>{item.icon}</div>
-              <div style={{display:isOpen ? "block" :"none"}}className='icon_text'>{item.name}</div>
+              <div style={{display:isOpen ? "block" :"none"}}className='icon_text'>{item.title}</div>
+               
+
+              
             </NavLink>
           ))
         }
       </div>
+      
       <main>{Children}</main>
+      {
+              isHovered && <Dropdown style={{display:"contents" }} />
+          }
     </div>
+    <Dropdown />
+    </>
   )
 }
 
