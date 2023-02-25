@@ -46,7 +46,7 @@ function App() {
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
-
+        
           <Route path='/admin/google/' element={<Accounts />} />
           <Route path='/admin/google/accountsetup/accounts' element={""} />
           <Route path='/admin/google/accountsetup/users' element={""} />

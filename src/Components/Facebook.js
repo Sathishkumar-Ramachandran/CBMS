@@ -7,5 +7,5 @@ const Facebook = () => {
     </div>
   )
 }
-import '../styles/Facebook.css'
+
 export default Facebook

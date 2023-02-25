@@ -7,24 +7,28 @@
 }
 
 main{
-    width: 100%;
+    
     position: relative;
 }
-
+.leftnav-icon{
+    font-size: 20px;
+}
+.submenu-icon{
+    font-size: 20px;
+}
 .sidebar{
-    background:white;
+    background:#014421;
     color: black;
     height: 100%;
     width: 20%;
     position:fixed;
-   margin-top: 2rem;
+   
 }
 .top-section{
     display: flex;
     align-items: center;
     padding: 0 12px ;
-    top: 0;
-    position: fixed;
+   
 }
 .logo{
     font-size: 25px;
@@ -36,29 +40,68 @@ main{
     font-size: 25px;
     display: flex;
     cursor: pointer;
-    position: absolute;
     top: 0;
+ 
 }
 .link{
     display: flex;
-    color: black;
+    color: white;
     padding: 10px 15px;
     gap: 15px;
     transition: all 0.5s;
     text-decoration: none;
+    margin-top: 1;
+   
 }
 
-.link:hover{
-    background: rgba(0, 128, 0, 0.432);
+/* .link:hover{
+    background: #008080;
     color: white;
     transition: all 0.5s;
-    border-radius: 20px;
-}
-.active{
-    background: rgba(0, 128, 0, 0.432);
-    color:white;
-    border-radius: 20px;
-}
+  
+}  
+  .leftnav-active{
+    background: #008080;
+    color:black;
+    
+} */
 .icon, .link_text{
     font-size: 25px;
+}
+
+.submenu{
+    background:#00693E;
+    height: 100%;
+    width: 20%;
+    position:fixed;
+   margin-top: 2rem;
+   margin-left: 3.5%;
+   padding: 10px 15px;
+   gap: 25px;
+   transition: all 0.5s;
+   text-decoration: none;
+   display: flex;
+   flex-direction: column;
+}
+.submenu-path{
+    color: white;
+    display: flex;
+    gap: 1rem;
+}
+
+.submenu-youtube{
+    color: #ff0000;
+}
+.submenu-twitter{
+    color: #1da1f2;
+}
+.submenu-linkedin{
+    color:#0a66c2;
+}
+.submenu-facebook{
+    color: #4267b2;
+  
+}
+.submenu-instagram{
+    color: rgb(212, 79, 102);
 }

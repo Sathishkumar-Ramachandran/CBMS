@@ -82,32 +82,32 @@ export const menuItem=[
         {
           path: "/projects/google",
           name: "Google",
-          icon: <FcGoogle />,
+          icon: <FcGoogle className="submenu-google"/>,
         },
         {
           path: "/projects/facebook",
           name: "Facebook",
-          icon: <FaFacebook />,
+          icon: <FaFacebook className='submenu-facebook'/>,
         },
         {
           path: "/projects/instagram",
           name: "Instagram",
-          icon: <FaInstagramSquare />
+          icon: <FaInstagramSquare className='submenu-instagram' />
         },
         {
           path: "/projects/twitter",
           name: "Twitter",
-          icon: <FaTwitterSquare />
+          icon: <FaTwitterSquare className='submenu-twitter'/>
         },
         {
           path: "/projects/linkedin",
           name: "LinkedIn",
-          icon: <AiFillLinkedin />
+          icon: <AiFillLinkedin className='submenu-linkedin'/>
         },
         {
           path: "/projects/youtube",
           name: "Youtube",
-          icon: <AiFillYoutube />
+          icon: <AiFillYoutube className='submenu-youtube'/>
         }
 
       ]
@@ -158,7 +158,7 @@ export const menuItem=[
     {
       path: '/admin/facebook',
       title: 'Facebok',
-      icon: <FaFacebook />,
+      icon: <FaFacebook className='submenu-facebook'/>,
       submenu: [
         {
           path: "/admin/facebook/posts",
@@ -176,7 +176,7 @@ export const menuItem=[
     {
       path: '/admin/linkedin',
       title: "LinkedIn",
-      icon: <AiFillLinkedin />,
+      icon: <AiFillLinkedin className='submenu-linkedin'/>,
       submenu: [
         {
           path: "/admin/linkedin/posts",
@@ -193,7 +193,7 @@ export const menuItem=[
     {
         path: '/admin/twitter',
         title: "Twitter",
-        icon: <FaTwitterSquare />,
+        icon: <FaTwitterSquare className='submenu-twitter'/>,
         submenu: [
           {
             path: "/admin/linkedin/posts",
