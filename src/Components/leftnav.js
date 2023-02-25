@@ -62,7 +62,12 @@ const Leftnav = ({Children}) => {
               onMouseEnter={() => {handleMouseEnter(item)} }
               onMouseLeave={handleMouseLeave}>{item.icon}</div>
               <div style={{display:isOpen ? "block" :"none"}}className='icon_text'>{item.title}</div>
-              <div className='submenu'>
+              
+            </NavLink>
+          ))
+        }
+      </div>
+      <div className='submenu'>
               {
               itemmenu.map((subitem, subindex) => {
             return(
@@ -74,11 +79,6 @@ const Leftnav = ({Children}) => {
         })
       }    
       </div>        
-            </NavLink>
-          ))
-        }
-      </div>
-      
       <main>{Children}</main>
       
     </div>
