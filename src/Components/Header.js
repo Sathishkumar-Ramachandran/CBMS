@@ -21,7 +21,7 @@ const Header = () => {
 <AiFillLinkedin className='icon'/><Link to="">Linkedin</Link>
 </div>
 </div> */
-<nav>
+<nav className='nav-height'>
 {/* <button className='left'><IoIosArrowDropleft/></button> */}
 <ul className='ul-itemes'>
 <IoIosArrowDropleft  className='left'/>

@@ -15,6 +15,7 @@ export const menuItem=[
       icon: <RxDashboard />,
       submenu: [
         {
+          title:"Dashboard",
           path:"/dashboard",
           name:"Dashboard",
           icon:<RxDashboard/>,
