@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material'
 import React from 'react'
 import '../styles/Main.css'
 const Main = () => {
@@ -6,7 +7,7 @@ const Main = () => {
   <div className="column">
     <div className="card">
       <h3>Dummy</h3>
-     
+     <TextField id="outlined-basic" label="" />
     </div>
   </div>
 
