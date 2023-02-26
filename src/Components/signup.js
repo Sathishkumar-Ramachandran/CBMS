@@ -4,6 +4,7 @@ import Dashboard from "../Pages/dashboard.js";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import "../styles/signup.css";
+import "../styles/login.css";
 import jwt_decode from "jwt-decode";
 import { DoubleEngine } from "../middleware/interceptor.js";
 import { ToastContainer, toast } from "react-toastify";
@@ -340,14 +341,12 @@ const Signup = () => {
             <button onClick={handleSubmit} className="signupbtn" type="submit">
               Submit
             </button>
-            <h5 className="signup-heading">or signup with</h5>
+            <h5 className="signup-heading">or Signup with</h5>
             <div className="signup-all">
-              <div id="signInDiv">
-
-                
-              </div>
+              
            
             <div className="login-all">
+            <div id="signInDiv"> </div>
               <Link to="" className="login-google-icon-facebook">
                 <FaFacebook onClick={loginWithFacebook} />
               </Link>

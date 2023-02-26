@@ -4,23 +4,44 @@
     --secondary-lime: #e1ff2d;
     --secondary-lavender: #d3b7f8;
 }
-   .form{
-    width: 100%;
+   .loginform{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.699);
+    border-radius: 1.625rem;
+    /* background: #1783e1; */
    } 
-    .label-heading{
+    .loginlabel-heading{
         padding: 20px;
+        padding-bottom: 20px;
         font-family: "Raleway", sans-serif;
         border: none;
-        align-items: flex-start;    
+        align-items: flex-start; 
+        margin-right: 70%;
         margin-left: 0;    
+    }
+
+    .loginlabel-heading-email{
+        padding: 20px;
+        padding-bottom: 20px;
+        font-family: "Raleway", sans-serif;
+        border: none;
+        align-items: flex-start; 
+        margin-right: 80%;
+        margin-left: 0;   
     }
   
     .input-login{
         padding-top: 5px;
         background: #fbfbfb;
         border: none;
-        outline: none;   
+        outline: none; 
+        height: 20px; 
+        width: 70%; 
+        margin-left: 0;
     }
     .btn{
     background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
@@ -67,20 +88,32 @@
     padding: 5px;
     }
    
-.title{
+.logintitle{
     font-family: "Raleway Thin", sans-serif;
     letter-spacing: 3px;
     padding-bottom: 0px;
-    padding-top: 30px;
+    padding-top: 0px;
     text-align: center;
 }
 
-.form-input{
+.loginform-input{
     align-items: center;
     display: flex;
     flex-direction: column;
     padding: 0 34px;
-     width: 100%;
+    width: 100%;
+}
+
+.underline-title{
+   
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+        height: 2px;
+        width: 40%; 
+        padding-left: 5px;
+        margin-left: 30%;
 }
 
 .text-line{
@@ -89,7 +122,17 @@
     flex-direction: column;
     background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
     height: 1px;
-    width: 100%;   
+    width: 90%; 
+    padding-left: 5px;
+
+}
+
+.SSO {
+    padding: 20px;
+    padding-bottom: 20px;
+    font-family: "Raleway", sans-serif;
+    border: none;
+    align-items: flex-start;    
 }
 
 .forgot-pass{
@@ -97,7 +140,7 @@
     font-family: "Raleway", sans-serif;
     font-size: 10pt;
     margin-top: 3px;
-    margin-left: 20rem;
+    margin-left: 10rem;
 }
 
 .signup {
@@ -112,7 +155,7 @@
  } 
 .login-heading{
     margin-top: 1.9%;
-    margin-left: 12rem;
+    margin-left: 2rem;
 }
   .login-google-icon{
     font-size: 23px;
@@ -141,7 +184,7 @@
     padding-block: .1rem;
     margin-block: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.068);
-    background-color: #d3b7f8;
+    background-color: white;
     animation: waves 2s linear 1s infinite;
   }
   .login-all{
@@ -149,7 +192,7 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
-    margin-left: 11rem;
+    margin-left: 2rem;
   } 
 
    .sidebar{
