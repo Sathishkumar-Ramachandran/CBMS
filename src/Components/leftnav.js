@@ -8,6 +8,8 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { NavLink } from 'react-router-dom';
 import '../styles/leftnav.css';
 
+
+
 import { menuItem } from './menuItem';
 import Dropdown from './submenu';
 
@@ -36,7 +38,7 @@ const Leftnav = ({Children}) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setmenuitem([]);
+    //setmenuitem([]);
   };
 
   
@@ -70,8 +72,10 @@ const Leftnav = ({Children}) => {
       <div className='submenu' style={{visibility: isHovered ? "visible" : "hidden"}}>
               {
               itemmenu.map((subitem, subindex) => {
+                
             return(
               <NavLink to={subitem.path} key={subindex} className='submenu-path'>
+                <div>{subitem.title}</div>
                 <div className='submenu-icon'>{subitem.icon}</div>
                 <div>{subitem.name}</div>
             </NavLink>
@@ -79,7 +83,7 @@ const Leftnav = ({Children}) => {
         })
       }    
       </div>        
-      <main style={{width:isHovered ? "80%" : "100%"}}>{Children}</main>
+      <main >{Children}</main>
       
     </div>
     

@@ -9,7 +9,7 @@ const Channels = ({Children}) => {
     const adminItem=[
         {
 
-          path:"/google",
+          path:"/admin/google",
           name:"Google",
           para:"",
           icon:<FcGoogle/>

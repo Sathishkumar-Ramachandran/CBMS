@@ -15,6 +15,7 @@ import Analytics from "./Components/Analytics.js";
 import Admin from "./Components/Admin.js";
 import Accounts from "./Pages/Google/Accounts.js";
 import Dropdown from "./Components/submenu.js";
+import Googleadmin from "./Pages/Google/admingoogle.js";
 
 
 
@@ -47,7 +48,7 @@ function App() {
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
         
-          <Route path='/admin/google/' element={<Accounts />} />
+          <Route path='/admin/google/' element={<Googleadmin />} />
           <Route path='/admin/google/accountsetup/accounts' element={""} />
           <Route path='/admin/google/accountsetup/users' element={""} />
           <Route path='/admin/google/accountsetup/roles' element={""} />

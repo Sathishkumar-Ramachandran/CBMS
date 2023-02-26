@@ -7,6 +7,8 @@ import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
 
+import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
+import DeveloperBoardOutlinedIcon from '@mui/icons-material/DeveloperBoardOutlined';
 
 export const menuItem=[
     {
@@ -25,15 +27,15 @@ export const menuItem=[
     {
       path:"/tickets",
       title:"Tickets",
-      icon: <RxDashboard />,
+      icon: <SummarizeOutlinedIcon />,
       submenu: [
         {
-          path:"/Tickets",
+          path:"/tickets",
           name:"Tickets",
-          icon:<RxDashboard/>,
+          icon:<SummarizeOutlinedIcon />,
         },
         {
-          path:"/tickets?q=",
+          path:"/tickets",
           name:"Tickets for You",
           icon:""
         }
@@ -77,7 +79,7 @@ export const menuItem=[
         {
           path: "/projects?q=all",
           name: "Projects",
-          icon: ""
+          icon: <DeveloperBoardOutlinedIcon />,
         },
         {
           path: "/projects/google",
