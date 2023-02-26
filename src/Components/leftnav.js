@@ -62,7 +62,7 @@ const Leftnav = ({Children}) => {
               <div className='leftnav-icon' 
 
               onMouseEnter={() => {handleMouseEnter(item)} }
-              onMouseLeave={handleMouseLeave}>{item.icon}</div>
+              >{item.icon}</div>
               <div style={{display:isOpen ? "block" :"none"}}className='icon_text'>{item.title}</div>
               
             </NavLink>
@@ -71,10 +71,10 @@ const Leftnav = ({Children}) => {
       </div>
       <div className='submenu' style={{visibility: isHovered ? "visible" : "hidden"}}>
               {
-              itemmenu.map((subitem, subindex) => {
+              itemmenu?.map((subitem, subindex) => {
                 
             return(
-              <NavLink to={subitem.path} key={subindex} className='submenu-path'>
+              <NavLink to={subitem.path} key={subindex} className='submenu-path'onMouseLeave={handleMouseLeave} >
                 <div>{subitem.title}</div>
                 <div className='submenu-icon'>{subitem.icon}</div>
                 <div>{subitem.name}</div>
