@@ -5,6 +5,10 @@
     transition: all 0.5s;
     border-radius: 20px;
 }
+.accountsetup-account-gap2{
+    margin-top: 5rem;
+    margin-left: 5.1%;
+}
 .active{
     background: rgba(0, 128, 0, 0.432);
     color:white;

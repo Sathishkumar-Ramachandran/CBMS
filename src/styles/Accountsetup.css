@@ -1,14 +1,13 @@
 
-.admin-model{
+.Accountsetup-link{
     display: inline-block;
     color: black;
     padding: 5px ;
     transition: all 0.5s;
     margin-left: 5%;
-   
 }
 
-.admin-model:hover{
+.Accountsetup-link:hover{
     background: rgba(0, 128, 0, 0.432);
     color: white;
     transition: all 0.5s;
@@ -16,40 +15,22 @@
 }
 .active{
     background: rgba(0, 128, 0, 0.432);
-    color:white;
-    border-radius: 20px;
+
 }
 a{
     text-decoration: none;
     color: black;
 }
-.admin-model:hover{
+.Accountsetup-link:hover{
     background: rgba(128, 128, 128, 0.377);
-    color: white;
-    transition: all 0.5s;
     border-radius: 10px;
 }
 .heading{
-    margin-left: 10%;
-    margin-top: 3.7rem;
-    color: #00AB66;
-}
-.account-gap{
-    margin-left: 5%;
-}
-.paragraph{
-    margin-left: 5%;
-    margin-top: 2px;
+    margin-left: 7%;
 }
 .heading1{
     margin-left: 7%;
     margin-top: 2%;
-}
-.line{
-    border-bottom: 1px solid black;
-    margin-top: 2%;
-    width: 70%;
-    margin-left: 12%;
 }
 .admin-icon{
     color: black;
@@ -60,4 +41,17 @@ a{
     color: white;
     transition: all 0.5s;
     border-radius: 20px;
+}
+.account-gap5{
+    margin-left: 5%;
+}
+.paragraph5{
+    margin-left: 5%;
+    margin-top: 2px;
+}
+.line5{
+    border-bottom: 1px solid black;
+    margin-top: 2%;
+    width: 78%;
+    margin-left: 5%;
 }

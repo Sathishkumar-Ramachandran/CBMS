@@ -58,14 +58,15 @@ input .searchQueryInput {
     width: 100%;
     max-width: 31.25rem;
     margin-left: 50%;
-
+   
   }
 .header{
-  height: 40px;
+  height: 50px;
   margin-bottom: 2px;
   background: white;
   width: 100%;
   position: fixed;
+  border-bottom: 1px solid black;
 }
   .searchBar {
     width: 100%;
@@ -254,7 +255,7 @@ nav .notify-ul-item li{
   }
   .top{
     border-bottom: 1px solid black;
-    width: 96%;
-    margin-left: 4%;
-    
+
+    width: 70%;
+    margin-left: 12%;
   }

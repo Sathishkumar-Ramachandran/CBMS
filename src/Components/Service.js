@@ -9,66 +9,47 @@ const Service = ({Children}) => {
     const adminItem=[
         {
           path:"/",
-          name:"Google",
-          para:"Manage account information and and",
-          icon:<FcGoogle/>
+          name:"Business Hours",
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Facebook",
-          para:"Manage account information and and",
-          icon:<FaFacebook/>
+          name:"SLA & OLA Policies",
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Instagram",
-          para:"Manage account information and and",
-          icon:<FaInstagramSquare/>
+          name:"Approval Policies",
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Twitter",
-          para:"Manage account information and and",
-          icon:<FaTwitterSquare/>
+          name:"Form Fields",
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Linkedin",
-          para:"Manage account information and and",
-          icon:<AiFillLinkedin/>
+          name:"Business Rules",
+          para:"",
+          icon:''
         },
         {
             path:"",
-            name:"Youtube",
-            para:"Manage account information and and",
-            icon:<AiFillYoutube/>
+            name:"Employee Access",
+            para:"",
+            icon:''
           },
-          {
-            path:"",
-            name:"Analytics",
-            para:"Manage account information and and",
-            icon:<AiFillYoutube/>
-          },
-          {
-            path:"",
-            name:"Admin",
-            para:"Manage account information and and",
-            icon:<RiAdminLine/>
-          },
-          {
-              path:"",
-              name:"Admin",
-              para:"Manage account information and and",
-              icon:<RiAdminLine/>
-            },
-            //Channels
-            
+          
       ]
   return (
     <>
     <div className='heading'>
-      <h1 className='account-gap3'>Service Management</h1>
-      <p className='paragraph3'>Manage the end to end service delivery configurations for your organization</p>
+      <h2 className='account-gap3'>Service Management</h2>
+      <p className='paragraph3'></p>
       {       
           adminItem.map((item,index)=>(
           

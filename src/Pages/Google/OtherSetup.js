@@ -1,52 +1,43 @@
 import React from 'react';
 import { RiAdminLine } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
-import '../styles/Automation.css';
-const Automation = ({Children}) => {
+
+const OtherSetup = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
-          name:"Workflow Automation",
-          para:"",
-          icon:''
+            name: "Criteria",
+            icon: "",
+            path: "/admin/google/criteria"
         },
         {
-          path:"",
-          name:"Alert Automation ",
-          para:"",
-          icon:''
+            name: "Extensions",
+            icon: "",
+            path: "/admin/google/extensions"
         },
-        {
-          path:"",
-          name:"",
-          para:"",
-          icon:''
-        },
-
-            
+                    
       ]
   return (
     <>
     <div className='heading'>
-      <h2 className='account-gap4'>Automation</h2>
-      <p className='paragraph4'></p>
+      <h2 className='account-gap2'>OtherSetup</h2>
+      <p className='paragraph2'></p>
       {       
           adminItem.map((item,index)=>(
           
      <div className='admin-model'>
-            <Link to={item.path} key={index} className='admin-box' >
+            <NavLink to={item.path} key={index} className='admin-box' >
               <div className='admin-icon'>{item.icon}</div>
-              <div >{item.name}</div>
+              <div>{item.name}</div>
               <div>{item.para}</div>
-            </Link>
+            </NavLink>
             </div>
            
           ))
         } 
-    <div className='line4'></div>
+    <div className='line2'></div>
     </div>
     <main>{Children}</main> 
    
@@ -54,4 +45,4 @@ const Automation = ({Children}) => {
   )
 }
 
-export default Automation
+export default OtherSetup

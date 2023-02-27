@@ -1,12 +1,11 @@
 import React from 'react';
 import Account from'./Account';
-import Asset from './Asset';
+import ProjectManagement from './ProjectManagement';
 import Automation from './Automation';
 import Channels from './Channels';
-import ITOperation from './ITOperations';
 import Service from './Service';
 import User from './User';
-import Workload from './Workload';
+
 const Admin = () => {
   return (
     <>
@@ -15,9 +14,8 @@ const Admin = () => {
      <Channels />
      <Service />
      <Automation />
-     <Asset />
-     <ITOperation />
-     <Workload />
+     <ProjectManagement />
+    
     </>
   )
 }

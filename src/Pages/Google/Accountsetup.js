@@ -1,28 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import '../../styles/Accountsetup.css'
 const AccountSetup = ({Children}) => {
     const menuItem=[
         {
-          path:"/admin/google/accountsetup",
-          name:"Account Setup",
+          path:"/admin/google/mediasetup",
+          name:"Media Setup",
           icon:"",
         },
         {
-          path:"/admin/google/accountsinfo",
-          name:"Account Details",
+          path:"/admin/google/adaccountsetup",
+          name:"Ad Account Setup",
           icon:"",
         },
         {
-            path:"/admin/google/createaccount",
-            name:"Create Account",
+            path: "/admin/google/users",
+            name:"Users",
             icon:"",
           },
-        {
-          path:"/admin/google/accesscontrol",
-          name:"Access Control",
-          icon:"",
-        },
         {
           path:"/admin/google/roles",
           name:"Roles",
@@ -30,26 +25,34 @@ const AccountSetup = ({Children}) => {
         },
         
         {
-          path:"/admin/google/groups",
-          name:"Groups",
+          path:  "/admin/google/teams",
+          name:"Groups/Teams",
           icon:"",
         },
         
       ]
       return (
-        <div>
-            <div>
-            {
-              menuItem.map((item,index)=>(
-                <NavLink to={item.path} key={index} className="link" activeclassName="active">
-                  <div className='icon'>{item.icon}</div>
-                  <div className='icon_text'>{item.name}</div>
-                </NavLink>
-              ))
-            }
-          </div>
-          <main>{Children}</main>
-        </div>
+        <>
+        <div className='heading'>
+        <h2 className='accountsetup-account-gap2'>AccountSetup</h2>
+        <p className='paragraph2'></p>
+        {       
+            menuItem.map((item,index)=>(
+            
+       <div className='admin-model'>
+              <NavLink to={item.path} key={index} className='admin-box' >
+                <div className='admin-icon'>{item.icon}</div>
+                <div>{item.name}</div>
+                <div>{item.para}</div>
+              </NavLink>
+              </div>
+             
+            ))
+          } 
+      <div className='line2'></div>
+      </div>
+      <main>{Children}</main> 
+      </>
       )
 }
 

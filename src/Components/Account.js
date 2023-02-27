@@ -12,65 +12,36 @@ const Admin = ({Children}) => {
         {
           path:"/",
           name:"Account",
-          para:"Manage account information and and",
-          icon:<RxDashboard/>
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Project",
-          para:"Manage account information and and",
-          icon:<AiOutlineFundProjectionScreen/>
+          name:"Plan & Bilings",
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Workspace",
-          para:"Manage account information and and",
-          icon:<MdWorkspacesOutline/>
+          name:"Portal Rebranding",
+          para:"",
+          icon:''
         },
         {
           path:"",
-          name:"Analytics",
-          para:"Manage account information and and",
-          icon:<MdOutlineAnalytics/>
+          name:"Day Passes",
+          para:"",
+          icon:''
         },
-        {
-          path:"",
-          name:"Admin",
-          para:"Manage account information and and",
-          icon:<RiAdminLine/>
-        },
-        {
-            path:"",
-            name:"Admin",
-            para:"Manage account information and and",
-            icon:<RiAdminLine/>
-          },
-          {
-            path:"",
-            name:"Analytics",
-            para:"Manage account information and and",
-            icon:<MdOutlineAnalytics/>
-          },
-          {
-            path:"",
-            name:"Admin",
-            para:"Manage account information and and",
-            icon:<RiAdminLine/>
-          },
-          {
-              path:"",
-              name:"Admin",
-              para:"Manage account information and and",
-              icon:<RiAdminLine/>
-            },
+       
             //Channels
             
       ]
   return (
     <>
     <div className='heading'>
-      <h1 className='account-gap'>Account Settings</h1>
-      <p className='paragraph'>Mange account configurations and customizations for your service desk</p>
+      <h2 className='account-gap'>Account Settings</h2>
+      <p className='paragraph'></p>
       {       
           adminItem.map((item,index)=>(
           

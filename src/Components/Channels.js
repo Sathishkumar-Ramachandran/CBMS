@@ -51,7 +51,7 @@ const Channels = ({Children}) => {
   return (
     <>
     <div className='heading'>
-      <h1 className='account-gap2'>  Channels</h1>
+      <h2 className='account-gap2'>Channels</h2>
       <p className='paragraph2'>Mange account configurations and customizations for your service desk</p>
       {       
           adminItem.map((item,index)=>(

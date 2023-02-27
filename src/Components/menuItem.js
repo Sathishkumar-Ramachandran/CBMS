@@ -26,6 +26,7 @@ export const menuItem=[
     },
 
     {
+      title:'Tictes',
       path:"/tickets",
       title:"Tickets",
       icon: <SummarizeOutlinedIcon />,

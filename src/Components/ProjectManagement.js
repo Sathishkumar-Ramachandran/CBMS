@@ -1,57 +1,49 @@
 import React from 'react';
-import {RxDashboard } from "react-icons/rx";
-import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { MdWorkspacesOutline, MdOutlineAnalytics } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-
-import '../styles/User.css';
-
-const User = ({Children}) => {
+import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
+import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
+import { FcGoogle} from "react-icons/fc";
+import '../styles/ProjectManagement.css';
+const ProjectManagement = ({Children}) => {
     const adminItem=[
         {
           path:"/",
-          name:"Users",
+          name:"Project Collaboration",
           para:"",
           icon:''
         },
         {
           path:"",
-          name:"Roles",
+          name:"Project Lifecycle",
           para:"",
           icon:''
         },
         {
           path:"",
-          name:"Fields",
+          name:"JIRA",
           para:"",
           icon:''
         },
         {
           path:"",
-          name:"Groups",
+          name:"Trello",
           para:"",
           icon:''
         },
         {
           path:"",
-          name:"Approval Lifecycle",
+          name:"DevOps",
           para:"",
           icon:''
         },
-        {
-            path:"",
-            name:"Location Avalibility",
-            para:"",
-            icon:''
-          },
-         
+        
       ]
   return (
     <>
     <div className='heading'>
-      <h2 className='account-gap1'>User Management</h2>
-      <p className='paragraph1'></p>
+      <h2 className='account-gap5'>Project Management</h2>
+      <p className='paragraph5'></p>
       {       
           adminItem.map((item,index)=>(
           
@@ -62,15 +54,15 @@ const User = ({Children}) => {
               <div>{item.para}</div>
             </Link>
             </div>
-          
+           
           ))
         } 
-        <div className='line1'></div>
+    <div className='line5'></div>
     </div>
     <main>{Children}</main> 
-
+   
     </>
   )
 }
 
-export default User
+export default ProjectManagement
