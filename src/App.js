@@ -16,6 +16,7 @@ import Admin from "./Components/Admin.js";
 import Accounts from "./Pages/Google/Accounts.js";
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
+import Mediasetup from "./Pages/Google/Mediasetup.js";
 
 
 
@@ -57,7 +58,7 @@ function App() {
           <Route path='/admin/google/campaignsetup/campaigns' element={""} />
           <Route path='/admin/google/campaignsetup/createcampaigns' element={""} />
           <Route path='/admin/google/campaignsetup/formfields' element={""} />
-
+          <Route path='/admin/google/mediasetup' element={<Mediasetup />} />
           </Route>
         
           <Route  path='/login' element={<Auth />} />

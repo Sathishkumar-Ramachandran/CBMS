@@ -3,6 +3,7 @@ import { RiAdminLine } from "react-icons/ri";
 import { NavLink } from 'react-router-dom';
 import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import { FcGoogle} from "react-icons/fc";
 
 const Channels = ({Children}) => {
@@ -10,7 +11,7 @@ const Channels = ({Children}) => {
         {
 
             name: "Ad Groups Form",
-            icon: "",
+            icon: <FeedOutlinedIcon />,
             path: "/admin/google/adgroupsform"
         },     
       ]

@@ -1,17 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import ApprovalOutlinedIcon from '@mui/icons-material/ApprovalOutlined';
 const Campaignsetup = ({Children}) => {
 
     const menuItem=[
         {
           path:"/admin/google/campaignform",
           name:"Campaign Form",
-          icon:"",
+          icon:<FeedOutlinedIcon />,
         },
         {
           path:"Campaign Lifecycle",
           name:"Campaign Lifecycle",
-          icon:"",
+          icon:<ApprovalOutlinedIcon />,
         },
         
       ]

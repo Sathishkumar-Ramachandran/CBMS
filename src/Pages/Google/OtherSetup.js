@@ -4,17 +4,19 @@ import { NavLink } from 'react-router-dom';
 import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
+import HighlightOutlinedIcon from '@mui/icons-material/HighlightOutlined';
+import AltRouteOutlinedIcon from '@mui/icons-material/AltRouteOutlined';
 
 const OtherSetup = ({Children}) => {
     const adminItem=[
         {
             name: "Criteria",
-            icon: "",
+            icon: <HighlightOutlinedIcon />,
             path: "/admin/google/criteria"
         },
         {
             name: "Extensions",
-            icon: "",
+            icon: <AltRouteOutlinedIcon />,
             path: "/admin/google/extensions"
         },
                     

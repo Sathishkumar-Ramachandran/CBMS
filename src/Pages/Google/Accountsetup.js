@@ -1,33 +1,40 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../../styles/Accountsetup.css'
+import GoogleIcon from '@mui/icons-material/Google';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import ContactEmergencyOutlinedIcon from '@mui/icons-material/ContactEmergencyOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+
 const AccountSetup = ({Children}) => {
     const menuItem=[
         {
           path:"/admin/google/mediasetup",
           name:"Media Setup",
-          icon:"",
+          icon:<GoogleIcon />,
         },
         {
           path:"/admin/google/adaccountsetup",
           name:"Ad Account Setup",
-          icon:"",
+          icon:<NewspaperIcon />,
         },
         {
             path: "/admin/google/users",
             name:"Users",
-            icon:"",
+            icon:<PersonAddAltOutlinedIcon />,
           },
         {
           path:"/admin/google/roles",
           name:"Roles",
-          icon:"",
+          icon:<ContactEmergencyOutlinedIcon />,
         },
         
         {
           path:  "/admin/google/teams",
           name:"Groups/Teams",
-          icon:"",
+          icon:<GroupsOutlinedIcon />,
         },
         
       ]

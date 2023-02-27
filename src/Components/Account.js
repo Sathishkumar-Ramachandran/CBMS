@@ -4,8 +4,12 @@ import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { MdWorkspacesOutline, MdOutlineAnalytics } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import '../styles/Account.css';
+import plan from '../plans.png';
+import portal from '../portal.png';
+import daypass from "../daypass.png";
+import roles from "../roles.png"
 
 const Admin = ({Children}) => {
     const adminItem=[
@@ -13,25 +17,25 @@ const Admin = ({Children}) => {
           path:"/",
           name:"Account",
           para:"",
-          icon:''
+          icon:<AccountCircleOutlinedIcon />
         },
         {
           path:"",
-          name:"Plan & Bilings",
+          name:"Plans & Bilings",
           para:"",
-          icon:''
+          icon:<img src={plan} />
         },
         {
           path:"",
           name:"Portal Rebranding",
           para:"",
-          icon:''
+          icon:<img src={portal} />
         },
         {
           path:"",
           name:"Day Passes",
           para:"",
-          icon:''
+          icon:<img src={daypass} />
         },
        
             //Channels

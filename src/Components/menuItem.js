@@ -6,6 +6,8 @@ import {RxDashboard } from "react-icons/rx";
 import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
+import CampaignIcon from '@mui/icons-material/Campaign';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import DeveloperBoardOutlinedIcon from '@mui/icons-material/DeveloperBoardOutlined';
@@ -144,12 +146,12 @@ export const menuItem=[
         {
           path: "/admin/google/campaign",
           name: "Campaigns",
-          icon: ""
+          icon: <CampaignIcon />
         },
         {
           path: "/admin/google/ads",
           name: "Ads",
-          icon: ""
+          icon: <NewspaperIcon />
         },
         {
           path: "/admin/google/adgroups",
