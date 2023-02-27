@@ -10,6 +10,8 @@ import {
   Link,
 } from "react-router-dom";
 
+
+
 import "../styles/login.css";
 import { toast,ToastContainer } from "react-toastify";
 import { DoubleEngine } from "../middleware/interceptor.js";
@@ -51,7 +53,8 @@ const Login = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(true);
-
+  
+  
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setSubmitted(false);
@@ -206,27 +209,29 @@ let payload={
   };
 
   return (
-    <div className="form">
+    <div className="loginform">
     <ToastContainer />
+    <div>
       <div>
-        <h1 className="title">LOGIN</h1>
+        <h1 className="logintitle">LOGIN</h1>
         <div className="underline-title"></div>
       </div>
 
       <div className="messages"></div>
 
-      <form className="form-input">
-        <label className="label-heading">Email</label>
-        <input
+      <form className="loginform-input">
+        <label className="loginlabel-heading-email">Email</label>
+       
+         <input
           onChange={handleEmail}
           className="input-login"
           value={email}
           type="email"
           required
-        />
-        <div className="text-line"></div>
+        /> 
+         <div className="text-line"></div> 
 
-        <label className="label-heading">Password</label>
+        <label className="loginlabel-heading">Password</label>
         <input
           onChange={handlePassword}
           className="input-login"
@@ -234,7 +239,10 @@ let payload={
           type="password"
           required
         />
-        <div className="text-line"></div>
+        <div className="text-line"></div> 
+
+        
+          
 
         <a href="" className="forgot-pass">
           Forgot Password?
@@ -243,18 +251,21 @@ let payload={
         <button onClick={handleSubmit} className="btn" type="submit">
           Submit
         </button>
-        <h5 className="login-heading">or login with</h5>
-        <div id="signInDiv1"></div>
+        <h5 className="SSO">or Login with</h5>
+        
             
             <div className="login-all">
+            <div id="signInDiv"></div>
               <Link to="" className="login-google-icon-facebook">
+              
                 <FaFacebook onClick={loginWithFacebook} />
               </Link>
             </div>
-        <a className="signup">
+        {/* <a className="signup">
           Don't have account yet?
-        </a>
+        </a> */}
       </form>
+      </div>
     </div>
   );
 };

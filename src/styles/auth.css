@@ -14,8 +14,8 @@
   } */
   .input{
     padding-top: 5px; 
-    background: #fbfbfb;
-    border: none;
+    background: #fdfcfe;
+    border: 1px;
     outline: none;
   }
   
@@ -23,8 +23,8 @@
   .column {
     float: left;
     width: 50%;
-    height: 100;
-
+    
+    
     padding: 25px 25px 25px 25px;
   }
   

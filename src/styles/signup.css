@@ -3,15 +3,18 @@
     outline: none;
     font-family: "Raleway", sans-serif;
     border: none;
-    text-align: center;
+    text-align: left;
     }
-  
+  .signupform {
+    border: 1px solid rgba(0, 0, 0, 0.699);
+    border-radius: 1.625rem;
+  }
     .signupinput{
     padding-top: 5px;
     width: 100%;
     border: none;
     outline: none;
-  
+    margin-left: 30px;
     
     }
     .signupbtn{
@@ -72,7 +75,7 @@
 
     display: flex;
     flex-direction: column;
-    padding: 0px 44px;
+    padding: 10px 44px;
     
 }
 
@@ -82,7 +85,9 @@
     flex-direction: column;
     background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
     height: 1px;
-    width: 100%;   
+    width: 70%;   
+    margin-left: 20px;
+    padding-bottom: 1px;
 }
 
 .signupforgot-pass{
@@ -95,7 +100,8 @@
 
 .signup-heading{
     margin-top: 1.9%;
-    margin-left: 11.5rem;
+    margin-left: 9.5rem;
+    padding-top: 5px;
 }
   .signup-google-icon{
     font-size: 23px;
@@ -133,5 +139,5 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
-    margin-left: 11rem;
+    margin-left: 1rem;
   }
