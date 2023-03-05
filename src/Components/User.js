@@ -23,13 +23,13 @@ const User = ({Children}) => {
           path:"",
           name:"Roles",
           para:"",
-          icon:<img src={roles} />
+          icon:<img src={roles} alt='for roles'className='roles-icon'/>
         },
         {
           path:"",
           name:"Fields",
           para:"",
-          icon:<img src={form} />
+          icon:<img src={form} alt='for form'/>
         },
         {
           path:"",
@@ -41,13 +41,13 @@ const User = ({Children}) => {
           path:"",
           name:"Approval Lifecycle",
           para:"",
-          icon:<img src={lifecycle} />
+          icon:<img src={lifecycle} alt='for approval'/>
         },
         {
             path:"",
             name:"Location Avalibility",
             para:"",
-            icon:<img src={location} />
+            icon:<img src={location} alt='for location'/>
           },
          
       ]

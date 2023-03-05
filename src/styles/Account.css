@@ -53,11 +53,14 @@ a{
 }
 .admin-icon{
     color: black;
-    font-size: 25px;
+    font-size: 24px;
 }
-.admin-icon:hover{
 
-    color: white;
-    transition: all 0.5s;
-    border-radius: 20px;
+img{
+    width:24px;
+    height: 24px;
+}
+
+.portal-icon {
+    font-size: 24px;
 }
