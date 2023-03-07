@@ -1,9 +1,9 @@
 import React from "react";
 
-const Main = () => {
+const Account = () => {
     return(
         <></>
     )
 }
 
-export default Main;
+export default Account;

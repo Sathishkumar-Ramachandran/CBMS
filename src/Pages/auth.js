@@ -4,7 +4,7 @@ import React from "react";
 import Login from '../Components/login.js';
 import Signup from '../Components/signup.js';
 import '../styles/auth.css';
-import bg from "../Login-BG.jpg";
+import bg from "../../src/assets/Login-BG.jpg";
 
 const Auth = () => {
     return(

@@ -1,9 +1,12 @@
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { MdWorkspacesOutline, MdOutlineAnalytics } from "react-icons/md";
-import { RiAdminLine } from "react-icons/ri";
+import {BsKanbanFill} from 'react-icons/bs'
+import {TbReportSearch} from 'react-icons/tb'
+import {GiPostStamp} from 'react-icons/gi'
+import { RiAdminLine,RiTeamLine } from "react-icons/ri";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import {RxDashboard } from "react-icons/rx";
-import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
+import { FaFacebook,FaInstagramSquare,FaTwitterSquare,FaCalendarAlt} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
 import CampaignIcon from '@mui/icons-material/Campaign';
@@ -11,7 +14,9 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import DeveloperBoardOutlinedIcon from '@mui/icons-material/DeveloperBoardOutlined';
-
+import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
+import GroupAddTwoToneIcon from '@mui/icons-material/GroupAddTwoTone';
+import FB from "../../src/assets/FB.jpg";
 export const menuItem=[
     {
       path:"/",
@@ -55,22 +60,22 @@ export const menuItem=[
         {
           path: "/workspace/projects?q=",
           name: "Your Projects",
-          icon: ""
+          icon: <AccountTreeTwoToneIcon/>
         },
         {
           path: "/workspace/team?q=",
           name: "Your Team",
-          icon: ""
+          icon: <RiTeamLine/>
         },
         {
           path: "/workspace/kanban",
           name: "Kanban",
-          icon: ""
+          icon: <BsKanbanFill/>
         },
         {
           path: "/workspace/calendar",
           name: "Calendar",
-          icon: ""
+          icon:<FaCalendarAlt/>
         },
         ]
     },
@@ -132,7 +137,7 @@ export const menuItem=[
         {
           path: "/analytics/reports?q=you",
           name: "Your Reports",
-          icon: ""
+          icon: <TbReportSearch/>
         },
         
       ]
@@ -156,7 +161,7 @@ export const menuItem=[
         {
           path: "/admin/google/adgroups",
           name: "Ad Groups",
-          icon: ""
+          icon: <GroupAddTwoToneIcon/>
         },
       
       ]
@@ -164,12 +169,12 @@ export const menuItem=[
     {
       path: '/admin/facebook',
       title: 'Facebok',
-      icon: <FaFacebook className='submenu-facebook'/>,
+      icon: <img src={FB} className='fb-logo' />,
       submenu: [
         {
           path: "/admin/facebook/posts",
           name: "Posts",
-          icon: ""
+          icon: <GiPostStamp/>
         },
         {
           path: "/admin/facebook/ads",

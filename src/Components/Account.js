@@ -6,33 +6,33 @@ import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import '../styles/Account.css';
-import plan from '../plans.png';
-import portal from '../portal.png';
-import daypass from "../daypass.png";
-import roles from "../roles.png"
+import plan from '../../src/assets/plans.png';
+import portal from '../../src/assets/portal.png';
+import daypass from "../../src/assets/daypass.png";
+import roles from "../../src/assets/roles.png";
 
 const Admin = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"/admin/account",
           name:"Account",
           para:"",
           icon:<AccountCircleOutlinedIcon />
         },
         {
-          path:"",
+          path:"/admin/plans",
           name:"Plans & Bilings",
           para:"",
           icon:<img src={plan} />
         },
         {
-          path:"",
+          path:"/admin/portal",
           name:"Portal Rebranding",
           para:"",
           icon:<img src={portal} />
         },
         {
-          path:"",
+          path:"/admin/daypasses",
           name:"Day Passes",
           para:"",
           icon:<img src={daypass} />
@@ -51,7 +51,7 @@ const Admin = ({Children}) => {
           
      <div className='admin-model'>
             <Link to={item.path} key={index} className='admin-box' >
-              <div className='admin-icon'>{item.icon}</div>
+              <div>{item.icon}</div>
               <div>{item.name}</div>
               <div>{item.para}</div>
             </Link>

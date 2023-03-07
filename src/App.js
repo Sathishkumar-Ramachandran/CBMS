@@ -5,7 +5,7 @@ import Auth from "./Pages/auth.js";
 import Dashboard from "./Pages/dashboard";
 
 import "../src/styles/app.css";
-import Project from './Components/Project'
+import Projects from './Pages/Project'
 import Topnav from "./Components/topnav.js";
 import Leftnav from "./Components/leftnav.js";
 import Header from "./Components/Header.js";
@@ -17,7 +17,7 @@ import Accounts from "./Pages/Google/Accounts.js";
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
 import Mediasetup from "./Pages/Google/Mediasetup.js";
-
+import Account from "./Components/admin/accountsetup.js";
 
 
 function App() {
@@ -44,10 +44,13 @@ function App() {
         <Routes>
         <Route element={<WithNavs />}>
         <Route exact path='/' element={<Dashboard />} />
-        <Route  path='/project' element={<Project />} />
+        <Route  path='/projects' element={<Projects />} />
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
+
+
+          <Route path="/admin/account" element={<Account />} />
         
           <Route path='/admin/google/' element={<Googleadmin />} />
           <Route path='/admin/google/accountsetup/accounts' element={""} />
