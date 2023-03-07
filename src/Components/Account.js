@@ -14,7 +14,7 @@ import roles from "../roles.png"
 const Admin = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"/admin/account",
           name:"Account",
           para:"",
           icon:<AccountCircleOutlinedIcon />

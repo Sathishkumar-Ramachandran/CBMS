@@ -8,7 +8,7 @@ import '../styles/Automation.css';
 const Automation = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"",
           name:"Workflow Automation",
           para:"",
           icon:''
