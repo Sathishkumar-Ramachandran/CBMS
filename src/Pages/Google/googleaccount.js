@@ -2,11 +2,23 @@ import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'
 import SendIcon from '@mui/icons-material/Send';
-
+import Box from '@mui/material/Box';
 
 const Googleaccount = () => {
     return(
         <div>
+          <div>
+            <Box>
+            <TextField
+              required
+              id="outlined-required"
+              helperText="Please enter your Developer Token"
+              label="Developer Token"
+              defaultValue="Client Id"
+              sx={{m:5}}
+        />
+           </Box>
+          </div>
           <TextField
           required
           id="outlined-required"
@@ -25,7 +37,8 @@ const Googleaccount = () => {
         />  
         <Button variant="contained" sx={{m:6}}
         endIcon={<SendIcon />}>
-            Add Account</Button>
+            Generate Refresh Token</Button>
+            <h5 style={{paddingLeft: "35px"}}>Note: To Generate Refresh Token you have to authenticate Google with OAuth</h5>
         </div>
     )
 }

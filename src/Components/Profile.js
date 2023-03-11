@@ -30,7 +30,7 @@ export default function AccountMenu() {
      
      <button className='todo'><BsListCheck/></button>
     <button className='notifi-icon'><IoIosNotificationsOutline/></button>
-        <Tooltip title="Account settings">
+        <Tooltip title="Profile">
           <IconButton
             onClick={handleClick}
             size="small"

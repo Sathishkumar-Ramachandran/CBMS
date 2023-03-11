@@ -20,7 +20,7 @@ main{
     background:#014421;
     color: black;
     height: 100%;
-    width: 10%;
+    width: 20%;
     position:fixed;
    
 }
@@ -104,4 +104,9 @@ main{
 }
 .submenu-instagram{
     color: rgb(212, 79, 102);
+}
+
+.fb-logo{
+    width: 24px;
+    height: 24px;
 }
