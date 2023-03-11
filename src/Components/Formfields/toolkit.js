@@ -1,37 +1,61 @@
 import React from "react";
 
 
+import { BiText } from "react-icons/bi";
+import { BiParagraph } from "react-icons/bi";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { CgRadioChecked } from "react-icons/cg";
+
+
 const Toolkit = () => {
     tools = [
         {
-            Tool1: "",
+            Tool: "Single Line Text",
             comp: "",
-            icon: ""
+            icon: <BiText />
         },
         {
-            Tool1: "",
+            Tool: "Paragraph",
             comp: "",
-            icon: ""
+            icon: <BiParagraph />
         },
         {
-            Tool1: "",
+            Tool: "Dropdown",
             comp: "",
-            icon: ""
+            icon: <IoIosArrowDropdown />
         },
         {
-            Tool1: "",
+            Tool: "Radio Button",
             comp: "",
-            icon: ""
+            icon: <CgRadioChecked />
         },
         {
-            Tool1: "",
+            Tool: "",
             comp: "",
             icon: ""
         },
         
     ]
+
+
+
     return(
-        <></>
+        <>
+        <div>
+            <div className="toolkit">
+                {Toolkit.map((item, index) => (
+                    <li key={index}>
+                        {item.icon}
+                    </li>
+                ))
+                
+                }
+            </div>
+            <div>
+
+            </div>
+        </div>
+        </>
     )
 };
 
