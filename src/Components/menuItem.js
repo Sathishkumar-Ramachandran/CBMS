@@ -169,7 +169,7 @@ export const menuItem=[
     {
       path: '/admin/facebook',
       title: 'Facebok',
-      icon: <img src={FB} className='fb-logo' />,
+      icon: <FaFacebook className='submenu-facebook' />,
       submenu: [
         {
           path: "/admin/facebook/posts",
@@ -179,7 +179,7 @@ export const menuItem=[
         {
           path: "/admin/facebook/ads",
           name: "Ads",
-          icon: ""
+          icon: <NewspaperIcon/>
         },
         
       ]
@@ -192,12 +192,12 @@ export const menuItem=[
         {
           path: "/admin/linkedin/posts",
           name: "Posts",
-          icon: ""
+          icon: <GiPostStamp/>
         },
         {
           path: "/admin/linkedin/ads",
           name: "Ads",
-          icon: ""
+          icon: <NewspaperIcon/>
         },
       ]
     },
@@ -209,12 +209,12 @@ export const menuItem=[
           {
             path: "/admin/linkedin/posts",
             name: "Posts",
-            icon: ""
+            icon:<GiPostStamp/>
           },
           {
             path: "/admin/linkedin/ads",
             name: "Ads",
-            icon: ""
+            icon: <NewspaperIcon/>
           },
         ]
       },
