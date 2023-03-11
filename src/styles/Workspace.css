@@ -41,3 +41,75 @@
     margin-top: 4rem;
     margin-left: 10rem;
   }
+
+  .filter-sidebar{
+    background:#014421;
+    color: black;
+    height: 100%;
+    width: 20%;
+    position:fixed;
+   
+}
+.filter-top-section{
+    display: flex;
+    align-items: center;
+    padding: 0 12px ;
+   
+}
+.filter-logo{
+    font-size: 20px;
+    color: white;
+   
+   
+}
+.filter-bar{
+    font-size: 25px;
+    display: flex;
+    cursor: pointer;
+    top: 0;
+    color: white;
+}
+
+.modal-dialog {
+  padding: 8px;
+  background:#00693E;
+  position: fixed;
+  overflow-y: scroll;
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: -216px;
+  height: vh;
+  width: 200px;
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+  transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal-dialog.show {
+  right: 0px;
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+  transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+.mybutton{
+ 
+  margin-top: 10%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close{
+  color:white;
+  margin:0;
+  left:0;
+  border-radius:50%;
+  border:1px solid white;
+
+}
+.modal-title{
+  color:white;
+  margin-top:1rem;
+}

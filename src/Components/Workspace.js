@@ -22,6 +22,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import '../styles/Workspace.css';
+import Filter from './Filter';
+
+
 function createData(name, calories, fat, carbs, protein) {
   return {
     name,
@@ -199,7 +202,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Workspace
+          Nutrition
         </Typography>
       )}
 
@@ -212,7 +215,7 @@ function EnhancedTableToolbar(props) {
       ) : (
         <Tooltip title="Filter list">
           <IconButton>
-            <FilterListIcon />
+            <Filter className='mybutton'/>
           </IconButton>
         </Tooltip>
       )}
@@ -372,7 +375,6 @@ export default function EnhancedTable() {
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
       />
-    </Box>
-    </div>
+    </Box></div>
   );
 }
