@@ -13,10 +13,11 @@ import Profile from './Components/Profile.js';
 import Workspace from "./Components/Workspace.js";
 import Analytics from "./Components/Analytics.js";
 import Admin from "./Components/Admin.js";
-import Accounts from "./Pages/Google/Accounts.js";
+
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
 import Mediasetup from "./Pages/Google/Mediasetup.js";
+import Campaignform from "./Pages/Google/campaignform.js";
 
 
 
@@ -56,9 +57,10 @@ function App() {
           <Route path='/admin/google/accountsetup/groups' element={""} />
           <Route path='/admin/google/accountsetup/formfields' element={""} />
           <Route path='/admin/google/campaignsetup/campaigns' element={""} />
-          <Route path='/admin/google/campaignsetup/createcampaigns' element={""} />
+          <Route path='/admin/google/campaignform' element={<Campaignform />} />
           <Route path='/admin/google/campaignsetup/formfields' element={""} />
           <Route path='/admin/google/mediasetup' element={<Mediasetup />} />
+          
           </Route>
         
           <Route  path='/login' element={<Auth />} />

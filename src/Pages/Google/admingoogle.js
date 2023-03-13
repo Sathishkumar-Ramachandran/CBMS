@@ -1,10 +1,10 @@
 import React from "react";
 import '../../styles/admingoogle.css'
-import Accountsetup from './Accountsetup.js';
-import Campaignsetup from "./Campaignsetup.js";
-import AdGroupForm from './AdGroupsForm'
-import BudgetForm from "./BudgetForm.js";
-import OtherSetup from "./OtherSetup.js";
+import Accountsetup from '../../Components/google/Accountsetup.js';
+import Campaignsetup from "../../Components/google/Campaignsetup.js";
+import AdGroupForm from '../../Components/google/AdGroupsForm'
+import BudgetForm from "../../Components/google/BudgetForm.js";
+import OtherSetup from "../../Components/google/OtherSetup.js";
 import { ImSearch } from "react-icons/im";
 const Googleadmin = () => {
     

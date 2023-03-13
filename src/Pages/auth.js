@@ -14,9 +14,7 @@ const Auth = () => {
             <div className="column">
                 <div className="card">  <Login /> </div>
             </div>
-            {/* <div className="column">
-                <img src={bg} alt="Login Background" className="card" />
-            </div>     */}
+            
             <div className="column">
                 <div className="card">  <Signup /> </div>
             </div>
