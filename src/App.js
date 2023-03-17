@@ -61,7 +61,7 @@ function App() {
           <Route path='/admin/google/campaignsetup/campaigns' element={""} />
           <Route path='/admin/google/campaignform' element={<Campaignform />} />
           <Route path='/admin/google/campaignsetup/createcampaigns' element={""} />
-          <Route path='/admin/google/campaignsetup/formfields' element={""} />
+          <Route path='/admin/google/campaignsetup/formfields' element={<Campaignform />} />
           <Route path='/admin/google/mediasetup' element={<Mediasetup />} />
           </Route>
         

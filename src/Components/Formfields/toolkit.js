@@ -7,43 +7,52 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { CgRadioChecked } from "react-icons/cg";
 
 
-const Toolkit = () => {
+const Toolkit = (props) => {
     tools = [
         {
             Tool: "Single Line Text",
             comp: "",
-            icon: <BiText />
+            icon: <BiText />,
+            properties: ""
         },
         {
             Tool: "Paragraph",
             comp: "",
-            icon: <BiParagraph />
+            icon: <BiParagraph />,
+            properties: ""
         },
         {
             Tool: "Dropdown",
             comp: "",
-            icon: <IoIosArrowDropdown />
+            icon: <IoIosArrowDropdown />,
+            properties: ""
         },
         {
             Tool: "Radio Button",
             comp: "",
-            icon: <CgRadioChecked />
+            icon: <CgRadioChecked />,
+            properties: ""
         },
         {
             Tool: "",
             comp: "",
-            icon: ""
+            icon: "",
+            properties: ""
         },
         
     ]
-
+    const defaultFields = () => {
+        props.map(property => {
+            return <li key={property}>{property.comp}</li>
+        })
+    }
 
 
     return(
         <>
         <div>
             <div className="toolkit">
-                {Toolkit.map((item, index) => (
+                {tools.map((item, index) => (
                     <li key={index}>
                         {item.icon}
                     </li>
@@ -52,7 +61,7 @@ const Toolkit = () => {
                 }
             </div>
             <div>
-
+                <ul>{defaultFields}</ul>
             </div>
         </div>
         </>
