@@ -1,55 +1,87 @@
-import React from "react";
-
-
+import React, { useState, useEffect} from "react";
+import axios from "axios";
+import "../../styles/Formfields/formfield.css"
 import { BiText } from "react-icons/bi";
 import { BiParagraph } from "react-icons/bi";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { CgRadioChecked } from "react-icons/cg";
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import TextField from '@mui/material/TextField';
+
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
 
-const Toolkit = () => {
-    tools = [
+
+const Toolkit = (props) => {
+
+   
+   
+
+   
+
+    const tools = [
         {
             Tool: "Single Line Text",
-            comp: "",
-            icon: <BiText />
+            comp: <TextField />,
+            icon: <BiText />,
+            properties: ""
         },
         {
             Tool: "Paragraph",
             comp: "",
-            icon: <BiParagraph />
+            icon: <BiParagraph />,
+            properties: ""
         },
         {
             Tool: "Dropdown",
             comp: "",
-            icon: <IoIosArrowDropdown />
+            icon: <IoIosArrowDropdown />,
+            properties: ""
         },
         {
             Tool: "Radio Button",
             comp: "",
-            icon: <CgRadioChecked />
+            icon: <CgRadioChecked />,
+            properties: ""
         },
         {
             Tool: "",
             comp: "",
-            icon: ""
+            icon: "",
+            properties: ""
         },
         
     ]
 
+    const defaultFields = () => {
+        props.map(property => {
+            return <li key={property}>{property.comp}</li>
+        })
+    }
 
 
+    
     return(
         <>
         <div>
             <div className="toolkit">
-                {Toolkit.map((item, index) => (
-                    <li key={index}>
+
+
+            <ButtonGroup variant="outlined" aria-label="outlined primary button group">
+                {tools.map((item, index) => (
+                    <Button key={index} >
+
                         {item.icon}
-                    </li>
+                           
+                    </Button>
+                        
                 ))
                 
+                
                 }
+            </ButtonGroup>
             </div>
             <div>
 

@@ -4,13 +4,13 @@ import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { MdWorkspacesOutline, MdOutlineAnalytics } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import roles from "../roles.png";
+import roles from "../../src/assets/roles.png";
 import '../styles/User.css';
-import form from "../form.png";
+import form from "../../src/assets/form.png";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
-import lifecycle from '../lifecycle.png';
-import location from '../locations.png';
+import lifecycle from '../../src/assets/lifecycle.png';
+import location from '../../src/assets/locations.png';
 const User = ({Children}) => {
     const adminItem=[
         {
