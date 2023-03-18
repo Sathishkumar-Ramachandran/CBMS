@@ -55,7 +55,7 @@ function App() {
           <Route path='/admin/google/accountsetup/roles' element={""} />
           <Route path='/admin/google/accountsetup/groups' element={""} />
           <Route path='/admin/google/accountsetup/formfields' element={""} />
-          <Route path='/admin/google/campaignsetup/campaigns' element={""} />
+          <Route path='/admin/google/campaignsetup/campaignform' element={""} />
           <Route path='/admin/google/campaignsetup/createcampaigns' element={""} />
           <Route path='/admin/google/campaignsetup/formfields' element={""} />
           <Route path='/admin/google/mediasetup' element={<Mediasetup />} />
