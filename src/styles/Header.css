@@ -47,7 +47,7 @@ nav .ul-itemes{
     gap: 1rem;
     height: 3%;
     border:1px solid #d6d6d6;
-    background-color: rgba(0, 128, 0, 0.432);
+    background-color: white;
 }
 
 nav .ul-itemes .item{

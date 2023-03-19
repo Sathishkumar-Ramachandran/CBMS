@@ -5,37 +5,42 @@ import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
 import '../styles/ProjectManagement.css';
+import Projectcollaboartion from '../../src/assets/Projectcollaboartion.jpg';
+import Projectlifecycle from '../../src/assets/Projectlifecycle.png';
+import Jira from '../../src/assets/Jira.png';
+import Trello from '../../src/assets/Trello.png';
+import DevOps from '../../src/assets/Devops.png';
 const ProjectManagement = ({Children}) => {
     const adminItem=[
         {
           path:"/",
           name:"Project Collaboration",
           para:"",
-          icon:''
+          icon:<img src={Projectcollaboartion} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
           name:"Project Lifecycle",
           para:"",
-          icon:''
+          icon:<img src={Projectlifecycle} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
           name:"JIRA",
           para:"",
-          icon:''
+          icon:<img src={Jira} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
           name:"Trello",
           para:"",
-          icon:''
+          icon:<img src={Trello} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
           name:"DevOps",
           para:"",
-          icon:''
+          icon:<img src={DevOps} alt='for roles'className='Business-icon'/>
         },
         
       ]

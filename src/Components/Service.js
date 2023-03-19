@@ -1,17 +1,22 @@
 import React from 'react';
 import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
+import { FaBusinessTime} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
 import '../styles/Service.css';
+import Business from '../../src/assets/Business.png';
+import Approval from '../../src/assets/Approval.png';
+import Formfields from '../../src/assets/Formfileds.jpg';
+import Employee from '../../src/assets/Employee.png';
+import Businessrules from '../../src/assets/Businessrules.png';
 const Service = ({Children}) => {
     const adminItem=[
         {
           path:"/",
           name:"Business Hours",
           para:"",
-          icon:''
+          icon:<img src={Business} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
@@ -23,25 +28,25 @@ const Service = ({Children}) => {
           path:"",
           name:"Approval Policies",
           para:"",
-          icon:''
+          icon:<img src={Approval} alt='for approval'className='Approval-icon'/>
         },
         {
           path:"",
           name:"Form Fields",
           para:"",
-          icon:''
+          icon:<img src={Formfields} alt='for formfileds'className='Approval-icon'/>
         },
         {
           path:"",
           name:"Business Rules",
           para:"",
-          icon:''
+          icon:<img src={Businessrules} alt='for approval'className='Approval-icon'/>
         },
         {
             path:"",
             name:"Employee Access",
             para:"",
-            icon:''
+            icon:<img src={Employee} alt='for approval'className='Approval-icon'/>
           },
           
       ]

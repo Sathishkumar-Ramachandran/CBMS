@@ -3,21 +3,23 @@ import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
-import { FcGoogle} from "react-icons/fc";
+import { FiAlertTriangle} from "react-icons/fi";
 import '../styles/Automation.css';
+import Workflow from '../../src/assets/Workflow.png';
+import Alert from '../../src/assets/Alert.png';
 const Automation = ({Children}) => {
     const adminItem=[
         {
           path:"",
           name:"Workflow Automation",
           para:"",
-          icon:''
+          icon:<img src={Workflow} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
           name:"Alert Automation ",
           para:"",
-          icon:''
+          icon:<img src={Alert} alt='for roles'className='Business-icon'/>
         },
         {
           path:"",
