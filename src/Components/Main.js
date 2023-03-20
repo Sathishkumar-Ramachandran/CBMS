@@ -1,6 +1,9 @@
 
 import React from 'react'
 import '../styles/Main.css';
+import Linechart from './Charts/Linechart';
+import PieRechart from './Charts/PieRechart';
+import Dashboardtable from './Charts/Dashboardtable'
 const Main = () => {
   return (
     <>
@@ -29,7 +32,14 @@ const Main = () => {
 <p></p>
 </div>
 </div>
+<div className='chart-main'>
+<PieRechart className='piechart'/>
+<Linechart/>
+</div>
+{/* <Dashboardtable/> */}
 </>
+
+
   )
 }
 
