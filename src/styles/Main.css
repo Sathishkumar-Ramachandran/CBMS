@@ -69,3 +69,13 @@
   display: flex;
 
 }
+
+.main-dashboard{
+  margin-left: 2rem;
+}
+
+.maps-main{
+  display: table;
+  clear: both;
+  display: flex;
+}
