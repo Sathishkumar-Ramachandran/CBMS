@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 
 import { BiText } from "react-icons/bi";
@@ -7,36 +7,49 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { CgRadioChecked } from "react-icons/cg";
 
 
-const Toolkit = () => {
+const Toolkit = (props) => {
+
+    const [fields, setfields] = useState({});
+
+
     tools = [
         {
             Tool: "Single Line Text",
             comp: "",
-            icon: <BiText />
+            icon: <BiText />,
+            properties: ""
         },
         {
             Tool: "Paragraph",
             comp: "",
-            icon: <BiParagraph />
+            icon: <BiParagraph />,
+            properties: ""
         },
         {
             Tool: "Dropdown",
             comp: "",
-            icon: <IoIosArrowDropdown />
+            icon: <IoIosArrowDropdown />,
+            properties: ""
         },
         {
             Tool: "Radio Button",
             comp: "",
-            icon: <CgRadioChecked />
+            icon: <CgRadioChecked />,
+            properties: ""
         },
         {
             Tool: "",
             comp: "",
-            icon: ""
+            icon: "",
+            properties: ""
         },
         
     ]
-
+    const defaultFields = () => {
+        props.map(property => {
+            return <li key={property}>{property.comp}</li>
+        })
+    }
 
 
     return(
@@ -52,7 +65,7 @@ const Toolkit = () => {
                 }
             </div>
             <div>
-
+                <ul>{defaultFields}</ul>
             </div>
         </div>
         </>
