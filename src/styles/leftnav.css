@@ -22,7 +22,7 @@ main{
     height: 100%;
     width: 20%;
     position:fixed;
-   
+   opacity: 1;
 }
 .top-section{
     display: flex;
@@ -78,7 +78,7 @@ main{
    margin-left: 3.5%;
    padding: 10px 15px;
    gap: 25px;
-   transition: all 0.5s;
+
    text-decoration: none;
    display: flex;
    flex-direction: column;

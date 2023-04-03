@@ -16,7 +16,7 @@ import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import DeveloperBoardOutlinedIcon from '@mui/icons-material/DeveloperBoardOutlined';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import GroupAddTwoToneIcon from '@mui/icons-material/GroupAddTwoTone';
-import FB from "../FB.jpg";
+import FB from "../../src/assets/FB.jpg";
 export const menuItem=[
     {
       path:"/",
