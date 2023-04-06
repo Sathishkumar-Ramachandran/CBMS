@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
-
-
-=======
 import axios from "axios";
 import "../../styles/Formfields/formfield.css";
->>>>>>> 906e500ddbce4cde279570488529132407d9ad7b
 import { BiText } from "react-icons/bi";
 import { BiParagraph } from "react-icons/bi";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -19,51 +14,6 @@ import Select from '@mui/material/Select';
 import { FormControl, InputLabel, MenuItem } from '@mui/material/';
 
 
-<<<<<<< HEAD
-const Toolkit = (props) => {
-
-    const [fields, setfields] = useState({});
-
-
-    tools = [
-        {
-            Tool: "Single Line Text",
-            comp: "",
-            icon: <BiText />,
-            properties: ""
-        },
-        {
-            Tool: "Paragraph",
-            comp: "",
-            icon: <BiParagraph />,
-            properties: ""
-        },
-        {
-            Tool: "Dropdown",
-            comp: "",
-            icon: <IoIosArrowDropdown />,
-            properties: ""
-        },
-        {
-            Tool: "Radio Button",
-            comp: "",
-            icon: <CgRadioChecked />,
-            properties: ""
-        },
-        {
-            Tool: "",
-            comp: "",
-            icon: "",
-            properties: ""
-        },
-        
-    ]
-    const defaultFields = () => {
-        props.map(property => {
-            return <li key={property}>{property.comp}</li>
-        })
-    }
-=======
 const Toolkit = () => {
     
   const propstest = [
@@ -118,27 +68,9 @@ const Toolkit = () => {
     //   properties: "",
     // },
   ];
->>>>>>> 906e500ddbce4cde279570488529132407d9ad7b
 
   
 
-<<<<<<< HEAD
-    return(
-        <>
-        <div>
-            <div className="toolkit">
-                {Toolkit.map((item, index) => (
-                    <li key={index}>
-                        {item.icon}
-                    </li>
-                ))
-                
-                }
-            </div>
-            <div>
-                <ul>{defaultFields}</ul>
-            </div>
-=======
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTool, setSelectedTool] = useState(null);
   const[props,setProps]=useState(propstest)
@@ -166,7 +98,6 @@ const Toolkit = () => {
               </Button>
             ))}
           </ButtonGroup>
->>>>>>> 906e500ddbce4cde279570488529132407d9ad7b
         </div>
         {showPopup && (
           <Popup

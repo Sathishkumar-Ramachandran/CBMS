@@ -53,7 +53,7 @@ export default function Mediasetup() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Get Credentials" {...a11yProps(0)} />
-          <Tab label="Add Accounts" {...a11yProps(1)} />
+          <Tab label="Create Account" {...a11yProps(1)} />
           <Tab label="View Accounts" {...a11yProps(2)} />
         </Tabs>
       </Box>

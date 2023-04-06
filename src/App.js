@@ -17,13 +17,9 @@ import Admin from "./Components/Admin.js";
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
 import Mediasetup from "./Pages/Google/Mediasetup.js";
-<<<<<<< HEAD
-import Users from './Pages/Google/Users.js'
-=======
 
 import Campaignform from "./Pages/Google/campaignform.js";
 
->>>>>>> 906e500ddbce4cde279570488529132407d9ad7b
 
 
 function App() {
@@ -68,11 +64,7 @@ function App() {
           <Route path='/admin/google/campaignform' element={<Campaignform />} />
           <Route path='/admin/google/campaignsetup/formfields' element={""} />
           <Route path='/admin/google/mediasetup' element={<Mediasetup />} />
-<<<<<<< HEAD
-          <Route path='admin/google/users' element={<Users />} />
-=======
           
->>>>>>> 906e500ddbce4cde279570488529132407d9ad7b
           </Route>
         
           <Route  path='/login' element={<Auth />} />
