@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Googleaccount from "./googleaccount";
 import Viewaccounts from "./viewaccounts";
+import CreateGoogleAdsAccountForm from '../../Components/google/createaccount.js';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,10 +62,10 @@ export default function Mediasetup() {
         <Googleaccount />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Viewaccounts />
+        <CreateGoogleAdsAccountForm />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Viewaccounts />
       </TabPanel>
     </Box>
   );
