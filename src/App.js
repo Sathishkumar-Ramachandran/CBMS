@@ -28,7 +28,6 @@ function App() {
       <>
         <Topnav />
         <Leftnav />
-      
         <Outlet />
       </>
     );
@@ -39,10 +38,6 @@ function App() {
     <>
 
       <BrowserRouter >
-     
-       
-      
-        
         <Routes>
         <Route element={<WithNavs />}>
         <Route exact path='/' element={<Dashboard />} />
@@ -50,20 +45,55 @@ function App() {
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
+          <Route path="/google" element={""} />
+          <Route path="/facebook" element={""} />
+          <Route path="/instagram" element={""} />
+          <Route path="/linkedin" element={""} />
+          <Route path="/youtube" element={""} />
+
+          {/* Admin */}
+
+          {/* Admin Account  Routes*/}
+          <Route path="/admin/account/myorganization" element={""} />
+          <Route path="/admin/account/plansandbillings" element={""} />
+          <Route path="/admin/account/portalsetup" element={""} />
+          <Route path="/admin/account/daypasses" element={""} />
+
+          {/* Admin User Routes */}
+          <Route path="/admin/user/users" element={""} />
+          <Route path="/admin/user/roles" element={""} />
+          <Route path="/admin/user/fields" element={""} />
+          <Route path="/admin/user/groups" element={""} />
+          <Route path="/admin/user/approvals" element={""} />
+          <Route path="/admin/user/location" element={""} />
+
+          {/* Admin Channel Google Routes */}
+          <Route path="/admin/channels/google" element={<Googleadmin />} />
+          <Route path="/admin/channels/google/accounts/mediasetup" element={<Googleadmin />} />
+          <Route path="/admin/channels/google/accounts/adaccountsetup" element={<Googleadmin />} />
+          <Route path="/admin/channels/google/accounts/users" element={<Googleadmin />} />
+          <Route path="/admin/channels/google/accounts/roles" element={<Googleadmin />} /> 
+          <Route path="/admin/channels/google/accounts/groups" element={<Googleadmin />} />
+
+          <Route path="/admin/channels/google/campaigns/form" element={<Campaignform />} />
+          <Route path="/admin/channels/google/campaign/lifecycle" element={""} />
+
+          <Route path="/admin/channels/google/adgroups/form" element={""} />
+
+          <Route path="/admin/channels/google/budget/form" element={""} />
+          <Route path="/admin/channels/google/budget/lifecycle" element={""} />
+
+          <Route path="/admin/channels/google/others/criteria" element={""} />
+          <Route path="/admin/channels/google/others/extensions" element={""} />
 
 
-          {/* <Route path="/admin/account" element={<Account />} /> */}
-        
-          <Route path='/admin/google/' element={<Googleadmin />} />
-          <Route path='/admin/google/accountsetup/accounts' element={""} />
-          <Route path='/admin/google/accountsetup/users' element={""} />
-          <Route path='/admin/google/accountsetup/roles' element={""} />
-          <Route path='/admin/google/accountsetup/groups' element={""} />
-          <Route path='/admin/google/accountsetup/formfields' element={""} />
-          <Route path='/admin/google/campaignsetup/campaigns' element={""} />
-          <Route path='/admin/google/campaignform' element={<Campaignform />} />
-          <Route path='/admin/google/campaignsetup/formfields' element={""} />
-          <Route path='/admin/google/mediasetup' element={<Mediasetup />} />
+          {/* Admin Channel Facebook Routes */}
+          <Route path="/admin/channels/facebook" element={""} />
+          <Route path="/admin/channels/facebook" element={""} />
+          <Route path="/admin/channels/facebook" element={""} />
+          <Route path="/admin/channels/facebook" element={""} />
+          <Route path="/admin/channels/facebook" element={""} />
+
           
           </Route>
         
