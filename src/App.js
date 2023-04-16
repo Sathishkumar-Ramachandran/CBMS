@@ -10,7 +10,7 @@ import Topnav from "./Components/topnav.js";
 import Leftnav from "./Components/leftnav.js";
 import Header from "./Components/Header.js";
 import Profile from './Components/Profile.js';
-import Workspace from "./Components/Workspace.js";
+import Workspace from "./Pages/Workspace.js";
 import Analytics from "./Components/Analytics.js";
 import Admin from "./Components/Admin.js";
 

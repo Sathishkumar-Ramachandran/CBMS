@@ -3,15 +3,60 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { useHistory } from 'react-router-dom';
-import ChatRoom from './ChatRoom.js';
+import Chat from './Chat'; // Import the Chat component
+import '../styles/chat.css';
+const users = [
+  {
+    id: 1,
+    name: "Sathish",
+    role: "Engineer",
+    photoUrl: "",
+    available: true,
+  },
+  {
+    id: 2,
+    name: "Muthupandi",
+    role: "Engineer",
+    photoUrl: "",
+    available: false,
+  },
+  {
+    id: 3,
+    name: "Praveen",
+    role: "Engineer",
+    photoUrl: "",
+    available: true,
+  },
+  {
+    id: 4,
+    name: "Sathish",
+    role: "Engineer",
+    photoUrl: "",
+    available: true,
+  },
+  {
+    id: 5,
+    name: "Sathish",
+    role: "Engineer",
+    photoUrl: "",
+    available: false,
+  },
+  {
+    id: 123,
+    name: "Sathish",
+    role: "Engineer",
+    photoUrl: "",
+    available: true,
+  },
+]
 
-const UserList = ({ users }) => {
-  const history = useHistory();
+const UserList = ({currentUserId}) => {
   const [selectedUser, setSelectedUser] = useState(null);
+  var currentUserId = 123; 
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
+    console.log(user);
   };
 
   const handleChatClose = () => {
@@ -19,7 +64,7 @@ const UserList = ({ users }) => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} className='profile'>
       {users.map((user) => (
         <Grid item xs={12} md={6} key={user.id}>
           <Box
@@ -33,7 +78,7 @@ const UserList = ({ users }) => {
               height: 80,
               cursor: 'pointer',
             }}
-            onClick={() => handleUserClick(user)}
+            onClick={() => handleUserClick(user)} className="card"
           >
             <Avatar
               alt={user.name}
@@ -78,5 +123,6 @@ const UserList = ({ users }) => {
     </Grid>
   );
 };
+
 
 export default UserList;

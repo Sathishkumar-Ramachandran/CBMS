@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
+
 
 import { 
     makeStyles, 
@@ -93,7 +93,7 @@ const Chat = ({ user, chatId, recipient, recipientPublicKey }) => {
 
   useEffect(() => {
     // Connect to the Flask-SocketIO server with SSL/TLS encryption
-    const socket = io.connect('https://yourbackendserver.com', {
+    const socket = io.connect('http://localhost:6000', {
       secure: true,
       rejectUnauthorized: false,
     });
