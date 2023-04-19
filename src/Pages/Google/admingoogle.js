@@ -1,6 +1,6 @@
 import React from "react";
-import '../../styles/admingoogle.css'
-import Accountsetup from '../../Components/google/Accountsetup.js';
+import '../../styles/admingoogle.css';
+import AccountSetup from "../../Components/google/Accountsetup.js";
 import Campaignsetup from "../../Components/google/Campaignsetup.js";
 import AdGroupForm from '../../Components/google/AdGroupsForm'
 import BudgetForm from "../../Components/google/BudgetForm.js";
@@ -14,7 +14,7 @@ const Googleadmin = () => {
     <input className="admingoogle-searchQueryInput" name="searchQueryInput" placeholder="Search...."  />
     <button className="admingoogle-searchQuerySubmit" type="submit" name="searchQuerySubmit"><ImSearch/></button>
     </div>
-       <Accountsetup/>
+       <AccountSetup/>
        <Campaignsetup/>
        <AdGroupForm/>
        <BudgetForm/>

@@ -9,41 +9,41 @@ const Channels = ({Children}) => {
     const adminItem=[
         {
 
-          path:"/admin/google",
+          path:"/admin/channels/google",
           name:"Google",
           para:"",
           icon:<FcGoogle/>
         },
         {
-          path:"/admin/facebook",
+          path:"/admin/channels/facebook",
           name:"Facebook",
           para:"",
           icon:<FaFacebook className='facebook'/>
         },
         {
-          path:"/admin/instagram",
+          path:"/admin/channels/instagram",
           name:"Instagram",
           para:"",
           icon:<FaInstagramSquare className='instagram'/>
         },
         {
-          path:"/admin/twitter",
+          path:"/admin/channels/twitter",
           name:"Twitter",
           para:"",
           icon:<FaTwitterSquare className='twitter'/>
         },
         {
-          path:"/admin/linkedin",
+          path:"/admin/channels/linkedin",
           name:"Linkedin",
           para:"",
           icon:<AiFillLinkedin className='linkedin'/>
         },
         {
-            path:"/admin/youtube",
+            path:"/admin/channels/youtube",
             name:"Youtube",
             para:"",
             icon:<AiFillYoutube className='youtube'/>
-          },
+        },
 
             //Channels
             

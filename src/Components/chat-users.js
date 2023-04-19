@@ -5,6 +5,12 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Chat from './Chat'; // Import the Chat component
 import '../styles/chat.css';
+
+
+
+
+
+
 const users = [
   {
     id: 1,
@@ -52,11 +58,11 @@ const users = [
 
 const UserList = ({currentUserId}) => {
   const [selectedUser, setSelectedUser] = useState(null);
-  var currentUserId = 123; 
+  var currentUserId = 12; 
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
-    console.log(user);
+    console.log(`${user.name} is connected to the Chat`);
   };
 
   const handleChatClose = () => {

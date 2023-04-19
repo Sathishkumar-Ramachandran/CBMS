@@ -1,0 +1,21 @@
+.container-table {
+    width: 80%;
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-right: 5%;
+  }
+
+.table {
+    padding-top: 4%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+  
+  .editInput {
+    width: 100%;
+  }
+  
+  .editButton {
+    margin-right: 8px;
+  }
+  

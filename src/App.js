@@ -12,13 +12,15 @@ import Header from "./Components/Header.js";
 import Profile from './Components/Profile.js';
 import Workspace from "./Pages/Workspace.js";
 import Analytics from "./Components/Analytics.js";
-import Admin from "./Components/Admin.js";
+import Admin from "./Pages/Admin.js";
 
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
 import Mediasetup from "./Pages/Google/Mediasetup.js";
 
 import Campaignform from "./Pages/Google/campaignform.js";
+import OrganizationDetails from "./Pages/Account.js";
+import AdList from "./Pages/Google/Ads.js";
 
 
 
@@ -52,9 +54,9 @@ function App() {
           <Route path="/youtube" element={""} />
 
           {/* Admin */}
-
+          <Route path="/google/ads" element={<AdList />} />
           {/* Admin Account  Routes*/}
-          <Route path="/admin/account/myorganization" element={""} />
+          <Route path="/admin/account/myorganization" element={<OrganizationDetails />} />
           <Route path="/admin/account/plansandbillings" element={""} />
           <Route path="/admin/account/portalsetup" element={""} />
           <Route path="/admin/account/daypasses" element={""} />
@@ -69,7 +71,7 @@ function App() {
 
           {/* Admin Channel Google Routes */}
           <Route path="/admin/channels/google" element={<Googleadmin />} />
-          <Route path="/admin/channels/google/accounts/mediasetup" element={<Googleadmin />} />
+          <Route path="/admin/channels/google/accounts/mediasetup" element={<Mediasetup />} />
           <Route path="/admin/channels/google/accounts/adaccountsetup" element={<Googleadmin />} />
           <Route path="/admin/channels/google/accounts/users" element={<Googleadmin />} />
           <Route path="/admin/channels/google/accounts/roles" element={<Googleadmin />} /> 
@@ -94,6 +96,16 @@ function App() {
           <Route path="/admin/channels/facebook" element={""} />
           <Route path="/admin/channels/facebook" element={""} />
 
+
+          {/* Admin Service Management */}
+          <Route path="/admin/service/businesshours" element={""} />
+          <Route path="/admin/service/policies" element={""} />
+          <Route path="/admin/service/approvals" element={""} />
+          <Route path="/admin/service/formfields" element={""} />
+          <Route path="/admin/service/businessrules" element={""} />
+          <Route path="/admin/service/employeeaccess" element={""} />
+
+          {/* Admin */}
           
           </Route>
         

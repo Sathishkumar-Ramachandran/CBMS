@@ -14,25 +14,25 @@ import roles from "../../src/assets/roles.png";
 const Admin = ({Children}) => {
     const adminItem=[
         {
-          path:"/admin/account",
+          path:"/admin/account/myorganization",
           name:"Account",
           para:"",
           icon:<AccountCircleOutlinedIcon />
         },
         {
-          path:"/admin/plans",
+          path:"/admin/account/plansandbillings",
           name:"Plans & Bilings",
           para:"",
           icon:<img src={plan} />
         },
         {
-          path:"/admin/portal",
+          path:"/admin/account/portalsetup",
           name:"Portal Rebranding",
           para:"",
           icon:<img src={portal} />
         },
         {
-          path:"/admin/daypasses",
+          path:"/admin/account/daypasses",
           name:"Day Passes",
           para:"",
           icon:<img src={daypass} />

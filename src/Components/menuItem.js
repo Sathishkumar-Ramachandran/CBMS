@@ -144,22 +144,22 @@ export const menuItem=[
     },
     
     {
-      path: '/admin/google',
+      path: '/google',
       title: 'Google',
       icon: <FcGoogle />,
       submenu: [
         {
-          path: "/admin/google/campaign",
+          path: "/google/campaign",
           name: "Campaigns",
           icon: <CampaignIcon />
         },
         {
-          path: "/admin/google/ads",
+          path: "/google/ads",
           name: "Ads",
           icon: <NewspaperIcon />
         },
         {
-          path: "/admin/google/adgroups",
+          path: "/google/adgroups",
           name: "Ad Groups",
           icon: <GroupAddTwoToneIcon/>
         },
@@ -167,17 +167,17 @@ export const menuItem=[
       ]
     },
     {
-      path: '/admin/facebook',
+      path: '/facebook',
       title: 'Facebok',
       icon: <FaFacebook className='submenu-facebook' />,
       submenu: [
         {
-          path: "/admin/facebook/posts",
+          path: "/facebook/posts",
           name: "Posts",
           icon: <GiPostStamp/>
         },
         {
-          path: "/admin/facebook/ads",
+          path: "/facebook/ads",
           name: "Ads",
           icon: <NewspaperIcon/>
         },
@@ -185,34 +185,34 @@ export const menuItem=[
       ]
     },
     {
-      path: '/admin/linkedin',
+      path: '/linkedin',
       title: "LinkedIn",
       icon: <AiFillLinkedin className='submenu-linkedin'/>,
       submenu: [
         {
-          path: "/admin/linkedin/posts",
+          path: "/linkedin/posts",
           name: "Posts",
           icon: <GiPostStamp/>
         },
         {
-          path: "/admin/linkedin/ads",
+          path: "/linkedin/ads",
           name: "Ads",
           icon: <NewspaperIcon/>
         },
       ]
     },
     {
-        path: '/admin/twitter',
+        path: '/twitter',
         title: "Twitter",
         icon: <FaTwitterSquare className='submenu-twitter'/>,
         submenu: [
           {
-            path: "/admin/linkedin/posts",
+            path: "/linkedin/posts",
             name: "Posts",
             icon:<GiPostStamp/>
           },
           {
-            path: "/admin/linkedin/ads",
+            path: "/linkedin/ads",
             name: "Ads",
             icon: <NewspaperIcon/>
           },

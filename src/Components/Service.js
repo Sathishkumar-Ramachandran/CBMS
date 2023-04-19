@@ -13,37 +13,37 @@ import Businessrules from '../../src/assets/Businessrules.png';
 const Service = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"/admin/service/businesshours",
           name:"Business Hours",
           para:"",
           icon:<img src={Business} alt='for roles'className='Business-icon'/>
         },
         {
-          path:"",
+          path:"/admin/service/policies",
           name:"SLA & OLA Policies",
           para:"",
           icon:''
         },
         {
-          path:"",
+          path:"/admin/service/approvals",
           name:"Approval Policies",
           para:"",
           icon:<img src={Approval} alt='for approval'className='Approval-icon'/>
         },
         {
-          path:"",
+          path:"/admin/service/formfields",
           name:"Form Fields",
           para:"",
           icon:<img src={Formfields} alt='for formfileds'className='Approval-icon'/>
         },
         {
-          path:"",
+          path:"/admin/service/businessrules",
           name:"Business Rules",
           para:"",
           icon:<img src={Businessrules} alt='for approval'className='Approval-icon'/>
         },
         {
-            path:"",
+            path:"/admin/service/employeeaccess",
             name:"Employee Access",
             para:"",
             icon:<img src={Employee} alt='for approval'className='Approval-icon'/>
