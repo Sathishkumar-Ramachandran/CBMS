@@ -1,9 +1,9 @@
-  :root {
+  /* :root {
     --primary: #e5e8ef;
     --primary-dark: #e1e4ea;
     --secondary-lime: #e1ff2d;
     --secondary-lavender: #d3b7f8;
-}
+} */
    .loginform{
     display: flex;
     justify-content: center;
