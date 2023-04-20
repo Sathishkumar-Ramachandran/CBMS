@@ -1,46 +1,42 @@
-/* * {
+* {
     box-sizing: border-box;
-  } */
+    
+  }
   
-  /*body {
-    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
-    border-radius: 10px;
-    box-shadow: 0px 1px 8px #24c64f;
-    cursor: pointer;
-    color: #24c64f no-repeat;
-    font-family: "Raleway SemiBold", sans-serif;
-    height: 100%;
-    position: left;
-  } */
+  .title-auth {
+    text-align: left;
+    padding: 2%;
+  }
   .input{
     padding-top: 5px; 
-    background: #fdfcfe;
+    background: white;
     border: 1px;
     outline: none;
   }
   
   /* Float four columns side by side */
-  .column {
+  .column-auth {
     float: left;
-    width: 50%;
-    
-    
-    padding: 25px 25px 25px 25px;
+    width: 40%;   
+    padding: 0px 25px 25px 25px;
   }
   
   /* Remove extra left and right margins, due to padding in columns */
-  .row {margin: 0 100px;}
+  .row-auth {
+    margin: 0;
+    padding-top: 50px;
+    padding-left: 50px;
+  }
   
   /* Clear floats after the columns */
-  .row:after {
+  .row-auth:after {
     content: "";
     display: grid;
     clear: both;
   }
   
   /* Style the counter cards */
- .card {
-   
+ .card-auth {
     padding: 0px  ;
     padding-top: 5px;
     padding-bottom: 10px;
@@ -53,9 +49,10 @@
   
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
-    .column {
+    .column-auth {
       width: 100%;
       display: block;
       margin-bottom: 0px;
     }
   }
+

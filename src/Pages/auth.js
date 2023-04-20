@@ -9,14 +9,15 @@ import '../styles/auth.css';
 const Auth = () => {
     return(
         <>
-        <p>DOUBLE ENGINE</p>
-        <div className="row">
-            <div className="column">
-                <div className="card">  <Login /> </div>
+        <h1 className="title-auth">DOUBLE ENGINE</h1>
+        
+        <div className="row-auth">
+            <div className="column-auth">
+                <div className="card-auth">  <Login /> </div>
             </div>
             
-            <div className="column">
-                <div className="card">  <Signup /> </div>
+            <div className="column-auth">
+                <div className="card-auth">  <Signup /> </div>
             </div>
         </div>
         </>
