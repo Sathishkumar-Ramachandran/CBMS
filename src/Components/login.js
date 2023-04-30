@@ -55,8 +55,12 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(true);
 
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   
+  
+  const signupForm = () => {
+   setAuth(false); 
+  };
   
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -81,7 +85,7 @@ const Login = () => {
   };
 
 
-  const signupform = () => { setAuth(true); };
+   
 
   const Userlogin = async () => {
 let payload={
@@ -216,7 +220,7 @@ let payload={
 
   return (
     <div>
-    { setAuth ? (
+    {  auth ? (
     <div className="loginform">
     <ToastContainer />
     <div>
@@ -271,7 +275,7 @@ let payload={
             </div>
 
         <div>
-        <a className="signup" onClick={signupform} > 
+        <a className="signup" onClick={signupForm} > 
           Don't have account yet?
         </a> </div>
       </form>

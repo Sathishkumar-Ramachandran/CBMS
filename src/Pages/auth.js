@@ -10,17 +10,13 @@ const Auth = () => {
 
     return(
         <>
-        <div>
+        <div className="auth">
         <h1 className="title-auth">DOUBLE ENGINE</h1>
         
         <div className="row-auth">
             <div className="column-auth">
                 <div className="card-auth">  <Login /> </div>
             </div>
-{/*             
-            <div className="column">
-                <div className="card">  <Signup /> </div>
-            </div> */}
 
 
         </div>

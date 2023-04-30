@@ -12,6 +12,10 @@
     height: 100%;
     position: left;
   } */
+  .auth {
+
+  }
+
   .input{
     padding-top: 5px; 
     background: #fdfcfe;
@@ -20,8 +24,8 @@
   }
   
   /* Float four columns side by side */
-  .column {
-    float: left;
+  .column-auth {
+    float: right;
     width: 50%;
     
     
@@ -29,18 +33,18 @@
   }
   
   /* Remove extra left and right margins, due to padding in columns */
-  .row {margin: 0 100px;}
+  .row-auth {margin: 0 100px;}
   
   /* Clear floats after the columns */
-  .row:after {
+  .row-auth:after {
     content: "";
     display: grid;
     clear: both;
   }
   
   /* Style the counter cards */
- .card {
-   
+ .card-auth {
+    
     padding: 0px  ;
     padding-top: 5px;
     padding-bottom: 10px;

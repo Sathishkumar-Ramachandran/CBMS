@@ -9,6 +9,7 @@ import jwt_decode from "jwt-decode";
 import { DoubleEngine } from "../middleware/interceptor.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { TextField } from "@mui/material";
 
 const Signup = () => {
   const [googleSignIn, setGoogleSignIn] = useState(false);
@@ -23,6 +24,8 @@ const Signup = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [verified, setVerified] = useState(false);
+
+  const [showOTP, setShowOTP] = useState(false);
 
   // FB sdk Intilaize
   useEffect(() => {
@@ -182,6 +185,7 @@ const Signup = () => {
       const payload = {
         Email: email,
       };
+      setShowOTP(true);
       await DoubleEngine.post("api/auth/sendVerification", payload)
         .then((resp) => {
           if (resp.data.d == "USER_ALREADY_SIGNUP") {
@@ -341,6 +345,17 @@ const Signup = () => {
             <button onClick={handleSubmit} className="signupbtn" type="submit">
               Submit
             </button>
+            <div>         
+            {
+              showOTP &&
+              <div className="OTP"> 
+                <label className="OTP-label"> OTP </label>
+                <input className="OTP-input" type="text" />
+                <button className="OTP-button">Verify OTP</button>
+              </div>
+            }
+            </div>
+ 
             <h5 className="signup-heading">or Signup with</h5>
             <div className="signup-all">
               
@@ -387,6 +402,7 @@ const Signup = () => {
             >
               Submit
             </button>
+            
           </>
         )}
 
