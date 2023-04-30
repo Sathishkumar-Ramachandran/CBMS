@@ -1,5 +1,5 @@
+import React from "react";
 
-import React, { useState, useEffect } from "react";
 
 import Login from '../Components/login.js';
 import Signup from '../Components/signup.js';
@@ -7,7 +7,6 @@ import '../styles/auth.css';
 
 
 const Auth = () => {
-    
     return(
         <>
         <div>
@@ -21,12 +20,13 @@ const Auth = () => {
             <div className="column-auth">
                 <div className="card-auth">  <Signup /> </div>
             </div>
+=======
+            {/* <div className="column-auth">
+                <div className="card-auth">  <Signup /> </div>
+            </div> */}
+
         </div>
         </div>
-
-        
-       
-
         </>
         
     )

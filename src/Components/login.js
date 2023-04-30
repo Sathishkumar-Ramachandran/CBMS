@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 
 
-import Signup from "./signup";
+
 import "../styles/login.css";
 import { toast,ToastContainer } from "react-toastify";
 import { DoubleEngine } from "../middleware/interceptor.js";
@@ -53,7 +53,6 @@ const Login = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [showLogin, setShowLogin] = useState(true);
   
   
   const handleEmail = (e) => {
@@ -77,10 +76,6 @@ const Login = () => {
       setError(false);
     }
   };
-
-  const signupform = () => {
-    setShowLogin(false);
-  }
 
   const Userlogin = async () => {
 let payload={
@@ -214,10 +209,6 @@ let payload={
   };
 
   return (
-
-    <>
-    { showLogin && (
-
     <div className="loginform">
     <ToastContainer />
     <div>
@@ -258,19 +249,15 @@ let payload={
         </a>
 
         <button onClick={handleSubmit} className="btn" type="submit">
-          Login
+          Submit
         </button>
-        
-        
         <h5 className="SSO">or Login with</h5>
         
             
             <div className="login-all">
-            <div id="signInDiv">
-            
-            </div>
-            
+            <div id="signInDiv"></div>
               <Link to="" className="login-google-icon-facebook">
+              
                 <FaFacebook onClick={loginWithFacebook} />
               </Link>
             </div>
@@ -278,15 +265,10 @@ let payload={
 
         <a className="signup" onClick={signupform} > 
           Don't have account yet?
-        </a>
+        </a> 
       </form>
       </div>
     </div>
-  )}  
-  {
-    !showLogin && <Signup />
-  }
-    </>
   );
 };
 export default Login;

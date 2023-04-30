@@ -11,28 +11,28 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 const AccountSetup = ({Children}) => {
     const menuItem=[
         {
-          path:"/admin/channels/google/accounts/mediasetup",
+          path:"/admin/google/mediasetup",
           name:"Media Setup",
           icon:<GoogleIcon />,
         },
         {
-          path:"/admin/channels/google/accounts/adaccountsetup",
+          path:"/admin/google/adaccountsetup",
           name:"Ad Account Setup",
           icon:<NewspaperIcon />,
         },
         {
-            path: "/admin/channels/google/accounts/users",
+            path: "/admin/google/users",
             name:"Users",
             icon:<PersonAddAltOutlinedIcon />,
           },
         {
-          path:"/admin/channels/google/accounts/roles",
+          path:"/admin/google/roles",
           name:"Roles",
           icon:<ContactEmergencyOutlinedIcon />,
         },
         
         {
-          path:  "/admin/channels/google/accounts/groups",
+          path:  "/admin/google/teams",
           name:"Groups/Teams",
           icon:<GroupsOutlinedIcon />,
         },

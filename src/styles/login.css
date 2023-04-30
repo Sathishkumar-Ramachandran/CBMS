@@ -11,7 +11,6 @@
     min-height: auto;
     padding: 30px;
     border: 1px solid rgba(0, 0, 0, 0.699);
-    
     border-radius: 1.625rem;
     /* background: #1783e1; */
    } 
@@ -152,7 +151,8 @@
     margin-top: 1px;
     text-align: center;
     padding-top: 20px;
-    cursor: pointer;
+    margin-left: 18rem;
+
  } 
 .login-heading{
     margin-top: 1.9%;
