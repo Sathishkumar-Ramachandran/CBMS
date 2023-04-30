@@ -276,7 +276,7 @@ let payload={
             </div>
 
 
-        <a className="signup" onClick={signupform}> 
+        <a className="signup" onClick={signupform} > 
           Don't have account yet?
         </a>
       </form>

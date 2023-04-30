@@ -11,7 +11,7 @@ import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
 import CampaignIcon from '@mui/icons-material/Campaign';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
-
+import Google from "../Pages/Google/google";
 import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import DeveloperBoardOutlinedIcon from '@mui/icons-material/DeveloperBoardOutlined';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
@@ -149,20 +149,105 @@ export const menuItem=[
       icon: <FcGoogle />,
       submenu: [
         {
+          path: "/google/ads",
+          name: "Ads",
+          icon: <NewspaperIcon />,
+          options: [
+            {
+              path: "/google/ads/createad",
+              name: "Create Ad",
+              icon: ""
+            },
+            {
+              path: "/google/ads/mutatead",
+              name: "Mutate Ad",
+              icon: ""
+            }
+          ]
+        },
+        
+        {
+          path: "/google/adgroups",
+          name: "Ad Groups",
+          icon: <GroupAddTwoToneIcon/>,
+          options: [
+            {
+              path: "/google/adgroup/createadgroup",
+              name: "Create AdGroup",
+              icon: ""
+            },
+            {
+              path: "/google/adgroup/mutateadgroup",
+              name: "Mutate AdGroup",
+              icon: ""
+            }
+          ]
+        },
+
+        {
+          path: "/google/campaign",
+          name: "Campaigns",
+          icon: <CampaignIcon />,
+          options: [
+            {
+              path: "/google/campaigns/createcampaign",
+              name: "Create Campaign",
+              icon: ""
+            },
+            {
+              path: "/google/campaigns/mutatecampaign",
+              name: "Mutate Campaign",
+              icon: ""
+            }
+          ]
+        },
+
+        
+        {
+          path: "/google/assets",
+          name: "Assets",
+          icon: <CampaignIcon />,
+          options: [
+            {
+              path: "/google/assets/createasset",
+              name: "Create New Asset",
+              icon: ""
+            },
+            {
+              path: "/google/assets/associateasset",
+              name: "Associate Asset",
+              icon: ""
+            },
+            {
+              path: "/google/assets/mutateasset",
+              name: "Mutate Asset Association",
+              icon: ""
+            },
+            {
+              path: "/google/assets/locationsync",
+              name: "Location Sync",
+              icon: ""
+            },
+            {
+              path: "/google/assets/assetsetsrv",
+              name: "Customer Asset Set Service",
+              icon: ""
+            },
+          ]
+        },
+        
+        {
+          path: "/google/billing",
+          name: "Billings & Budgets",
+          icon: <CampaignIcon />
+        },
+        
+        {
           path: "/google/campaign",
           name: "Campaigns",
           icon: <CampaignIcon />
         },
-        {
-          path: "/google/ads",
-          name: "Ads",
-          icon: <NewspaperIcon />
-        },
-        {
-          path: "/google/adgroups",
-          name: "Ad Groups",
-          icon: <GroupAddTwoToneIcon/>
-        },
+        
       
       ]
     },

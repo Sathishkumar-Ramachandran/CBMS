@@ -1,53 +1,56 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { menuItem } from '../../Components/menuItem.js';
 
-const GoogleNav = () => {
-    const menuItem=[
-        {
-          path:"/google/",
-          name:"Ads",
-          icon:<GoogleIcon />,
-        },
-        {
-          path:"/google/",
-          name:"Ad Groups",
-          icon:<NewspaperIcon />,
-        },
-        {
-            path: "/google/",
-            name:"Campaign",
-            icon:<PersonAddAltOutlinedIcon />,
-          },
-        {
-          path:"/google/",
-          name:"",
-          icon:<ContactEmergencyOutlinedIcon />,
-        },
-        
-        {
-          path:  "/google/",
-          name:"Groups/Teams",
-          icon:<GroupsOutlinedIcon />,
-        },
-        
-      ]
-      return (
-        <>
-        {       
-            menuItem.map((item,index)=>(
+import '../../styles/Google/Google.css'
+
+const GoogleNav = ( {props} ) => {
+    
+    return(
+
+
+      <div className='googlenav'>
+          {menuItem.map((item) => {
+            return(
+            <ul>
+              {item?.submenu?.map((element) => {
+                return(
+                <div>
+                
+                  {element?.options?.map((option) => {
+                    return(
+                      <div>
+                      {console.log(option)}
+                      <div className='googlenavtitle'>
+                        
+                      </div>
+                      <div className='googlenavoption'>
+                        {option.name}
+                      </div>
+                      </div>
+                    )
+                  })}
+                
+                
+                </div>
+          )})}
+            </ul>
             
-       <div className='admin-model'>
-              <NavLink to={item.path} key={index} className='admin-box' >
-                <div className='admin-icon'>{item.icon}</div>
-                <div>{item.name}</div>
-                <div>{item.para}</div>
-              </NavLink>
-              </div>
-             
-            ))
-          } 
-      <div className='line2'></div>
-      <main>{Children}</main> 
-    </>
+         ) })}
+          </div>
+        // <div>
+        //   {props?.map((item, index) => {
+        //     return(
+        //       <div className=''>
+        //       <NavLink to={item.path} key={index} className='' >
+        //         <div className='admin-icon'>{item.icon}</div>
+        //         <div>{item.name}</div>
+        //         {/* <div>{item.para}</div> */}
+        //       </NavLink>
+        //       </div>
+        //     )
+        //   })}
+        // </div>
       )}
 
 
@@ -56,12 +59,15 @@ const Google = () => {
 
     return(
         <>
-        <div className='googlenav'>
-            <GoogleNav />
-        </div>
+        
+        <GoogleNav />
+            
         <div className='googleComp'>
 
         </div>
         </>
     )
 }
+
+
+export default Google;

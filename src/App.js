@@ -13,6 +13,7 @@ import Profile from './Components/Profile.js';
 import Workspace from "./Pages/Workspace.js";
 import Analytics from "./Components/Analytics.js";
 import Admin from "./Pages/Admin.js";
+import Google from "./Pages/Google/google.js";
 
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
@@ -47,7 +48,7 @@ function App() {
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
-          <Route path="/google" element={""} />
+          <Route path="/google" element={<Google />} />
           <Route path="/facebook" element={""} />
           <Route path="/instagram" element={""} />
           <Route path="/linkedin" element={""} />
