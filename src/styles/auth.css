@@ -1,6 +1,15 @@
-* {
+/* * {
     box-sizing: border-box;
+<<<<<<< HEAD
     
+=======
+  } */
+  .auth {
+    overflow-y: hidden;
+    height: 100vh;
+    align-items: center;
+
+>>>>>>> b98cbe0 (Signup OTP)
   }
   
   .title-auth {
@@ -16,16 +25,34 @@
   
   /* Float four columns side by side */
   .column-auth {
+<<<<<<< HEAD
     float: left;
     width: 40%;   
     padding: 0px 25px 25px 25px;
+=======
+    float: right;
+    width: 40%;
+    margin-bottom: 20%;
+    
+    
+    
+  }
+  .column-info {
+    width: 70%;
+    text-align: center;
+>>>>>>> b98cbe0 (Signup OTP)
   }
   
   /* Remove extra left and right margins, due to padding in columns */
   .row-auth {
+<<<<<<< HEAD
     margin: 0;
     padding-top: 50px;
     padding-left: 50px;
+=======
+    margin: 0 100px;
+    overflow-y: hidden;
+>>>>>>> b98cbe0 (Signup OTP)
   }
   
   /* Clear floats after the columns */
@@ -37,6 +64,10 @@
   
   /* Style the counter cards */
  .card-auth {
+<<<<<<< HEAD
+=======
+   
+>>>>>>> b98cbe0 (Signup OTP)
     padding: 0px  ;
     padding-top: 5px;
     padding-bottom: 10px;
@@ -50,7 +81,11 @@
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
     .column-auth {
+<<<<<<< HEAD
       width: 100%;
+=======
+      width: fit-content;
+>>>>>>> b98cbe0 (Signup OTP)
       display: block;
       margin-bottom: 0px;
     }
