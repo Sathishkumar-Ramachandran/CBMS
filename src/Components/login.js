@@ -15,6 +15,7 @@ import {
 import "../styles/login.css";
 import { toast,ToastContainer } from "react-toastify";
 import { DoubleEngine } from "../middleware/interceptor.js";
+import Signup from "./signup";
 const Login = () => {
 
       // FB sdk Intilaize
@@ -53,6 +54,8 @@ const Login = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(true);
+
+  const [auth, setAuth] = useState(false);
   
   
   const handleEmail = (e) => {
@@ -76,6 +79,9 @@ const Login = () => {
       setError(false);
     }
   };
+
+
+  const signupform = () => { setAuth(true); };
 
   const Userlogin = async () => {
 let payload={
@@ -209,6 +215,8 @@ let payload={
   };
 
   return (
+    <div>
+    { setAuth ? (
     <div className="loginform">
     <ToastContainer />
     <div>
@@ -262,12 +270,14 @@ let payload={
               </Link>
             </div>
 
-
+        <div>
         <a className="signup" onClick={signupform} > 
           Don't have account yet?
-        </a> 
+        </a> </div>
       </form>
       </div>
+    </div>
+    ) : <Signup /> }
     </div>
   );
 };

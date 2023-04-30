@@ -7,6 +7,7 @@ import '../styles/auth.css';
 
 
 const Auth = () => {
+
     return(
         <>
         <div>
@@ -16,17 +17,14 @@ const Auth = () => {
             <div className="column-auth">
                 <div className="card-auth">  <Login /> </div>
             </div>
-            
+{/*             
             <div className="column">
                 <div className="card">  <Signup /> </div>
-            </div>
-
-            {/* <div className="column-auth">
-                <div className="card-auth">  <Signup /> </div>
             </div> */}
 
+
         </div>
-        
+        </div>
         </>
         
     )
