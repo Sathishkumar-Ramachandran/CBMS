@@ -22,6 +22,7 @@ import Mediasetup from "./Pages/Google/Mediasetup.js";
 import Campaignform from "./Pages/Google/campaignform.js";
 import OrganizationDetails from "./Pages/Account.js";
 import AdList from "./Pages/Google/Ads.js";
+import AdsTable from "./Pages/Google/Ads.js";
 
 
 
@@ -69,6 +70,11 @@ function App() {
           <Route path="/admin/user/groups" element={""} />
           <Route path="/admin/user/approvals" element={""} />
           <Route path="/admin/user/location" element={""} />
+
+
+          {/* Google Routes */}
+          <Route path="/google/ads/createad" element={<AdsTable />} />
+
 
           {/* Admin Channel Google Routes */}
           <Route path="/admin/channels/google" element={<Googleadmin />} />

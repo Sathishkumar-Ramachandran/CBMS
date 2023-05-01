@@ -3,21 +3,22 @@ import { NavLink } from 'react-router-dom';
 import { menuItem } from '../../Components/menuItem.js';
 
 import '../../styles/Google/Google.css'
+import CreateAdForm from '../../styles/Google/CreateAd.js';
 
-const GoogleNav = ( {props} ) => {
+const GoogleNav = ( {Children} ) => {
     
     return(
 
 
       <div className='googlenav'>
-          {menuItem.map((item) => {
+          {menuItem.map((item, index) => {
             return(
             <ul>
-              {item?.submenu?.map((element) => {
+              {item?.submenu?.map((element, index2) => {
                 return(
                 <div>
                 
-                  {element?.options?.map((option) => {
+                  {element?.options?.map((option, index3) => {
                     return(
                       <div>
                       {console.log(option)}
@@ -25,7 +26,12 @@ const GoogleNav = ( {props} ) => {
                         
                       </div>
                       <div className='googlenavoption'>
-                        {option.name}
+                      <NavLink to={option?.path} key={index3} className='' >
+                        <div className=''>{option.icon}</div>
+                        <div>{option.name}</div>
+                        
+                      </NavLink>
+                        
                       </div>
                       </div>
                     )
@@ -37,21 +43,9 @@ const GoogleNav = ( {props} ) => {
             </ul>
             
          ) })}
+          <main>{Children}</main> 
           </div>
-        // <div>
-        //   {props?.map((item, index) => {
-        //     return(
-        //       <div className=''>
-        //       <NavLink to={item.path} key={index} className='' >
-        //         <div className='admin-icon'>{item.icon}</div>
-        //         <div>{item.name}</div>
-        //         {/* <div>{item.para}</div> */}
-        //       </NavLink>
-        //       </div>
-        //     )
-        //   })}
-        // </div>
-      )}
+        )}
 
 
 
@@ -63,6 +57,8 @@ const Google = () => {
         <GoogleNav />
             
         <div className='googleComp'>
+        <CreateAdForm />
+        
 
         </div>
         </>
