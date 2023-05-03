@@ -19,3 +19,16 @@
     margin-right: 8px;
   }
   
+  .google-column {
+    width: 80%;
+    display: flex;
+  }
+  .showcomponent {
+    width: 80%;
+    position: inherit;
+    margin-top: 2%;
+  }
+
+  .subnavigation {
+    position: inherit;
+  }

@@ -23,6 +23,11 @@ import Campaignform from "./Pages/Google/campaignform.js";
 import OrganizationDetails from "./Pages/Account.js";
 import AdList from "./Pages/Google/Ads.js";
 import AdsTable from "./Pages/Google/Ads.js";
+import Users from "./Pages/Google/Users.js";
+import Roles from "./Pages/Google/roles.js";
+import Groups from "./Pages/Google/groups.js";
+import AdGroupForm from "./Pages/Google/adGroupsForm.js";
+import CampaignLifecycle from "./Pages/Google/campaignLifecycle.js";
 
 
 
@@ -80,14 +85,14 @@ function App() {
           <Route path="/admin/channels/google" element={<Googleadmin />} />
           <Route path="/admin/channels/google/accounts/mediasetup" element={<Mediasetup />} />
           <Route path="/admin/channels/google/accounts/adaccountsetup" element={<Googleadmin />} />
-          <Route path="/admin/channels/google/accounts/users" element={<Googleadmin />} />
-          <Route path="/admin/channels/google/accounts/roles" element={<Googleadmin />} /> 
-          <Route path="/admin/channels/google/accounts/groups" element={<Googleadmin />} />
+          <Route path="/admin/channels/google/accounts/users" element={<Users />} />
+          <Route path="/admin/channels/google/accounts/roles" element={<Roles />} /> 
+          <Route path="/admin/channels/google/accounts/groups" element={<Groups />} />
 
           <Route path="/admin/channels/google/campaigns/form" element={<Campaignform />} />
-          <Route path="/admin/channels/google/campaign/lifecycle" element={""} />
+          <Route path="/admin/channels/google/campaign/lifecycle" element={<CampaignLifecycle />} />
 
-          <Route path="/admin/channels/google/adgroups/form" element={""} />
+          <Route path="/admin/channels/google/adgroups/form" element={<AdGroupForm />} />
 
           <Route path="/admin/channels/google/budget/form" element={""} />
           <Route path="/admin/channels/google/budget/lifecycle" element={""} />

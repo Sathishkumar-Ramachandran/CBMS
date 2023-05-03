@@ -17,6 +17,7 @@ import DeveloperBoardOutlinedIcon from '@mui/icons-material/DeveloperBoardOutlin
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import GroupAddTwoToneIcon from '@mui/icons-material/GroupAddTwoTone';
 import FB from "../../src/assets/FB.jpg";
+import AdsTable from "../Pages/Google/Ads";
 export const menuItem=[
     {
       path:"/",
@@ -156,12 +157,14 @@ export const menuItem=[
             {
               path: "/google/ads/createad",
               name: "Create Ad",
-              icon: ""
+              icon: "",
+              comp: <AdsTable />
             },
             {
               path: "/google/ads/mutatead",
               name: "Mutate Ad",
-              icon: ""
+              icon: "",
+              component: ""
             }
           ]
         },

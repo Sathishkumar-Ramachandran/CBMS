@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { menuItem } from '../../Components/menuItem.js';
 
 import '../../styles/Google/Google.css'
 import CreateAdForm from '../../styles/Google/CreateAd.js';
+import AdsTable from './Ads.js';
 
-const GoogleNav = ( {Children} ) => {
+
+const GoogleNav = ( {children, setShowComp} ) => {
+    
+    const comp = (option) => {
+      setShowComp(option.comp)
+      alert('clicked');
+      
+    }
     
     return(
 
@@ -25,41 +33,45 @@ const GoogleNav = ( {Children} ) => {
                       <div className='googlenavtitle'>
                         
                       </div>
+                     
+                      { 
                       <div className='googlenavoption'>
-                      <NavLink to={option?.path} key={index3} className='' >
+                      <h5
+                      onClick={() => {comp(option)} } key={index3} style={{cursor: "pointer"}} >
                         <div className=''>{option.icon}</div>
                         <div>{option.name}</div>
-                        
-                      </NavLink>
+                      </h5>
+                      </div>
+                    }
                         
                       </div>
-                      </div>
+                      
                     )
                   })}
-                
+                <main>{children}</main>
                 
                 </div>
           )})}
             </ul>
             
          ) })}
-          <main>{Children}</main> 
+          
           </div>
         )}
 
 
 
 const Google = () => {
-
+  const [showComp, setShowComp] = useState();
     return(
         <>
-        
-        <GoogleNav />
-            
-        <div className='googleComp'>
-        <CreateAdForm />
-        
-
+        <div className='google-column'>
+          <div className='subnavigation'>
+            <GoogleNav setShowComp={setShowComp}  />
+          </div>
+          <div className='showcomponent'>
+            {showComp}
+          </div>
         </div>
         </>
     )
