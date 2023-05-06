@@ -4,6 +4,37 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import '../../styles/campaignform.css';
 import Toolkit from '../../Components/Formfields/toolkit';
+import { BiText } from "react-icons/bi";
+import { BiParagraph } from "react-icons/bi";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+const CampaignformDefault = [
+  {
+    label: "First Name",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiText />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log(
+        "First Name value changed to:",
+        event.target.value,
+        property
+      ),
+  },
+  {
+    label: "Last Name",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+  },
+];
+
+
 
 const Campaignform = () => {
   const [schema, setSchema] = useState({});
@@ -54,7 +85,7 @@ const Campaignform = () => {
       switch (type) {
         case 'string':
           return (
-            <div>          
+            <div>         
             <TextField
               key={key}
               name={key}
@@ -62,6 +93,7 @@ const Campaignform = () => {
               value={formData[key] || ''}
               onChange={handleInputChange}
             />
+            <DeleteIcon display="inherit" style={{width: '20px', padding: '2px'}} />
             </div>
 
           );
@@ -85,9 +117,12 @@ const Campaignform = () => {
   };
 
   return (
-    <div>  
-      <Toolkit />
-      <form onSubmit={handleSubmit} className='campaignform'>
+    <div className='formfielddiv'>  
+      <Button>Edit</Button>
+      <Button>Save</Button>
+      <Toolkit propstest={CampaignformDefault}  className='Default' />
+      <h4>Campaign Fields</h4>
+      <form onSubmit={handleSubmit} className='formfield'>
       {renderFields()}
     </form>
     </div>

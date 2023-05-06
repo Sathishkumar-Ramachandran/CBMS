@@ -1,3 +1,15 @@
-.campaignform {
-    margin: 10%;
+.formfielddiv {
+    width: 60vw;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.Default {
+    margin: 20%;
+    
+}
+
+
+.formfield {
+    margin: 10%;    
 }

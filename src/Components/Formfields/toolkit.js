@@ -14,32 +14,32 @@ import Select from '@mui/material/Select';
 import { FormControl, InputLabel, MenuItem } from '@mui/material/';
 
 
-const Toolkit = () => {
+const Toolkit = ( {propstest} ) => {
     
-  const propstest = [
-    {
-      label: "First Name",
-      tool: "SingleLineText",
-      comp: <TextField />,
-      icon: <BiText />,
-      properties: "",
-      onChange: (event, property) =>
-        console.log(
-          "First Name value changed to:",
-          event.target.value,
-          property
-        ),
-    },
-    {
-      label: "Last Name",
-      tool: "Paragraph",
-      comp: <TextField />,
-      icon: <BiParagraph />,
-      properties: "",
-      onChange: (event, property) =>
-        console.log("Message value changed to:", event.target.value, property),
-    },
-  ];
+  // const propstest = [
+  //   {
+  //     label: "First Name",
+  //     tool: "SingleLineText",
+  //     comp: <TextField />,
+  //     icon: <BiText />,
+  //     properties: "",
+  //     onChange: (event, property) =>
+  //       console.log(
+  //         "First Name value changed to:",
+  //         event.target.value,
+  //         property
+  //       ),
+  //   },
+  //   {
+  //     label: "Last Name",
+  //     tool: "Paragraph",
+  //     comp: <TextField />,
+  //     icon: <BiParagraph />,
+  //     properties: "",
+  //     onChange: (event, property) =>
+  //       console.log("Message value changed to:", event.target.value, property),
+  //   },
+  // ];
 
   const tools = [
     {
@@ -49,31 +49,31 @@ const Toolkit = () => {
       properties: "",
       options:[],
     },
-    // {
-    //   Tool: "Paragraph",
-    //   comp: "",
-    //   icon: <BiParagraph />,
-    //   properties: "",
-    // },
+    {
+      Tool: "Paragraph",
+      comp: "",
+      icon: <BiParagraph />,
+      properties: "",
+    },
     {
       Tool: "Dropdown",
       comp: <Select />,
       icon: <IoIosArrowDropdown />,
       properties: "",
     },
-    // {
-    //   Tool: "Radio Button",
-    //   comp: "",
-    //   icon: <CgRadioChecked />,
-    //   properties: "",
-    // },
+    {
+      Tool: "Radio Button",
+      comp: "",
+      icon: <CgRadioChecked />,
+      properties: "",
+    },
   ];
 
   
 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTool, setSelectedTool] = useState(null);
-  const[props,setProps]=useState(propstest)
+  const[props,setProps]=useState(propstest);
   const handleForm = (item, e) => {
     e.preventDefault();
     setSelectedTool(item);
@@ -83,6 +83,7 @@ const Toolkit = () => {
     <>
       <div>
         <div className="toolkit">
+       
           <ButtonGroup
             variant="outlined"
             aria-label="outlined primary button group"
@@ -98,6 +99,9 @@ const Toolkit = () => {
               </Button>
             ))}
           </ButtonGroup>
+          <h4>
+        Default
+      </h4>
         </div>
         {showPopup && (
           <Popup
