@@ -10,6 +10,7 @@ import plan from '../../src/assets/plans.png';
 import portal from '../../src/assets/portal.png';
 import daypass from "../../src/assets/daypass.png";
 import roles from "../../src/assets/roles.png";
+import Employee from "../assets/Employee.png"
 
 const Admin = ({Children}) => {
     const adminItem=[
@@ -37,9 +38,12 @@ const Admin = ({Children}) => {
           para:"",
           icon:<img src={daypass} />
         },
-       
-            //Channels
-            
+        {
+          path:"/admin/service/employeeaccess",
+          name:"Employee Access",
+          para:"",
+          icon:<img src={Employee} alt='for approval'className='Approval-icon'/>
+        }
       ]
   return (
     <>

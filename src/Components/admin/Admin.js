@@ -1,10 +1,10 @@
 import React from 'react';
-import Account from'../Components/Account';
-import ProjectManagement from '../Components/ProjectManagement';
-import Automation from '../Components/Automation';
-import Channels from '../Components/Channels';
-import Service from '../Components/Service';
-import User from '../Components/User';
+import Account from'../Account';
+import ProjectManagement from '../ProjectManagement';
+import Automation from '../Automation';
+import Channels from '../Channels';
+import Service from '../Service';
+import UserAdmin from './UserAdmin.js';
 import { ImSearch } from "react-icons/im";
 const Admin = () => {
   return (
@@ -14,7 +14,7 @@ const Admin = () => {
       <button className="admingoogle-searchQuerySubmit" type="submit" name="searchQuerySubmit"><ImSearch/></button>
      </div>
      <Account />
-     <User />
+     <UserAdmin />
      <Channels />
      <Service />
      <Automation />
@@ -24,4 +24,4 @@ const Admin = () => {
   )
 }
 
-export default Admin
+export default Admin;

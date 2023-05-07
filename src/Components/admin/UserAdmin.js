@@ -4,47 +4,47 @@ import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { MdWorkspacesOutline, MdOutlineAnalytics } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import roles from "../../src/assets/roles.png";
-import '../styles/User.css';
-import form from "../../src/assets/form.png";
+
+//ICON ASSETS
+import roles from "../../assets/roles.png";
+import form from "../../assets/form.png";
+import lifecycle from "../../assets/lifecycle.png";
+import location from '../../assets/locations.png';
+
+//CSS FILE
+import '../../styles/Admin/User.css';
+//MUI COMPONENT
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
-import lifecycle from '../../src/assets/lifecycle.png';
-import location from '../../src/assets/locations.png';
-const User = ({Children}) => {
+
+const UserAdmin = ({Children}) => {
     const adminItem=[
         {
-          path:"/",
+          path:"/admin/user/users",
           name:"Users",
           para:"",
           icon:<AccountCircleOutlinedIcon />
         },
         {
-          path:"",
+          path:"/admin/user/roles",
           name:"Roles",
           para:"",
           icon:<img src={roles} alt='for roles'className='roles-icon'/>
         },
         {
-          path:"",
-          name:"Fields",
-          para:"",
-          icon:<img src={form} alt='for form'/>
-        },
-        {
-          path:"",
+          path:"/admin/user/groups",
           name:"Groups",
           para:"",
           icon:<GroupsOutlinedIcon />
         },
         {
-          path:"",
+          path:"admin/user/approvals",
           name:"Approval Lifecycle",
           para:"",
           icon:<img src={lifecycle} alt='for approval'/>
         },
         {
-            path:"",
+            path:"/admin/user/location",
             name:"Location Avalibility",
             para:"",
             icon:<img src={location} alt='for location'/>
@@ -77,4 +77,4 @@ const User = ({Children}) => {
   )
 }
 
-export default User
+export default UserAdmin;

@@ -12,7 +12,7 @@ import Header from "./Components/Header.js";
 import Profile from './Components/Profile.js';
 import Workspace from "./Pages/Workspace.js";
 import Analytics from "./Components/Analytics.js";
-import Admin from "./Pages/Admin.js";
+import Admin from "./Components/admin/Admin.js";
 import Google from "./Pages/Google/google.js";
 
 import Dropdown from "./Components/submenu.js";
@@ -28,6 +28,9 @@ import Roles from "./Pages/Google/roles.js";
 import Groups from "./Pages/Google/groups.js";
 import AdGroupForm from "./Pages/Google/adGroupsForm.js";
 import CampaignLifecycle from "./Pages/Google/campaignLifecycle.js";
+import GoogleFormfields from "./Pages/Google/googleformfields.js";
+import AdminFields from "./Components/admin/User/fields.js";
+import CampaignTable from "./Components/google/CampaignTable.js";
 
 
 
@@ -77,8 +80,12 @@ function App() {
           <Route path="/admin/user/location" element={""} />
 
 
+          {/* Service Management Routes */}
+          <Route path="/admin/service/formfields" element={<AdminFields />} />
+
           {/* Google Routes */}
           <Route path="/google/ads/createad" element={<AdsTable />} />
+          <Route path='/google/campaigns' element={<CampaignTable />} />
 
 
           {/* Admin Channel Google Routes */}
@@ -92,11 +99,11 @@ function App() {
           <Route path="/admin/channels/google/campaigns/form" element={<Campaignform />} />
           <Route path="/admin/channels/google/campaign/lifecycle" element={<CampaignLifecycle />} />
 
-          <Route path="/admin/channels/google/adgroups/form" element={<AdGroupForm />} />
+          <Route path="/admin/channels/google/adgroups/adgroupssetup" element={<AdGroupForm />} />
 
-          <Route path="/admin/channels/google/budget/form" element={""} />
+         
           <Route path="/admin/channels/google/budget/lifecycle" element={""} />
-
+          <Route path="/admin/channels/google/formfields" element={<GoogleFormfields />} />
           <Route path="/admin/channels/google/others/criteria" element={""} />
           <Route path="/admin/channels/google/others/extensions" element={""} />
 

@@ -18,12 +18,7 @@ const Service = ({Children}) => {
           para:"",
           icon:<img src={Business} alt='for roles'className='Business-icon'/>
         },
-        {
-          path:"/admin/service/policies",
-          name:"SLA & OLA Policies",
-          para:"",
-          icon:''
-        },
+        
         {
           path:"/admin/service/approvals",
           name:"Approval Policies",
@@ -42,12 +37,7 @@ const Service = ({Children}) => {
           para:"",
           icon:<img src={Businessrules} alt='for approval'className='Approval-icon'/>
         },
-        {
-            path:"/admin/service/employeeaccess",
-            name:"Employee Access",
-            para:"",
-            icon:<img src={Employee} alt='for approval'className='Approval-icon'/>
-          },
+        
           
       ]
   return (

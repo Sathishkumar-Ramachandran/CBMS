@@ -6,9 +6,10 @@ import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import { FcGoogle} from "react-icons/fc";
 import HighlightOutlinedIcon from '@mui/icons-material/HighlightOutlined';
 import AltRouteOutlinedIcon from '@mui/icons-material/AltRouteOutlined';
-
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 const OtherSetup = ({Children}) => {
     const adminItem=[
+
         {
             name: "Criteria",
             icon: <HighlightOutlinedIcon />,
@@ -19,6 +20,12 @@ const OtherSetup = ({Children}) => {
             icon: <AltRouteOutlinedIcon />,
             path: "/admin/google/extensions"
         },
+        {
+          name: "Form Fields",
+          icon: <InsertDriveFileOutlinedIcon />,
+          path: "/admin/channels/google/formfields"
+
+        }
                     
       ]
   return (

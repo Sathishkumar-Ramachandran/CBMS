@@ -4,28 +4,21 @@ import { NavLink } from 'react-router-dom';
 import { FaFacebook,FaInstagramSquare,FaTwitterSquare,} from "react-icons/fa";
 import { AiFillLinkedin , AiFillYoutube} from "react-icons/ai";
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
-import ApprovalOutlinedIcon from '@mui/icons-material/ApprovalOutlined';
 import { FcGoogle} from "react-icons/fc";
 
-const BudgetForm = ({Children}) => {
+const AdGroups = ({Children}) => {
     const adminItem=[
         {
-            name: "Budget Form",
-            icon: <FeedOutlinedIcon />,
-            path: "/admin/google/budgetform"
-        },
-        {
-            name: "Budget Lifecycle",
-            icon: <ApprovalOutlinedIcon />,
-            path: "/admin/google/budgetlifecycle"
 
-        },
-        
+            name: "AdGroups Setup",
+            icon: <FeedOutlinedIcon />,
+            path: "/admin/channels/google/adgroups/adgroupssetup"
+        },     
       ]
   return (
     <>
     <div className='heading'>
-      <h2 className='account-gap2'>Budget Setup</h2>
+      <h2 className='account-gap2'>AdGroups Setup</h2>
       <p className='paragraph2'></p>
       {       
           adminItem.map((item,index)=>(
@@ -48,4 +41,4 @@ const BudgetForm = ({Children}) => {
   )
 }
 
-export default BudgetForm
+export default AdGroups;

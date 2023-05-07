@@ -188,7 +188,7 @@ export const menuItem=[
         },
 
         {
-          path: "/google/campaign",
+          path: "/google/campaigns",
           name: "Campaigns",
           icon: <CampaignIcon />,
           options: [
@@ -245,12 +245,7 @@ export const menuItem=[
           icon: <CampaignIcon />
         },
         
-        {
-          path: "/google/campaign",
-          name: "Campaigns",
-          icon: <CampaignIcon />
-        },
-        
+       
       
       ]
     },
@@ -309,6 +304,37 @@ export const menuItem=[
     {
       path:"/admin",
       title:"Admin",
-      icon:<RiAdminLine/>
+      icon:<RiAdminLine/>,
+      submenu: [
+        {
+          path: "/admin",
+          name: "Account Setup",
+          icon:<GiPostStamp/>
+        },
+        {
+          path: "/admin",
+          name: "User Management",
+          icon: <NewspaperIcon/>
+        },{
+          path: "/admin",
+          name: "Channels",
+          icon:<GiPostStamp/>
+        },
+        {
+          path: "/admin",
+          name: "Service Management",
+          icon: <NewspaperIcon/>
+        },
+        {
+          path: "/admin",
+          name: "Automation",
+          icon: <NewspaperIcon/>
+        },
+        {
+          path: "/admin",
+          name: "Project Management",
+          icon: <NewspaperIcon/>
+        },
+      ]
     },
   ]

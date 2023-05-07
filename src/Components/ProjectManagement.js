@@ -24,24 +24,24 @@ const ProjectManagement = ({Children}) => {
           para:"",
           icon:<img src={Projectlifecycle} alt='for roles'className='Business-icon'/>
         },
-        {
-          path:"",
-          name:"JIRA",
-          para:"",
-          icon:<img src={Jira} alt='for roles'className='Business-icon'/>
-        },
-        {
-          path:"",
-          name:"Trello",
-          para:"",
-          icon:<img src={Trello} alt='for roles'className='Business-icon'/>
-        },
-        {
-          path:"",
-          name:"DevOps",
-          para:"",
-          icon:<img src={DevOps} alt='for roles'className='Business-icon'/>
-        },
+        // {
+        //   path:"",
+        //   name:"JIRA",
+        //   para:"",
+        //   icon:<img src={Jira} alt='for roles'className='Business-icon'/>
+        // },
+        // {
+        //   path:"",
+        //   name:"Trello",
+        //   para:"",
+        //   icon:<img src={Trello} alt='for roles'className='Business-icon'/>
+        // },
+        // {
+        //   path:"",
+        //   name:"DevOps",
+        //   para:"",
+        //   icon:<img src={DevOps} alt='for roles'className='Business-icon'/>
+        // },
         
       ]
   return (
@@ -70,4 +70,4 @@ const ProjectManagement = ({Children}) => {
   )
 }
 
-export default ProjectManagement
+export default ProjectManagement;

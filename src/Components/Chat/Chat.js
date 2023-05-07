@@ -154,22 +154,22 @@
 //         </Grid>
 //       </Box>
 
-//     //   const sendFile = async (file) => {
-//     //     const formData = new FormData();
-//     //     formData.append('file', file);
-//     //     formData.append('sender', username);
-//     //     formData.append('room', currentRoom);
+//       const sendFile = async (file) => {
+//         const formData = new FormData();
+//         formData.append('file', file);
+//         formData.append('sender', username);
+//         formData.append('room', currentRoom);
 
-//     //     try {
-//     //         const response = await axios.post('/upload', formData);
-//     //         const { url } = response.data;
-//     //         socket.emit('message', {
-//     //         message: url,
-//     //         sender: username,
-//     //         room: currentRoom,
-//     //         });
-//     //     } catch (error) {
-//     //         console.error(error);
-//     //     }
-//     //  };
-//     // )   
+//         try {
+//             const response = await axios.post('/upload', formData);
+//             const { url } = response.data;
+//             socket.emit('message', {
+//             message: url,
+//             sender: username,
+//             room: currentRoom,
+//             });
+//         } catch (error) {
+//             console.error(error);
+//         }
+//      };
+//     )   

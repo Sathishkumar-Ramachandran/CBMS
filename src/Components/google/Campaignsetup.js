@@ -6,11 +6,6 @@ const Campaignsetup = ({Children}) => {
 
     const menuItem=[
         {
-          path:"/admin/channels/google/campaigns/form",
-          name:"Campaign Form",
-          icon:<FeedOutlinedIcon />,
-        },
-        {
           path:"/admin/channels/google/campaign/lifecycle",
           name:"Campaign Lifecycle",
           icon:<ApprovalOutlinedIcon />,

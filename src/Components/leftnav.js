@@ -16,13 +16,6 @@ import Dropdown from './submenu';
 const Leftnav = ({Children}) => {
 
 
-  // const submenu= [
-  //   {
-  //     path:"/dashboard",
-  //     name:"Dashboard",
-  //     icon:<RxDashboard/>,
-  //   }
-  // ]
 
   const[isOpen , setIsopen] = useState(false);
   const toggle = () =>setIsopen(!isOpen);
@@ -91,4 +84,4 @@ const Leftnav = ({Children}) => {
   )
 }
 
-export default Leftnav
+export default Leftnav;
