@@ -12,7 +12,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Select from '@mui/material/Select';
 import { FormControl, InputLabel, MenuItem } from '@mui/material/';
-
+import Radio from '@mui/material/Radio';
+import Checkbox from "@mui/material/Checkbox";
+import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 
 const Toolkit = ( {propstest} ) => {
     
@@ -56,6 +58,12 @@ const Toolkit = ( {propstest} ) => {
       properties: "",
     },
     {
+      Tool: "Checkbox",
+      comp: <Checkbox />,
+      icon: <BiParagraph />,
+      properties: "",
+    },
+    {
       Tool: "Dropdown",
       comp: <Select />,
       icon: <IoIosArrowDropdown />,
@@ -63,10 +71,11 @@ const Toolkit = ( {propstest} ) => {
     },
     {
       Tool: "Radio Button",
-      comp: "",
-      icon: <CgRadioChecked />,
+      comp: <Radio />,
+      icon: <RadioButtonCheckedOutlinedIcon />,
       properties: "",
     },
+    
   ];
 
   
