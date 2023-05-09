@@ -16,7 +16,7 @@ import Radio from '@mui/material/Radio';
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 
-const Toolkit = ( {propstest} ) => {
+const Toolkit = ( {props,setProps,saveSchema} ) => {
     
   // const propstest = [
   //   {
@@ -82,7 +82,7 @@ const Toolkit = ( {propstest} ) => {
 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTool, setSelectedTool] = useState(null);
-  const[props,setProps]=useState(propstest);
+ 
   const handleForm = (item, e) => {
     e.preventDefault();
     setSelectedTool(item);
@@ -130,6 +130,8 @@ const Toolkit = ( {propstest} ) => {
             <Form props={props}></Form>
         </div>
       </div>
+
+      <button onClick={saveSchema}>saveSchema</button>
     </>
   );
 };
