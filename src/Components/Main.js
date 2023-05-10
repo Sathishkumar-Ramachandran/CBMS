@@ -1,52 +1,49 @@
+import React, { useState } from "react";
 
-import React from 'react'
-import '../styles/Main.css';
-import Linechart from './Charts/Linechart';
-import PieRechart from './Charts/PieRechart';
-import Dashboardtable from './Charts/Dashboardtable';
-import Map from './Maps/Map';
+
+//MUI COMPONENTS
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+
+
+const widgets = [
+  {
+    widgetName: "smallCard",
+    component: <Card />,
+    sx : { display: 'inline-block', mx: '2px', transform: 'scale(0.8)' },
+  }
+]
+
+
+const content = [
+  {
+    cardTitle: "",
+
+
+  }
+]
 
 const Main = () => {
-  return (
+
+
+
+
+  return(
     <>
-    <div className="cardContainer">
-<div className="card1" style={{background:"#cee5d0"}}>
-<h2></h2>
-<p></p>
-</div>
-<div className="card2">
-<h2></h2>
-<p></p>
-</div>
-</div>
-
-<div className='card-total'>
-<div className="card" >
-<h2>Double Engine</h2>
-<p></p>
-</div>
-<div className="card">
-<h2>Double Engine</h2>
-<p></p>
-</div>
-<div className="card">
-<h2>Double Engine</h2>
-<p></p>
-</div>
-</div>
-<div className='chart-main'>
-<PieRechart className='piechart'/>
-<Linechart/>
-</div>
-<div className='maps-main'>
-<Dashboardtable />
-<Map/>
-</div>
-</>
-
-
+      { content.map((item, index) => {
+        <Card>
+          <CardContent>
+            
+          </CardContent>
+        </Card>
+      })}
+    </>
   )
-}
+};
 
 export default Main;
-

@@ -1,81 +1,36 @@
-.card1 {
-  float: left;
-  width: calc(45% - 20px);
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px 7.6%;
-  height: 200px;
-  opacity:5px;
-}
-.card2{
-  background-color: #e5d1fa;
-  float: left;
-  width: calc(25% - 20px);
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px ;
-  margin-right: 2%;
-  height: 200px;
-}
-.card p {
-  font-size: 18px;
-}
-.cardContainer:after {
-  content: "";
-  display: table;
-  clear: both;
- 
-}
-@media screen and (max-width: 600px) {
-  .card {
-     width: 100%;
-  }
+.card-container {
+  width: 33.33%;
+  margin-bottom: 20px;
 }
 
-
-.card-total{
-  margin-left: 6%;
-  margin-top: 1rem;
-}
 .card {
-  float: left;
-  width: 25%;
+  border: 1px solid #ccc;
   padding: 10px;
-  border-radius: 10px;
-  margin: 10px 2%;
 }
 
-.card p {
-  font-size: 18px;
-}
-.cardContainer:after {
-  content: "";
-  display: table;
-  clear: both;
- 
-}
-@media screen and (max-width: 600px) {
-  .card {
-     width: 100%;
-  }
+.card-header {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
 }
 
-.piechart{
-  border: 1px solid red;
+.card-content {
+  padding: 10px;
 }
-.chart-main{
-  display: table;
-  clear: both;
+
+.filter-container {
   display: flex;
-
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.main-dashboard{
-  margin-left: 2rem;
+.filter-input {
+  margin-right: 10px;
 }
 
-.maps-main{
-  display: table;
-  clear: both;
-  display: flex;
+.arrow-upward,
+.arrow-downward {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  fill: #ccc;
 }

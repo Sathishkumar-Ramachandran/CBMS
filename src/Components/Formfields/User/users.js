@@ -11,6 +11,7 @@ import { BiParagraph } from "react-icons/bi";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 
 const UserFieldsDefault = [
   {
@@ -37,7 +38,7 @@ const AdminUserFields = () => {
   const [props, setProps] = useState(UserFieldsDefault);
   const [schema, setSchema] = useState({});
   const [formData, setFormData] = useState({});
-
+  const [showDisabled, setShowDisabled] = useState(true);
   // useEffect(() => {
   //   // Fetch the schema from MongoDB
   //    axios.get('http://localhost:3001/api/update')
@@ -56,6 +57,8 @@ const AdminUserFields = () => {
       [event.target.name]: event.target.value,
     });
   };
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -147,18 +150,29 @@ const AdminUserFields = () => {
 
   return (
     <div className="formfielddiv">
-      <Button>Edit</Button>
-      <Button>Save</Button>
+
+      <div style={{float: 'right'}}>
+      <Button variant="contained" onClick={() => setShowDisabled(false)} endIcon={<SaveOutlinedIcon />}>Edit</Button>
+    
+      <Button  variant='contained' disabled={showDisabled} endIcon={<SaveOutlinedIcon />} onClick={saveSchema} sx={{ margin: 2 }}>Save</Button>
+      
+      {!showDisabled &&   <Button variant="contained" sx={{margin: 2}} onClick={() => setShowDisabled(true)}>Cancel</Button> }
+
+      </div>
+      <div style={{float: "left"}}>
       <Toolkit
         props={props}
         setProps={setProps}
         saveSchema={saveSchema}
         className="Default"
       />
-      <h4>User Fields</h4>
+      </div>
+      <div style={{padding: '15px', margin: '3px'}}>
+      {/* <h4>User Fields</h4> */}
       <form onSubmit={handleSubmit} className="formfield">
         {renderFields()}
       </form>
+      </div>
     </div>
   );
 };

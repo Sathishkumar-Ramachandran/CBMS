@@ -16,7 +16,7 @@ import Radio from '@mui/material/Radio';
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 
-const Toolkit = ( {props,setProps,saveSchema} ) => {
+const Toolkit = ( {props,setProps} ) => {
     
   // const propstest = [
   //   {
@@ -108,9 +108,11 @@ const Toolkit = ( {props,setProps,saveSchema} ) => {
               </Button>
             ))}
           </ButtonGroup>
-          <h4>
-        Default
-      </h4>
+
+          <h4 style={{padding: "14px", float: "left"}}>
+           Default
+         </h4>
+
         </div>
         {showPopup && (
           <Popup
@@ -131,7 +133,7 @@ const Toolkit = ( {props,setProps,saveSchema} ) => {
         </div>
       </div>
 
-      <button onClick={saveSchema}>saveSchema</button>
+   
     </>
   );
 };
@@ -215,7 +217,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
 
           )}
   
-          <Button variant="contained" onClick={handleSave}>
+          <Button variant="contained" onClick={handleSave} sx={{margin: 2}}>
             Save
           </Button>
           <Button variant="contained" onClick={onClose}>
