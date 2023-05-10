@@ -5,15 +5,13 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
    
 }
-
-.Default {
+/* .toolkit{
     display: flex;
-    justify-content: center;
-   
-   
-}
+} */
+
 .campignfields-h4{
-    display: flex; 
+  margin-top: 1rem;
+  color: #00AB66;
 }
 
 .formfield {
@@ -24,4 +22,9 @@ margin-left: 5rem;
 }
 .formfield-button{
     float: right;
+}
+
+.Formtext {
+    margin-top: 1rem;
+    gap: 1rem;
 }

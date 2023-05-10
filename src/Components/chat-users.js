@@ -70,7 +70,8 @@ const UserList = ({currentUserId}) => {
   };
 
   return (
-    <Grid container spacing={2} className='profile'>
+    <div className='profile'>
+    <Grid container spacing={2} direction="row" >
       {users.map((user) => (
         <Grid item xs={12} md={6} key={user.id}>
           <Box
@@ -127,6 +128,7 @@ const UserList = ({currentUserId}) => {
         />
       )}
     </Grid>
+    </div>
   );
 };
 

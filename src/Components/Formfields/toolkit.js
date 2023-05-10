@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../styles/Formfields/formfield.css";
+import "../../styles/formfield.css";
 import { BiText } from "react-icons/bi";
 import { BiParagraph } from "react-icons/bi";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -81,12 +81,12 @@ const Toolkit = ( {propstest} ) => {
   };
   return (
     <>
-      <div>
-        <div className="toolkit">
+      <div className="toolkit">
+        <div>
        
           <ButtonGroup
             variant="outlined"
-            aria-label="outlined primary button group"
+            aria-label="outlined primary button group" className='button-toolkit'
           >
             {tools.map((item, index) => (
               <Button
@@ -98,11 +98,11 @@ const Toolkit = ( {propstest} ) => {
                 {item.icon}
               </Button>
             ))}
+            
           </ButtonGroup>
-          <h4>
-        Default
-      </h4>
+        
         </div>
+        {/* <h3>hi</h3> */}
         {showPopup && (
           <Popup
             comp={selectedTool.comp}
@@ -117,13 +117,20 @@ const Toolkit = ( {propstest} ) => {
             }}
           />
         )}
-        <div>
-            <Form props={props}></Form>
+       <div className="campignfields-h4">
+          <h3>Default</h3>
+         </div>
+        <div className='Formtext '>
+            <Form props={props} ></Form>
+           
         </div>
+       
       </div>
+   
     </>
   );
 };
+
 const Popup = ({ comp, onClose, onSave,data }) => {
     const [label, setLabel] = useState("");
     const [properties, setProperties] = useState("");

@@ -2,15 +2,16 @@
     margin-left: 8vh;
     margin-top: 8vh;
     height: 100vh;
-    width: 15%;
-    border-color: thin black;
-    border-right-width: thin;
-    background-color: white;
+    width: 10%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-right: 1px solid #D5D4C5;
+    color: blue;
+    position: fixed;
 }
 
 
 .googlenavtitle {
-
+      border-right: 1px solid black;
 }
 
 .googlenavoption {

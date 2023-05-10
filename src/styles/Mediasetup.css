@@ -1,0 +1,11 @@
+/* .mediasetup-gap{
+    border-collapse: separate;
+    border-spacing: 15px;
+
+} */
+
+.creategoogleaccount{
+    column-count: 4;
+    column-gap: 20px;
+    padding: 20px 0;
+}

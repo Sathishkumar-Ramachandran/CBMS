@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Googleaccount from "./googleaccount";
 import Viewaccounts from "./viewaccounts";
 import CreateGoogleAdsAccountForm from '../../Components/google/createaccount.js';
-
+import '../../styles/Mediasetup.css';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -21,7 +21,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3 ,rowGap: 2}}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -50,7 +50,10 @@ export default function Mediasetup() {
   };
 
   return (
-    <Box sx={{ width: '60%', m: 15 }}>
+    <div className="mediasetup-gap" sx={{ gap: 2 }}>
+
+   <Box sx={{ width: '80%', m: 15, p: 3 ,rowGap: 2}}>
+   
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Get Credentials" {...a11yProps(0)} />
@@ -62,11 +65,14 @@ export default function Mediasetup() {
         <Googleaccount />
       </TabPanel>
       <TabPanel value={value} index={1}>
+        <div className="creategoogleaccount">
         <CreateGoogleAdsAccountForm />
+        </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Viewaccounts />
       </TabPanel>
     </Box>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 //CSS
-import '../../../styles/campaignform.css';
+import '../../../styles/CreateAds.css';
 import Toolkit from '../toolkit';
 import { BiText } from "react-icons/bi";
 import { BiParagraph } from "react-icons/bi";
@@ -120,11 +120,16 @@ const CreateAdsFields = () => {
 
   return (
     <div className='formfielddiv'>  
+       <div className='formfield-button'> 
       <Button>Edit</Button>
       <Button>Save</Button>
-      <Toolkit propstest={CreateAdsDefault}  className='Default' />
-      <h4>Create Ads Fields</h4>
-      <form onSubmit={handleSubmit} className='formfield'>
+      </div>
+      <div className='Default'>
+      <Toolkit propstest={CreateAdsDefault} />
+      </div>
+      <div className='formtext-hr'></div>
+      <h3 className='createFields-text'>Create Ads Fields</h3>
+      <form onSubmit={handleSubmit} >
       {renderFields()}
     </form>
     </div>

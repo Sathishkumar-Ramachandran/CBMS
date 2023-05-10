@@ -9,11 +9,14 @@ import { BiParagraph } from "react-icons/bi";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+
 const CampaignformDefault = [
+
   {
+    
     label: "First Name",
     tool: "SingleLineText",
-    comp: <TextField />,
+    comp: <TextField className='formFileds-comp'/>,
     icon: <BiText />,
     properties: "",
     onChange: (event, property) =>
@@ -33,6 +36,9 @@ const CampaignformDefault = [
       console.log("Message value changed to:", event.target.value, property),
   },
 ];
+
+
+
 
 
 
@@ -92,6 +98,7 @@ const Campaignform = () => {
               label={label}
               value={formData[key] || ''}
               onChange={handleInputChange}
+              
             />
             <DeleteIcon display="inherit" style={{width: '20px', padding: '2px'}} />
             </div>
@@ -117,16 +124,24 @@ const Campaignform = () => {
   };
 
   return (
-    <div className='formfielddiv'>  
+    <div className='formfielddiv'> 
+    <div className='formfield-button'> 
       <Button>Edit</Button>
       <Button>Save</Button>
-      <Toolkit propstest={CampaignformDefault}  className='Default' />
-      <h4>Campaign Fields</h4>
+     
+      </div>
+    
+      <div className='Default'>
+      <Toolkit propstest={CampaignformDefault} />
+      </div>
+      
+      <h4 className='campignfields-h4'>Campaign Fields</h4>
+   
       <form onSubmit={handleSubmit} className='formfield'>
       {renderFields()}
     </form>
     </div>
- 
+
   );
 }
 

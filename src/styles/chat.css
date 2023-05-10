@@ -1,15 +1,19 @@
-.chat {
+/* .chat {
     padding: 15%;
-}
+} */
 
 
-.profile {
-    width: 80%;
-    height: 10%;
-    padding-left: 20%;
-    padding-top: 10%;
-    border-color: green;
-    border-width: 1px;
+ .profile {
+    width: 20%;
+    display: flex;
+    margin-right: 77%;
+    margin-top: 3.5%;
+    overflow-y: scroll;
+    position: absolute;
+    height: 100%; 
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+ 
+   
 }
 
 .card {

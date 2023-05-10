@@ -5,6 +5,7 @@ import { menuItem } from '../../Components/menuItem.js';
 import '../../styles/Google/Google.css'
 import CreateAdForm from '../../styles/Google/CreateAd.js';
 import AdsTable from './Ads.js';
+import { BorderRight } from '@mui/icons-material';
 
 
 const GoogleNav = ( {children, setShowComp} ) => {
@@ -35,9 +36,9 @@ const GoogleNav = ( {children, setShowComp} ) => {
                       </div>
                      
                       { 
-                      <div className='googlenavoption'>
+                      <div className='googlenavoption'style={{display: "inline-block",}}>
                       <h5
-                      onClick={() => {comp(option)} } key={index3} style={{cursor: "pointer"}} >
+                      onClick={() => {comp(option)} } key={index3} style={{cursor: "pointer",}} >
                         <div className=''>{option.icon}</div>
                         <div>{option.name}</div>
                       </h5>

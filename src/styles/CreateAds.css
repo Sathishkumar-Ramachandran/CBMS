@@ -7,10 +7,8 @@
 }
 
 .Default {
-    display: flex;
-    justify-content: center;
-   
-   
+  display: flex;  
+  
 }
 .campignfields-h4{
     display: flex; 
@@ -24,4 +22,18 @@ margin-left: 5rem;
 }
 .formfield-button{
     float: right;
+}
+.formtext-hr{
+    border:1px solid #D5D4C5;
+    width: 100%;
+    margin-top: 1rem;
+}
+.formtext{
+ margin-top: 2rem;
+
+}
+.createFields-text{
+margin-left: 28%;
+margin-top: 1rem;
+color: #00AB66;
 }
