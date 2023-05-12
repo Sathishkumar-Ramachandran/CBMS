@@ -81,70 +81,71 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Chat = ({ user, chatId, recipient, recipientPublicKey }) => {
-  const classes = useStyles();
-  const [messages, setMessages] = useState([]);
-  const [messageText, setMessageText] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [typing, setTyping] = useState(false);
-  const [socket, setSocket] = useState(null);
-  const [encryptedKey, setEncryptedKey] = useState(null);
+  // const classes = useStyles();
+  // const [messages, setMessages] = useState([]);
+  // const [messageText, setMessageText] = useState('');
+  // const [loading, setLoading] = useState(false);
+  // const [typing, setTyping] = useState(false);
+  // const [socket, setSocket] = useState(null);
+  // const [encryptedKey, setEncryptedKey] = useState(null);
 
-  const chatContainerRef = useRef(null);
+  // const chatContainerRef = useRef(null);
 
-  useEffect(() => {
-    // Connect to the Flask-SocketIO server with SSL/TLS encryption
-    const socket = io.connect('http://localhost:6000', {
-      secure: true,
-      rejectUnauthorized: false,
-    });
-    setSocket(socket);
+  // useEffect(() => {
+  //   // Connect to the Flask-SocketIO server with SSL/TLS encryption
+  //   const socket = io.connect('http://localhost:6000', {
+  //     secure: true,
+  //     rejectUnauthorized: false,
+  //   });
+  //   setSocket(socket);
   
-    const fetchMessages = async () => {
-      // Generate a random session key for end-to-end encryption
-      const sessionKey = openpgp.crypto.generateSessionKey('aes256');
-      const sessionKeyArmored = await openpgp.armor.encode({
-        message: sessionKey,
-      });
+  //   const fetchMessages = async () => {
+  //     // Generate a random session key for end-to-end encryption
+  //     const sessionKey = openpgp.crypto.generateSessionKey('aes256');
+  //     const sessionKeyArmored = await openpgp.armor.encode({
+  //       message: sessionKey,
+  //     });
   
-      // Encrypt message with the session key
-      const encryptedMessage = await openpgp.encrypt({
-        message: await openpgp.message.fromText(messageContent),
-        sessionKey: sessionKey,
-      });
+  //     // Encrypt message with the session key
+  //     const encryptedMessage = await openpgp.encrypt({
+  //       message: await openpgp.message.fromText(messageContent),
+  //       sessionKey: sessionKey,
+  //     });
   
-      // Convert the encrypted message to ASCII armored text
-      const encryptedMessageArmored = await openpgp.armor.encode({
-        message: encryptedMessage.message,
-      });
+  //     // Convert the encrypted message to ASCII armored text
+  //     const encryptedMessageArmored = await openpgp.armor.encode({
+  //       message: encryptedMessage.message,
+  //     });
   
-      // Construct the final message object with the encrypted content and session key
-      const finalMessage = {
-        content: encryptedMessageArmored,
-        sessionKey: sessionKeyArmored,
-        sender: 'me',
-        receiver: 'you',
-        sentTime: Date.now(),
-      };
+  //     // Construct the final message object with the encrypted content and session key
+  //     const finalMessage = {
+  //       content: encryptedMessageArmored,
+  //       sessionKey: sessionKeyArmored,
+  //       sender: 'me',
+  //       receiver: 'you',
+  //       sentTime: Date.now(),
+  //     };
       
-      // Render the message in the chat window
-      setMessages((prevMessages) => [...prevMessages, finalMessage]);
-    };
+  //     // Render the message in the chat window
+  //     setMessages((prevMessages) => [...prevMessages, finalMessage]);
+  //   };
   
-    fetchMessages();
-  }, []);
-      // Render the message in the chat window
-      return (
-        <div
-          key={index}
-          className={`${classes.messageContainer} ${
-            sender === 'me' ? classes.myMessageContainer : classes.otherMessageContainer
-          }`}
-        >
-          <Typography className={classes.message} variant="body1">
-            {message.content}
-          </Typography>
-          <Typography className={classes.sentTime} variant="body2">
-            {sentTime}
-          </Typography>
-        </div>
-      )};
+  //   fetchMessages();
+  // }, []);
+  //     // Render the message in the chat window
+  //     return (
+  //       <div
+  //         key={index}
+  //         className={`${classes.messageContainer} ${
+  //           sender === 'me' ? classes.myMessageContainer : classes.otherMessageContainer
+  //         }`}
+  //       >
+  //         <Typography className={classes.message} variant="body1">
+  //           {message.content}
+  //         </Typography>
+  //         <Typography className={classes.sentTime} variant="body2">
+  //           {sentTime}
+  //         </Typography>
+  //       </div>
+  //     )
+};
