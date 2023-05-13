@@ -67,7 +67,7 @@ input .searchQueryInput {
   width: 100%;
   position: fixed;
   border-bottom: 1px solid black;
-  margin-left: 4vw;
+  margin-left: 4px;
 
 }
   .searchBar {

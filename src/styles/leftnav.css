@@ -17,22 +17,23 @@ main{
     font-size: 20px;
 }
 .sidebar{
-    background:#014421;
+    /* background:  #08643e; */
+    background:#014421; 
     color: black;
-    height: 100%;
-    width: 20%;
+    height: 100vh;
+    width: 20vw;
     position:fixed;
    opacity: 1;
 }
 .top-section{
     display: flex;
     align-items: center;
-    padding: 0 12px ;
+    padding: 0 10px ;
    
 }
 .logo{
     font-size: 20px;
-    color: white;
+    color: white
    
    
 }
@@ -70,12 +71,14 @@ main{
 }
 
 .submenu{
+    
     background:#00693E;
+    
     height: 100%;
     width: 20%;
     position: fixed;
-  
-   margin-left: 3.5%;
+    position: inherit;
+   margin-left: 3.5vw;
    padding: 10px 15px;
    gap: 25px;
    text-decoration: none;

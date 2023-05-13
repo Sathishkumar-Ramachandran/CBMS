@@ -76,6 +76,7 @@ class SchemaTable extends Component {
     schema: [],
     data: [],
     loading: true,
+    schemaDetails: ('')
   };
 
   componentDidMount() {
