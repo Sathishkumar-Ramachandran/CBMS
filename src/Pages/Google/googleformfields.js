@@ -46,7 +46,7 @@ function a11yProps(index) {
   };
 }
 
-export default function Mediasetup() {
+export default function GoogleFormfields() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -80,7 +80,7 @@ export default function Mediasetup() {
         <GoogleGroupsFields />
       </TabPanel>
       <TabPanel value={value} index={4}>
-    
+        
       </TabPanel>
       <TabPanel value={value} index={5}>
     

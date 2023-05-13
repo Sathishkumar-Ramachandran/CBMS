@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../styles/formfield.css";
+// import "../../styles/campaignform.css";
 import { BiText } from "react-icons/bi";
 import { BiParagraph } from "react-icons/bi";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -91,8 +91,8 @@ const Toolkit = ( {props,setProps} ) => {
   };
   return (
     <>
-      <div className="toolkit">
-        <div>
+      <div >
+        <div >
        
           <ButtonGroup
             variant="outlined"
@@ -111,9 +111,9 @@ const Toolkit = ( {props,setProps} ) => {
             
           </ButtonGroup>
 
-          <h4 style={{padding: "14px", float: "left"}}>
+          <h3 className="Default">
            Default
-         </h4>
+         </h3>
 
         </div>
         {/* <h3>hi</h3> */}
@@ -131,10 +131,12 @@ const Toolkit = ( {props,setProps} ) => {
             }}
           />
         )}
-        <div>
-            <Form props={props}></Form>
+     
+        <div className="input-formfiled">
+     
+            <Form props={props} ></Form>
         </div>
-       
+   
       </div>
    
     </>
@@ -173,6 +175,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
             margin="normal"
             value={label}
             onChange={(e) => setLabel(e.target.value)}
+            className="input-formfiled"
           />
           <TextField
             label="Properties"
@@ -206,6 +209,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                       newOptions[index] = e.target.value;
                       setOptions(newOptions);
                     }}
+                  
                   />
                   {index === options.length - 1 && (
                     <Button

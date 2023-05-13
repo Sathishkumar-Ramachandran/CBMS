@@ -13,6 +13,7 @@ import AdminGroupFields from "../../Formfields/User/Groups.js";
 import EmployeeAccessFields from "../../Formfields/User/EmployeeAccessFields";
 import TicketFields from "./TicketFields";
 import ProjectFields from "./ProjectFields";
+import AdminDayPassesFields from "../../Formfields/User/DayPassesFields";
 
 //Tab Components
 
@@ -59,7 +60,7 @@ export default function AdminFields() {
   };
 
   return (
-    <div>
+    <div >
     <Box sx={{ width: '80%', m: 15 }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="scrollable"
@@ -86,7 +87,7 @@ export default function AdminFields() {
         <EmployeeAccessFields />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        
+        <AdminDayPassesFields />
       </TabPanel>
       <TabPanel value={value} index={5}>
         <TicketFields />

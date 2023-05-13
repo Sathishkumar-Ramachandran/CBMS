@@ -145,6 +145,7 @@ const AdminUserFields = () => {
                 label={label}
                 value={formData[key] || ""}
                 onChange={handleInputChange}
+                
               />
               <DeleteIcon
                 display="inherit"
@@ -172,7 +173,7 @@ const AdminUserFields = () => {
   };
 
   return (
-    <div className="formfielddiv">
+    <div  className="formfielddiv-main">
       <div style={{ float: "right" }}>
         <Button
           variant="contained"
@@ -202,7 +203,8 @@ const AdminUserFields = () => {
           </Button>
         )}
       </div>
-      <div style={{ float: "left" }}>
+     
+      <div >
         <Toolkit
           props={props}
           setProps={setProps}

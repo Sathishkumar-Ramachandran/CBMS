@@ -1,27 +1,40 @@
-.formfielddiv {
-    width: 60vw;
-    margin-left: 20%;
-    margin-top: 5%;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+.formfielddiv-main {
+    box-sizing: border-box;
+    width: 100%;
+ 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   margin-left: 6vw;
+}
+.button-toolkit{
+    text-align: center;
+    margin-left: 12vw;
+    margin-top: 1rem;
    
 }
-
 .Default {
     display: flex;
-    justify-content: center;
-   
-   
+    text-align: center;
+     margin-left: 5rem;
+     margin-top: 1rem;   
+   color: green;
 }
 .campignfields-h4{
     display: flex; 
 }
-
-.formfield {
-    margin: 30%;    
-}
 .formFileds-comp{
-margin-left: 5rem;
+    margin-left: 5rem;
+    }
+.formfield {
+    margin-left: 5%;    
+}
+.input-formfiled{
+    margin-left: 12vw;
+    
 }
 .formfield-button{
     float: right;
 }
+/* .underline-formfiled{
+    border: 1px solid black;
+} */

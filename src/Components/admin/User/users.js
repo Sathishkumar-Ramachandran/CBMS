@@ -91,28 +91,85 @@ const UsersAdmin = () => {
       });
   };
 
-  render() {
-    const { filteredSchema, filteredData } = this.state;
-
-    return (
-    
-      <div className='schemaTable'>
-        <div className='schematable-filter'>
-      <SchemaTable data={filteredData}   />
-  </div>
+  return (
+    <div >
+      {/* <div>
+        <SchemaTable data={[]} />
+      </div> */}
+      {/* <div>
         
-        <div  className='filtercomponent-right' >
-            <FilterComponent
-            schema={filteredSchema}
-            onFilterSchemaChange={this.handleFilterSchemaChange}
-            onFilterDataChange={this.handleFilterDataChange}
-           
-            />  
-        </div>
-      </div>
+      </div> */}
+      {userlits.length > 0 && <h1>Users</h1>}
 
-    );
-  }
-}
-      
+      <table>
+        <thead>
+          {header.map((x) => {
+            return (
+              <>
+                {" "}
+                <th>{x}</th>
+              </>
+            );
+          })}
+        </thead>
+        <tbody>
+          {userlits.map((user) => (
+            <tr key={user._id}>
+              {header.map((key) => (
+                <td key={key}>{user[key] || ""}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {props.map((property, index) => {
+        if (property.tool === "SingleLineText") {
+          return (
+            <div key={index}>
+              <TextField
+                label={property.label}
+                onChange={(e) => {
+                  handleChangeTextField(e.target.value, property.label);
+                }}
+              />
+            </div>
+          );
+        } else if (property.tool === "Paragraph") {
+          return <div key={index}></div>;
+        } else if (
+          property.tool === "Dropdown" &&
+          property?.options?.length > 0
+        ) {
+          const options = property.properties.split(",");
+          return (
+            <div key={index}>
+              <FormControl fullWidth>
+                <InputLabel id={`${property.label}-label`}>
+                  {property.label}
+                </InputLabel>
+                <Select
+                  labelId={`${property.label}-label`}
+                  id={`${property.label}-select`}
+                  value={""}
+                  //onChange={(e) => handleFieldChange(e, property)}
+                >
+                  {property.options.map((option, index) => (
+                    <MenuItem key={index} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
+          );
+        } else {
+          return null;
+        }
+      })}
+      <button onClick={saveUser}>Save</button>
+    </div>
+  );
+};
+
 export default UsersAdmin;
