@@ -11,7 +11,7 @@ import { BiParagraph } from "react-icons/bi";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
-import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 
 const UserFieldsDefault = [
   {
@@ -22,6 +22,7 @@ const UserFieldsDefault = [
     properties: "",
     onChange: (event, property) =>
       console.log("First Name value changed to:", event.target.value, property),
+    key: true,
   },
   {
     label: "Last Name",
@@ -31,10 +32,28 @@ const UserFieldsDefault = [
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
+    key: true,
   },
 ];
 
 const AdminUserFields = () => {
+  useEffect(() => {
+    getSchema();
+  }, []);
+
+  const getSchema = async () => {
+    await axios
+      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .then((d) => {
+        console.log(d.data);
+        if (d.data.length > 0) {
+          setProps(d.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const [props, setProps] = useState(UserFieldsDefault);
   const [schema, setSchema] = useState({});
   const [formData, setFormData] = useState({});
@@ -58,8 +77,6 @@ const AdminUserFields = () => {
     });
   };
 
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -69,34 +86,40 @@ const AdminUserFields = () => {
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
   };
-  const saveSchema =async (e) => {
+  const saveSchema = async (e) => {
     e.preventDefault();
     console.log(props);
     let schema = [];
+    let mongo_schema = [];
     props.map((x) => {
-    let json={};
-      if(x.tool==="SingleLineText"){
-        json={
-          Name: x.label,
-          type: "String",
-          required: true,
-          default: "",
-        }
+      schema.push({
+        label: x.label,
+        tool: x.tool,
+        key: x.key,
+      });
+
+      if (x.tool === "SingleLineText") {
+        mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
-      
-      schema.push(json);
-      
     });
 
+    console.log(schema, "saveSchema");
 
     let payload = {
       companyId: "123456",
-      schema: schema
+      schema: schema,
+      mongo_schema: mongo_schema,
     };
 
-    axios.post('http://localhost:10008/api/mongo/FormFields/addMongoSchema/',payload).then(()=>{
-      toast.success("saved")
-    }).catch("failed")
+    axios
+      .post(
+        "http://localhost:10008/api/mongo/FormFields/addMongoSchema/",
+        payload
+      )
+      .then(() => {
+        toast.success("saved");
+      })
+      .catch("failed");
   };
 
   const renderFields = () => {
@@ -150,28 +173,48 @@ const AdminUserFields = () => {
 
   return (
     <div className="formfielddiv">
+      <div style={{ float: "right" }}>
+        <Button
+          variant="contained"
+          onClick={() => setShowDisabled(false)}
+          endIcon={<SaveOutlinedIcon />}
+        >
+          Edit
+        </Button>
 
-      <div style={{float: 'right'}}>
-      <Button variant="contained" onClick={() => setShowDisabled(false)} endIcon={<SaveOutlinedIcon />}>Edit</Button>
-    
-      <Button  variant='contained' disabled={showDisabled} endIcon={<SaveOutlinedIcon />} onClick={saveSchema} sx={{ margin: 2 }}>Save</Button>
-      
-      {!showDisabled &&   <Button variant="contained" sx={{margin: 2}} onClick={() => setShowDisabled(true)}>Cancel</Button> }
+        <Button
+          variant="contained"
+          disabled={showDisabled}
+          endIcon={<SaveOutlinedIcon />}
+          onClick={saveSchema}
+          sx={{ margin: 2 }}
+        >
+          Save
+        </Button>
 
+        {!showDisabled && (
+          <Button
+            variant="contained"
+            sx={{ margin: 2 }}
+            onClick={() => setShowDisabled(true)}
+          >
+            Cancel
+          </Button>
+        )}
       </div>
-      <div style={{float: "left"}}>
-      <Toolkit
-        props={props}
-        setProps={setProps}
-        saveSchema={saveSchema}
-        className="Default"
-      />
+      <div style={{ float: "left" }}>
+        <Toolkit
+          props={props}
+          setProps={setProps}
+          saveSchema={saveSchema}
+          className="Default"
+        />
       </div>
-      <div style={{padding: '15px', margin: '3px'}}>
-      {/* <h4>User Fields</h4> */}
-      <form onSubmit={handleSubmit} className="formfield">
-        {renderFields()}
-      </form>
+      <div style={{ padding: "15px", margin: "3px" }}>
+        {/* <h4>User Fields</h4> */}
+        <form onSubmit={handleSubmit} className="formfield">
+          {renderFields()}
+        </form>
       </div>
     </div>
   );

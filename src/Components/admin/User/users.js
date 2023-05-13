@@ -1,71 +1,94 @@
-import React, { Component } from 'react';
-import {SchemaTable, FilterComponent} from '../../table'
-import "../../../styles/users.css";
+import React, { Component, useEffect } from "react";
+import { SchemaTable, FilterComponent } from "../../table";
+import addUser from "./addUser";
+import axios from "axios";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Select from "@mui/material/Select";
+import { FormControl, InputLabel, MenuItem } from "@mui/material/";
+import { useState } from "react";
+const UsersAdmin = () => {
+  const [props, setProps] = useState([]);
+  const [userlits, setUserlist] = useState([]);
+  const [apidata, setAPIdata] = useState({});
+  const [header, setHeader] = useState([]);
 
-class UsersAdmin extends Component {
-  state = {
-    schema: [], // Initial schema
-    data: [], // Initial data
-    filteredSchema: [], // Filtered schema
-    filteredData: [], // Filtered data
+  useEffect(() => {
+    getSchema();
+    getUserList();
+  }, []);
+  const getUserList = async () => {
+    await axios
+      .get("http://localhost:10008/api/mongo/FormFields/getAllUser/123456")
+      .then((d) => {
+        const keys = getUniqueKeys(d.data);
+        setHeader(keys);
+
+        if (d.data.length > 0) {
+          setUserlist(d.data);
+        }
+      });
   };
 
-  componentDidMount() {
-    // Fetch schema and data from MongoDB or set initial values
-    this.fetchSchema();
-    this.fetchData();
+  function getUniqueKeys(userList) {
+    const keysSet = new Set(); // Use a set to store unique keys
+
+    userList.forEach((user) => {
+      const keys = Object.keys(user);
+      keys.forEach((key) => {
+        keysSet.add(key);
+      });
+    });
+
+    // Convert the set to an array and return
+    return Array.from(keysSet);
   }
 
-  fetchSchema = async () => {
-    // Fetch schema from MongoDB or set initial schema
-    // Update the state with the fetched or initial schema
-    const schema = ["name", "age", "email"]; // Sample schema
-    this.setState({ schema, filteredSchema: schema });
+  useEffect(() => {
+    let json = {};
+    props.forEach((x) => {
+      json = { ...json, [x.label]: "" };
+    });
+    setAPIdata(json);
+  }, [props]);
+
+  useEffect(() => {
+    console.log(apidata);
+  }, [apidata]);
+
+  const handleChangeTextField = (value, label) => {
+    let temp = { ...apidata };
+    temp[label] = value;
+    setAPIdata(temp);
+    //  console.log(temp)
   };
-
-  fetchData = async () => {
-    // Fetch data from MongoDB or set initial data
-    // Update the state with the fetched or initial data
-    const data = [
-      { _id: 1, name: 'John Doe', age: 30, email: 'john@example.com' },
-      { _id: 2, name: 'Jane Smith', age: 28, email: 'jane@example.com' },
-      // Add more data objects as needed
-    ];
-    this.setState({ data, filteredData: data });
+  const saveUser = async () => {
+    let payload = {
+      companyId: "123456",
+      data: apidata,
+    };
+    await axios
+      .post("http://localhost:10008/api/mongo/FormFields/addUser", payload)
+      .then(() => {
+        getUserList();
+      })
+      .catch(() => {});
   };
-
-  handleFilterSchemaChange = (filterValue) => {
-    const { schema } = this.state;
-
-    if (!filterValue) {
-      // If no filter value, set the filtered schema to the original schema
-      this.setState({ filteredSchema: schema });
-    } else {
-      // Filter the schema based on the selected field
-      const filteredSchema = schema.filter((field) => field.toLowerCase().includes(filterValue.toLowerCase()));
-      this.setState({ filteredSchema });
-    }
-  };
-
-  handleFilterDataChange = (filterValue) => {
-    const { data } = this.state;
-
-    if (!filterValue) {
-      // If no filter value, set the filtered data to the original data
-      this.setState({ filteredData: data });
-    } else {
-      // Filter the data based on the selected field
-      const filteredData = data.filter((item) => {
-        // Filter based on the values in the data object properties
-        for (let key in item) {
-          if (item[key].toString().toLowerCase().includes(filterValue.toLowerCase())) {
-            return true;
-          }
+  const getSchema = async () => {
+    await axios
+      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .then((d) => {
+        console.log(d.data);
+        if (d.data.length > 0) {
+          setProps(d.data);
         }
-        return false;
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      this.setState({ filteredData });
-    }
   };
 
   render() {
@@ -91,5 +114,5 @@ class UsersAdmin extends Component {
     );
   }
 }
-
+      
 export default UsersAdmin;

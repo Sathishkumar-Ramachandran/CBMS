@@ -78,6 +78,7 @@ const Toolkit = ( {props,setProps} ) => {
     
   ];
 
+ 
   
 
   const [showPopup, setShowPopup] = useState(false);
@@ -125,17 +126,13 @@ const Toolkit = ( {props,setProps} ) => {
               setShowPopup(false);
               setProps((prevState) => [
                 ...prevState,
-                { label, comp: selectedTool.comp, properties,tool:selectedTool.Tool,options:options },
+                { label, comp: selectedTool.comp, properties,tool:selectedTool.Tool,options:options,key:false},
               ]);
             }}
           />
         )}
-       <div className="campignfields-h4">
-          <h3>Default</h3>
-         </div>
-        <div className='Formtext '>
-            <Form props={props} ></Form>
-           
+        <div>
+            <Form props={props}></Form>
         </div>
        
       </div>
@@ -235,14 +232,21 @@ const Popup = ({ comp, onClose, onSave,data }) => {
     );
   };
   
-  function Form({ props }) {
+  function Form({ props,setProps }) {
+    const deleteCustombox=(e,index,key)=>{
+      e.preventDefault();
+      let temp=[...props]
+      temp.splice(index,1);
+      setProps(temp);
+      console.log(temp);
+    }
     const handleFieldChange = (event, property) => {
       console.log(`Field ${property.label} value changed to:`, event.target.value);
     };
   
     return (
     <>
-        {props.map((property, index) => {
+        {props.filter(x=>x.key==true).map((property, index) => {
           if (property.tool === "SingleLineText") {
             return (
               <div key={index}>
@@ -285,6 +289,54 @@ const Popup = ({ comp, onClose, onSave,data }) => {
            else {
             return null;
           }
+        })}
+  {props.filter(x=>x.key==false).length>0 &&<h2>Custom</h2>
+  }
+        
+        {props.filter(x=>x.key==false).map((property, index) => {
+          if (property.tool === "SingleLineText") {
+            return (
+              <div key={index}>
+               <TextField
+               label={property.label}
+               />
+             <button onClick={(e)=>{deleteCustombox(e,props.findIndex(y=>y.label===property.label),property.key)}}>delete</button>
+              </div>
+            );
+          } else if (property.tool === "Paragraph") {
+            return (
+              <div key={index}>
+                <button>delete</button>
+              </div>
+              
+            );
+          } else if (property.tool === "Dropdown" && property?.options?.length>0) {
+            const options = property.properties.split(",");
+            return (
+              <div key={index}>
+                <FormControl fullWidth>
+                  <InputLabel id={`${property.label}-label`}>
+                    {property.label}
+                  </InputLabel>
+                  <Select
+                    labelId={`${property.label}-label`}
+                    id={`${property.label}-select`}
+                    value={""}
+                    onChange={(e) => handleFieldChange(e, property)}
+                  >
+                    {property.options.map((option, index) => (
+                      <MenuItem key={index} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <button>delete</button>
+                </FormControl>
+              </div>
+            );
+          }
+           
+          
         })}
      </>
     );
