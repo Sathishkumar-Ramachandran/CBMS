@@ -2,7 +2,7 @@
 
 .container{
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     
 }
 
@@ -19,10 +19,11 @@ main{
 .sidebar{
     background:#014421;
     color: black;
-    height: 100%;
-    width: 20%;
+    height: 100vw;
+    width: 20vw;
     position:fixed;
    opacity: 1;
+   top: 0;
 }
 .top-section{
     display: flex;
@@ -81,6 +82,7 @@ main{
    display: flex;
    flex-direction: column;
    z-index: 9999;
+   top: 0;
 }
 .submenu-path{
     color: white;

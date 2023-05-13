@@ -28,8 +28,8 @@ export default function AccountMenu() {
   return (
     <React.Fragment>
      
-     <button className='todo'><BsListCheck/></button>
-    <button className='notifi-icon'><IoIosNotificationsOutline/></button>
+     {/* <button className='todo'><BsListCheck/></button>
+    <button className='notifi-icon'><IoIosNotificationsOutline/></button> */}
         <Tooltip title="Profile">
           <IconButton
             onClick={handleClick}

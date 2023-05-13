@@ -23,6 +23,7 @@ import Campaignform from "./Pages/Google/campaignform.js";
 import OrganizationDetails from "./Pages/Account.js";
 import AdList from "./Pages/Google/Ads.js";
 import AdsTable from "./Pages/Google/Ads.js";
+import UsersAdmin from "./Components/admin/User/users.js";
 import Users from "./Pages/Google/Users.js";
 import Roles from "./Pages/Google/roles.js";
 import Groups from "./Pages/Google/groups.js";
@@ -72,7 +73,7 @@ function App() {
           <Route path="/admin/account/daypasses" element={""} />
 
           {/* Admin User Routes */}
-          <Route path="/admin/user/users" element={""} />
+          <Route path="/admin/user/users" element={<UsersAdmin />} />
           <Route path="/admin/user/roles" element={""} />
           <Route path="/admin/user/fields" element={""} />
           <Route path="/admin/user/groups" element={""} />

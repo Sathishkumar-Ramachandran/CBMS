@@ -52,7 +52,6 @@ const Admin = ({Children}) => {
       <p className='paragraph'></p>
       {       
           adminItem.map((item,index)=>(
-          
      <div className='admin-model'>
             <Link to={item.path} key={index} className='admin-box' >
               <div>{item.icon}</div>

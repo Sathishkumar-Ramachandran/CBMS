@@ -89,7 +89,7 @@ export default function AdminFields() {
         
       </TabPanel>
       <TabPanel value={value} index={5}>
-            <TicketFields />
+        <TicketFields />
       </TabPanel>
       <TabPanel value={value} index={6}>
         <ProjectFields />

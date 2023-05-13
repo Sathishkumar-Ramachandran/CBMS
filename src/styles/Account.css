@@ -1,12 +1,12 @@
 
 .admin-model{
-    display: inline-block;
-    color: black;
-    padding: 5px ;
-    transition: all 0.5s;
-    margin-left: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    margin-left: 40%;
    
-}
+} 
 
 .admin-model:hover{
     background: rgba(0, 128, 0, 0.432);

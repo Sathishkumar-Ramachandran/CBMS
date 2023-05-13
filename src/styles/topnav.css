@@ -1,4 +1,4 @@
-/* .search{
+/* /* .search{
     align-items: center;
      display: flex;
      height: 60px;
@@ -54,7 +54,7 @@ input .searchQueryInput {
     cursor: pointer;
   }
  */
- .wrapper {
+ /* .wrapper {
     width: 100%;
     max-width: 31.25rem;
     margin-left: 50%;
@@ -67,6 +67,8 @@ input .searchQueryInput {
   width: 100%;
   position: fixed;
   border-bottom: 1px solid black;
+  margin-left: 4vw;
+
 }
   .searchBar {
     width: 100%;
@@ -115,7 +117,7 @@ input .searchQueryInput {
 
   /*********************TODO***********************/
 
-  .todo{
+  /*.todo{
     color: black;
     margin: 0 15% ;
     position: absolute;
@@ -136,7 +138,7 @@ input .searchQueryInput {
 
  /******************NOTIFICATION**************/
 
- .notifi-icon{
+ /*.notifi-icon{
     color: black;
    margin: 1% 10%;
    position: absolute;
@@ -236,7 +238,7 @@ nav .notify-ul-item li{
 
 /**************PROFILE*********************/
 
-.avatar {
+/*.avatar {
     vertical-align: middle;
     width: 35px;
     height: 35px;
@@ -258,4 +260,340 @@ nav .notify-ul-item li{
 
     width: 70%;
     margin-left: 12%;
+  } */
+
+  /* Desktop view */
+/* Styles for desktop view */
+/* .wrapper {
+  width: 100%;
+  max-width: 31.25rem;
+  margin-left: 50%;
+}
+
+.header {
+  height: 50px;
+  margin-bottom: 2px;
+  background: white;
+  width: 100%;
+  position: fixed;
+  border-bottom: 1px solid black;
+  margin-left: 4vw;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+}
+
+.searchQueryInput {
+  width: 50%;
+  height: 2rem;
+  background: #f5f5f5;
+  outline: none;
+  border: 1px solid green;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+  margin-left: 10%;
+  top: 0;
+  bottom: 0;
+}
+
+.searchQuerySubmit {
+  width: 3.5rem;
+  height: 2.8rem;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.searchQuerySubmit:hover {
+  cursor: pointer;
+}
+
+.todo {
+  color: black;
+  margin: 0 15%;
+  position: absolute;
+  font-size: 23px;
+  right: 0;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding-block: 0.1rem;
+  margin-block: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.068);
+}
+
+.notifi-icon {
+  color: black;
+  margin: 1% 10%;
+  position: absolute;
+  font-size: 23px;
+  right: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding-block: 0.1rem;
+  margin-block: 1rem;
+  flex-wrap: wrap;
+  border: 1px solid rgba(0, 0, 0, 0.068);
+}
+
+.badge {
+  color: red;
+  margin: 1% 10%;
+  position: absolute;
+  font-size: 20px;
+  top: 0;
+  right: 0;
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.notify {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  inset: 0 70% 0 0;
+  width: 16%;
+  background-color: white;
+  float: right;
+}
+
+.notify-mobile {
+  display: none;
+}
+
+.notify-menu {
+  color: black;
+  margin-block: 1rem;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.notify-Close-icon {
+  color: black;
+  margin-block: 1rem;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+nav .notify-ul-item {
+  display: flex;
+  flex-direction: column;
+  list-style: none
+}
+  
+  .profile {
+  margin: 1% 0;
+  position: relative;
   }
+  
+  
+  @media (max-width: 767px) {
+  /* Mobile View *
+  .wrapper {
+  max-width: 100%;
+  }
+  
+  .header {
+  margin-left: 0;
+  }
+  
+  .searchBar {
+  position: relative;
+  }
+  
+  .searchQueryInput {
+  width: 60%;
+  margin-left: 10px;
+  }
+  
+  .searchQuerySubmit {
+  margin-left: -50px;
+  }
+  
+  .todo {
+  margin-right: 30px;
+  margin-left: 0;
+  position: relative;
+  }
+  
+  .notifi-icon {
+  margin: 1% 0;
+  position: relative;
+  }
+  
+  .notify {
+  position: absolute;
+  right: -20px;
+  top: 100%;
+  width: 220px;
+  inset: auto auto 0 0;
+  }
+  
+  .notify-mobile {
+  display: none;
+  }
+  
+  .avatar {
+  margin-left: 20px;
+  }
+  
+  .profile {
+  margin: 1% 0;
+  position: relative;
+  }
+  }  */
+
+  .header-alignment {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    padding: 0 10%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; 
+     width: 100%;
+  }
+  
+  .searchbar {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: auto;
+    padding: 0 10px;
+    margin-left: 60%;
+  }
+  
+  .searchbar input {
+    flex: 1;
+    border: none;
+    outline: none;
+  }
+  .searchbar button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  /* .icons {
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon {
+    position: relative;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .icon:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .icon:hover .header-icon-count {
+    display: none;
+  } */
+  .header-icons {
+    display: flex;
+    float: right;
+  }
+  
+  .header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 16px;
+    position: relative;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .header-icon:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .header-icon:hover .header-icon-count {
+    display: none;
+  }
+  
+  .header-icon-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0072c6;
+    color: #ffffff;
+    font-size: 12px;
+  }   
+   .notification,
+  .todo {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .todo{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  .image-Round{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: grey;
+  }
+  @media (max-width: 768px) {
+    .header {
+      padding: 0 5%;
+    }
+    
+    .searchbar {
+      display: block;
+      margin-left: 50px;
+    }
+    
+    .header-icons {
+      margin-left: auto;
+    }
+  }
+  

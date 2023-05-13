@@ -12,9 +12,11 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Select from '@mui/material/Select';
 import { FormControl, InputLabel, MenuItem } from '@mui/material/';
+import Radio from '@mui/material/Radio';
+import Checkbox from "@mui/material/Checkbox";
+import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 
-
-const Toolkit = ( {propstest} ) => {
+const Toolkit = ( {props,setProps} ) => {
     
   // const propstest = [
   //   {
@@ -56,6 +58,12 @@ const Toolkit = ( {propstest} ) => {
       properties: "",
     },
     {
+      Tool: "Checkbox",
+      comp: <Checkbox />,
+      icon: <BiParagraph />,
+      properties: "",
+    },
+    {
       Tool: "Dropdown",
       comp: <Select />,
       icon: <IoIosArrowDropdown />,
@@ -63,17 +71,18 @@ const Toolkit = ( {propstest} ) => {
     },
     {
       Tool: "Radio Button",
-      comp: "",
-      icon: <CgRadioChecked />,
+      comp: <Radio />,
+      icon: <RadioButtonCheckedOutlinedIcon />,
       properties: "",
     },
+    
   ];
 
   
 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTool, setSelectedTool] = useState(null);
-  const[props,setProps]=useState(propstest);
+ 
   const handleForm = (item, e) => {
     e.preventDefault();
     setSelectedTool(item);
@@ -100,7 +109,11 @@ const Toolkit = ( {propstest} ) => {
             ))}
             
           </ButtonGroup>
-        
+
+          <h4 style={{padding: "14px", float: "left"}}>
+           Default
+         </h4>
+
         </div>
         {/* <h3>hi</h3> */}
         {showPopup && (
@@ -211,7 +224,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
 
           )}
   
-          <Button variant="contained" onClick={handleSave}>
+          <Button variant="contained" onClick={handleSave} sx={{margin: 2}}>
             Save
           </Button>
           <Button variant="contained" onClick={onClose}>
