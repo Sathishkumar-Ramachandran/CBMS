@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
+import { Padding } from '@mui/icons-material';
 
 const CreateGoogleAdsAccountForm = () => {
   const [managerAccountId, setManagerAccountId] = useState('');
@@ -46,58 +47,69 @@ const CreateGoogleAdsAccountForm = () => {
         label="Manager Account ID"
         value={managerAccountId}
         onChange={(event) => setManagerAccountId(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="New Customer Email"
         value={newCustomerEmail}
         onChange={(event) => setNewCustomerEmail(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Time Zone"
         value={timeZone}
         onChange={(event) => setTimeZone(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Currency Code"
         value={currencyCode}
         onChange={(event) => setCurrencyCode(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Payments Account Resource Name"
         value={paymentsAccountResourceName}
         onChange={(event) => setPaymentsAccountResourceName(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Payments Profile ID"
         value={paymentsProfileId}
         onChange={(event) => setPaymentsProfileId(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Tax ID"
         value={taxId}
         onChange={(event) => setTaxId(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Conversion Tracking ID"
         value={conversionTrackingId}
         onChange={(event) => setConversionTrackingId(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Cross-Account Conversion Tracking ID"
         value={crossAccountConversionTrackingId}
         onChange={(event) => setCrossAccountConversionTrackingId(event.target.value)}
+        sx={{m: 3}}
       />
       <TextField
         label="Tracking URL Template"
         value         onChange={(event) => setTrackingUrlTemplate(event.target.value)}
+        sx={{m: 3}}
         />
         <TextField
           label="Final URL Suffix"
           value={finalUrlSuffix}
           onChange={(event) => setFinalUrlSuffix(event.target.value)}
+          sx={{m: 3}}
         />
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit"  sx={{m: 3}}>
           Create Google Ads Account
         </Button>
       </form>

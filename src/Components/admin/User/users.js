@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Select from "@mui/material/Select";
+import '../../../styles/user.css';
 import { FormControl, InputLabel, MenuItem } from "@mui/material/";
 import { useState } from "react";
 const UsersAdmin = () => {
@@ -92,17 +93,18 @@ const UsersAdmin = () => {
   };
 
   return (
-    <div style={{margin: 50}}>
+    <div className="usermain-table">
       {/* <div>
         <SchemaTable data={[]} />
       </div>  */}
        <div>
         
       </div>
-      {userlits.length > 0 && <h1>Users</h1>}
+      {userlits.length > 0 && <h1 className="users-Name">Users</h1>}
 
-      <table>
-        <thead>
+      <table >
+        {/* <div className="table-head"> */}
+        <thead >
           {header.map((x) => {
             return (
               <>
@@ -112,6 +114,7 @@ const UsersAdmin = () => {
             );
           })}
         </thead>
+        {/* </div> */}
         <tbody>
           {userlits.map((user) => (
             <tr key={user._id}>
@@ -121,18 +124,24 @@ const UsersAdmin = () => {
             </tr>
           ))}
         </tbody>
+       
       </table>
 
       {props.map((property, index) => {
         if (property.tool === "SingleLineText") {
           return (
-            <div key={index}>
+            <div className="input-Label">
+            <div key={index} >
+             
               <TextField
+              sx={{ m: 1 ,columnGap: 2}}
                 label={property.label}
+                container spacing={2}
                 onChange={(e) => {
                   handleChangeTextField(e.target.value, property.label);
                 }}
               />
+            </div>
             </div>
           );
         } else if (property.tool === "Paragraph") {
@@ -143,9 +152,10 @@ const UsersAdmin = () => {
         ) {
           const options = property.properties.split(",");
           return (
-            <div key={index}>
+            <div key={index} >
+  
               <FormControl fullWidth>
-                <InputLabel id={`${property.label}-label`}>
+                <InputLabel id={`${property.label}-label`}  >
                   {property.label}
                 </InputLabel>
                 <Select
@@ -167,7 +177,9 @@ const UsersAdmin = () => {
           return null;
         }
       })}
-      <Button onClick={saveUser}>Save</Button>
+      <div className="input-Button">
+      <Button onClick={saveUser} >Save</Button>
+      </div>
     </div>
   );
 };
