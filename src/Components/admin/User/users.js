@@ -2,25 +2,31 @@ import React, { Component, useEffect } from "react";
 import { SchemaTable, FilterComponent } from "../../table";
 import addUser from "./addUser";
 import axios from "axios";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Select from "@mui/material/Select";
-import '../../../styles/user.css';
-import { FormControl, InputLabel, MenuItem } from "@mui/material/";
+import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material/";
 import { useState } from "react";
+import '../../../styles/user.css'
+
+
+
+
+
 const UsersAdmin = () => {
   const [props, setProps] = useState([]);
-  const [userlits, setUserlist] = useState([]);
+  const [userlist, setUserlist] = useState([]);
   const [apidata, setAPIdata] = useState({});
   const [header, setHeader] = useState([]);
-
+  
   useEffect(() => {
     getSchema();
     getUserList();
   }, []);
+
   const getUserList = async () => {
     await axios
       .get("http://localhost:10008/api/mongo/FormFields/getAllUser/123456")
@@ -66,6 +72,7 @@ const UsersAdmin = () => {
     setAPIdata(temp);
     //  console.log(temp)
   };
+
   const saveUser = async () => {
     let payload = {
       companyId: "123456",
@@ -78,6 +85,7 @@ const UsersAdmin = () => {
       })
       .catch(() => {});
   };
+
   const getSchema = async () => {
     await axios
       .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
@@ -93,95 +101,86 @@ const UsersAdmin = () => {
   };
 
   return (
-    <div className="usermain-table">
-      {/* <div>
-        <SchemaTable data={[]} />
-      </div>  */}
-       <div>
-        
-      </div>
-      {userlits.length > 0 && <h1 className="users-Name">Users</h1>}
+    <div style={{ margin: 50, display: "flex"}} className="tableinput-main">
+      {userlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Users</h1></div>}
+      <div style={{ maxWidth: '70%', overflowX: 'auto', margin: 10, }}className="table-input">
+      <Table >
 
-      <table >
-        {/* <div className="table-head"> */}
-        <thead >
-          {header.map((x) => {
-            return (
-              <>
-                {" "}
-                <th>{x}</th>
-              </>
-            );
-          })}
-        </thead>
-        {/* </div> */}
-        <tbody>
-          {userlits.map((user) => (
-            <tr key={user._id}>
-              {header.map((key) => (
-                <td key={key}>{user[key] || ""}</td>
+        <TableHead className="TableRow">
+          <TableRow>
+            {header.map((x) => {
+              return (
+                <TableCell key={x}> {x} </TableCell>
+              );
+            })}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {userlist.map((user) => (
+            <TableRow key={user._id} >
+                {header.map((key) => (
+                  <TableCell key={key}>{user[key] || ""} 
+                  </TableCell>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </tbody>
-       
-      </table>
+        </TableBody>
+        </Table>
+        </div>
+        <div>
 
-      {props.map((property, index) => {
-        if (property.tool === "SingleLineText") {
-          return (
-            <div className="input-Label">
-            <div key={index} >
-             
-              <TextField
-              sx={{ m: 1 ,columnGap: 2}}
-                label={property.label}
-                container spacing={2}
-                onChange={(e) => {
-                  handleChangeTextField(e.target.value, property.label);
-                }}
-              />
-            </div>
-            </div>
-          );
-        } else if (property.tool === "Paragraph") {
-          return <div key={index}></div>;
-        } else if (
-          property.tool === "Dropdown" &&
-          property?.options?.length > 0
-        ) {
-          const options = property.properties.split(",");
-          return (
-            <div key={index} >
-  
-              <FormControl fullWidth>
-                <InputLabel id={`${property.label}-label`}  >
-                  {property.label}
-                </InputLabel>
-                <Select
-                  labelId={`${property.label}-label`}
-                  id={`${property.label}-select`}
-                  value={""}
-                  //onChange={(e) => handleFieldChange(e, property)}
-                >
-                  {property.options.map((option, index) => (
-                    <MenuItem key={index} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </div>
-          );
-        } else {
-          return null;
-        }
-      })}
-      <div className="input-Button">
-      <Button onClick={saveUser} >Save</Button>
-      </div>
-    </div>
-  );
+        {props.map((property, index) => {
+    if (property.tool === "SingleLineText") {
+      return (
+        <div className="input-Label-Box">
+        <div className="input-Label">
+        <div key={index}>
+          <TextField
+            label={property.label}
+            onChange={(e) => {
+              handleChangeTextField(e.target.value, property.label);
+            }}
+          />
+        </div></div></div>
+      );
+    } else if (property.tool === "Paragraph") {
+      return <div key={index}></div>;
+    } else if (
+      property.tool === "Dropdown" &&
+      property?.options?.length > 0
+    ) {
+      const options = property.properties.split(",");
+      return (
+        <div key={index}>
+          <FormControl fullWidth>
+            <InputLabel id={`${property.label}-label`}>
+              {property.label}
+            </InputLabel>
+            <Select
+              labelId={`${property.label}-label`}
+              id={`${property.label}-select`}
+              value={""}
+              //onChange={(e) => handleFieldChange(e, property)}
+            >
+              {property.options.map((option, index) => (
+                <MenuItem key={index} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  })}
+  <button onClick={saveUser} className='input-Button'>
+    <span>Save</span>
+    </button>
+  </div>
+</div>
+);
 };
 
 export default UsersAdmin;

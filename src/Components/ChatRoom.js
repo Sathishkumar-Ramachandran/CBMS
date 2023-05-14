@@ -155,7 +155,7 @@ const Chatroom = ({user}) => {
       
             </div>
             
-          <CloseIcon color='primary'/> 
+          <CloseIcon color='primary' sx={{ justifyContent: 'flex-end'}}/> 
  
       </Box>
       <div style={styles.messageContainer} ref={messageContainerRef}>
