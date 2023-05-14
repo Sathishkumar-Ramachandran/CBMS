@@ -8,9 +8,15 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Select from "@mui/material/Select";
-import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material/";
+import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody, Button } from "@mui/material/";
 import { useState } from "react";
 import '../../../styles/user.css'
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+
+
 
 
 
@@ -21,11 +27,47 @@ const UsersAdmin = () => {
   const [userlist, setUserlist] = useState([]);
   const [apidata, setAPIdata] = useState({});
   const [header, setHeader] = useState([]);
-  
+  const [value, setValue] = useState(0);
+
   useEffect(() => {
     getSchema();
     getUserList();
   }, []);
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
 
   const getUserList = async () => {
     await axios
@@ -101,16 +143,19 @@ const UsersAdmin = () => {
   };
 
   return (
-    <div style={{ margin: 50, display: "flex"}} className="tableinput-main">
+    <div style={{ margin: 50, display: "flex",}} className="tableinput-main">
+      <div style={{ display: "grid"}} >
+
       {userlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Users</h1></div>}
-      <div style={{ maxWidth: '70%', overflowX: 'auto', margin: 10, }}className="table-input">
+      <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8, }}className="table-input">
+  
       <Table >
 
-        <TableHead className="TableRow">
-          <TableRow>
+        <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
+          <TableRow >
             {header.map((x) => {
               return (
-                <TableCell key={x}> {x} </TableCell>
+                <TableCell key={x} sx={{color: 'white'}}> {x} </TableCell>
               );
             })}
           </TableRow>
@@ -127,9 +172,21 @@ const UsersAdmin = () => {
         </TableBody>
         </Table>
         </div>
-        <div>
-
-        {props.map((property, index) => {
+        </div>
+        <div style={{marginRight: '0%' }} >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black'  }}>
+        <Tabs value={value} onChange={handleChange} 
+        aria-label="full width tabs example" 
+        centered 
+        sx={{ bgcolor: '#00693E', }} 
+      >
+          <Tab label="Create User" {...a11yProps(0)}  sx={{color: 'white' }}/>
+          <Tab label="Filter User" {...a11yProps(1)}   sx={{color: 'white'}}/>
+          {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+      {props.map((property, index) => {
     if (property.tool === "SingleLineText") {
       return (
         <div className="input-Label-Box">
@@ -160,7 +217,7 @@ const UsersAdmin = () => {
               labelId={`${property.label}-label`}
               id={`${property.label}-select`}
               value={""}
-              //onChange={(e) => handleFieldChange(e, property)}
+              // onChange={(e) => handleFieldChange(e, property)}
             >
               {property.options.map((option, index) => (
                 <MenuItem key={index} value={option}>
@@ -175,10 +232,16 @@ const UsersAdmin = () => {
       return null;
     }
   })}
-  <button onClick={saveUser} className='input-Button'>
-    <span>Save</span>
-    </button>
-  </div>
+  <Button onClick={saveUser} className='input-Button' variant="outlined" sx={{m:5}}>
+    Save
+    </Button>
+ 
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <h5>Filter Component</h5>
+      </TabPanel>
+      </div>
+        
 </div>
 );
 };
