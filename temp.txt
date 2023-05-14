@@ -1,144 +1,174 @@
-//  import React, {useState} from "react";
-// import { FcGoogle } from "react-icons/fc";
-// import{FaFacebook} from 'react-icons/fa';
-// import {BrowserRouter as Router, Routes, Route, useNavigate,Link} from "react-router-dom";
-
-//  import '../styles/Login.css'
 
 
-//  const Login = () => {
+// import React, { useState } from 'react';
+// import { Avatar, Box, Button, Chip, Dialog, DialogContent, DialogTitle, Divider, Fab, IconButton, TextField, Typography } from '@mui/material';
+// import { Send, Close as CloseIcon, Chat as ChatIcon } from '@mui/icons-material';
+
+// const Styles = ({
+//   root: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     cursor: 'pointer',
+//     '&:hover': {
+//       backgroundColor: '#f5f5f5',
+//     },
+//   },
+//   avatar: {
+//     marginRight: 8,
+//   },
+//   chatBox: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     justifyContent: 'space-between',
+//     height: 300,
+//     padding: 16,
+//     borderRadius: 8,
+//     boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)',
+//   },
+//   chatBoxHeader: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     marginBottom: 16,
+//   },
+//   chatBoxFooter: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     marginTop: 16,
+//   },
+//   input: {
+//     flexGrow: 1,
+//     marginRight: 8,
+//   },
+// });
+
+// const ChatBox = ({ user }) => {
+//   const classes = Styles();
+//   const [message, setMessage] = useState('');
+//   const [messages, setMessages] = useState([]);
+//   const [open, setOpen] = useState(false);
+//   const [selectedUsers, setSelectedUsers] = useState([]);
+
+
+//   const handleInputChange = (event) => {
+//     setMessage(event.target.value);
+//   };
+
+//   const handleSendMessage = () => {
+//     if (message?.trim() !== '') {
+//       setMessages([...messages, { sender: 'Me', message: message.trim() }]);
+//       setMessage('');
+//     }
+//   };
+
+//   return (
+//     <Box className={classes.chatBox}>
+//       <Box className={classes.chatBoxHeader}>
+//         <Avatar className={classes.avatar} alt={user.name} src={user.avatarUrl} />
+//         <Typography variant="h6">{user.name}</Typography>
+//         {/*     <IconButton onClick={handleClose}> */}
+//         <IconButton>
+//           <CloseIcon />
+//         </IconButton>
+//       </Box>
+//       <Box>
+//         {messages?.map((message, index) => (
+//           <Box key={index} marginBottom={2}>
+//             <Typography variant="body1" component="span" fontWeight="bold">{message.sender}: </Typography>
+//             <Typography variant="body1" component="span">{message.message}</Typography>
+//           </Box>
+//         ))}
+//       </Box>
+//       <Box className={classes.chatBoxFooter}>
+//         <TextField className={classes.input} label="Type a message" variant="outlined" value={message} onChange={handleInputChange} />
+//         <Button variant="contained" color="primary" onClick={handleSendMessage} endIcon={<Send />}>
+//           Send
+//         </Button>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// const Chatroom = ({ users }) => {
+//   const [open, setOpen] = useState(false);
+//   const [selectedUsers, setSelectedUsers] = useState([]);
+//   const [messages, setMessages] = useState([]);
+
+//   const handleClose = () => {
+//     setOpen(false);
+//     setSelectedUsers([]);
+//     setMessages([]);
+//   };
+
+//   const handleChatClick = () => {
+//     setOpen(true);
+//   };
+
+//   const handleUserClick = (user) => {
+//     setSelectedUsers((prevSelectedUsers) => {
+//     if (prevSelectedUsers.includes(user)) {
+//     return prevSelectedUsers.filter((selectedUser) => selectedUser !== user);
+//     } else {
+//     return [...prevSelectedUsers, users];
+//     }
+//     });
+//     };
     
-
-//         const navigate = useNavigate();
-        
-//          const [email, setEmail] = useState('');
-//          const [password, setPassword] = useState('');
-        
-        
-        
-//         const [submitted, setSubmitted] = useState(false);
-//         const [error, setError] = useState(false);
-//          const [visible, setVisible] = useState(true);
-
-        
-//          const handleEmail = (e) => {
-//              setEmail(e.target.value);
-//              setSubmitted(false);
-//          };
-        
-        
-//          const handlePassword = (e) => {
-//              setPassword(e.target.value);
-//              setSubmitted(false);
-//          };
-        
-        
-        
-//          const handleSubmit = (e) => {
-           
-            
-//              if (email === '' || password === '') {
-//              setError(true);
-//              console.log('Email & Password cannot be empty');
-            
-//              } else {
-//              setSubmitted(true);
-//                  navigate('/', {replace: true});
-//              setError(false);
-            
-//              } 
-//          };
-        
-//          // Showing success message
-//          const successMessage = () => {
-//              return (
-//              <div className="success"
-//                  style={{
-//                  display: submitted ? '' : 'none',
-//                  }}>
-                
-//                  console.log(`User {email} Authenticated Successfully`)
-
-
-//              </div>
-//              );
-//          };
-        
-//          // Showing error message if error is true
-//          const errorMessage = () => {
-//              return (
-//                              <div
-//                 className="error"
-//                 style={{
-//                  display: error ? '' : 'none',
-//                  }}>
-//                  <h1>Please fill all the fields</h1>
-//              </div>
-//              );
-//          };
-
-//      return(
-
-
-
-//         <div className="form">
-//              <div>
-//              <h1 className="title">LOGIN</h1>
-//              <div className="underline-title"></div>
-//              </div>
- 
-      
-//          <div className="messages">
-           
-//          </div>
- 
-//          <form className="form-input">
-                
-//              <label className="label-heading">Email</label>
-//              <input onChange={handleEmail} className="input-login"
-//              value={email} type="email" required />
-//              <div className="text-line"></div>
+//     const renderUserChip = (user) => {
+//     const isSelected = selectedUsers?.includes(user);
+//     return (
+//     <Chip
+//     key={user.id}
+//     label={user.name}
+//     avatar={<Avatar src={user.avatarUrl} alt={user.name} />}
+//     variant={isSelected ? 'default' : 'outlined'}
+//     color={isSelected ? 'primary' : 'default'}
+//     onClick={() => handleUserClick(user)}
+//     sx={{ marginRight: 1, marginBottom: 1 }}
+//     />
+//     );
+//     };
     
-//              <label className="label-heading">Password</label>
-//              <input onChange={handlePassword} className="input-login"
-//              value={password} type="password" required />
-//              <div className="text-line"></div>
-
-//              <a href="" className="forgot-pass">Forgot Password?</a>
+//     return (
+//           <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+//             <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', padding: 2 }}>
+//               {users?.map((user) => renderUserChip(user))}
+//             </Box>
+//           <Box sx={{ position: 'fixed', bottom: 20, right: 20 }}>
+//             {selectedUsers?.length > 0 && (
+//             <Fab variant="extended" onClick={() => setOpen(true)}>
+//               <ChatIcon sx={{ mr: 1 }} />
+//               Open Chat
+//             </Fab>
+//             )}
+//           </Box>
+//           <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+//             <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+//               <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', p: 2 }}>
+//                 {selectedUsers?.map((user) => (
+//                 <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ mr: 1 }} />
+//               ))}
+//               <Typography variant="h6" sx={{ flexGrow: 1 }}>
+//                {selectedUsers.map((users) => users.name).join(', ')}
+//                 </Typography>
+//                 <IconButton onClick={handleClose}>
+//                 <CloseIcon />
+//                 </IconButton>
+//                 </Box>
+//                 <Divider />
+//           <Box sx={{ flexGrow: 1, overflowY: 'auto', p: 2 }}>
+//           {/* <ChatMessages messages={messages} /> */}
+//           </Box>
+//           <ChatBox user={users} />
+//           </Box>
+//           </Dialog>
+//           </Box>
+//           );
+//           };
+          
+//           export default Chatroom;
+          
     
-//              <button onClick={handleSubmit} className="btn" type="submit">
-//              Submit
-//              </button>
-//              <h5 className="login-heading">or login with</h5>
-//              <div className="login-all">
-//             <Link to=''className="login-google-icon"><FcGoogle/></Link>
-//             <Link to=''className="login-google-icon-facebook"><FaFacebook/></Link>
-//             </div>
-//              <a href="/signup"  className="signup">
-            
-//                  Don't have account yet?
-//              </a>
-      
-
-//          </form>        
-//           </div>
-       
-//      )
-//  }
-//  export default Login;
-
-
-
-{
-      isHovered && 
-        
-
-          item.submenu.map((subitem, subindex) => {
-            return(
-          <NavLink to={subitem.path} key={subindex}>
-            <div>{subitem.icon}</div>
-            <div>{subitem.name}</div>
-          </NavLink>
-            )
-        })
-      }
+    
+    
+    

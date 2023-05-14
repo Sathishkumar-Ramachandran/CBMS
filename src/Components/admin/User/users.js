@@ -92,13 +92,13 @@ const UsersAdmin = () => {
   };
 
   return (
-    <div >
+    <div style={{margin: 50}}>
       {/* <div>
         <SchemaTable data={[]} />
-      </div> 
+      </div>  */}
        <div>
         
-      </div> */}
+      </div>
       {userlits.length > 0 && <h1>Users</h1>}
 
       <table>
@@ -167,7 +167,7 @@ const UsersAdmin = () => {
           return null;
         }
       })}
-      <button onClick={saveUser}>Save</button>
+      <Button onClick={saveUser}>Save</Button>
     </div>
   );
 };

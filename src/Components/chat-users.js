@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Avatar, Box, Typography, Modal } from '@mui/material';
+import { Avatar, Box, Typography, Modal, Backdrop } from '@mui/material';
 import Chatroom from './ChatRoom';
 
 const styles = {
@@ -43,6 +43,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [open, setOpen] = useState(false);
+  const [backdropOpen, setBackdropOpen] = useState(false);
 
   useEffect(() => {
     async function fetchUsers() {
@@ -72,10 +73,12 @@ const UserList = () => {
 
   const handleOpen = () => {
     setOpen(true);
+    setBackdropOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setBackdropOpen(false);
   };
 
   return (
@@ -107,10 +110,11 @@ const UserList = () => {
       </Box>
 
        {selectedUser &&
-      
-       <Modal open={true} style={styles.modal}>
-       <Chatroom user={selectedUser} />
-       </Modal>
+        <Backdrop open={backdropOpen} onClick={handleClose}>
+          <Modal open={true} style={styles.modal}>
+            <Chatroom user={selectedUser} />
+          </Modal>
+       </Backdrop>
 }
     </div>
     

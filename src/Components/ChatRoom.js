@@ -19,6 +19,7 @@ const styles = {
     fontWeight: 'bold',
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
+  
   },
   user: {
     display: 'flex',
@@ -34,9 +35,10 @@ const styles = {
   chatInputContainer: {
     display: 'flex',
     alignItems: 'center',
-    padding: 8,
+    padding: 0,
     borderTop: '1px solid #f5f5f5',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    width: '100%'
   },
   chatInput: {
     flexGrow: 1,
@@ -81,7 +83,7 @@ const styles = {
   form: {
     display: 'flex',
     alignItems: 'center',
-    padding: 8,
+    padding: 0,
     borderTop: '1px solid #f5f5f5',
   },
   input: {
@@ -144,17 +146,17 @@ const Chatroom = ({user}) => {
 
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '30%', width: "25%", float: 'right' }}>
-      <Box style={styles.group}>
-        <div style={{display: 'flex'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '65%', width: "23%", float: 'right' }}>
+      <Box style={styles.group}  sx={{ display: 'flex', flexDirection: 'row'}}>
+       
         <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
-          <div style={{display: 'flex', flexDirection: 'row'}}>
-            {user.name}
-            {/* {user.designation} */}
-          </div>
-        <CloseIcon style={{alignItems: 'right'}} color='primary'/> 
+          <div>
+              {user.name}
+      
+            </div>
+            
+          <CloseIcon color='primary'/> 
  
-        </div>
       </Box>
       <div style={styles.messageContainer} ref={messageContainerRef}>
         {messages.map((message) => (

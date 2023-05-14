@@ -16,7 +16,7 @@ import Radio from '@mui/material/Radio';
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 
-const Toolkit = ( {props,setProps} ) => {
+const Toolkit = ( {props, setProps} ) => {
     
   // const propstest = [
   //   {
@@ -134,7 +134,7 @@ const Toolkit = ( {props,setProps} ) => {
      
         <div className="input-formfiled">
      
-            <Form props={props} ></Form>
+            <Form props={props} setProps={setProps}></Form>
         </div>
    
       </div>
@@ -146,7 +146,7 @@ const Toolkit = ( {props,setProps} ) => {
 const Popup = ({ comp, onClose, onSave,data }) => {
     const [label, setLabel] = useState("");
     const [properties, setProperties] = useState("");
-   // const [options, setOptions] = useState([]); // new state for dropdown options
+  //  const [options, setOptions] = useState([]); // new state for dropdown options
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState([""]);
     const handleSave = () => {
@@ -236,7 +236,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
     );
   };
   
-  function Form({ props,setProps }) {
+  function Form({ props, setProps }) {
     const deleteCustombox=(e,index,key)=>{
       e.preventDefault();
       let temp=[...props]
