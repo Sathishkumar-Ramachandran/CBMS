@@ -5,12 +5,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import GoogleUserFields from "./UserFields";
+import GoogleRoleFields from "./RoleFields";
+import GoogleGroupFields from "./GroupsFields";
+import CreateGoogleAdFields from "./CreateAds";
 
 //Tab Components
-import CreateAdsFields from "../../Components/Formfields/Google/CreateAds";
-import GoogleUserFields from "../../Components/Formfields/Google/UserFields";
-import GoogleRolesFields from "../../Components/Formfields/Google/RoleFields";
-import GoogleGroupsFields from "../../Components/Formfields/Google/GroupsFields";
+
 
 
 function TabPanel(props) {
@@ -46,7 +47,7 @@ function a11yProps(index) {
   };
 }
 
-export default function GoogleFormfields() {
+export default function GoogleFields() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -54,40 +55,42 @@ export default function GoogleFormfields() {
   };
 
   return (
+    <div >
     <Box sx={{ width: '80%', m: 15 }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="scrollable"
         scrollButtons="auto">
-          <Tab label="Create Ads " {...a11yProps(0)} />
-          <Tab label="Users Fields" {...a11yProps(1)} />
-          <Tab label="Roles Fields" {...a11yProps(2)} />
-          <Tab label="Group Fields" {...a11yProps(3)} />
-          <Tab label="Campaign Fields" {...a11yProps(4)} />
-          <Tab label="Ad Groups Fields" {...a11yProps(5)} />
-          <Tab label="Budget Fields" {...a11yProps(6)} />
+          <Tab label="User Fields " {...a11yProps(0)} />
+          <Tab label="Role Fields" {...a11yProps(1)} />
+          <Tab label="Group Fields" {...a11yProps(2)} />
+          <Tab label="Employee Access Fields" {...a11yProps(3)} />
+          <Tab label="Day Passes Fields" {...a11yProps(4)} />
+          <Tab label="Ticket Fields" {...a11yProps(5)} />
+          <Tab label="Project Fields" {...a11yProps(6)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <CreateAdsFields />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
         <GoogleUserFields />
       </TabPanel>
+      <TabPanel value={value} index={1}>
+        <GoogleRoleFields />
+      </TabPanel>
       <TabPanel value={value} index={2}>
-        <GoogleRolesFields />
+        <GoogleGroupFields />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <GoogleGroupsFields />
+        <CreateGoogleAdFields />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        
+      
       </TabPanel>
       <TabPanel value={value} index={5}>
-    
+     
       </TabPanel>
       <TabPanel value={value} index={6}>
-    
+   
       </TabPanel>
     </Box>
+    </div>
   );
 }
