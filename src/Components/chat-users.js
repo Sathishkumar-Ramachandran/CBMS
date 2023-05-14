@@ -1,136 +1,120 @@
-import React, { useState } from 'react';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Chat from './Chat'; // Import the Chat component
-import '../styles/chat.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Avatar, Box, Typography, Modal } from '@mui/material';
+import Chatroom from './ChatRoom';
 
-
-
-
-
-
-const users = [
-  {
-    id: 1,
-    name: "Sathish",
-    role: "Engineer",
-    photoUrl: "",
-    available: true,
+const styles = {
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 320,
+    border: '1px solid #3f51b5',
+    borderRadius: 4,
+    overflow: 'auto',
   },
-  {
-    id: 2,
-    name: "Muthupandi",
-    role: "Engineer",
-    photoUrl: "",
-    available: false,
+  group: {
+    backgroundColor: '#3f51b5',
+    color: 'white',
+    padding: 8,
+    fontWeight: 'bold',
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
   },
-  {
-    id: 3,
-    name: "Praveen",
-    role: "Engineer",
-    photoUrl: "",
-    available: true,
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    overflow: 'scroll',
   },
-  {
-    id: 4,
-    name: "Sathish",
-    role: "Engineer",
-    photoUrl: "",
-    available: true,
+  user: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: 8,
+    '&:hover': {
+      backgroundColor: '#f5f5f5',
+    },
   },
-  {
-    id: 5,
-    name: "Sathish",
-    role: "Engineer",
-    photoUrl: "",
-    available: false,
+  userAvatar: {
+    marginRight: 8,
   },
-  {
-    id: 123,
-    name: "Sathish",
-    role: "Engineer",
-    photoUrl: "",
-    available: true,
-  },
-]
+};
 
-const UserList = ({currentUserId}) => {
+const UserList = () => {
+  const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
-  var currentUserId = 12; 
+  const [open, setOpen] = useState(false);
 
-  const handleUserClick = (user) => {
-    setSelectedUser(user);
-    console.log(`${user.name} is connected to the Chat`);
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await axios.get('http://localhost:5000/api/users');
+        setUsers(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchUsers();
+  }, []);
+
+  const groups = {};
+
+  // Group users by group field
+  users?.forEach((user) => {
+    if (!groups[user?.group]) {
+      groups[user.group] = [];
+    }
+    groups[user?.group].push(user);
+  });
+
+  const groupKeys = Object.keys(groups);
+  const firstGroup = groupKeys.shift();
+
+  const handleOpen = () => {
+    setOpen(true);
   };
 
-  const handleChatClose = () => {
-    setSelectedUser(null);
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <div className='profile'>
-    <Grid container spacing={2} direction="row" >
-      {users.map((user) => (
-        <Grid item xs={12} md={6} key={user.id}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              bgcolor: 'background.paper',
-              p: 2,
-              borderRadius: 1,
-              boxShadow: 1,
-              height: 80,
-              cursor: 'pointer',
-            }}
-            onClick={() => handleUserClick(user)} className="card"
-          >
-            <Avatar
-              alt={user.name}
-              src={user.photoUrl}
-              sx={{
-                width: 56,
-                height: 56,
-                mr: 2,
-              }}
-            />
-            <Box sx={{ flexGrow: 1 }}>
-              <Typography variant="subtitle1" component="div">
-                {user.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {user.role}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                bgcolor: user.available ? 'success.main' : 'error.main',
-                borderRadius: '50%',
-                width: 8,
-                height: 8,
-                mr: 1,
-              }}
-            />
-            <Typography variant="body2" color="text.secondary">
-              {user.available ? 'Available' : 'Unavailable'}
-            </Typography>
+  
+    <div style={{ margin: '4.3vw', height: '100vw' }}>
+      <Box style={styles.root}>
+        <Box style={styles.group}>{firstGroup}</Box>
+        {groups[firstGroup]?.map((user) => (
+          <div style={{cursor: "pointer"}} onClick={() => {setSelectedUser(user); console.log(user); handleOpen() }}>
+          <Box key={user.id} style={styles.user} borderBottom={1}>
+            <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
+            <Typography>{user.name}</Typography>
           </Box>
-        </Grid>
-      ))}
-      {selectedUser && (
-        <Chat
-          senderId={currentUserId}
-          receiverId={selectedUser.id}
-          receiverName={selectedUser.name}
-          onClose={handleChatClose}
-        />
-      )}
-    </Grid>
+          </div>
+        ))}
+        {groupKeys.map((group) => (
+          <React.Fragment key={group}>
+            <Box style={styles.group}>{group}</Box>
+            {groups[group].map((user) => (
+              <div style={{cursor: "pointer"}}>
+              <Box key={user.id} style={styles.user} borderBottom={1}>
+                <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
+                <Typography>{user.name}</Typography>
+              </Box>
+              </div>
+            ))}
+          </React.Fragment>
+        ))}
+      </Box>
+
+       {selectedUser &&
+      
+       <Modal open={true} style={styles.modal}>
+       <Chatroom user={selectedUser} />
+       </Modal>
+}
     </div>
+    
   );
 };
-
 
 export default UserList;

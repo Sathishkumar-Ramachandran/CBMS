@@ -1,151 +1,196 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+import { Avatar, Box, Typography, TextField, Button } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 
-import { 
-    makeStyles, 
-    Paper, 
-    Typography, 
-    TextField, 
-    Button, 
-    SendIcon, 
-    AttachmentIcon, 
-    InputAdornment, 
-    CircularProgress } from '@mui/material'
-import io from 'socket.io-client';
-import * as openpgp from 'openpgp';
-
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
-    margin: 'auto',
-    maxWidth: 600,
-    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(2),
-    boxSizing: 'border-box',
+    border: '1px solid #3f51b5',
+    borderRadius: 4,
+    overflow: 'hidden',
   },
-  chatContainer: {
-    overflowY: 'auto',
-    height: 'calc(100vh - 130px)',
-    marginBottom: theme.spacing(2),
+  group: {
+    backgroundColor: '#3f51b5',
+    color: 'white',
+    padding: 8,
+    fontWeight: 'bold',
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
   },
-  messageContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(2),
-    maxWidth: '70%',
-    alignSelf: 'flex-end',
-    position: 'relative',
-  },
-  message: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    borderRadius: '20px 20px 0px 20px',
-    padding: theme.spacing(2),
-    marginBottom: theme.spacing(1),
-    maxWidth: '100%',
-    wordBreak: 'break-word',
-    position: 'relative',
-  },
-  sentTime: {
-    position: 'absolute',
-    bottom: '-16px',
-    right: '5px',
-    fontSize: '12px',
-  },
-  myMessageContainer: {
-    alignSelf: 'flex-end',
-  },
-  otherMessageContainer: {
-    alignSelf: 'flex-start',
-  },
-  avatar: {
-    height: '30px',
-    width: '30px',
-    borderRadius: '50%',
-    marginRight: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-  inputContainer: {
+  user: {
     display: 'flex',
     alignItems: 'center',
+    padding: 8,
+    '&:hover': {
+      backgroundColor: '#f5f5f5',
+    },
+  },
+  userAvatar: {
+    marginRight: 8,
+  },
+  chatInputContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: 8,
+    borderTop: '1px solid #f5f5f5',
+    justifyContent: 'flex-end'
+  },
+  chatInput: {
+    flexGrow: 1,
+    marginRight: 8,
+    backgroundColor: 'white'
+  },
+  chatButton: {
+    minWidth: 'unset',
+  },
+  messageContainer: {
+    flexGrow: 1,
+    overflowY: 'auto',
+    padding: 8,
+    backgroundColor: 'white',
+    
+  },
+  message: {
+    backgroundColor: '#f5f5f5',
+    borderRadius: 4,
+    padding: 8,
+    marginBottom: 8,
+  },
+  messageSelf: {
+    backgroundColor: '#dcf8c6',
+  },
+  messageContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  messageSender: {
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  messageText: {
+    whiteSpace: 'pre-wrap',
+  },
+  messageTimestamp: {
+    fontSize: '0.8rem',
+    textAlign: 'right',
+  },
+  form: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: 8,
+    borderTop: '1px solid #f5f5f5',
   },
   input: {
     flexGrow: 1,
+    marginRight: 8,
   },
-  button: {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const Chat = ({ user, chatId, recipient, recipientPublicKey }) => {
-  // const classes = useStyles();
-  // const [messages, setMessages] = useState([]);
-  // const [messageText, setMessageText] = useState('');
-  // const [loading, setLoading] = useState(false);
-  // const [typing, setTyping] = useState(false);
-  // const [socket, setSocket] = useState(null);
-  // const [encryptedKey, setEncryptedKey] = useState(null);
-
-  // const chatContainerRef = useRef(null);
-
-  // useEffect(() => {
-  //   // Connect to the Flask-SocketIO server with SSL/TLS encryption
-  //   const socket = io.connect('http://localhost:6000', {
-  //     secure: true,
-  //     rejectUnauthorized: false,
-  //   });
-  //   setSocket(socket);
-  
-  //   const fetchMessages = async () => {
-  //     // Generate a random session key for end-to-end encryption
-  //     const sessionKey = openpgp.crypto.generateSessionKey('aes256');
-  //     const sessionKeyArmored = await openpgp.armor.encode({
-  //       message: sessionKey,
-  //     });
-  
-  //     // Encrypt message with the session key
-  //     const encryptedMessage = await openpgp.encrypt({
-  //       message: await openpgp.message.fromText(messageContent),
-  //       sessionKey: sessionKey,
-  //     });
-  
-  //     // Convert the encrypted message to ASCII armored text
-  //     const encryptedMessageArmored = await openpgp.armor.encode({
-  //       message: encryptedMessage.message,
-  //     });
-  
-  //     // Construct the final message object with the encrypted content and session key
-  //     const finalMessage = {
-  //       content: encryptedMessageArmored,
-  //       sessionKey: sessionKeyArmored,
-  //       sender: 'me',
-  //       receiver: 'you',
-  //       sentTime: Date.now(),
-  //     };
-      
-  //     // Render the message in the chat window
-  //     setMessages((prevMessages) => [...prevMessages, finalMessage]);
-  //   };
-  
-  //   fetchMessages();
-  // }, []);
-  //     // Render the message in the chat window
-  //     return (
-  //       <div
-  //         key={index}
-  //         className={`${classes.messageContainer} ${
-  //           sender === 'me' ? classes.myMessageContainer : classes.otherMessageContainer
-  //         }`}
-  //       >
-  //         <Typography className={classes.message} variant="body1">
-  //           {message.content}
-  //         </Typography>
-  //         <Typography className={classes.sentTime} variant="body2">
-  //           {sentTime}
-  //         </Typography>
-  //       </div>
-  //     )
 };
+
+
+
+function formatTimestamp(timestamp) {
+  const date = new Date(timestamp);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  return `${formattedHours}:${formattedMinutes} ${ampm}`;
+};
+const Chatroom = ({user}) => {
+
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState('');
+  const messageContainerRef = useRef(null);
+
+  useEffect(() => {
+    async function fetchMessages() {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/messages/${user.id}`);
+        setMessages(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchMessages();
+  }, [user]);
+
+  useEffect(() => {
+    messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+  }, [messages]);
+
+  const handleInputChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSendMessage = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/api/messages', {
+        senderId: user.id,
+        content: message,
+      });
+      setMessages((prevMessages) => [...prevMessages, response.data]);
+      setMessage('');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', height: '30%', width: "25%", float: 'right' }}>
+      <Box style={styles.group}>
+        <div style={{display: 'flex'}}>
+        <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
+          <div style={{display: 'flex', flexDirection: 'row'}}>
+            {user.name}
+            {/* {user.designation} */}
+          </div>
+        <CloseIcon style={{alignItems: 'right'}} color='primary'/> 
+ 
+        </div>
+      </Box>
+      <div style={styles.messageContainer} ref={messageContainerRef}>
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            style={{ ...styles.message, ...(message.senderId === user.id && styles.messageSelf) }}
+          >
+            <div style={styles.messageContent}>
+              <Typography style={styles.messageSender}>{message.senderName}</Typography>
+              <Typography style={styles.messageText}>{message.content}</Typography>
+            </div>
+            <Typography style={styles.messageTimestamp}>{formatTimestamp(message.createdAt)}</Typography>
+          </div>
+        ))}
+      </div>
+      <form onSubmit={handleSendMessage} style={styles.chatInputContainer}>
+        <TextField
+          variant="outlined"
+          placeholder="Type a message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          style={styles.chatInput}
+          fullWidth
+          InputProps={{
+            endAdornment: (
+              <Button type="submit" variant="contained" disabled={!message} style={styles.chatButton}>
+                Send
+              </Button>
+            ),
+          }}
+        />
+      </form>
+    </div>
+  );
+        }
+
+export default Chatroom;
+
+
