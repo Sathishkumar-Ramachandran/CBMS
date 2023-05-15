@@ -201,12 +201,13 @@ gap: 5rem;
       height: 100%; 
     
       display: block; */
-/*     
-    }
+     
+    
     .input-Button{
       width:50%;
       z-index:1;
       margin-top:30px;
+      margin-left: 20%;
       color:white;
       padding: 15px 0;
       font-size: 18px;
@@ -236,4 +237,14 @@ gap: 5rem;
         }
         .input-Button:hover::before{
           left:0;
+        } 
+
+        .tableinput-main{
+          border-right:1px solid black ;
+          height: 100%;
+          /* box-shadow: rgb(38, 57, 77) 0px 10px 20px -10px; */
+        }
+        /* .input-Label-Boxt{
+          border-left:1px solid black ;
+          height: 100%;
         } */

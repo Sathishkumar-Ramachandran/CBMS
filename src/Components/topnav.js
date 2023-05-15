@@ -68,18 +68,20 @@
 // export default Topnav;
 
 
-
 import { AiOutlineBell,  AiOutlineSearch,AiOutlineCheckCircle, AiOutlineUser } from 'react-icons/ai';
 import '../styles/topnav.css'
 import Profile from './Profile';
 import praveen from '../Components/assets/praveen.jpg'
+
 const Topnav = () => {
+  
   return (
     <header className="header-alignment">
       <div className="searchbar">
         <input type="text" placeholder="Search" />
         <button>< AiOutlineSearch/></button>
       </div>
+
       {/* <div className="icons">
         <div className="icon">
           <FontAwesomeIcon icon={faBell} />
@@ -110,4 +112,5 @@ const Topnav = () => {
     </header>
   );
 }
+
 export default Topnav;

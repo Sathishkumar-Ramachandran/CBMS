@@ -3,7 +3,7 @@ import { SchemaTable, FilterComponent } from "../../table";
 import addUser from "./addUser";
 import axios from "axios";
 // import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+// import ButtonGroup from "@mui/material/ButtonGroup";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -143,8 +143,8 @@ const UsersAdmin = () => {
   };
 
   return (
-    <div style={{ margin: 50, display: "flex",}} className="tableinput-main">
-      <div style={{ display: "grid"}} >
+    <div style={{ margin: 50, display: "flex",}} >
+      <div style={{ display: "grid"}} className="tableinput-main">
 
       {userlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Users</h1></div>}
       <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8, }}className="table-input">
@@ -185,6 +185,7 @@ const UsersAdmin = () => {
           {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
       </Box>
+      <div className="border-Box-Right"></div>
       <TabPanel value={value} index={0}>
       {props.map((property, index) => {
     if (property.tool === "SingleLineText") {
@@ -193,6 +194,7 @@ const UsersAdmin = () => {
         <div className="input-Label">
         <div key={index}>
           <TextField
+          sx={{ m: 1}}
             label={property.label}
             onChange={(e) => {
               handleChangeTextField(e.target.value, property.label);
@@ -232,9 +234,9 @@ const UsersAdmin = () => {
       return null;
     }
   })}
-  <Button onClick={saveUser} className='input-Button' variant="outlined" sx={{m:5}}>
+  <button Click={saveUser} className='input-Button' variant="outlined" sx={{m:5}}>
     Save
-    </Button>
+    </button>
  
       </TabPanel>
       <TabPanel value={value} index={1}>
