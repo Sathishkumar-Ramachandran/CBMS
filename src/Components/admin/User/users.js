@@ -112,7 +112,9 @@ const UsersAdmin = () => {
     let temp = { ...apidata };
     temp[label] = value;
     setAPIdata(temp);
-    //  console.log(temp)
+      console.log(temp)
+      console.log(label);
+      console.log(value);
   };
 
   const saveUser = async () => {
@@ -196,6 +198,7 @@ const UsersAdmin = () => {
           <TextField
           sx={{ m: 1}}
             label={property.label}
+            value={apidata['First Name']}
             onChange={(e) => {
               handleChangeTextField(e.target.value, property.label);
             }}

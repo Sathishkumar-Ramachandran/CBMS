@@ -145,6 +145,7 @@ const AdminRoleFields = () => {
                 label={label}
                 value={formData[key] || ""}
                 onChange={handleInputChange}
+                
               />
               <DeleteIcon
                 display="inherit"
@@ -202,7 +203,8 @@ const AdminRoleFields = () => {
           </Button>
         )}
       </div>
-      <div style={{ float: "left" }}>
+     
+      <div >
         <Toolkit
           props={props}
           setProps={setProps}

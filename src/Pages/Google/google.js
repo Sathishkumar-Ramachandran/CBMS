@@ -1,82 +1,59 @@
-import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Tabs, Tab } from '@mui/material';
 import { menuItem } from '../../Components/menuItem.js';
-
-import '../../styles/Google/Google.css'
+import '../../styles/Google/Google.css';
 import CreateAdForm from '../../styles/Google/CreateAd.js';
 import AdsTable from './Ads.js';
-import { BorderRight } from '@mui/icons-material';
 
-
-const GoogleNav = ( {children, setShowComp} ) => {
-    
-    const comp = (option) => {
-      setShowComp(option.comp)
-      alert('clicked');
-      
-    }
-    
-    return(
-
-
-      <div className='googlenav'>
-          {menuItem.map((item, index) => {
-            return(
-            <ul>
-              {item?.submenu?.map((element, index2) => {
-                return(
-                <div>
-                
-                  {element?.options?.map((option, index3) => {
-                    return(
+const GoogleNav = ({ children, showComp,setShowComp }) => {
+  return (
+    <div className='googlenav'>
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={showComp}
+        onChange={(event, newValue) => setShowComp(newValue)}
+        sx={{ borderRight: 1, borderColor: 'divider' }}
+      >
+        {menuItem.map((item, index) => (
+          <>
+            {item?.submenu?.map((element, index2) => (
+              <>
+                {element?.options?.map((option, index3) => (
+                  <Tab
+                    key={index3}
+                    label={
                       <div>
-                      {console.log(option)}
-                      <div className='googlenavtitle'>
-                        
-                      </div>
-                     
-                      { 
-                      <div className='googlenavoption'style={{display: "inline-block",}}>
-                      <h5
-                      onClick={() => {comp(option)} } key={index3} style={{cursor: "pointer",}} >
                         <div className=''>{option.icon}</div>
                         <div>{option.name}</div>
-                      </h5>
                       </div>
                     }
-                        
-                      </div>
-                      
-                    )
-                  })}
+                    onClick={() => setShowComp(option.comp)}
+                  />
+                ))}
                 <main>{children}</main>
-                
-                </div>
-          )})}
-            </ul>
-            
-         ) })}
-          
-          </div>
-        )}
-
-
+              </>
+            ))}
+          </>
+        ))}
+      </Tabs>
+    </div>
+  );
+};
 
 const Google = () => {
-  const [showComp, setShowComp] = useState();
-    return(
-        <>
-        <div className='google-column'>
-          <div className='subnavigation'>
-            <GoogleNav setShowComp={setShowComp}  />
-          </div>
-          <div className='showcomponent'>
-            {showComp}
-          </div>
-        </div>
-        </>
-    )
-}
+  const [showComp, setShowComp] = useState(null);
 
+  return (
+    <>
+      <div className='google-column'>
+        <div className='subnavigation'>
+          <GoogleNav setShowComp={setShowComp} showComp={showComp} />
+        </div>
+        <div className='showcomponent'>{showComp}</div>
+      </div>
+    </>
+  );
+};
 
 export default Google;
