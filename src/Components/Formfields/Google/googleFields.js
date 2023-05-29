@@ -9,6 +9,7 @@ import GoogleUserFields from "./UserFields";
 import GoogleRoleFields from "./RoleFields";
 import GoogleGroupFields from "./GroupsFields";
 import CreateGoogleAdFields from "./CreateAds";
+import GoogleCampaignFields from "./CampaignFormFields";
 
 //Tab Components
 
@@ -63,9 +64,9 @@ export default function GoogleFields() {
           <Tab label="User Fields " {...a11yProps(0)} />
           <Tab label="Role Fields" {...a11yProps(1)} />
           <Tab label="Group Fields" {...a11yProps(2)} />
-          <Tab label="Employee Access Fields" {...a11yProps(3)} />
-          <Tab label="Day Passes Fields" {...a11yProps(4)} />
-          <Tab label="Ticket Fields" {...a11yProps(5)} />
+          <Tab label="Campaign Form" {...a11yProps(3)} />
+          <Tab label="AdGroup Form" {...a11yProps(4)} />
+          <Tab label="Create Ad Form" {...a11yProps(5)} />
           <Tab label="Project Fields" {...a11yProps(6)} />
         </Tabs>
       </Box>
@@ -79,13 +80,13 @@ export default function GoogleFields() {
         <GoogleGroupFields />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <CreateGoogleAdFields />
+        <GoogleCampaignFields />
       </TabPanel>
       <TabPanel value={value} index={4}>
-      
+
       </TabPanel>
       <TabPanel value={value} index={5}>
-     
+        <CreateGoogleAdFields />
       </TabPanel>
       <TabPanel value={value} index={6}>
    

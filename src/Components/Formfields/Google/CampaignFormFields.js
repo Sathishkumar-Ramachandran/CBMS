@@ -13,87 +13,99 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 
-const UserFieldsDefault = [
-  {
-    label: "First Name",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiText />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("First Name value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "Last Name",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "User ID",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "Email",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "Role",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "Department",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "Mobile No",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-];
 
-const AdminUserFields = () => {
+
+const GoogleCampaignFieldsDefault = [
+    {
+      label: "Campaign Name",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("First Name value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Campaign Type",
+      tool: "Dropdown",
+      properties: "",
+      options:["Search", "Display", "Video", "Shopping", "App"],
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Budget",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Bidding Strategy",
+      tool: "Dropdown",
+      properties: "",
+      options:["CPC (Cost Per Click)", "Target CPA (Cost Per Acquisition)", "Target ROAS(Return on Ad Spend)", "Enhanced CPC"],
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Networks",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Ad Extensions",
+      tool: "Dropdown",
+      properties: "",
+      options:["Site Link Extensions", "Call Extensions",
+             "Location Extensions", "Callout Extensions", 
+             "Structured Snippet Extensions", "Price Extensions",
+            "Promotion Extensions"],
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Role",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Department",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    // {
+    //   label: "Mobile No",
+    //   tool: "SingleLineText",       
+    //   properties: "",
+    //   onChange: (event, property) =>
+    //     console.log("Message value changed to:", event.target.value, property),
+    //   key: true,
+    // },
+  ];
+
+
+const GoogleCampaignFields = () => {
   useEffect(() => {
     getSchema();
   }, []);
 
   const getSchema = async () => {
+    let compID = 123456;
     await axios
-      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .get(`http://localhost:10008/api/formfields/google/campaigns/getschema/${compID}`)
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -104,7 +116,7 @@ const AdminUserFields = () => {
         console.log(err);
       });
   };
-  const [props, setProps] = useState(UserFieldsDefault);
+  const [props, setProps] = useState(GoogleCampaignFieldsDefault);
   const [schema, setSchema] = useState({});
   const [formData, setFormData] = useState({});
   const [showDisabled, setShowDisabled] = useState(true);
@@ -163,13 +175,13 @@ const AdminUserFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/formfields/admin/addMongoSchema/123456",
+        "http://localhost:10008/api/formfields/google/campaings/campaignschema/123456",
         payload
       )
       .then(() => {
         toast.success("saved");
       })
-      .catch("failed");
+      .catch(() => { toast.error("Failed to Save FormField")});
   };
 
   const renderFields = () => {
@@ -272,4 +284,4 @@ const AdminUserFields = () => {
   );
 };
 
-export default AdminUserFields;
+export default GoogleCampaignFields;

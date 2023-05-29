@@ -73,6 +73,8 @@ function App() {
           <Route path="/admin/account/portalsetup" element={""} />
           <Route path="/admin/account/daypasses" element={""} />
 
+
+
           {/* Admin User Routes */}
           <Route path="/admin/user/users" element={<UsersAdmin />} />
           <Route path="/admin/user/roles" element={""} />
@@ -87,7 +89,8 @@ function App() {
 
           {/* Google Routes */}
           <Route path="/google/ads/createad" element={<AdsTable />} />
-          <Route path='/google/campaigns' element={<CampaignTable />} />
+          <Route path='/google/campaigns/createcampaign' element={<CampaignTable />} />
+          <Route path='/google/campaigns' element={""} />
 
 
           {/* Admin Channel Google Routes */}

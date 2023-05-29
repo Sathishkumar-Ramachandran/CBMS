@@ -18,30 +18,7 @@ import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheck
 
 const Toolkit = ( {props, setProps} ) => {
     
-  // const propstest = [
-  //   {
-  //     label: "First Name",
-  //     tool: "SingleLineText",
-  //     comp: <TextField />,
-  //     icon: <BiText />,
-  //     properties: "",
-  //     onChange: (event, property) =>
-  //       console.log(
-  //         "First Name value changed to:",
-  //         event.target.value,
-  //         property
-  //       ),
-  //   },
-  //   {
-  //     label: "Last Name",
-  //     tool: "Paragraph",
-  //     comp: <TextField />,
-  //     icon: <BiParagraph />,
-  //     properties: "",
-  //     onChange: (event, property) =>
-  //       console.log("Message value changed to:", event.target.value, property),
-  //   },
-  // ];
+
 
   const tools = [
     {
@@ -62,18 +39,21 @@ const Toolkit = ( {props, setProps} ) => {
       comp: <Checkbox />,
       icon: <BiParagraph />,
       properties: "",
+
     },
     {
       Tool: "Dropdown",
       comp: <Select />,
       icon: <IoIosArrowDropdown />,
       properties: "",
+      options:[]
     },
     {
       Tool: "Radio Button",
       comp: <Radio />,
       icon: <RadioButtonCheckedOutlinedIcon />,
       properties: "",
+      options:[]
     },
     
   ];
@@ -116,7 +96,7 @@ const Toolkit = ( {props, setProps} ) => {
          </h3>
 
         </div>
-        {/* <h3>hi</h3> */}
+    
         {showPopup && (
           <Popup
             comp={selectedTool.comp}
@@ -322,7 +302,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
             const options = property.properties.split(",");
             return (
               <div key={index}>
-                <FormControl fullWidth>
+                <FormControl sx={{width: 250}}>
                   <InputLabel id={`${property.label}-label`}>
                     {property.label}
                   </InputLabel>
@@ -359,7 +339,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                     {option}
                   </div>
                 ))}
-                <button
+                <Button
                   onClick={(e) => {
                     deleteCustombox(
                       e,
@@ -368,8 +348,8 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                     );
                   }}
                 >
-                  delete
-                </button>
+                  Delete
+                </Button>
               </div>
             );
           }else {
@@ -405,11 +385,11 @@ const Popup = ({ comp, onClose, onSave,data }) => {
             
             return (
               <div key={index}>
-                <FormControl fullWidth>
+                <FormControl sx={{ width: 300 }}   >
                   <InputLabel id={`${property.label}-label`}>
                     {property.label}
-                    {/* {selectedValue !== "" ? selectedValue : property.label} // Display selected value or default label */}
-                    {/* {selectedValue !== "" ? selectedValue : property.label} Display selected value or default label */}
+                    {/* {selectedValue !== "" ? selectedValue : property.label} // Display selected value or default label
+                    {selectedValue !== "" ? selectedValue : property.label} Display selected value or default label */}
                   </InputLabel>
                   <Select
                     labelId={`${property.label}-label`}
@@ -425,7 +405,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                       </MenuItem>
                     ))}
                   </Select>
-                  <button
+                  <Button
                     onClick={(e) => {
                       deleteCustombox(
                         e,
@@ -434,8 +414,8 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                       );
                     }}
                   >
-                    delete
-                  </button>
+                    Delete
+                  </Button>
                 </FormControl>
               </div>
             );
