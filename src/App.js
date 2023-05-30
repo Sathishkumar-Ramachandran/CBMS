@@ -29,10 +29,9 @@ import Roles from "./Pages/Google/roles.js";
 import Groups from "./Pages/Google/groups.js";
 import AdGroupForm from "./Pages/Google/adGroupsForm.js";
 import CampaignLifecycle from "./Pages/Google/campaignLifecycle.js";
-// import GoogleFormfields from "./Pages/Google/googleformfields.js";
+import GoogleFormfields from "./Pages/Google/googleformfields.js";
 import AdminFields from "./Components/admin/User/fields.js";
 import CampaignTable from "./Components/google/CampaignTable.js";
-import GoogleFields from "./Components/Formfields/Google/googleFields.js";
 
 
 
@@ -105,7 +104,7 @@ function App() {
 
          
           <Route path="/admin/channels/google/budget/lifecycle" element={""} />
-          <Route path="/admin/channels/google/formfields" element={<GoogleFields />} />
+          <Route path="/admin/channels/google/formfields" element={<GoogleFormfields />} />
           <Route path="/admin/channels/google/others/criteria" element={""} />
           <Route path="/admin/channels/google/others/extensions" element={""} />
 

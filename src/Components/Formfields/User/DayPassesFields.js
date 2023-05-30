@@ -172,7 +172,7 @@ const AdminDayPassesFields = () => {
   };
 
   return (
-    <div>
+    <div >
       <div style={{ float: "right" }}>
         <Button
           variant="contained"
