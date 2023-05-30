@@ -162,7 +162,7 @@ const CampaignTable = () => {
                 const options = property.properties.split(",");
                 return (
                   <div key={index}>
-                    <FormControl fullWidth>
+                    <FormControl >
                       <InputLabel id={`${property.label}-label`}>
                         {property.label}
                       </InputLabel>

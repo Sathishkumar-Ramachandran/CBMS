@@ -105,7 +105,7 @@ const GoogleCampaignFields = () => {
   const getSchema = async () => {
     let compID = 123456;
     await axios
-      .get(`http://localhost:10008/api/formfields/google/campaigns/getschema/${compID}`)
+      .get(`http://localhost:10008/api/formfields/google/campaigns/get/${compID}`)
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -158,11 +158,17 @@ const GoogleCampaignFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
+        value: x.options
       });
 
-      if (x.tool === "SingleLineText") {
+      
+      if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
+      if (x.tool === "Dropdown") {
+        mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
+      }
+      
     });
 
     console.log(schema, "saveSchema");
@@ -191,7 +197,7 @@ const GoogleCampaignFields = () => {
     }
     return Object.keys(schema?.properties).map((key) => {
       const field = schema.properties[key];
-      const { type, label } = field;
+      const { type, label, value } = field;
 
       // return Object.keys(schema).map(key => {
       //   const field = schema[key];
@@ -215,6 +221,7 @@ const GoogleCampaignFields = () => {
               />
             </div>
           );
+        
         case "button":
           return (
             <Button
