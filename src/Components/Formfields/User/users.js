@@ -197,10 +197,10 @@ const AdminUserFields = () => {
                 onChange={handleInputChange}
                 
               />
-              <DeleteIcon
+              {/* <DeleteIcon
                 display="inherit"
                 style={{ width: "20px", padding: "2px" }}
-              />
+              /> */}
             </div>
           );
         case "button":

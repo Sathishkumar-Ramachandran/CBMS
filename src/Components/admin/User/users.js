@@ -180,7 +180,7 @@ const UsersAdmin = () => {
         <Tabs value={value} onChange={handleChange} 
         aria-label="full width tabs example" 
         centered 
-        sx={{ bgcolor: '#00693E', }} 
+         sx={{ bgcolor: '#00693E',width:300,display:'flex',margin:0 }} 
       >
           <Tab label="Create User" {...a11yProps(0)}  sx={{color: 'white' }}/>
           <Tab label="Filter User" {...a11yProps(1)}   sx={{color: 'white'}}/>
