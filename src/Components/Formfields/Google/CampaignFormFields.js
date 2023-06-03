@@ -13,37 +13,99 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 
-const RoleFieldsDefault = [
-  {
-    label: "First Name",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiText />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("First Name value changed to:", event.target.value, property),
-    key: true,
-  },
-  {
-    label: "Last Name",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
-    properties: "",
-    onChange: (event, property) =>
-      console.log("Message value changed to:", event.target.value, property),
-    key: true,
-  },
-];
 
-const AdminRoleFields = () => {
+
+const GoogleCampaignFieldsDefault = [
+    {
+      label: "Campaign Name",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("First Name value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Campaign Type",
+      tool: "Dropdown",
+      properties: "",
+      options:["Search", "Display", "Video", "Shopping", "App"],
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Budget",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Bidding Strategy",
+      tool: "Dropdown",
+      properties: "",
+      options:["CPC (Cost Per Click)", "Target CPA (Cost Per Acquisition)", "Target ROAS(Return on Ad Spend)", "Enhanced CPC"],
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Networks",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Ad Extensions",
+      tool: "Dropdown",
+      properties: "",
+      options:["Site Link Extensions", "Call Extensions",
+             "Location Extensions", "Callout Extensions", 
+             "Structured Snippet Extensions", "Price Extensions",
+            "Promotion Extensions"],
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Role",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    {
+      label: "Department",
+      tool: "SingleLineText",
+      properties: "",
+      onChange: (event, property) =>
+        console.log("Message value changed to:", event.target.value, property),
+      key: true,
+    },
+    // {
+    //   label: "Mobile No",
+    //   tool: "SingleLineText",       
+    //   properties: "",
+    //   onChange: (event, property) =>
+    //     console.log("Message value changed to:", event.target.value, property),
+    //   key: true,
+    // },
+  ];
+
+
+const GoogleCampaignFields = () => {
   useEffect(() => {
     getSchema();
   }, []);
 
   const getSchema = async () => {
+    let compID = 123456;
     await axios
-      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .get(`http://localhost:10008/api/formfields/google/campaigns/get/${compID}`)
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -54,7 +116,7 @@ const AdminRoleFields = () => {
         console.log(err);
       });
   };
-  const [props, setProps] = useState(RoleFieldsDefault);
+  const [props, setProps] = useState(GoogleCampaignFieldsDefault);
   const [schema, setSchema] = useState({});
   const [formData, setFormData] = useState({});
   const [showDisabled, setShowDisabled] = useState(true);
@@ -96,11 +158,17 @@ const AdminRoleFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
+        value: x.options
       });
 
-      if (x.tool === "SingleLineText") {
+      
+      if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
+      if (x.tool === "Dropdown") {
+        mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
+      }
+      
     });
 
     console.log(schema, "saveSchema");
@@ -113,13 +181,13 @@ const AdminRoleFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/mongo/FormFields/addMongoSchema/",
+        "http://localhost:10008/api/formfields/google/campaings/campaignschema/123456",
         payload
       )
       .then(() => {
         toast.success("saved");
       })
-      .catch("failed");
+      .catch(() => { toast.error("Failed to Save FormField")});
   };
 
   const renderFields = () => {
@@ -129,7 +197,7 @@ const AdminRoleFields = () => {
     }
     return Object.keys(schema?.properties).map((key) => {
       const field = schema.properties[key];
-      const { type, label } = field;
+      const { type, label, value } = field;
 
       // return Object.keys(schema).map(key => {
       //   const field = schema[key];
@@ -153,6 +221,7 @@ const AdminRoleFields = () => {
               />
             </div>
           );
+        
         case "button":
           return (
             <Button
@@ -222,4 +291,4 @@ const AdminRoleFields = () => {
   );
 };
 
-export default AdminRoleFields;
+export default GoogleCampaignFields;

@@ -14,7 +14,7 @@ import Workspace from "./Pages/Workspace.js";
 import Analytics from "./Components/Analytics.js";
 import Admin from "./Components/admin/Admin.js";
 import Google from "./Pages/Google/google.js";
-
+import GoogleFields from "./Components/Formfields/Google/googleFields.js";
 import Dropdown from "./Components/submenu.js";
 import Googleadmin from "./Pages/Google/admingoogle.js";
 import Mediasetup from "./Pages/Google/Mediasetup.js";
@@ -29,7 +29,7 @@ import Roles from "./Pages/Google/roles.js";
 import Groups from "./Pages/Google/groups.js";
 import AdGroupForm from "./Pages/Google/adGroupsForm.js";
 import CampaignLifecycle from "./Pages/Google/campaignLifecycle.js";
-import GoogleFormfields from "./Pages/Google/googleformfields.js";
+
 import AdminFields from "./Components/admin/User/fields.js";
 import CampaignTable from "./Components/google/CampaignTable.js";
 
@@ -72,6 +72,8 @@ function App() {
           <Route path="/admin/account/portalsetup" element={""} />
           <Route path="/admin/account/daypasses" element={""} />
 
+
+
           {/* Admin User Routes */}
           <Route path="/admin/user/users" element={<UsersAdmin />} />
           <Route path="/admin/user/roles" element={""} />
@@ -86,7 +88,8 @@ function App() {
 
           {/* Google Routes */}
           <Route path="/google/ads/createad" element={<AdsTable />} />
-          <Route path='/google/campaigns' element={<CampaignTable />} />
+          <Route path='/google/campaigns/createcampaign' element={<CampaignTable />} />
+          <Route path='/google/campaigns' element={""} />
 
 
           {/* Admin Channel Google Routes */}
@@ -104,7 +107,7 @@ function App() {
 
          
           <Route path="/admin/channels/google/budget/lifecycle" element={""} />
-          <Route path="/admin/channels/google/formfields" element={<GoogleFormfields />} />
+          <Route path="/admin/channels/google/formfields" element={<GoogleFields />} /> 
           <Route path="/admin/channels/google/others/criteria" element={""} />
           <Route path="/admin/channels/google/others/extensions" element={""} />
 

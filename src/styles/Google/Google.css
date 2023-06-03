@@ -1,12 +1,13 @@
- .googlenav {
-    margin-left: 7.6vh;
+.googlenav {
+    margin-left: 8vh;
     margin-top: 7vh;
     height: 100vh;
-    width: 55%;
+    width: 15vw;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     border-right: 1px solid #D5D4C5;
     color: white;
-    background:#02894B;
+    font-weight: bold;
+    background: #02894B;
 }
 
 
@@ -19,4 +20,9 @@
     margin-left: 8px;
     padding-bottom: 10px;
     margin-left: 15px;
-} 
+}
+
+.subnavigation {
+    position: fixed;
+}
+

@@ -18,6 +18,7 @@ import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import GroupAddTwoToneIcon from '@mui/icons-material/GroupAddTwoTone';
 import FB from "../../src/assets/FB.jpg";
 import AdsTable from "../Pages/Google/Ads";
+import CampaignTable from "./google/CampaignTable";
 export const menuItem=[
     {
       path:"/",
@@ -160,12 +161,7 @@ export const menuItem=[
               icon: "",
               comp: <AdsTable />
             },
-            {
-              path: "/google/ads/mutatead",
-              name: "Mutate Ad",
-              icon: "",
-              component: ""
-            }
+           
           ]
         },
         
@@ -179,11 +175,7 @@ export const menuItem=[
               name: "Create AdGroup",
               icon: ""
             },
-            {
-              path: "/google/adgroup/mutateadgroup",
-              name: "Mutate AdGroup",
-              icon: ""
-            }
+            
           ]
         },
 
@@ -195,13 +187,10 @@ export const menuItem=[
             {
               path: "/google/campaigns/createcampaign",
               name: "Create Campaign",
-              icon: ""
+              icon: "",
+              comp: <CampaignTable />
             },
-            {
-              path: "/google/campaigns/mutatecampaign",
-              name: "Mutate Campaign",
-              icon: ""
-            }
+            
           ]
         },
 
@@ -221,11 +210,7 @@ export const menuItem=[
               name: "Associate Asset",
               icon: ""
             },
-            {
-              path: "/google/assets/mutateasset",
-              name: "Mutate Asset Association",
-              icon: ""
-            },
+            
             {
               path: "/google/assets/locationsync",
               name: "Location Sync",

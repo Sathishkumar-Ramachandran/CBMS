@@ -18,30 +18,7 @@ import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheck
 
 const Toolkit = ( {props, setProps} ) => {
     
-  // const propstest = [
-  //   {
-  //     label: "First Name",
-  //     tool: "SingleLineText",
-  //     comp: <TextField />,
-  //     icon: <BiText />,
-  //     properties: "",
-  //     onChange: (event, property) =>
-  //       console.log(
-  //         "First Name value changed to:",
-  //         event.target.value,
-  //         property
-  //       ),
-  //   },
-  //   {
-  //     label: "Last Name",
-  //     tool: "Paragraph",
-  //     comp: <TextField />,
-  //     icon: <BiParagraph />,
-  //     properties: "",
-  //     onChange: (event, property) =>
-  //       console.log("Message value changed to:", event.target.value, property),
-  //   },
-  // ];
+
 
   const tools = [
     {
@@ -53,7 +30,7 @@ const Toolkit = ( {props, setProps} ) => {
     },
     {
       Tool: "Paragraph",
-      comp: "",
+      comp: <TextField />,
       icon: <BiParagraph />,
       properties: "",
     },
@@ -62,18 +39,21 @@ const Toolkit = ( {props, setProps} ) => {
       comp: <Checkbox />,
       icon: <BiParagraph />,
       properties: "",
+
     },
     {
       Tool: "Dropdown",
       comp: <Select />,
       icon: <IoIosArrowDropdown />,
       properties: "",
+      options:[]
     },
     {
       Tool: "Radio Button",
       comp: <Radio />,
       icon: <RadioButtonCheckedOutlinedIcon />,
       properties: "",
+      options:[]
     },
     
   ];
@@ -116,7 +96,7 @@ const Toolkit = ( {props, setProps} ) => {
          </h3>
 
         </div>
-        {/* <h3>hi</h3> */}
+    
         {showPopup && (
           <Popup
             comp={selectedTool.comp}
@@ -126,7 +106,7 @@ const Toolkit = ( {props, setProps} ) => {
               setShowPopup(false);
               setProps((prevState) => [
                 ...prevState,
-                { label, comp: selectedTool.comp, properties,tool:selectedTool.Tool,options:options,key:false},
+                { label, comp: selectedTool.comp, properties,tool:selectedTool.Tool,options:options,key:false,value:""},
               ]);
             }}
           />
@@ -150,7 +130,8 @@ const Popup = ({ comp, onClose, onSave,data }) => {
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState([""]);
     const handleSave = () => {
-      onSave(label, properties, options);
+      onSave(label, properties, options.filter((option) => option !== ""));
+      // setShowPopup(false);
     };
   
     return (
@@ -219,6 +200,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                       +
                     </Button>
                   )}
+                  
                 </div>
               ))}
           </div>
@@ -231,6 +213,51 @@ const Popup = ({ comp, onClose, onSave,data }) => {
           <Button variant="contained" onClick={onClose}>
             Cancel
           </Button>
+         {data.Tool === "Radio Button" && (
+          <div>
+            <Button variant="contained" onClick={() => setShowOptions(true)}>
+              Add options
+            </Button>
+            {showOptions &&
+              options.map((option, index) => (
+                <div key={index}>
+                  <Radio
+                    checked={false}
+                    onChange={() => {}}
+                    value={option}
+                    name="radio-buttons"
+                  />
+                  <TextField
+                    label={`Option ${index + 1}`}
+                    fullWidth
+                    variant="outlined"
+                    margin="normal"
+                    value={option}
+                    onChange={(e) => {
+                      const newOptions = [...options];
+                      newOptions[index] = e.target.value;
+                      setOptions(newOptions);
+                    }}
+                  />
+                  {index === options.length - 1 && (
+                    <Button
+                      variant="contained"
+                      onClick={() => setOptions([...options, ""])}
+                    >
+                      +
+                    </Button>
+                  )}
+                </div>
+              ))}
+          </div>
+        )}
+{/* 
+<Button variant="contained" onClick={handleSave} sx={{margin: 2}}>
+            Save
+          </Button>
+          <Button variant="contained" onClick={onClose}>
+            Cancel
+          </Button> */}
         </Box>
       </Modal>
     );
@@ -244,7 +271,12 @@ const Popup = ({ comp, onClose, onSave,data }) => {
       setProps(temp);
       console.log(temp);
     }
-    const handleFieldChange = (event, property) => {
+    const handleFieldChange = (event, property, index) => {
+      let temp=[...props.filter(x=>x.key==false)]
+      temp[index].value=event.target.value
+      // temp.splice(index,1);
+      setProps(temp);
+      console.log(temp);
       console.log(`Field ${property.label} value changed to:`, event.target.value);
     };
   
@@ -270,7 +302,7 @@ const Popup = ({ comp, onClose, onSave,data }) => {
             const options = property.properties.split(",");
             return (
               <div key={index}>
-                <FormControl fullWidth>
+                <FormControl sx={{width: 250}}>
                   <InputLabel id={`${property.label}-label`}>
                     {property.label}
                   </InputLabel>
@@ -289,11 +321,42 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                 </FormControl>
               </div>
             );
-          }
-           else {
+          } else if (property.tool === "Radio Button" && property?.options?.length > 0) {
+            const options = property.options;
+  
+            return (
+              <div key={index}>
+                {options.map((option, optionIndex) => (
+                  <div key={optionIndex}>
+                    <Radio
+                      checked={property.value === option}
+                      onChange={(e) =>
+                        handleFieldChange(e, { ...property, value: option }, index)
+                      }
+                      value={option}
+                      name={`radio-buttons-${index}`}
+                    />
+                    {option}
+                  </div>
+                ))}
+                <Button
+                  onClick={(e) => {
+                    deleteCustombox(
+                      e,
+                      props.findIndex((y) => y.label === property.label),
+                      property.key
+                    );
+                  }}
+                >
+                  Delete
+                </Button>
+              </div>
+            );
+          }else {
             return null;
           }
         })}
+          
   {props.filter(x=>x.key==false).length>0 &&<h2>Custom</h2>
   }
         
@@ -310,23 +373,31 @@ const Popup = ({ comp, onClose, onSave,data }) => {
           } else if (property.tool === "Paragraph") {
             return (
               <div key={index}>
-                <button>delete</button>
+                <TextField
+                label={property.label}
+                />
+             <button onClick={(e)=>{deleteCustombox(e,props.findIndex(y=>y.label===property.label),property.key)}}>delete</button>
               </div>
               
             );
-          } else if (property.tool === "Dropdown" && property?.options?.length>0) {
+          } else if (property.tool === "Dropdown" && property?.options?.length > 0) {
             const options = property.properties.split(",");
+            
             return (
               <div key={index}>
-                <FormControl fullWidth>
+                <FormControl sx={{ width: 300 }}   >
                   <InputLabel id={`${property.label}-label`}>
                     {property.label}
+                    {/* {selectedValue !== "" ? selectedValue : property.label} // Display selected value or default label
+                    {selectedValue !== "" ? selectedValue : property.label} Display selected value or default label */}
                   </InputLabel>
                   <Select
                     labelId={`${property.label}-label`}
                     id={`${property.label}-select`}
-                    value={""}
-                    onChange={(e) => handleFieldChange(e, property)}
+                    value={property.value} // Set the selected value
+                    onChange={(e) => {
+                      handleFieldChange(e, property, index);
+                    }}
                   >
                     {property.options.map((option, index) => (
                       <MenuItem key={index} value={option}>
@@ -334,11 +405,23 @@ const Popup = ({ comp, onClose, onSave,data }) => {
                       </MenuItem>
                     ))}
                   </Select>
-                  <button>delete</button>
+                  <Button
+                    onClick={(e) => {
+                      deleteCustombox(
+                        e,
+                        props.findIndex((y) => y.label === property.label),
+                        property.key
+                      );
+                    }}
+                  >
+                    Delete
+                  </Button>
                 </FormControl>
               </div>
             );
           }
+          
+          
            
           
         })}

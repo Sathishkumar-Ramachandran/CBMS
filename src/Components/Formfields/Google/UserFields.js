@@ -96,11 +96,16 @@ const GoogleUserFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
+        
       });
 
-      if (x.tool === "SingleLineText") {
+      if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
+      if (x.tool === "Dropdown") {
+        mongo_schema.push({Name: x.label, type: "String", value: []})
+      }
+      
     });
 
     console.log(schema, "saveSchema");

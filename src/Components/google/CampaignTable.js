@@ -1,42 +1,203 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
+import React, { Component, useEffect } from "react";
+import { SchemaTable, FilterComponent } from "../table";
+import axios from "axios";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Select from "@mui/material/Select";
+import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody, Button } from "@mui/material/";
+import { useState } from "react";
+import PropTypes from 'prop-types';
 
-function CampaignTable() {
-    const [campaigns, setCampaigns] = useState([]);
+const CampaignTable = () => {
+  const [props, setProps] = useState([]);
+  const [campaignlist, setCampaignlist] = useState([]);
+  const [apidata, setAPIdata] = useState({});
+  const [header, setHeader] = useState([]);
+  const [value, setValue] = useState(0);
 
-    useEffect(() => {
-        axios.get('/api/campaigns')
-            .then(response => {
-                setCampaigns(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
+  useEffect(() => {
+    getSchema();
+    getCampaignList();
+  }, []);
 
-    return (
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell>ID</TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Status</TableCell>
-                    <TableCell>Budget</TableCell>
-                </TableRow>
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const getCampaignList = async () => {
+    await axios
+      .get("http://localhost:10008/api/formfields/google/campaings/allcampaigns/123456")
+      .then((d) => {
+        const keys = getUniqueKeys(d.data);
+        setHeader(keys);
+
+        if (d.data.length > 0) {
+          setCampaignlist(d.data);
+        }
+      });
+  };
+
+  function getUniqueKeys(campaignList) {
+    const keysSet = new Set();
+
+    campaignList.forEach((user) => {
+      const keys = Object.keys(user);
+      keys.forEach((key) => {
+        keysSet.add(key);
+      });
+    });
+
+    return Array.from(keysSet);
+  }
+
+  useEffect(() => {
+    let json = {};
+    props.forEach((x) => {
+      json = { ...json, [x.label]: "" };
+    });
+    setAPIdata(json);
+  }, [props]);
+
+  useEffect(() => {
+    console.log(apidata);
+  }, [apidata]);
+
+  const handleChangeTextField = (value, label) => {
+    let temp = { ...apidata };
+    temp[label] = value;
+    setAPIdata(temp);
+    console.log(temp)
+    console.log(label);
+    console.log(value);
+  };
+
+  const saveCampaign = async () => {
+    let payload = {
+      companyId: "123456",
+      data: apidata,
+    };
+    await axios
+      .post("http://localhost:10008/api/formfields/google/campaings/campaignschema/123456", payload)
+      .then(() => {
+        getCampaignList();
+      })
+      .catch(() => {});
+  };
+
+  const getSchema = async () => {
+    await axios
+      .get("http://localhost:10008/api/formfields/google/campaings/getschema/123456/")
+      .then((d) => {
+        console.log(d.data);
+        if (d.data.length > 0) {
+          setProps(d.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return (
+    <div style={{ margin: 50, display: "flex" }}>
+      <div style={{ display: "grid" }} className="tableinput-main">
+        {campaignlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Campaigns</h1></div>}
+        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8 }} className="table-input">
+          <Table >
+            <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
+              <TableRow >
+                {header.map((x) => {
+                  return (
+                    <TableCell key={x} sx={{color: 'white'}}> {x} </TableCell>
+                  );
+                })}
+              </TableRow>
             </TableHead>
             <TableBody>
-                {campaigns.map(campaign => (
-                    <TableRow key={campaign.id}>
-                        <TableCell>{campaign.id}</TableCell>
-                        <TableCell>{campaign.name}</TableCell>
-                        <TableCell>{campaign.status}</TableCell>
-                        <TableCell>{campaign.budget}</TableCell>
-                    </TableRow>
-                ))}
+              {campaignlist.map((campaign) => (
+                <TableRow key={campaign._id} >
+                  {header.map((key) => (
+                    <TableCell key={key}>{campaign[key] || ""} 
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
             </TableBody>
-        </Table>
-    );
-}
+          </Table>
+        </div>
+      </div>
+      <div style={{ marginRight: '0%' }} >
+        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black' }}>
+          <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Campaign</Button>
+          <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>
+        </div>
+        
+        {value === 0 && (
+          <div>
+            {props.map((property, index) => {
+              if (property.tool === "SingleLineText") {
+                return (
+                  <div className="input-Label-Box">
+                    <div className="input-Label">
+                      <div key={index}>
+                        <TextField
+                          sx={{ m: 1 }}
+                          label={property.label}
+                          value={apidata[property.label] || ""}
+                          onChange={(e) => {
+                            handleChangeTextField(e.target.value, property.label);
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              } else if (property.tool === "Paragraph") {
+                return <div key={index}></div>;
+              } else if (
+                property.tool === "Dropdown" &&
+                property?.options?.length > 0
+              ) {
+                const options = property.properties.split(",");
+                return (
+                  <div key={index}>
+                    <FormControl >
+                      <InputLabel id={`${property.label}-label`}>
+                        {property.label}
+                      </InputLabel>
+                      <Select
+                        labelId={`${property.label}-label`}
+                        id={`${property.label}-select`}
+                        value={""}
+                        // onChange={(e) => handleFieldChange(e, property)}
+                      >
+                        {property.options.map((option, index) => (
+                          <MenuItem key={index} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+            <Button onClick={saveCampaign} className='input-Button' variant="outlined" sx={{ m: 5 }}>
+              Save
+            </Button>
+          </div>
+        )}
+        {value === 1 && (
+          <div>
+            <h5>Filter Component</h5>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default CampaignTable;

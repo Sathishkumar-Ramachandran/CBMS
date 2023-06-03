@@ -34,6 +34,56 @@ const UserFieldsDefault = [
       console.log("Message value changed to:", event.target.value, property),
     key: true,
   },
+  {
+    label: "User ID",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Email",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Role",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Department",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Mobile No",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
 ];
 
 const AdminUserFields = () => {
@@ -113,7 +163,7 @@ const AdminUserFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/mongo/FormFields/addMongoSchema/",
+        "http://localhost:10008/api/formfields/admin/addMongoSchema/123456",
         payload
       )
       .then(() => {
@@ -147,10 +197,10 @@ const AdminUserFields = () => {
                 onChange={handleInputChange}
                 
               />
-              <DeleteIcon
+              {/* <DeleteIcon
                 display="inherit"
                 style={{ width: "20px", padding: "2px" }}
-              />
+              /> */}
             </div>
           );
         case "button":

@@ -34,6 +34,56 @@ const GroupFieldsDefault = [
       console.log("Message value changed to:", event.target.value, property),
     key: true,
   },
+  {
+    label: "User ID",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Email",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Role",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Department",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Mobile No",
+    tool: "SingleLineText",
+    comp: <TextField />,
+    icon: <BiParagraph />,
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
 ];
 
 const AdminGroupFields = () => {
@@ -145,6 +195,7 @@ const AdminGroupFields = () => {
                 label={label}
                 value={formData[key] || ""}
                 onChange={handleInputChange}
+                
               />
               <DeleteIcon
                 display="inherit"
@@ -202,7 +253,8 @@ const AdminGroupFields = () => {
           </Button>
         )}
       </div>
-      <div style={{ float: "left" }}>
+     
+      <div >
         <Toolkit
           props={props}
           setProps={setProps}
