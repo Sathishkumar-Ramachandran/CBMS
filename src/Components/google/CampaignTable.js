@@ -27,7 +27,7 @@ const CampaignTable = () => {
 
   const getCampaignList = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/google/campaings/allcampaigns/123456")
+      .get("http://localhost:10008/api/formfields/google/campaigns/allcampaigns/123456")
       .then((d) => {
         const keys = getUniqueKeys(d.data);
         setHeader(keys);
@@ -78,7 +78,7 @@ const CampaignTable = () => {
       data: apidata,
     };
     await axios
-      .post("http://localhost:10008/api/formfields/google/campaings/campaignschema/123456", payload)
+      .post("http://localhost:10008/api/formfields/google/campaigns/createcampaign/123456", payload)
       .then(() => {
         getCampaignList();
       })
@@ -87,7 +87,7 @@ const CampaignTable = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/google/campaings/getschema/123456/")
+      .get("http://localhost:10008/api/formfields/google/campaigns/getschema/123456/")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -157,22 +157,22 @@ const CampaignTable = () => {
                 return <div key={index}></div>;
               } else if (
                 property.tool === "Dropdown" &&
-                property?.options?.length > 0
+                property?.value?.length > 0
               ) {
-                const options = property.properties.split(",");
+                const options = property.value;
                 return (
                   <div key={index}>
-                    <FormControl >
+                    <FormControl sx={{width: 220}}>
                       <InputLabel id={`${property.label}-label`}>
                         {property.label}
                       </InputLabel>
                       <Select
                         labelId={`${property.label}-label`}
                         id={`${property.label}-select`}
-                        value={""}
-                        // onChange={(e) => handleFieldChange(e, property)}
+                        value={options}
+                        onChange={(e)  => handleChangeTextField(e.target.value, property.label)}
                       >
-                        {property.options.map((option, index) => (
+                        {property.value.map((option, index) => (
                           <MenuItem key={index} value={option}>
                             {option}
                           </MenuItem>
