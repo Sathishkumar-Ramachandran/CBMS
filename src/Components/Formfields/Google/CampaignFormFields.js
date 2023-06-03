@@ -167,7 +167,7 @@ const GoogleCampaignFields = () => {
       }
       if (x.tool === "Dropdown") {
         mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
-      }
+      } 
       
     });
 

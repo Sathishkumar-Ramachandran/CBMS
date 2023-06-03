@@ -17,8 +17,6 @@ const GoogleUserFieldsDefault = [
   {
     label: "First Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiText />,
     properties: "",
     onChange: (event, property) =>
       console.log("First Name value changed to:", event.target.value, property),
@@ -27,13 +25,45 @@ const GoogleUserFieldsDefault = [
   {
     label: "Last Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
     key: true,
   },
+  {
+    label: "Email ID",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Phone No",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Department",
+    tool: "Dropdown",
+    properties: "",
+    options:[""],
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Role",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  
 ];
 
 const GoogleUserFields = () => {
@@ -43,7 +73,7 @@ const GoogleUserFields = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .get("http://localhost:10008/api/formfields/google/users/getschema/123456")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -103,7 +133,7 @@ const GoogleUserFields = () => {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
       if (x.tool === "Dropdown") {
-        mongo_schema.push({Name: x.label, type: "String", value: []})
+        mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
       }
       
     });
@@ -118,7 +148,7 @@ const GoogleUserFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/mongo/FormFields/addMongoSchema/",
+        "http://localhost:10008/api/formfields/google/users/userschema/123456",
         payload
       )
       .then(() => {

@@ -1,5 +1,5 @@
 import React, { Component, useEffect } from "react";
-import { SchemaTable, FilterComponent} from "../../Components/table";
+import { SchemaTable, FilterComponent } from "../table";
 import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -27,7 +27,7 @@ const UsersTable = () => {
 
   const getUsersList = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/google/users/getallusers/123456")
+      .get("http://localhost:10008/api/formfields/google/users/user/getallusers/123456")
       .then((d) => {
         const keys = getUniqueKeys(d.data);
         setHeader(keys);
@@ -72,22 +72,22 @@ const UsersTable = () => {
     console.log(value);
   };
 
-  const saveUser = async () => {
+  const saveCampaign = async () => {
     let payload = {
       companyId: "123456",
       data: apidata,
     };
     await axios
-      .post("http://localhost:10008/api/formfields/google/users/createuser/", payload)
+      .post("http://localhost:10008/api/formfields/google/users/user/createuser/123456", payload)
       .then(() => {
-        getUsersList();
+        getCampaignList();
       })
       .catch(() => {});
   };
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/google/users/getschema/123456/")
+      .get("http://localhost:10008/api/formfields/google/users/user/getschema/123456/")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -185,7 +185,7 @@ const UsersTable = () => {
                 return null;
               }
             })}
-            <Button onClick={saveUser} className='input-Button' variant="outlined" sx={{ m: 5 }}>
+            <Button onClick={saveCampaign} className='input-Button' variant="outlined" sx={{ m: 5 }}>
               Save
             </Button>
           </div>
