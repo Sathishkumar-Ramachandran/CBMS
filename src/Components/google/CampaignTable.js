@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody, Button } from "@mui/material/";
 import { useState } from "react";
 import PropTypes from 'prop-types';
-
+import '../../styles/CampaignTabel.css'
 const CampaignTable = () => {
   const [props, setProps] = useState([]);
   const [campaignlist, setCampaignlist] = useState([]);
@@ -100,7 +100,7 @@ const CampaignTable = () => {
   };
 
   return (
-    <div style={{ margin: 50, display: "flex" }}>
+    <div style={{ margin: 40,display:'flex',width:'90%' }}>
       <div style={{ display: "grid" }} className="tableinput-main">
         {campaignlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Campaigns</h1></div>}
         <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8 }} className="table-input">
@@ -127,14 +127,15 @@ const CampaignTable = () => {
           </Table>
         </div>
       </div>
-      <div style={{ marginRight: '0%' }} >
-        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black' }}>
+      <div className="scrollbar">
+      <div style={{ marginRight: '0%', }} >
+        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black',display:"flex", }}>
           <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Campaign</Button>
           <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>
         </div>
         
         {value === 0 && (
-          <div>
+          <div className="input-full">
             {props.map((property, index) => {
               if (property.tool === "SingleLineText") {
                 return (
@@ -142,7 +143,7 @@ const CampaignTable = () => {
                     <div className="input-Label">
                       <div key={index}>
                         <TextField
-                          sx={{ m: 1 }}
+                          sx={{ m: 2,width:220, }}
                           label={property.label}
                           value={apidata[property.label] || ""}
                           onChange={(e) => {
@@ -162,7 +163,7 @@ const CampaignTable = () => {
                 const options = property.value;
                 return (
                   <div key={index}>
-                    <FormControl sx={{width: 220}}>
+                    <FormControl sx={{width: 220,marginLeft:"1rem"}}>
                       <InputLabel id={`${property.label}-label`}>
                         {property.label}
                       </InputLabel>
@@ -196,6 +197,7 @@ const CampaignTable = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
