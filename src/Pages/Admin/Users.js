@@ -9,7 +9,7 @@ import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCel
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-const UsersTable = () => {
+const UsersAdmin = () => {
   const [props, setProps] = useState([]);
   const [usersList, setUsersList] = useState([]);
   const [apidata, setAPIdata] = useState({});
@@ -27,7 +27,7 @@ const UsersTable = () => {
 
   const getUsersList = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/google/users/getallusers/123456")
+      .get("http://localhost:10008/api/formfields/admin/users/getallusers/123456")
       .then((d) => {
         const keys = getUniqueKeys(d.data);
         setHeader(keys);
@@ -78,7 +78,7 @@ const UsersTable = () => {
       data: apidata,
     };
     await axios
-      .post("http://localhost:10008/api/formfields/google/users/createuser/123456", payload)
+      .post("http://localhost:10008/api/formfields/admin/users/createuser/123456", payload)
       .then(() => {
         getUsersList();
       })
@@ -87,7 +87,7 @@ const UsersTable = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/google/users/getschema/123456/")
+      .get("http://localhost:10008/api/formfields/admin/users/getschema/123456/")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -200,4 +200,4 @@ const UsersTable = () => {
   );
 };
 
-export default UsersTable;
+export default UsersAdmin;

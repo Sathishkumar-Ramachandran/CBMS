@@ -50,7 +50,7 @@ const GoogleUserFieldsDefault = [
     label: "Department",
     tool: "Dropdown",
     properties: "",
-    options:[""],
+    options:["Accounts", "HR", "Development", "Sales"],
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
     key: true,
@@ -126,7 +126,7 @@ const GoogleUserFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
-        
+        value: x.options
       });
 
       if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {

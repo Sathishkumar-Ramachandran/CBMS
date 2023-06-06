@@ -93,7 +93,7 @@ const AdminUserFields = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .get("http://localhost:10008/api/formfields/admin/users/getschema/123456")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -146,11 +146,16 @@ const AdminUserFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
+        value: x.options
       });
 
-      if (x.tool === "SingleLineText") {
+      if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
+      if (x.tool === "Dropdown") {
+        mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
+      }
+      
     });
 
     console.log(schema, "saveSchema");
@@ -163,7 +168,7 @@ const AdminUserFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/formfields/admin/addMongoSchema/123456",
+        "http://localhost:10008/api/formfields/admin/users/userschema/123456",
         payload
       )
       .then(() => {
