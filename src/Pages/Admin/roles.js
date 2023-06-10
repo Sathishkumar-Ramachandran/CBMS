@@ -9,40 +9,40 @@ import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCel
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-const UsersAdmin = () => {
+const RolesAdmin = () => {
   const [props, setProps] = useState([]);
-  const [usersList, setUsersList] = useState([]);
+  const [rolesList, setRolesList] = useState([]);
   const [apidata, setAPIdata] = useState({});
   const [header, setHeader] = useState([]);
   const [value, setValue] = useState(0);
 
   useEffect(() => {
     getSchema();
-    getUsersList();
+    getRolesList();
   }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const getUsersList = async () => {
+  const getRolesList = async () => {
     await axios
-      .get("http://localhost:10009/api/formfields/admin/users/getallusers/123456")
+      .get("http://localhost:10009/api/formfields/admin/users/getallroles/123456/")
       .then((d) => {
         const keys = getUniqueKeys(d.data);
         setHeader(keys);
 
         if (d.data.length > 0) {
-          setUsersList(d.data);
+          setRolesList(d.data);
         }
       });
   };
 
-  function getUniqueKeys(usersList) {
+  function getUniqueKeys(rolesList) {
     const keysSet = new Set();
 
-    usersList.forEach((user) => {
-      const keys = Object.keys(user);
+    rolesList.forEach((roles) => {
+      const keys = Object.keys(roles);
       keys.forEach((key) => {
         keysSet.add(key);
       });
@@ -72,22 +72,22 @@ const UsersAdmin = () => {
     console.log(value);
   };
 
-  const saveUser = async () => {
+  const saveRole = async () => {
     let payload = {
       companyId: "123456",
       data: apidata,
     };
     await axios
-      .post("http://localhost:10009/api/formfields/admin/users/createuser/123456", payload)
+      .post("http://localhost:10009/api/formfields/admin/users/roles/createrole/123456", payload)
       .then(() => {
-        getUsersList();
+        getRolesList();
       })
       .catch(() => {});
   };
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10009/api/formfields/admin/users/getschema/123456/")
+      .get("http://localhost:10009/api/formfields/admin/users/roles/getschema/123456/")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -102,7 +102,7 @@ const UsersAdmin = () => {
   return (
     <div style={{ margin: 50, display: "flex" }}>
       <div style={{ display: "grid" }} className="tableinput-main">
-        {usersList.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Users</h1></div>}
+        {rolesList.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Roles</h1></div>}
         <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8 }} className="table-input">
           <Table >
             <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
@@ -115,7 +115,7 @@ const UsersAdmin = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {usersList.map((user) => (
+              {rolesList.map((user) => (
                 <TableRow key={user._id} >
                   {header.map((key) => (
                     <TableCell key={key}>{user[key] || ""} 
@@ -129,7 +129,7 @@ const UsersAdmin = () => {
       </div>
       <div style={{ marginRight: '0%' }} >
         <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black' }}>
-          <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Campaign</Button>
+          <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Role</Button>
           <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>
         </div>
         
@@ -185,7 +185,7 @@ const UsersAdmin = () => {
                 return null;
               }
             })}
-            <Button onClick={saveUser} className='input-Button' variant="outlined" sx={{ m: 5 }}>
+            <Button onClick={saveRole} className='input-Button' variant="outlined" sx={{ m: 5 }}>
               Save
             </Button>
           </div>
@@ -200,4 +200,4 @@ const UsersAdmin = () => {
   );
 };
 
-export default UsersAdmin;
+export default RolesAdmin;

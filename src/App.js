@@ -34,6 +34,7 @@ import CampaignLifecycle from "./Pages/Google/campaignLifecycle.js";
 import AdminFields from "./Components/admin/User/fields.js";
 import CampaignTable from "./Components/google/CampaignTable.js";
 import UsersAdmin from "./Pages/Admin/Users.js";
+import RolesAdmin from "./Pages/Admin/roles.js";
 
 
 
@@ -78,7 +79,7 @@ function App() {
 
           {/* Admin User Routes */}
           <Route path="/admin/user/users" element={<UsersAdmin />} />
-          <Route path="/admin/user/roles" element={""} />
+          <Route path="/admin/user/roles" element={<RolesAdmin />} />
           <Route path="/admin/user/fields" element={""} />
           <Route path="/admin/user/groups" element={""} />
           <Route path="/admin/user/approvals" element={""} />

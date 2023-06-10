@@ -15,25 +15,22 @@ import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 
 const RoleFieldsDefault = [
   {
-    label: "First Name",
+    label: "Role Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiText />,
     properties: "",
     onChange: (event, property) =>
       console.log("First Name value changed to:", event.target.value, property),
     key: true,
   },
   {
-    label: "Last Name",
+    label: "Department",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
     key: true,
   },
+
 ];
 
 const AdminRoleFields = () => {
@@ -43,7 +40,7 @@ const AdminRoleFields = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .get("http://localhost:10009/api/formfields/admin/users/roles/getschema/123456/")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -96,10 +93,15 @@ const AdminRoleFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
+        value: x.options
       });
 
-      if (x.tool === "SingleLineText") {
+      
+      if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
+      }
+      if (x.tool === "Dropdown") {
+        mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
       }
     });
 
@@ -113,7 +115,7 @@ const AdminRoleFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/mongo/FormFields/addMongoSchema/",
+        "http://localhost:10009/api/formfields/admin/users/roleschema/123456/",
         payload
       )
       .then(() => {

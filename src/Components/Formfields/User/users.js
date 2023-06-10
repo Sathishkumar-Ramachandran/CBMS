@@ -13,12 +13,22 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 
+
+
+const getRoles = async () => {
+  var Roles;
+  await axios
+  .get("http://localhost:10009/api/formfields/admin/users/getallroles/123456/")
+  .then((role) => {
+    
+  })
+}
+
+
 const UserFieldsDefault = [
   {
     label: "First Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiText />,
     properties: "",
     onChange: (event, property) =>
       console.log("First Name value changed to:", event.target.value, property),
@@ -27,8 +37,6 @@ const UserFieldsDefault = [
   {
     label: "Last Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
@@ -37,8 +45,6 @@ const UserFieldsDefault = [
   {
     label: "User ID",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
@@ -47,8 +53,6 @@ const UserFieldsDefault = [
   {
     label: "Email",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
@@ -56,9 +60,8 @@ const UserFieldsDefault = [
   },
   {
     label: "Role",
-    tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
+    tool: "Dropdown",
+    options: getRoles(),
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
@@ -67,8 +70,6 @@ const UserFieldsDefault = [
   {
     label: "Department",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
@@ -77,8 +78,6 @@ const UserFieldsDefault = [
   {
     label: "Mobile No",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
@@ -93,7 +92,7 @@ const AdminUserFields = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/formfields/admin/users/getschema/123456")
+      .get("http://localhost:10009/api/formfields/admin/users/getschema/123456")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -168,7 +167,7 @@ const AdminUserFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/formfields/admin/users/userschema/123456",
+        "http://localhost:10009/api/formfields/admin/users/userschema/123456",
         payload
       )
       .then(() => {
