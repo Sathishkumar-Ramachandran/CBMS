@@ -17,8 +17,6 @@ const CreateGoogleAdFieldsDefault = [
   {
     label: "First Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiText />,
     properties: "",
     onChange: (event, property) =>
       console.log("First Name value changed to:", event.target.value, property),
@@ -27,9 +25,68 @@ const CreateGoogleAdFieldsDefault = [
   {
     label: "Last Name",
     tool: "SingleLineText",
-    comp: <TextField />,
-    icon: <BiParagraph />,
     properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Headline",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Description",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Final URL",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Display URL",
+    tool: "SingleLineText",
+    properties: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Ad Type",
+    tool: "Dropdown",
+    properties: "",
+    options: ["Text Ads", "Responsive Search Ads", "Image Ads",
+             "App Promotion Ads", "Video Ads", "Call Only Ads",
+            "App Engagement Ads", "Showcase Shopping Ads", "Discovery Ads", "Local Ads" ],
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Ad Campaign",
+    tool: "Dropdown",
+    properties: "",
+    options: "",
+    onChange: (event, property) =>
+      console.log("Message value changed to:", event.target.value, property),
+    key: true,
+  },
+  {
+    label: "Ad Group",
+    tool: "Dropdown",
+    properties: "",
+    options: "",
     onChange: (event, property) =>
       console.log("Message value changed to:", event.target.value, property),
     key: true,
@@ -43,7 +100,7 @@ const CreateGoogleAdFields = () => {
 
   const getSchema = async () => {
     await axios
-      .get("http://localhost:10008/api/mongo/FormFields/getSchema/123456/")
+      .get("http://localhost:10008/api/formfields/google/ads/adschema/123456")
       .then((d) => {
         console.log(d.data);
         if (d.data.length > 0) {
@@ -96,11 +153,17 @@ const CreateGoogleAdFields = () => {
         label: x.label,
         tool: x.tool,
         key: x.key,
+        value: x.options,
       });
 
-      if (x.tool === "SingleLineText") {
+      
+      if (x.tool === "SingleLineText" || "MultiLineText" || "Number") {
         mongo_schema.push({ Name: x.label, type: "String", required: true });
       }
+      if (x.tool === "Dropdown") {
+        mongo_schema.push({Name: x.label, type: "String", value: x.options, required: true})
+      } 
+      
     });
 
     console.log(schema, "saveSchema");
@@ -113,7 +176,7 @@ const CreateGoogleAdFields = () => {
 
     axios
       .post(
-        "http://localhost:10008/api/mongo/FormFields/addMongoSchema/",
+        "http://localhost:10008/api/formfields/google/ads/adschema/123456",
         payload
       )
       .then(() => {

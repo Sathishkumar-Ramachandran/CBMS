@@ -1,193 +1,202 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import {
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  TextField,
-  Button,
-} from '@mui/material';
-import '../../styles/Google/Ads.css';
+import React, { Component, useEffect } from "react";
+import { SchemaTable, FilterComponent} from "../../Components/table";
+import axios from "axios";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Select from "@mui/material/Select";
+import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody, Button } from "@mui/material/";
+import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const AdsTable = () => {
-  const [ads, setAds] = useState([]);
-  const [editingAdId, setEditingAdId] = useState(null);
-  const [newAdHeadline, setNewAdHeadline] = useState('');
-  const [newAdDescription, setNewAdDescription] = useState('');
+  const [props, setProps] = useState([]);
+  const [adsList, setAdsList] = useState([]);
+  const [apidata, setAPIdata] = useState({});
+  const [header, setHeader] = useState([]);
+  const [value, setValue] = useState(0);
 
   useEffect(() => {
-    axios
-      .get('/api/ads')
-      .then((response) => {
-        setAds(response.data.ads);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    getSchema();
+    getAdsList();
   }, []);
 
-  const handleEditButtonClick = (adId) => {
-    const adToEdit = ads.find((ad) => ad.id === adId);
-    setEditingAdId(adId);
-    setNewAdHeadline(adToEdit.headline);
-    setNewAdDescription(adToEdit.description);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
-  const handleCancelEditButtonClick = () => {
-    setEditingAdId(null);
-    setNewAdHeadline('');
-    setNewAdDescription('');
+  const getAdsList = async () => {
+    await axios
+      .get("http://localhost:10008/api/formfields/google/ads/allads/123456")
+      .then((d) => {
+        const keys = getUniqueKeys(d.data);
+        setHeader(keys);
+
+        if (d.data.length > 0) {
+          setAdsList(d.data);
+        }
+      });
   };
 
-  const handleNewAdHeadlineChange = (event) => {
-    setNewAdHeadline(event.target.value);
+  function getUniqueKeys(adsList) {
+    const keysSet = new Set();
+
+    adsList.forEach((user) => {
+      const keys = Object.keys(user);
+      keys.forEach((key) => {
+        keysSet.add(key);
+      });
+    });
+
+    return Array.from(keysSet);
+  }
+
+  useEffect(() => {
+    let json = {};
+    props.forEach((x) => {
+      json = { ...json, [x.label]: "" };
+    });
+    setAPIdata(json);
+  }, [props]);
+
+  useEffect(() => {
+    console.log(apidata);
+  }, [apidata]);
+
+  const handleChangeTextField = (value, label) => {
+    let temp = { ...apidata };
+    temp[label] = value;
+    setAPIdata(temp);
+    console.log(temp)
+    console.log(label);
+    console.log(value);
   };
 
-  const handleNewAdDescriptionChange = (event) => {
-    setNewAdDescription(event.target.value);
-  };
-
-  const handleSaveButtonClick = (adId) => {
-    const editedAdIndex = ads.findIndex((ad) => ad.id === adId);
-    const editedAd = {
-      ...ads[editedAdIndex],
-      headline: newAdHeadline,
-      description: newAdDescription,
+  const createAd = async () => {
+    let payload = {
+      companyId: "123456",
+      data: apidata,
     };
-    const newAds = [...ads];
-    newAds.splice(editedAdIndex, 1, editedAd);
-    setAds(newAds);
-    setEditingAdId(null);
-    setNewAdHeadline('');
-    setNewAdDescription('');
+    await axios
+      .post("http://localhost:10008/api/formfields/google/ads/createad/123456", payload)
+      .then(() => {
+        getAdsList();
+      })
+      .catch(() => {});
   };
 
-  const handleAddButtonClick = () => {
-    const newAd = {
-      id: ads.length + 1,
-      headline: newAdHeadline,
-      description: newAdDescription,
-    };
-    setAds([...ads, newAd]);
-    setNewAdHeadline('');
-    setNewAdDescription('');
+  const getSchema = async () => {
+    await axios
+      .get("http://localhost:10008/api/formfields/google/ads/getschema/123456/")
+      .then((d) => {
+        console.log(d.data);
+        if (d.data.length > 0) {
+          setProps(d.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
-    <>
-    <div className="table"><h1> Ads  Google </h1></div>
-    <div >
-    <TableContainer className="container-table" >
-      <Table stickyHeader>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Final URLs</TableCell>
-            <TableCell>Headline</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell>
-              <TextField
-                className="editInput"
-                value={newAdHeadline}
-                onChange={handleNewAdHeadlineChange}
-                placeholder="Enter new headline"
-              />
-            </TableCell>
-            <TableCell>
-              <TextField
-                className="editInput"
-                value={newAdDescription}
-                onChange={handleNewAdDescriptionChange}
-                placeholder="Enter new description"
-              />
-            </TableCell>
-            <TableCell>
-              <Button
-                variant="contained"
-                color="primary"
-                className="editButton"
-                onClick={handleAddButtonClick}
-                disabled={!newAdHeadline || !newAdDescription}
-              >
-                Add
-              </Button>
-            </TableCell>
-          </TableRow>
-          {ads.map            ((ad) =>
-              ad.id === editingAdId ? (
-                <TableRow key={ad.id}>
-                  <TableCell>{ad.id}</TableCell>
-                  <TableCell>{ad.final_urls}</TableCell>
-                  <TableCell>
-                    <TextField
-                      className="editInput"
-                      value={newAdHeadline}
-                      onChange={handleNewAdHeadlineChange}
-                      placeholder={ad.headline}
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      className="editInput"
-                      value={newAdDescription}
-                      onChange={handleNewAdDescriptionChange}
-                      placeholder={ad.description}
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className="editButton"
-                      onClick={() => handleSaveButtonClick(ad.id)}
-                      disabled={!newAdHeadline || !newAdDescription}
-                    >
-                      Save
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      className="editButton"
-                      onClick={handleCancelEditButtonClick}
-                    >
-                      Cancel
-                    </Button>
-                  </TableCell>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ margin: "50px", display: "grid" }} className="tableinput-main">
+        {adsList.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>GoogleAds</h1></div>}
+        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: '8px' }} className="table-input">
+          <Table className="table">
+            <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
+              <TableRow >
+                {header.map((x) => {
+                  return (
+                    <TableCell key={x} sx={{color: 'white'}}> {x} </TableCell>
+                  );
+                })}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {adsList.map((ad) => (
+                <TableRow key={ad._id} >
+                  {header.map((key) => (
+                    <TableCell key={key}>{ad[key] || ""} 
+                    </TableCell>
+                  ))}
                 </TableRow>
-              ) : (
-                <TableRow key={ad.id}>
-                  <TableCell>{ad.id}</TableCell>
-                  <TableCell>{ad.final_urls}</TableCell>
-                  <TableCell>{ad.headline}</TableCell>
-                  <TableCell>{ad.description}</TableCell>
-                  <TableCell>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className="editButton"
-                      onClick={() => handleEditButtonClick(ad.id)}
-                    >
-                      Edit
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              )
-            )}
-        </TableBody>
-      </Table>
-    </TableContainer>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+      <div style={{ marginRight: '0%' }} >
+        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black' }}>
+          <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Ad</Button>
+          <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>
+        </div>
+        
+        {value === 0 && (
+          <div style={{ marginLeft: 'auto', marginRight: 'auto', width: '300px' }}>
+            {props.map((property, index) => {
+              if (property.tool === "SingleLineText") {
+                return (
+                  <div className="input-Label-Box">
+                    <div className="input-Label">
+                      <div key={index}>
+                        <TextField
+                          sx={{ m: 1 }}
+                          label={property.label}
+                          value={apidata[property.label] || ""}
+                          onChange={(e) => {
+                            handleChangeTextField(e.target.value, property.label);
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              } else if (property.tool === "Paragraph") {
+                return <div key={index}></div>;
+              } else if (
+                property.tool === "Dropdown" &&
+                property?.value?.length > 0
+              ) {
+                const options = property.value;
+                return (
+                  <div key={index}>
+                    <FormControl sx={{width: 230, marginLeft: "0.5rem"}}>
+                      <InputLabel id={`${property.label}-label`}>
+                        {property.label}
+                      </InputLabel>
+                      <Select
+                        labelId={`${property.label}-label`}
+                        id={`${property.label}-select`}
+                        value={options}
+                        onChange={(e)  => handleChangeTextField(e.target.value, property.label)}
+                      >
+                        {property.value.map((option, index) => (
+                          <MenuItem key={index} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+            <Button onClick={createAd} className='input-Button' variant="outlined" sx={{ m: 5 }}>
+              Save
+            </Button>
+          </div>
+        )}
+        {value === 1 && (
+          <div style={{ textAlign: 'right', marginRight: 'auto', width: '300px' }}>
+            <h5>Filter Component</h5>
+          </div>
+        )}
+      </div>
     </div>
-    </>
   );
 };
 
