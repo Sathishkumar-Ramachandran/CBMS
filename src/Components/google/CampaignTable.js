@@ -100,10 +100,10 @@ const CampaignTable = () => {
   };
 
   return (
-    <div style={{ margin: 40,display:'flex',width:'90%' }}>
-      <div style={{ display: "grid" }} className="tableinput-main">
-        {campaignlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>Campaigns</h1></div>}
-        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8 }} className="table-input">
+    <div style={{ display:'flex',width:'60%',marginLeft:"20%" }}>
+      <div style={{ display: "grid" }} >
+        {campaignlist.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E',marginTop:"3rem"}}>Campaigns</h1></div>}
+        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: "8px" }} >
           <Table >
             <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
               <TableRow >

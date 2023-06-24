@@ -1,0 +1,25 @@
+.scrollbar-Ads{
+    margin-left: 76%;
+    margin-top: 3.5rem;
+        height: 600px;
+        width: 305px;
+        background: white;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        
+    }
+    .scrollbar-Ads::-webkit-scrollbar{
+        border-radius: 10px;
+        width: 10px;
+        height: 10pa;
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+    
+    .scrollbar-Ads::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    box-shadow: inset 0 0 6px green;
+    background-color: #808080;
+    }
+    

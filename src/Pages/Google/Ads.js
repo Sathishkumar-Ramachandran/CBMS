@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody, Button } from "@mui/material/";
 import { useState } from "react";
 import PropTypes from 'prop-types';
-
+import '../../styles/Ads.css'
 const AdsTable = () => {
   const [props, setProps] = useState([]);
   const [adsList, setAdsList] = useState([]);
@@ -100,10 +100,10 @@ const AdsTable = () => {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div style={{ margin: "50px", display: "grid" }} className="tableinput-main">
+    <div style={{  display:'flex',width:'60%',marginLeft:"20%" }}>
+      <div style={{ display: "grid", }}>
         {adsList.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>GoogleAds</h1></div>}
-        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: '8px' }} className="table-input">
+        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: '8px' }} >
           <Table className="table">
             <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
               <TableRow >
@@ -127,8 +127,8 @@ const AdsTable = () => {
           </Table>
         </div>
       </div>
-      <div style={{ marginRight: '0%' }} >
-        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black' }}>
+       <div className="scrollbar-Ads">
+        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black',display:"flex" }}>
           <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Ad</Button>
           <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>
         </div>
@@ -162,7 +162,7 @@ const AdsTable = () => {
                 const options = property.value;
                 return (
                   <div key={index}>
-                    <FormControl sx={{width: 230, marginLeft: "0.5rem"}}>
+                    <FormControl sx={{width: "225px", marginLeft: "0.5rem"}}>
                       <InputLabel id={`${property.label}-label`}>
                         {property.label}
                       </InputLabel>
@@ -191,12 +191,13 @@ const AdsTable = () => {
           </div>
         )}
         {value === 1 && (
-          <div style={{ textAlign: 'right', marginRight: 'auto', width: '300px' }}>
+          <div >
             <h5>Filter Component</h5>
           </div>
         )}
       </div>
     </div>
+ 
   );
 };
 
