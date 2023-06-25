@@ -36,6 +36,8 @@ import CampaignTable from "./Components/google/CampaignTable.js";
 import UsersAdmin from "./Pages/Admin/Users.js";
 import RolesAdmin from "./Pages/Admin/roles.js";
 
+import FacebookPage from "./Pages/Facebook/facebook.js";
+import FacebookAdmin from "./Components/Facebook/adminFacebook.js";
 
 
 function App() {
@@ -62,7 +64,7 @@ function App() {
           <Route path='/analytics' element={<Analytics/>} />
           <Route path='/admin' element={<Admin />} />
           <Route path="/google" element={<Google />} />
-          <Route path="/facebook" element={""} />
+          <Route path="/facebook" element={<FacebookPage />} />
           <Route path="/instagram" element={""} />
           <Route path="/linkedin" element={""} />
           <Route path="/youtube" element={""} />
@@ -116,7 +118,7 @@ function App() {
 
 
           {/* Admin Channel Facebook Routes */}
-          <Route path="/admin/channels/facebook" element={""} />
+          <Route path="/admin/channels/facebook" element={<FacebookAdmin />} />
           <Route path="/admin/channels/facebook" element={""} />
           <Route path="/admin/channels/facebook" element={""} />
           <Route path="/admin/channels/facebook" element={""} />
