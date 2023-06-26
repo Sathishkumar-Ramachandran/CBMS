@@ -71,7 +71,8 @@ const UserList = () => {
   const groupKeys = Object.keys(groups);
   const firstGroup = groupKeys.shift();
 
-  const handleOpen = () => {
+  const handleOpen = (user) => {
+    setSelectedUser(user);
     setOpen(true);
     setBackdropOpen(true);
   };
@@ -82,42 +83,40 @@ const UserList = () => {
   };
 
   return (
-  
     <div style={{ margin: '4.3vw', height: '100vw' }}>
       <Box style={styles.root}>
         <Box style={styles.group}>{firstGroup}</Box>
         {groups[firstGroup]?.map((user) => (
-          <div style={{cursor: "pointer"}} onClick={() => {setSelectedUser(user); console.log(user); handleOpen() }}>
-          <Box key={user.id} style={styles.user} borderBottom={1}>
-            <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
-            <Typography>{user.name}</Typography>
-          </Box>
+          <div key={user.id} style={{ cursor: 'pointer' }} onClick={() => handleOpen(user)}>
+            <Box style={styles.user} borderBottom={1}>
+              <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
+              <Typography>{user.name}</Typography>
+            </Box>
           </div>
         ))}
         {groupKeys.map((group) => (
           <React.Fragment key={group}>
             <Box style={styles.group}>{group}</Box>
             {groups[group].map((user) => (
-              <div style={{cursor: "pointer"}}>
-              <Box key={user.id} style={styles.user} borderBottom={1}>
-                <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
-                <Typography>{user.name}</Typography>
-              </Box>
+              <div key={user.id} style={{ cursor: 'pointer' }} onClick={() => handleOpen(user)}>
+                <Box style={styles.user} borderBottom={1}>
+                  <Avatar style={styles.userAvatar} alt={user.name} src={user.avatarUrl} />
+                  <Typography>{user.name}</Typography>
+                </Box>
               </div>
             ))}
           </React.Fragment>
         ))}
       </Box>
 
-       {selectedUser &&
+      {selectedUser && (
         <Backdrop open={backdropOpen} onClick={handleClose}>
           <Modal open={true} style={styles.modal}>
-            <Chatroom user={selectedUser} />
+            <Chatroom user={selectedUser} onClose={handleClose} />
           </Modal>
-       </Backdrop>
-}
+        </Backdrop>
+      )}
     </div>
-    
   );
 };
 

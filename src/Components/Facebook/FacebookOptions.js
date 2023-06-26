@@ -1,10 +1,10 @@
 import React from "react";
 
 
-const FacebookOptions = (option) => {
+const FacebookOptions = ({NavBar}) => {
   return(
     <div className="option-wrapper">
-      
+      {NavBar}
     </div>
   )
 };
