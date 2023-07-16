@@ -1,92 +1,94 @@
-import React, { useState } from "react";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import Box from '@mui/material/Box';
+import React from "react";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import Box from "@mui/material/Box";
 
-const GoogleAccount = () => {
-  const [developerToken, setDeveloperToken] = useState("");
-  const [clientId, setClientId] = useState("");
-  const [clientSecret, setClientSecret] = useState("");
-  const [requiredField, setRequiredField] = useState("");
-  const [isFormValid, setIsFormValid] = useState(true);
-
-  const handleGenerateToken = () => {
-    if (developerToken && clientId && clientSecret) {
-      // Code to generate the refresh token
-      setIsFormValid(true);
-    } else {
-      setIsFormValid(false);
-      if (!developerToken) {
-        setRequiredField("Developer Token");
-      } else if (!clientId) {
-        setRequiredField("Client ID");
-      } else if (!clientSecret) {
-        setRequiredField("Client Secret");
-      }
-    }
-  };
-
+const Googleaccount = ({ userGoogleData, addData, sToServer }) => {
   return (
     <div>
       <div>
         <Box>
-          <TextField 
-          error = {!developerToken}
-         
+          <TextField
             required
             id="outlined-required"
             helperText="Please enter your Developer Token"
             label="Developer Token"
-            value={developerToken}
-            onChange={(e) => setDeveloperToken(e.target.value)}
-            sx={{ m: 5,}}
+            value={userGoogleData.developer_token}
+            onChange={(e) => {
+              addData(e.target.value, "developer_token");
+            }}
+            sx={{ m: 5 }}
+            error={
+              userGoogleData.developer_token == "" ||
+              userGoogleData.developer_token == null ||
+              userGoogleData.developer_token == undefined
+            }
           />
         </Box>
       </div>
       <TextField
-        error = {!clientId}
-
         required
         id="outlined-required"
         helperText="Please enter the Client Id"
         label="Client ID"
-        value={clientId}
-        onChange={(e) => setClientId(e.target.value)}
-        sx={{ m: 5, }}
+        onChange={(e) => {
+          addData(e.target.value, "client_id");
+        }}
+        value={userGoogleData.client_id}
+        sx={{ m: 5 }}
+        error={
+          userGoogleData.client_id == "" ||
+          userGoogleData.client_id == null ||
+          userGoogleData.client_id == undefined
+        }
       />
       <TextField
-              error = {!clientSecret}
-
         required
         id="outlined-required"
         helperText="Please enter the Client Secret"
         label="Client Secret"
-        value={clientSecret}
-        onChange={(e) => setClientSecret(e.target.value)}
-        sx={{ m: 5,  }}
+        onChange={(e) => {
+          addData(e.target.value, "client_secret");
+        }}
+        value={userGoogleData.client_secret}
+        sx={{ m: 5 }}
+        error={
+          userGoogleData.client_secret == "" ||
+          userGoogleData.client_secret == null ||
+          userGoogleData.client_secret == undefined
+        }
       />
-      {/* {!isFormValid && <p>Please fill in the field: {requiredField}</p>} */}
       <Button
         variant="contained"
         sx={{ m: 6 }}
+        onClick={sToServer}
+        disabled={
+          userGoogleData.client_secret == "" ||
+          userGoogleData.client_secret == null ||
+          userGoogleData.client_secret == undefined ||
+          userGoogleData.client_id == "" ||
+          userGoogleData.client_id == null ||
+          userGoogleData.client_id == undefined ||
+          userGoogleData.developer_token == "" ||
+          userGoogleData.developer_token == null ||
+          userGoogleData.developer_token == undefined
+        }
         endIcon={<SendIcon />}
-        onClick={handleGenerateToken}
       >
         Generate Refresh Token
       </Button>
       <h5 style={{ paddingLeft: "35px" }}>
-        Note: To Generate Refresh Token you have to authenticate Google with OAuth
+        Note: To Generate Refresh Token you have to authenticate Google with
+        OAuth
       </h5>
 
       <div>
-        <Button>
-          Upload the Credentials
-        </Button>
-        <input type="file" style={{ paddingTop: '55px' }} />
+        <Button>Upload the Credentials</Button>
+        <input type="file" style={{ paddingTop: "55px" }} />
       </div>
     </div>
   );
-}
+};
 
-export default GoogleAccount;
+export default Googleaccount;
