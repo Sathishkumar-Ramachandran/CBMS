@@ -38,6 +38,7 @@ import RolesAdmin from "./Pages/Admin/roles.js";
 
 import FacebookPage from "./Pages/Facebook/facebook.js";
 import FacebookAdmin from "./Components/Facebook/adminFacebook.js";
+import EmployeeAccess from "./Components/admin/Accounts/employeeAccess.js";
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
           <Route path="/admin/account/plansandbillings" element={""} />
           <Route path="/admin/account/portalsetup" element={""} />
           <Route path="/admin/account/daypasses" element={""} />
+          <Route path="/admin/service/employeeaccess" element={<EmployeeAccess />} />
 
 
 

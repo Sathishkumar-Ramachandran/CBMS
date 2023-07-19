@@ -38,7 +38,7 @@ const UserAdmin = ({Children}) => {
           icon:<GroupsOutlinedIcon />
         },
         {
-          path:"admin/user/approvals",
+          path:"/admin/user/approvals",
           name:"Approval Lifecycle",
           para:"",
           icon:<img src={lifecycle} alt='for approval'/>

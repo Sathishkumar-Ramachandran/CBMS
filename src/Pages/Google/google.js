@@ -5,7 +5,7 @@ import '../../styles/Google/Google.css';
 import CreateAdForm from '../../styles/Google/CreateAd.js';
 import AdsTable from './Ads.js';
 
-const GoogleNav = ({ children, showComp,setShowComp }) => {
+const GoogleNav = ({ children, showComp, setShowComp }) => {
   return (
     <div className='googlenav'>
       <Tabs

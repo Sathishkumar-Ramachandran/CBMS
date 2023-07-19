@@ -18,7 +18,7 @@ const Admin = () => {
      <Channels />
      <Service />
      <Automation />
-     <ProjectManagement />
+     {/* <ProjectManagement /> */}
     
     </>
   )

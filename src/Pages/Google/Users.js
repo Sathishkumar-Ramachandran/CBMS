@@ -62,7 +62,7 @@ const UsersTable = () => {
   useEffect(() => {
     console.log(apidata);
   }, [apidata]);
-
+ 
   const handleChangeTextField = (value, label) => {
     let temp = { ...apidata };
     temp[label] = value;
@@ -146,6 +146,7 @@ const UsersTable = () => {
                           label={property.label}
                           value={apidata[property.label] || ""}
                           onChange={(e) => {
+                            
                             handleChangeTextField(e.target.value, property.label);
                           }}
                         />
@@ -169,7 +170,8 @@ const UsersTable = () => {
                       <Select
                         labelId={`${property.label}-label`}
                         id={`${property.label}-select`}
-                        value={options}
+                        value={apidata[property.label] || ""}
+                        // value={options}
                         onChange={(e)  => handleChangeTextField(e.target.value, property.label)}
                       >
                         {property.value.map((option, index) => (

@@ -26,18 +26,18 @@ const Admin = ({Children}) => {
           para:"",
           icon:<img src={plan} />
         },
-        {
-          path:"/admin/account/portalsetup",
-          name:"Portal Rebranding",
-          para:"",
-          icon:<img src={portal} />
-        },
-        {
-          path:"/admin/account/daypasses",
-          name:"Day Passes",
-          para:"",
-          icon:<img src={daypass} />
-        },
+        // {
+        //   path:"/admin/account/portalsetup",
+        //   name:"Portal Rebranding",
+        //   para:"",
+        //   icon:<img src={portal} />
+        // },
+        // {
+        //   path:"/admin/account/daypasses",
+        //   name:"Day Passes",
+        //   para:"",
+        //   icon:<img src={daypass} />
+        // },
         {
           path:"/admin/service/employeeaccess",
           name:"Employee Access",

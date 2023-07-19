@@ -63,14 +63,24 @@ const UsersTable = () => {
     console.log(apidata);
   }, [apidata]);
 
-  const handleChangeTextField = (value, label) => {
+  
+  const handleChangeTextField = (event, label) => {
+    const value = event.target.value;
     let temp = { ...apidata };
     temp[label] = value;
     setAPIdata(temp);
-    console.log(temp)
-    console.log(label);
-    console.log(value);
+    console.log(label, value);
   };
+  
+
+  // const handleChangeTextField = (value, label) => {
+  //   let temp = { ...apidata };
+  //   temp[label] = value;
+  //   setAPIdata(temp);
+  //   console.log(temp)
+  //   console.log(label);
+  //   console.log(value);
+  // };
 
   const saveCampaign = async () => {
     let payload = {
