@@ -61,34 +61,34 @@ export default function GoogleFields() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="scrollable"
         scrollButtons="auto">
-          <Tab label="User Fields " {...a11yProps(0)} />
+          {/* <Tab label="User Fields " {...a11yProps(0)} />
           <Tab label="Role Fields" {...a11yProps(1)} />
-          <Tab label="Group Fields" {...a11yProps(2)} />
-          <Tab label="Campaign Form" {...a11yProps(3)} />
-          <Tab label="AdGroup Form" {...a11yProps(4)} />
-          <Tab label="Create Ad Form" {...a11yProps(5)} />
-          <Tab label="Project Fields" {...a11yProps(6)} />
+          <Tab label="Group Fields" {...a11yProps(2)} /> */}
+          <Tab label="Campaign Form" {...a11yProps(0)} />
+          <Tab label="AdGroup Form" {...a11yProps(1)} />
+          <Tab label="Create Ad Form" {...a11yProps(2)} />
+          {/* <Tab label="Project Fields" {...a11yProps(3)} /> */}
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
+      {/* <TabPanel value={value} index={0}>
         <GoogleUserFields />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <GoogleRoleFields />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <GoogleGroupFields />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
+        <GoogleGroupFields /> 
+  </TabPanel> */}
+      <TabPanel value={value} index={0}>
         <GoogleCampaignFields />
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel value={value} index={1}>
 
       </TabPanel>
-      <TabPanel value={value} index={5}>
+      <TabPanel value={value} index={2}>
         <CreateGoogleAdFields />
       </TabPanel>
-      <TabPanel value={value} index={6}>
+      <TabPanel value={value} index={3}>
    
       </TabPanel>
     </Box>

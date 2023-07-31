@@ -20,22 +20,22 @@ const AccountSetup = ({Children}) => {
           name:"Ad Account Setup",
           icon:<NewspaperIcon />,
         },
-        {
-            path: "/admin/channels/google/accounts/users",
-            name:"Users",
-            icon:<PersonAddAltOutlinedIcon />,
-          },
-        {
-          path:"/admin/channels/google/accounts/roles",
-          name:"Roles",
-          icon:<ContactEmergencyOutlinedIcon />,
-        },
+        // {
+        //     path: "/admin/channels/google/accounts/users",
+        //     name:"Users",
+        //     icon:<PersonAddAltOutlinedIcon />,
+        //   },
+        // {
+        //   path:"/admin/channels/google/accounts/roles",
+        //   name:"Roles",
+        //   icon:<ContactEmergencyOutlinedIcon />,
+        // },
         
-        {
-          path: "/admin/channels/google/accounts/groups",
-          name:"Groups/Teams",
-          icon:<GroupsOutlinedIcon />,
-        },
+        // {
+        //   path: "/admin/channels/google/accounts/groups",
+        //   name:"Groups/Teams",
+        //   icon:<GroupsOutlinedIcon />,
+        // },
         
       ]
       return (

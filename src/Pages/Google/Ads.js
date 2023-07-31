@@ -100,10 +100,14 @@ const AdsTable = () => {
   };
 
   return (
-    <div style={{  display:'flex',width:'60%',marginLeft:"20%" }}>
+
+    <div style={{ display: "flex" ,width:'80%',marginLeft:"20%",  }}>
       <div style={{ display: "grid", }}>
-        {adsList.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>GoogleAds</h1></div>}
-        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: '8px' }} >
+        {adsList.length > 0 && <div className="userName-input"><h1 style={{
+          color:'#00693E', 
+          marginTop: 60,
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)"}}>GoogleAds</h1></div>}
+        <div style={{ Width: '100%', overflowX: 'auto', margin: '3px' }} >
           <Table className="table">
             <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
               <TableRow >
@@ -127,7 +131,7 @@ const AdsTable = () => {
           </Table>
         </div>
       </div>
-       <div className="scrollbar-Ads">
+       <div className="google-scrollbar">
         <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black',display:"flex" }}>
           <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Ad</Button>
           <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>

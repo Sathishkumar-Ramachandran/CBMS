@@ -23,7 +23,7 @@ const GoogleNav = ({ children, showComp, setShowComp }) => {
                   <Tab
                     key={index3}
                     label={
-                      <div>
+                      <div >
                         <div className=''>{option.icon}</div>
                         <div>{option.name}</div>
                       </div>
@@ -42,7 +42,7 @@ const GoogleNav = ({ children, showComp, setShowComp }) => {
 };
 
 const Google = () => {
-  const [showComp, setShowComp] = useState(null);
+  const [showComp, setShowComp] = useState(<AdsTable />);
 
   return (
     <>
