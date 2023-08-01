@@ -5,7 +5,7 @@ import UsersFacebook from "./Users";
 
 const AccountOptions = [
     {
-        option: "Campaign Fields",
+        option: "Adset Fields",
         path: "",
         comp: <MediaSetup />,
         icon: ""
@@ -29,7 +29,7 @@ const AccountOptions = [
     },
 ];
 
-const FacebookCampaignSetup = () => {
+const Adset = () => {
     return (
         <div>
            <FacebookOptions items={AccountOptions} />
@@ -37,4 +37,4 @@ const FacebookCampaignSetup = () => {
     );
 };
 
-export default FacebookCampaignSetup;
+export default Adset;

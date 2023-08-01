@@ -1,6 +1,7 @@
 import React from "react";
 import MediaSetup from "./MediaSetup";
 import FacebookOptions from "./FacebookOptions";
+import UsersFacebook from "./Users";
 
 const AccountOptions = [
     {
@@ -12,7 +13,7 @@ const AccountOptions = [
     {
         option: "Users",
         path: "",
-        comp: "",
+        comp: <UsersFacebook />,
         icon: ""
     },
     {

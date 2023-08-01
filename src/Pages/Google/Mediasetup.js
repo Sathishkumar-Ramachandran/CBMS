@@ -68,7 +68,7 @@ export default function Mediasetup() {
   const getRefreshtoken = async () => {
     const scope = "https://www.googleapis.com/auth/adwords";
     const redirect_uri =
-      "http://localhost:3000/admin/channels/google/accounts/mediasetup";
+      "http://localhost:3000/admin/channels/google/accounts/mediasetup/";
     console.log(userGoogleData.client_id);
     const url = `https://accounts.google.com/o/oauth2/v2/auth?scope=${scope}&access_type=offline&include_granted_scopes=true&response_type=code&redirect_uri=${redirect_uri}&client_id=${userGoogleData.client_id}`;
     window.location.href = url;
@@ -104,7 +104,7 @@ export default function Mediasetup() {
         client_id: userGoogleData.client_id,
         client_secret: userGoogleData.client_secret,
         redirect_uri:
-          "http://localhost:3000/admin/channels/google/accounts/mediasetup",
+          "http://localhost:3000/admin/channels/google/accounts/mediasetup/",
         grant_type: "authorization_code",
       };
       await axios
