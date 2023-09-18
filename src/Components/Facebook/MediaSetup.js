@@ -14,6 +14,7 @@ const MediaSetup = () => {
     developer_token: "",
     refresh_token: "",
   });
+  const [authCode, setAuthCode] = useState("");
 
   const addClientData = (value, key) => {
     setUserFacebookData((prevData) => ({ ...prevData, [key]: value }));

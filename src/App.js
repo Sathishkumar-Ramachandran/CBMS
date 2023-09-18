@@ -3,6 +3,7 @@ import { BrowserRouter, Route,  Routes,Outlet } from "react-router-dom";
 
 import Auth from "./Pages/auth.js";
 import Dashboard from "./Pages/dashboard";
+import { AuthProvider } from "./Components/authContext.js"
 
 import "../src/styles/app.css";
 import Projects from './Pages/Project'
@@ -55,7 +56,7 @@ function App() {
   return (
 
     <>
-
+      <AuthProvider>
       <BrowserRouter >
         <Routes>
         <Route element={<WithNavs />}>
@@ -143,7 +144,7 @@ function App() {
          
         </Routes>
       </BrowserRouter>
-
+      </AuthProvider>
     </>
  
   );
