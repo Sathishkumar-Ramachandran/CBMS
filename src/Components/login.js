@@ -9,6 +9,8 @@ import {
   useNavigate,
   Link,
 } from "react-router-dom";
+import { connect } from 'react-redux';
+import { setCompanyId, setAuthenticated } from "../actions/companyActions";
 
 
 
@@ -16,7 +18,7 @@ import "../styles/login.css";
 import { toast,ToastContainer } from "react-toastify";
 import { DoubleEngine } from "../middleware/interceptor.js";
 import Signup from "./signup";
-const Login = () => {
+const Login = ({ setCompanyId, setAuthenticated }) => {
 
       // FB sdk Intilaize
   useEffect(() => {
@@ -88,22 +90,26 @@ const Login = () => {
    
 
   const Userlogin = async () => {
-let payload={
-    mailId:email,
-    password:password,
-}
+    let payload={
+        mailId:email,
+        password:password,
+    }
 
-    await DoubleEngine.post("api/auth/login", payload)
+    await DoubleEngine.post("http://localhost:10001/api/auth/login", payload)
       .then((res) => {
-        if(res.data.d=="Invalid_Credentials"){
+        if(res.data.d === "Invalid_Credentials"){
          toast.error("Invalid Credentials");   
         }
         else{
             if(res.data.token){
                 localStorage.setItem("auth-token",res.data.token);
                 toast.success("user logged in sucessfully")
+                setCompanyId(res.data.companyID); // Set the company ID here
+                setAuthenticated(true); 
+                navigate("/", { replace: true});
                 setTimeout(()=>{
-                    navigate("/", { replace: true });
+                    navigate("/login", { replace: true });
+                    toast.error("Session Timeout")
                 },1000)
                 
             }
@@ -118,6 +124,8 @@ let payload={
         toast.error("something went Wrong");
       });
   };
+
+  
   // Showing success message
   const successMessage = () => {
     return (
@@ -164,16 +172,17 @@ let payload={
                 const payload = {
                   Email: response.email,
                 };
-                await DoubleEngine.post("api/auth/CheckEmail", payload).then(
+                await DoubleEngine.post("api/auth/validEmail", payload).then(
                   (d) => {
                     if (d.data.d == "USER_ALREADY_HAVE_A_COMPANY") {
                         toast.success("User Logged in Sucessfully");
                         setTimeout(()=>{
-                                navigate('/',{replace:true})
+                          navigate('/login',{replace:true})
+                          toast.error("Session Timeout")
                         },1000)
                  
                     } else {
-                      toast.success("you are A new User");
+                      toast.success(`Company Created with ${payload.Email}`);
                     }
                   }
                 );
@@ -185,7 +194,7 @@ let payload={
           );
           // Here you can handle the Facebook login response
         } else {
-          console.log("User cancelled login or did not fully authorize.");
+          toast.error("User cancelled login or did not fully authorize.");
         }
       },
       { scope: "public_profile,email" }
@@ -204,14 +213,15 @@ let payload={
     const payload = {
       Email: parmas.email,
     };
-    await DoubleEngine.post("api/auth/CheckEmail", payload).then((d) => {
+    await DoubleEngine.post("api/auth/validEmail", payload).then((d) => {
       if (d.data.d == "USER_ALREADY_HAVE_A_COMPANY") {
        toast.success("user logged in sucessfully")
        setTimeout(()=>{
-               navigate("/",{replace:true})
+               navigate("/login",{replace:true})
+               toast.error('session timeout')
        },1000)
       } else {
-        toast.success("you are a new User");
+        toast.success(`Company Created with ${payload.Email}`);
       }
     });
     setEmail(parmas.email);
@@ -285,4 +295,11 @@ let payload={
     </div>
   );
 };
-export default Login;
+
+
+const mapDispatchToProps = {
+  setCompanyId,
+  setAuthenticated,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route,  Routes,Outlet } from "react-router-dom";
 
+
 import Auth from "./Pages/auth.js";
 import Dashboard from "./Pages/dashboard";
 import { AuthProvider } from "./Components/authContext.js"
 
 import "../src/styles/app.css";
-import Projects from './Pages/Project'
+import Projects from './Pages/Project';
 import Topnav from "./Components/topnav.js";
 import Leftnav from "./Components/leftnav.js";
 import Header from "./Components/Header.js";
@@ -40,8 +41,9 @@ import RolesAdmin from "./Pages/Admin/roles.js";
 import FacebookPage from "./Pages/Facebook/facebook.js";
 import FacebookAdmin from "./Components/Facebook/adminFacebook.js";
 import EmployeeAccess from "./Components/admin/Accounts/employeeAccess.js";
-
-
+// Note the capital 'P'
+import PrivateRoute from "./Pages/PrivateRoute.js";
+import Login from "./Components/login.js";
 function App() {
   function WithNavs() {
     return (
@@ -59,8 +61,11 @@ function App() {
       <AuthProvider>
       <BrowserRouter >
         <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<PrivateRoute component={<Dashboard />} />} />
         <Route element={<WithNavs />}>
-        <Route exact path='/' element={<Dashboard />} />
+        
+        <Route path='/' element={<Dashboard />} />
         <Route  path='/projects' element={<Projects />} />
           <Route path='/workspace' element={<Workspace />} />
           <Route path='/analytics' element={<Analytics/>} />

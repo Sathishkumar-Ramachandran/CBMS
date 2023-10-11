@@ -19,6 +19,8 @@ import GroupAddTwoToneIcon from '@mui/icons-material/GroupAddTwoTone';
 import FB from "../../src/assets/FB.jpg";
 import AdsTable from "../Pages/Google/Ads";
 import CampaignTable from "./google/CampaignTable";
+import AdGroupForm from "../Pages/Google/adGroupsForm";
+import AdGroupTable from "./google/adGroupTable";
 export const menuItem=[
     {
       path:"/",
@@ -173,7 +175,8 @@ export const menuItem=[
             {
               path: "/google/adgroup/createadgroup",
               name: "Create AdGroup",
-              icon: ""
+              icon: "",
+              comp: <AdGroupTable />
             },
             
           ]

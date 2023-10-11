@@ -10,6 +10,7 @@ import GoogleRoleFields from "./RoleFields";
 import GoogleGroupFields from "./GroupsFields";
 import CreateGoogleAdFields from "./CreateAds";
 import GoogleCampaignFields from "./CampaignFormFields";
+import CreateGoogleAdGroupFields from "./adGroupsFields";
 
 //Tab Components
 
@@ -83,7 +84,7 @@ export default function GoogleFields() {
         <GoogleCampaignFields />
       </TabPanel>
       <TabPanel value={value} index={1}>
-
+        <CreateGoogleAdGroupFields />
       </TabPanel>
       <TabPanel value={value} index={2}>
         <CreateGoogleAdFields />

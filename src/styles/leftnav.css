@@ -76,9 +76,9 @@ main{
     background:#00693E;
     
     height: 100%;
-    width: 20%;
+    width: 18%;
     position:fixed;
-   margin-left: 3.5%;
+    left: 50px;
    padding: 10px 15px;
    gap: 25px;
    text-decoration: none;
