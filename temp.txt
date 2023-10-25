@@ -1,203 +1,166 @@
-import React, { Component, useEffect } from "react";
-import { SchemaTable, FilterComponent} from "../../Components/table";
-import axios from "axios";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Select from "@mui/material/Select";
-import { FormControl, InputLabel, MenuItem, Table, TableHead, TableRow, TableCell, TableBody, Button } from "@mui/material/";
-import { useState } from "react";
-import PropTypes from 'prop-types';
+.signuplabel{
+    padding-top: 20px;
+    outline: none;
+    font-family: "Raleway", sans-serif;
+    border: none;
+    text-align: left;
+    }
+  .signupform {
+    border: 1px solid rgba(0, 0, 0, 0.699);
+    border-radius: 1.625rem;
+  }
+    .signupinput{
+    padding-top: 5px;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 30px;
+    
+    }
+    .signupbtn{
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0px 1px 8px #24c64f;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 32.3px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 0px;
+    transition: 0.25s;
+    width: 100px;
+    }
+    .signupbtn:hover{
+        box-shadow: 0px 1px 18px #24c64f;
+    }
+    
+    .signupmessages{
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+    color: #2e7d32;
+    border-radius: 20px;
+    
+    }
+    
+    .signuperror{
+    display: inline-flex;
+    color: lightslategray;
+    width: fit-content;
+    height: 5px;
+    padding: 5px;
+    }
+    
+    .signupsuccess{
+    display: block;
+    background-color: lightblue;
+    color: black;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    }
 
-const AdsTable = () => {
-  const [props, setProps] = useState([]);
-  const [adsList, setAdsList] = useState([]);
-  const [apidata, setAPIdata] = useState({});
-  const [header, setHeader] = useState([]);
-  const [value, setValue] = useState(0);
 
-  useEffect(() => {
-    getSchema();
-    getAdsList();
-  }, []);
+.signuptitle{
+    font-family: "Raleway Thin", sans-serif;
+    letter-spacing: 3px;
+    padding-bottom: 0px;
+    padding-top: 10px;
+    text-align: center;
+}
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+.signupform-input{
 
-  const getAdsList = async () => {
-    await axios
-      .get("http://localhost:10008/api/formfields/google/ads//123456")
-      .then((d) => {
-        const keys = getUniqueKeys(d.data);
-        setHeader(keys);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 44px;
+    
+}
 
-        if (d.data.length > 0) {
-          setAdsList(d.data);
-        }
-      });
-  };
+.signuptext-line{
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    height: 1px;
+    width: 70%;   
+    margin-left: 20px;
+    padding-bottom: 1px;
+}
 
-  function getUniqueKeys(adsList) {
-    const keysSet = new Set();
+.signupforgot-pass{
+    color: #2dbd6e;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 3px;
+    text-align: right;
+}
 
-    adsList.forEach((user) => {
-      const keys = Object.keys(user);
-      keys.forEach((key) => {
-        keysSet.add(key);
-      });
-    });
-
-    return Array.from(keysSet);
+.signup-heading{
+    margin-top: 1.9%;
+    margin-left: 9.5rem;
+    padding-top: 5px;
+}
+  .signup-google-icon{
+    font-size: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.068);
+    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
+    background-color: #d3b7f8;
+    animation: waves 2s linear 1s infinite;
+  }
+  .signup-google-icon-facebook{
+    color: blue;
+    font-size: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-block: .1rem;
+    margin-block: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.068);
+    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
+    background-color: #d3b7f8;
+    animation: waves 2s linear 1s infinite;
+  }
+  .signup-all{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
   }
 
-  useEffect(() => {
-    let json = {};
-    props.forEach((x) => {
-      json = { ...json, [x.label]: "" };
-    });
-    setAPIdata(json);
-  }, [props]);
 
-  useEffect(() => {
-    console.log(apidata);
-  }, [apidata]);
+  .OTP {
+    padding: 15px;
+  }
 
-  const handleChangeTextField = (value, label) => {
-    let temp = { ...apidata };
-    temp[label] = value;
-    setAPIdata(temp);
-    console.log(temp)
-    console.log(label);
-    console.log(value);
-  };
+  .OTP-label{
+    color: #2e7d32;
+  }
+  .OTP-input {
+    border-color: #24c64f;
+    border-width: 1px;
+    margin-left: 5px;
+  }
 
-  const createAd = async () => {
-    let payload = {
-      companyId: "123456",
-      data: apidata,
-    };
-    await axios
-      .post("http://localhost:10008/api/formfields/google/ads/createad/123456", payload)
-      .then(() => {
-        getAdsList();
-      })
-      .catch(() => {});
-  };
-
-  const getSchema = async () => {
-    await axios
-      .get("http://localhost:10008/api/formfields/google/ads/getschema/123456/")
-      .then((d) => {
-        console.log(d.data);
-        if (d.data.length > 0) {
-          setProps(d.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  return (
-    <div style={{ margin: 50, display: "flex" }}>
-      <div style={{ display: "grid" }} className="tableinput-main">
-        {adsList.length > 0 && <div className="userName-input"><h1 style={{color:'#00693E'}}>GoogleAds</h1></div>}
-        <div style={{ maxWidth: '100vw', overflowX: 'auto', margin: 8 }} className="table-input">
-          <Table className="table">
-            <TableHead sx={{ bgcolor: '#00693E', whiteSpace: 'nowrap' }}>
-              <TableRow >
-                {header.map((x) => {
-                  return (
-                    <TableCell key={x} sx={{color: 'white'}}> {x} </TableCell>
-                  );
-                })}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {adsList.map((ad) => (
-                <TableRow key={ad._id} >
-                  {header.map((key) => (
-                    <TableCell key={key}>{ad[key] || ""} 
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
-      <div style={{ marginRight: '0%' }} >
-        <div style={{ borderBottom: 1, borderColor: 'divider', borderLeft: '1px solid black' }}>
-          <Button onClick={() => handleChange(null, 0)} sx={{ m: 1, bgcolor: value === 0 ? '#00693E' : 'transparent', color: value === 0 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Create Campaign</Button>
-          <Button onClick={() => handleChange(null, 1)} sx={{ m: 1, bgcolor: value === 1 ? '#00693E' : 'transparent', color: value === 1 ? 'white' : 'black', width: '50%', borderRadius: '0' }}>Filter</Button>
-        </div>
-        
-        {value === 0 && (
-          <div>
-            {props.map((property, index) => {
-              if (property.tool === "SingleLineText") {
-                return (
-                  <div className="input-Label-Box">
-                    <div className="input-Label">
-                      <div key={index}>
-                        <TextField
-                          sx={{ m: 1 }}
-                          label={property.label}
-                          value={apidata[property.label] || ""}
-                          onChange={(e) => {
-                            handleChangeTextField(e.target.value, property.label);
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              } else if (property.tool === "Paragraph") {
-                return <div key={index}></div>;
-              } else if (
-                property.tool === "Dropdown" &&
-                property?.value?.length > 0
-              ) {
-                const options = property.value;
-                return (
-                  <div key={index}>
-                    <FormControl sx={{width: 230, marginLeft: "0.5rem"}}>
-                      <InputLabel id={`${property.label}-label`}>
-                        {property.label}
-                      </InputLabel>
-                      <Select
-                        labelId={`${property.label}-label`}
-                        id={`${property.label}-select`}
-                        value={options}
-                        onChange={(e)  => handleChangeTextField(e.target.value, property.label)}
-                      >
-                        {property.value.map((option, index) => (
-                          <MenuItem key={index} value={option}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </div>
-                );
-              } else {
-                return null;
-              }
-            })}
-            <Button onClick={createAd} className='input-Button' variant="outlined" sx={{ m: 5 }}>
-              Save
-            </Button>
-          </div>
-        )}
-        {value === 1 && (
-          <div>
-            <h5>Filter Component</h5>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default AdsTable;
+  .OTP-button {
+    margin-left: 5px;
+    box-shadow: 0px 1px 8px #24c64f;
+    cursor: pointer;
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+  }

@@ -1,166 +1,114 @@
-.signuplabel{
-    padding-top: 20px;
-    outline: none;
-    font-family: "Raleway", sans-serif;
-    border: none;
-    text-align: left;
-    }
-  .signupform {
-    border: 1px solid rgba(0, 0, 0, 0.699);
-    border-radius: 1.625rem;
-  }
-    .signupinput{
-    padding-top: 5px;
-    width: 100%;
-    border: none;
-    outline: none;
-    margin-left: 30px;
-    
-    }
-    .signupbtn{
-    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
-    border: none;
-    border-radius: 40px;
-    box-shadow: 0px 1px 8px #24c64f;
-    cursor: pointer;
-    color: white;
-    font-family: "Raleway SemiBold", sans-serif;
-    height: 32.3px;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding-top: 0px;
-    transition: 0.25s;
-    width: 100px;
-    }
-    .signupbtn:hover{
-        box-shadow: 0px 1px 18px #24c64f;
-    }
-    
-    .signupmessages{
-    padding-top: 2%;
-    display: flex;
-    justify-content: center;
-    color: #2e7d32;
-    border-radius: 20px;
-    
-    }
-    
-    .signuperror{
-    display: inline-flex;
-    color: lightslategray;
-    width: fit-content;
-    height: 5px;
-    padding: 5px;
-    }
-    
-    .signupsuccess{
-    display: block;
-    background-color: lightblue;
-    color: black;
-    width: fit-content;
-    height: 50px;
-    padding: 5px;
-    }
+/* signup.css */
 
-
-.signuptitle{
-    font-family: "Raleway Thin", sans-serif;
-    letter-spacing: 3px;
-    padding-bottom: 0px;
-    padding-top: 10px;
-    text-align: center;
+.signupform {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.signupform-input{
-
-    display: flex;
-    flex-direction: column;
-    padding: 10px 44px;
-    
+.signuptitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.signuptext-line{
-    align-items: left;
-    display: flex;
-    flex-direction: column;
-    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
-    height: 1px;
-    width: 70%;   
-    margin-left: 20px;
-    padding-bottom: 1px;
+.underline-title {
+  width: 60px;
+  height: 2px;
+  background: #007bff;
+  margin: 0 auto;
 }
 
-.signupforgot-pass{
-    color: #2dbd6e;
-    font-family: "Raleway", sans-serif;
-    font-size: 10pt;
-    margin-top: 3px;
-    text-align: right;
+.signuplabel {
+  font-weight: bold;
 }
 
-.signup-heading{
-    margin-top: 1.9%;
-    margin-left: 9.5rem;
-    padding-top: 5px;
+.signupinput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-  .signup-google-icon{
-    font-size: 23px;
-    cursor: pointer;
-    border-radius: 50%;
-    vertical-align: middle;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    padding-block: .1rem;
-    margin-block: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.068);
-    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
-    background-color: #d3b7f8;
-    animation: waves 2s linear 1s infinite;
-  }
-  .signup-google-icon-facebook{
-    color: blue;
-    font-size: 23px;
-    cursor: pointer;
-    border-radius: 50%;
-    vertical-align: middle;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    padding-block: .1rem;
-    margin-block: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.068);
-    box-shadow: 0.4rem 0.4rem 0.8rem #c8d0e7, -0.4rem -0.4rem 0.8rem #fff;
-    background-color: #d3b7f8;
-    animation: waves 2s linear 1s infinite;
-  }
-  .signup-all{
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-  }
 
+.signuptext-line {
+  width: 100%;
+  height: 1px;
+  background: #ccc;
+  margin-bottom: 10px;
+}
 
-  .OTP {
-    padding: 15px;
-  }
+.signupbtn {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-  .OTP-label{
-    color: #2e7d32;
-  }
-  .OTP-input {
-    border-color: #24c64f;
-    border-width: 1px;
-    margin-left: 5px;
-  }
+.signupbtn:hover {
+  background: #0056b3;
+}
 
-  .OTP-button {
-    margin-left: 5px;
-    box-shadow: 0px 1px 8px #24c64f;
-    cursor: pointer;
-    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
-    color: white;
-    font-family: "Raleway SemiBold", sans-serif;
-  }
+.signup-heading {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login-all {
+  margin: 0 10px;
+}
+
+.login-google-icon-facebook {
+  font-size: 40px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login-google-icon-facebook:hover {
+  color: #0056b3;
+}
+
+.OTP {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.OTP-label,
+.OTP-input,
+.OTP-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.OTP-button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.OTP-button:hover {
+  background: #0056b3;
+}
