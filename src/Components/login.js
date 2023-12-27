@@ -10,7 +10,7 @@ import {
   Link,
 } from "react-router-dom";
 import { connect } from 'react-redux';
-import { setCompanyId, setAuthenticated } from "../actions/companyActions";
+import { setCompanyId, setUserId, setAuthenticated } from "../actions/companyActions";
 
 
 
@@ -18,7 +18,7 @@ import "../styles/login.css";
 import { toast,ToastContainer } from "react-toastify";
 import { DoubleEngine } from "../middleware/interceptor.js";
 import Signup from "./signup";
-const Login = ({ setCompanyId, setAuthenticated }) => {
+const Login = ({ setCompanyId, setUserId,setAuthenticated }) => {
 
       // FB sdk Intilaize
   useEffect(() => {
@@ -79,7 +79,7 @@ const Login = ({ setCompanyId, setAuthenticated }) => {
 
     if (email === "" || password === "") {
       setError(true);
-      console.log("Email & Password cannot be empty");
+      console.log("Email & Password cannot be Empty");
     } else {
       Userlogin();
       setError(false);
@@ -95,7 +95,7 @@ const Login = ({ setCompanyId, setAuthenticated }) => {
         password:password,
     }
 
-    await DoubleEngine.post("http://localhost:10001/api/auth/login", payload)
+    await DoubleEngine.post("api/v1/auth/login/", payload)
       .then((res) => {
         if(res.data.d === "Invalid_Credentials"){
          toast.error("Invalid Credentials");   
@@ -103,9 +103,13 @@ const Login = ({ setCompanyId, setAuthenticated }) => {
         else{
             if(res.data.token){
                 localStorage.setItem("auth-token",res.data.token);
-                toast.success("user logged in sucessfully")
+
+                toast.success("user logged in sucessfully");
+
                 setCompanyId(res.data.companyID); // Set the company ID here
+                setUserId(res.data.userid);
                 setAuthenticated(true); 
+                successMessage();
                 navigate("/", { replace: true});
                 setTimeout(()=>{
                     navigate("/login", { replace: true });
@@ -114,13 +118,15 @@ const Login = ({ setCompanyId, setAuthenticated }) => {
                 
             }
             else{
-                toast.error("Invalid Username and Password")
+              errorMessage();
+              toast.error("Invalid Username and Password");
             }
             
         }
       
       })
       .catch(() => {
+        
         toast.error("something went Wrong");
       });
   };
@@ -194,7 +200,7 @@ const Login = ({ setCompanyId, setAuthenticated }) => {
           );
           // Here you can handle the Facebook login response
         } else {
-          toast.error("User cancelled login or did not fully authorize.");
+          toast.error("User Cancelled Login");
         }
       },
       { scope: "public_profile,email" }

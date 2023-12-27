@@ -54,7 +54,7 @@ const Signup = () => {
                 const payload = {
                   Email: response.email,
                 };
-                await DoubleEngine.post("api/auth/CheckEmail", payload).then(
+                await DoubleEngine.post("api/auth/validEmail", payload).then(
                   (d) => {
                     if (d.data.d != "USER_ALREADY_HAVE_A_COMPANY") {
                       setGoogleSignIn(true);
@@ -72,8 +72,9 @@ const Signup = () => {
             }
           );
           // Here you can handle the Facebook login response
-        } else {
+        } else  {
           console.log("User cancelled login or did not fully authorize.");
+          toast.error("User Authorization Not Completed");
         }
       },
       { scope: "public_profile,email" }
@@ -89,7 +90,7 @@ const Signup = () => {
     });
     google.accounts.id.renderButton(document.getElementById("signInDiv"), {
       theme: "outline",
-      size: "large",
+      size: "small",
       type: "icon",
       shape: "circle",
     });
@@ -109,13 +110,13 @@ const Signup = () => {
     const payload = {
       Email: parmas.email,
     };
-    await DoubleEngine.post("api/auth/CheckEmail", payload).then((d) => {
+    await DoubleEngine.post("api/auth/validEmail", payload).then((d) => {
       if (d.data.d != "USER_ALREADY_HAVE_A_COMPANY") {
         setGoogleSignIn(true);
         //saveSingUpInfo();
       } else {
         toast.success(
-          "You have a company you can login with your Google Account"
+          "User Already Exists! Redirecting to the user"
         );
       }
     });
@@ -185,11 +186,13 @@ const Signup = () => {
       const payload = {
         Email: email,
       };
+    try {
+      await DoubleEngine.post("api/v1/signup/sendOTP", payload)
       setShowOTP(true);
-      await DoubleEngine.post("api/auth/sendVerification", payload)
+      await DoubleEngine.post("api/auth/sendOTP", payload)
         .then((resp) => {
           if (resp.data.d == "USER_ALREADY_SIGNUP") {
-            toast.info("User Already Signup");
+            toast.info("User Already Exists");
           } else {
             setShow(true);
           }
@@ -199,7 +202,14 @@ const Signup = () => {
         });
       setError(false);
     }
+    catch (e){
+      toast.error(`SignUp Failed ${e.message}`);
+    }
   };
+}
+      
+
+      
 
   const saveSingUpInfo = (e) => {
     e.preventDefault();
@@ -208,14 +218,10 @@ const Signup = () => {
 
   const SavingtoDb = async () => {
     const data = {
-      name: name,
       mailId: email,
       password: password,
-      companyName: company,
-      user_plan: 1,
-      isVerified: true,
     };
-    await DoubleEngine.post("api/company/register", data)
+    await DoubleEngine.post("api/v1/signup/createuser", data)
       .then((response) => {
         toast.success("User Info Saved Sucessfully");
         console.log(response);
@@ -310,8 +316,6 @@ const Signup = () => {
               required
               size={50}
             />
-            <div className="signuptext-line"></div>
-
             <label className="signuplabel">Email</label>
             <input
               onChange={handleEmail}
@@ -320,7 +324,7 @@ const Signup = () => {
               type="email"
               required
             />
-            <div className="signuptext-line"></div>
+           
 
             <label className="signuplabel">Password</label>
             <input
@@ -330,7 +334,7 @@ const Signup = () => {
               type="password"
               required
             />
-            <div className="signuptext-line"></div>
+            
 
             <label className="signuplabel">Company</label>
             <input
@@ -340,7 +344,7 @@ const Signup = () => {
               type="text"
               required
             />
-            <div className="signuptext-line"></div>
+            
 
             <button onClick={handleSubmit} className="signupbtn" type="submit">
               Submit
@@ -362,9 +366,12 @@ const Signup = () => {
            
             <div className="login-all">
             <div id="signInDiv"> </div>
-              <Link to="" className="login-google-icon-facebook">
+          {/* <Link to="" className="login-google-icon-facebook"> */}
+            <Link to="" >
                 <FaFacebook onClick={loginWithFacebook} />
               </Link>
+              
+              
             </div>
             </div>
           </>
